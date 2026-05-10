@@ -1,41 +1,22 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Heebo } from "next/font/google"; // ייבוא של Heebo במקום Inter
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+// הגדרת הפונט Heebo עם המשקלים הרלוונטיים
+const heebo = Heebo({ 
+  subsets: ["hebrew", "latin"],
+  weight: ["300", "400", "500", "700", "800", "900"],
+  variable: "--font-heebo", // הגדרת משתנה CSS למקרה שנצטרך
 });
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export const metadata: Metadata = {
-  title: "ShieldUp | Futuristic Advertising Intelligence",
-  description: "Next-gen advertising and brand protection for the digital era.",
-};
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en" className="dark scroll-smooth">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-white min-h-screen flex flex-col`}
-      >
-        {/* Navigation Layer */}
-        
-        {/* Main Content */}
-        <main className="flex-grow pt-20">
-          {children}
-        </main>
-
-        {/* Futuristic Footer */}
-        
+    <html lang="he" dir="rtl">
+      <body className={`${heebo.className} antialiased bg-[#e0f2fe]`}>
+        {children}
       </body>
     </html>
   );
