@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Zap, Video, Flame, UserCheck, Share2, Cpu, Shield, Phone, Mail, MapPin, Send, Activity, ChevronLeft, Target, Scan, Eye, Radio } from 'lucide-react';
 
-export default function KeisarMobileOptimized() {
+export default function KeisarFinalClean() {
   const [activeTab, setActiveTab] = useState(0);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
@@ -25,7 +25,7 @@ export default function KeisarMobileOptimized() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#1c1f26] text-white font-sans overflow-x-hidden selection:bg-cyan-500/30 p-0 m-0" dir="rtl">
+    <div className="min-h-screen bg-[#1c1f26] text-white font-sans overflow-x-hidden selection:bg-cyan-500/30 p-0 m-0 border-none" dir="rtl">
       
       {/* --- BACKGROUND ENGINE --- */}
       <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
@@ -33,77 +33,91 @@ export default function KeisarMobileOptimized() {
         <motion.div 
           animate={{ scale: [1, 1.1, 1], opacity: [0.1, 0.15, 0.1] }} 
           transition={{ duration: 10, repeat: Infinity }}
-          className="absolute top-[-10%] right-[-5%] w-[300px] md:w-[700px] h-[300px] md:h-[700px] bg-cyan-600/20 blur-[80px] md:blur-[150px] rounded-full" 
+          className="absolute top-[-10%] right-[-5%] w-[700px] h-[700px] bg-cyan-600/20 blur-[150px] rounded-full" 
         />
       </div>
 
-      {/* --- NAVIGATION (NO BLACK BAR - FLOATING) --- */}
-      <nav className="absolute top-4 md:top-6 left-1/2 -translate-x-1/2 z-[100] w-[95%] max-w-5xl">
-        <div className="flex justify-between items-center px-4 md:px-8 py-4 bg-white/5 backdrop-blur-md rounded-2xl md:rounded-3xl border border-white/10 shadow-2xl">
-          <div className="flex items-center gap-2 md:gap-3 text-white">
-            <div className="w-8 h-8 md:w-10 md:h-10 bg-cyan-500 rounded-lg md:rounded-xl flex items-center justify-center text-[#1c1f26] shadow-[0_0_15px_rgba(6,182,212,0.4)]">
-              <Shield size={18} fill="currentColor" />
+      {/* --- NAVIGATION (CLEANED - NO BLACK BACKGROUND) --- */}
+      <nav className="absolute top-8 left-1/2 -translate-x-1/2 z-[100] w-[90%] max-w-5xl">
+        <div className="flex justify-between items-center px-4">
+          {/* Logo Section */}
+          <div className="flex items-center gap-3 text-white">
+            <div className="w-10 h-10 bg-cyan-500 rounded-xl flex items-center justify-center text-[#1c1f26] shadow-[0_0_20px_rgba(6,182,212,0.4)]">
+              <Shield size={22} fill="currentColor" />
             </div>
-            <span className="text-lg md:text-2xl font-[1000] tracking-tighter italic">קיסר מערכות</span>
+            <span className="text-2xl font-[1000] tracking-tighter italic">קיסר מערכות</span>
           </div>
-          <a href="#contact" className="bg-white text-black px-4 md:px-6 py-2 rounded-lg md:rounded-xl font-black text-xs md:text-sm hover:bg-cyan-500 transition-all uppercase tracking-widest">צור קשר</a>
+          
+          {/* Action Button */}
+          <a href="#contact" className="bg-white text-black px-6 py-2 rounded-xl font-black text-sm hover:bg-cyan-500 transition-all uppercase tracking-widest">
+            צור קשר
+          </a>
         </div>
       </nav>
 
-      {/* --- HERO SECTION (PT-0) --- */}
-      <header className="relative min-h-screen flex items-center justify-center px-4 md:px-6 z-10 overflow-hidden pt-0">
+      {/* --- HERO SECTION --- */}
+      <header className="relative min-h-screen flex items-center justify-center px-6 z-10 overflow-hidden pt-0 mt-0 border-none">
         
-        {/* Floating Icons Background - Adjusted for Mobile */}
-        <div className="absolute inset-0 z-0 opacity-10 md:opacity-20 pointer-events-none">
-            <motion.div animate={{ y: [0, -20, 0] }} transition={{ duration: 4, repeat: Infinity }} className="absolute top-[15%] left-[5%] md:left-[10%] text-cyan-400">
-                <Video size={60} md:size={120} strokeWidth={0.5} />
+        {/* Floating Icons Background */}
+        <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
+            <motion.div animate={{ y: [0, -20, 0] }} transition={{ duration: 4, repeat: Infinity }} className="absolute top-[20%] left-[10%] text-cyan-400">
+                <Video size={120} strokeWidth={0.5} />
+                <div className="text-[10px] font-mono mt-2 bg-black/50 p-1">CAM_01: ACTIVE</div>
             </motion.div>
-            <motion.div animate={{ y: [0, 20, 0] }} transition={{ duration: 5, repeat: Infinity }} className="absolute bottom-[15%] right-[5%] md:right-[15%] text-red-500/50">
-                <Radio size={50} md:size={100} strokeWidth={0.5} className="animate-pulse" />
+            <motion.div animate={{ y: [0, 20, 0] }} transition={{ duration: 5, repeat: Infinity }} className="absolute bottom-[20%] right-[15%] text-red-500/50">
+                <Radio size={100} strokeWidth={0.5} className="animate-pulse" />
+                <div className="text-[10px] font-mono mt-2 bg-black/50 p-1">FIRE_DETECTOR: OK</div>
             </motion.div>
         </div>
 
-        {/* Scanning Threats - Hidden on very small screens, visible on tablets/desktop */}
-        <div className="absolute left-4 md:left-10 top-1/2 -translate-y-1/2 hidden md:flex flex-col gap-8 opacity-60 text-left">
+        {/* Scanning Threats Side UI */}
+        <div className="absolute left-10 top-1/2 -translate-y-1/2 hidden xl:flex flex-col gap-8 opacity-60 text-left">
             <div className="relative">
-                <Scan className="text-cyan-500 animate-pulse" size={40} md:size={50} strokeWidth={1.5} />
+                <Scan className="text-cyan-500 animate-pulse" size={50} strokeWidth={1.5} />
                 <motion.div animate={{ top: ['0%', '100%', '0%'] }} transition={{ duration: 3, repeat: Infinity, ease: "linear" }} className="absolute left-0 w-full h-0.5 bg-cyan-400 shadow-[0_0_15px_#22d3ee]" />
             </div>
             <div className="flex flex-col gap-2">
-                <span className="text-[8px] md:text-[10px] font-black text-cyan-400 tracking-widest uppercase animate-pulse">Scanning...</span>
+                <span className="text-[10px] font-black text-cyan-400 tracking-widest uppercase animate-pulse">Scanning_Threats...</span>
+                <div className="flex flex-col gap-1">
+                    {[1, 2].map(i => (
+                        <div key={i} className="w-32 h-1 bg-white/10 rounded-full overflow-hidden">
+                            <motion.div animate={{ x: [-130, 130] }} transition={{ repeat: Infinity, duration: 2, delay: i * 0.4 }} className="w-10 h-full bg-cyan-500" />
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
 
         {/* Hero Text Content */}
-        <motion.div style={{ x: mousePos.x * 15, y: mousePos.y * 15 }} className="text-center relative z-20 w-full max-w-4xl">
-          <div className="absolute inset-0 -z-10 flex items-center justify-center opacity-20 md:opacity-30">
-            <div className="w-[300px] md:w-[600px] h-[300px] md:h-[600px] border border-cyan-500/20 rounded-full animate-[spin_25s_linear_infinite]" />
+        <motion.div style={{ x: mousePos.x * 25, y: mousePos.y * 25 }} className="text-center relative z-20">
+          <div className="absolute inset-0 -z-10 flex items-center justify-center opacity-30">
+            <div className="w-[600px] h-[600px] border border-cyan-500/20 rounded-full animate-[spin_25s_linear_infinite]" />
           </div>
 
-          <div className="flex justify-center gap-2 md:gap-3 mb-4 md:mb-6 text-cyan-500">
-             <Eye size={16} className="animate-bounce" />
-             <span className="text-[10px] md:text-xs font-black tracking-[0.4em] md:tracking-[0.6em] uppercase italic">Smart_Detection_Systems</span>
+          <div className="flex justify-center gap-3 mb-6 text-cyan-500">
+             <Eye size={18} className="animate-bounce" />
+             <span className="text-xs font-black tracking-[0.6em] uppercase italic">Smart_Detection_Systems</span>
           </div>
 
-          <h1 className="text-6xl md:text-[140px] font-[1000] leading-[0.9] tracking-[-0.05em] italic uppercase">
+          <h1 className="text-7xl md:text-[140px] font-[1000] leading-[0.85] tracking-[-0.05em] italic uppercase">
             קיסר <br />
-            <span className="text-transparent" style={{ WebkitTextStroke: '1.5px md:2.5px #06b6d4' }}>מערכות.</span>
+            <span className="text-transparent" style={{ WebkitTextStroke: '2.5px #06b6d4' }}>מערכות.</span>
           </h1>
 
-          <div className="mt-8 md:mt-12 space-y-6 md:space-y-8 px-2">
-            <p className="text-lg md:text-3xl text-slate-300 max-w-2xl mx-auto font-light leading-relaxed italic border-r-2 md:border-r-4 border-cyan-500 pr-4 md:pr-6 text-right">
+          <div className="mt-12 space-y-8">
+            <p className="text-xl md:text-3xl text-slate-300 max-w-3xl mx-auto font-light leading-relaxed italic border-r-4 border-cyan-500 pr-6 text-right">
               מהנדסים <span className="text-white font-bold underline decoration-cyan-500 decoration-2">ביטחון חכם</span>. מומחים במערכות מיגון, מתח נמוך וטכנולוגיית קצה.
             </p>
 
-            <div className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-6 pt-4">
+            <div className="flex flex-wrap justify-center gap-6 pt-4">
                 <button 
                   onClick={() => document.getElementById('contact').scrollIntoView({behavior:'smooth'})} 
-                  className="w-full md:w-auto bg-cyan-500 text-black px-10 md:px-12 py-4 rounded-xl md:rounded-2xl font-[1000] text-lg md:text-xl hover:bg-white transition-all shadow-[0_0_25px_rgba(6,182,212,0.4)] uppercase italic"
+                  className="bg-cyan-500 text-black px-12 py-4 rounded-2xl font-[1000] text-xl hover:bg-white transition-all shadow-[0_0_30px_rgba(6,182,212,0.4)] uppercase italic"
                 >
                   אפיון מערכת
                 </button>
-                <div className="flex items-center gap-3 bg-white/5 px-6 py-4 rounded-xl md:rounded-2xl border border-white/10 backdrop-blur-md text-xs md:text-sm font-bold">
-                    <Activity size={16} className="text-cyan-500" />
+                <div className="flex items-center gap-4 bg-white/5 px-6 py-4 rounded-2xl border border-white/10 backdrop-blur-md text-sm font-bold">
+                    <Activity size={18} className="text-cyan-500" />
                     <span>מענה טכני מיידי</span>
                 </div>
             </div>
@@ -111,42 +125,41 @@ export default function KeisarMobileOptimized() {
         </motion.div>
       </header>
 
-      {/* --- SERVICES SECTION (RESPONSIVE) --- */}
-      <section className="relative py-20 md:py-32 px-4 md:px-6 max-w-7xl mx-auto z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-center">
-          <div className="lg:col-span-5 space-y-3 md:space-y-4 order-2 lg:order-1">
-            <h2 className="text-3xl md:text-4xl font-black italic mb-6 md:mb-8 border-b-2 border-cyan-500 pb-2 md:pb-4 inline-block">הפתרונות שלנו</h2>
-            <div className="grid grid-cols-1 gap-3">
-                {services.map((s, i) => (
-                <motion.div 
-                    key={i}
-                    onClick={() => setActiveTab(i)}
-                    className={`p-4 md:p-6 rounded-xl md:rounded-2xl cursor-pointer transition-all border flex items-center justify-between group ${activeTab === i ? 'bg-cyan-500 border-cyan-400 text-black shadow-lg' : 'bg-white/5 border-white/5'}`}
-                >
-                    <div className="flex items-center gap-3 md:gap-4">
-                    <div className={`w-10 h-10 md:w-12 md:h-12 rounded-lg md:rounded-xl flex items-center justify-center ${activeTab === i ? 'bg-black text-white' : 'bg-white/5 text-cyan-400'}`}>
-                        {React.cloneElement(s.icon, { size: 20 })}
-                    </div>
-                    <span className="text-lg md:text-xl font-black italic">{s.title}</span>
-                    </div>
-                    <ChevronLeft size={18} className={`${activeTab === i ? 'opacity-100' : 'opacity-0'} transition-opacity hidden md:block`} />
-                </motion.div>
-                ))}
-            </div>
+      {/* --- SERVICES SECTION --- */}
+      <section className="relative py-32 px-6 max-w-7xl mx-auto z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="lg:col-span-5 space-y-4">
+            <h2 className="text-4xl font-black italic mb-8 border-b-2 border-cyan-500 pb-4 inline-block">הפתרונות שלנו</h2>
+            {services.map((s, i) => (
+              <motion.div 
+                key={i}
+                onClick={() => setActiveTab(i)}
+                className={`p-6 rounded-2xl cursor-pointer transition-all border flex items-center justify-between group ${activeTab === i ? 'bg-cyan-500 border-cyan-400 text-black shadow-[0_0_30px_rgba(6,182,212,0.3)]' : 'bg-white/5 border-white/5 hover:border-white/20'}`}
+              >
+                <div className="flex items-center gap-4">
+                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${activeTab === i ? 'bg-black text-white' : 'bg-white/5 text-cyan-400 group-hover:bg-cyan-500 group-hover:text-black transition-all'}`}>
+                    {s.icon}
+                  </div>
+                  <span className="text-xl font-black italic">{s.title}</span>
+                </div>
+                <ChevronLeft className={`${activeTab === i ? 'opacity-100' : 'opacity-0'} transition-opacity`} />
+              </motion.div>
+            ))}
           </div>
 
-          <div className="lg:col-span-7 relative h-auto md:h-[500px] order-1 lg:order-2">
+          <div className="lg:col-span-7 relative h-[500px]">
             <AnimatePresence mode="wait">
               <motion.div 
                 key={activeTab}
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                className="bg-[#2a2f3a]/50 backdrop-blur-3xl border border-white/10 rounded-[2rem] md:rounded-[3rem] p-8 md:p-12 flex flex-col justify-center min-h-[250px] md:min-h-full overflow-hidden"
+                initial={{ opacity: 0, x: 50, scale: 0.95 }}
+                animate={{ opacity: 1, x: 0, scale: 1 }}
+                exit={{ opacity: 0, x: -50, scale: 0.95 }}
+                transition={{ duration: 0.4 }}
+                className="absolute inset-0 bg-[#2a2f3a]/50 backdrop-blur-3xl border border-white/10 rounded-[3rem] p-12 flex flex-col justify-center overflow-hidden"
               >
-                <div className={`absolute -bottom-20 -left-20 w-40 md:w-64 h-40 md:h-64 bg-gradient-to-br ${services[activeTab].color} opacity-20 blur-[50px] md:blur-[80px] rounded-full`} />
-                <h3 className="text-3xl md:text-5xl font-black italic mb-4 md:mb-6 text-white leading-tight underline decoration-cyan-500 decoration-4">{services[activeTab].title}</h3>
-                <p className="text-lg md:text-2xl text-slate-300 font-medium leading-relaxed italic">
+                <div className={`absolute -bottom-20 -left-20 w-64 h-64 bg-gradient-to-br ${services[activeTab].color} opacity-20 blur-[80px] rounded-full`} />
+                <h3 className="text-5xl font-black italic mb-6 text-white leading-tight underline decoration-cyan-500 decoration-4">{services[activeTab].title}</h3>
+                <p className="text-2xl text-slate-300 font-medium leading-relaxed max-w-xl italic">
                   {services[activeTab].desc}
                 </p>
               </motion.div>
@@ -155,32 +168,32 @@ export default function KeisarMobileOptimized() {
         </div>
       </section>
 
-      {/* --- CONTACT SECTION (RESPONSIVE) --- */}
-      <section id="contact" className="relative py-20 md:py-32 px-4 md:px-6 z-10">
+      {/* --- CONTACT SECTION --- */}
+      <section id="contact" className="relative py-32 px-6 z-10">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
-            <div className="text-right">
-              <h2 className="text-5xl md:text-7xl font-black italic mb-6 leading-none">מוכנים <br /><span className="text-cyan-500 underline">להתמגן?</span></h2>
-              <p className="text-slate-400 text-lg md:text-xl mb-8 md:mb-12 font-light italic">השאירו פרטים ונחזור אליכם עם הצעה מנצחת.</p>
-              <div className="space-y-4 md:space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+            <div>
+              <h2 className="text-7xl font-black italic mb-6 leading-none">מוכנים <br /><span className="text-cyan-500 underline">להתמגן?</span></h2>
+              <p className="text-slate-400 text-xl mb-12 font-light italic">השאירו פרטים ונחזור אליכם עם הצעה מנצחת.</p>
+              <div className="space-y-6">
                 <div className="flex items-center gap-4 group cursor-pointer pr-4 border-r-2 border-cyan-500">
-                  <div className="w-10 h-10 md:w-12 md:h-12 bg-white/5 rounded-xl md:rounded-2xl flex items-center justify-center text-cyan-400 group-hover:bg-cyan-500 transition-all"><Phone size={20}/></div>
-                  <span className="text-lg md:text-xl font-bold italic">050-0000000</span>
+                  <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center text-cyan-400 group-hover:bg-cyan-500 group-hover:text-black transition-all"><Phone /></div>
+                  <span className="text-xl font-bold italic">050-0000000</span>
                 </div>
-                <div className="flex items-center gap-4 group cursor-pointer pr-4 border-r-2 border-transparent">
-                  <div className="w-10 h-10 md:w-12 md:h-12 bg-white/5 rounded-xl md:rounded-2xl flex items-center justify-center text-cyan-400 group-hover:bg-cyan-500 transition-all"><Mail size={20}/></div>
-                  <span className="text-lg md:text-xl font-bold italic underline">office@keisar.co.il</span>
+                <div className="flex items-center gap-4 group cursor-pointer pr-4">
+                  <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center text-cyan-400 group-hover:bg-cyan-500 group-hover:text-black transition-all"><Mail /></div>
+                  <span className="text-xl font-bold italic">office@keisar.co.il</span>
                 </div>
               </div>
             </div>
-            <div className="bg-[#2a2f3a]/50 backdrop-blur-md border border-white/10 p-6 md:p-10 rounded-[2rem] md:rounded-[3rem] shadow-2xl relative">
-              <div className="space-y-4 md:space-y-5">
-                <input type="text" className="w-full bg-black/30 border border-white/5 p-4 md:p-5 rounded-xl md:rounded-2xl outline-none focus:border-cyan-500 transition-all font-bold text-sm md:text-base" placeholder="שם מלא" />
-                <input type="tel" className="w-full bg-black/30 border border-white/5 p-4 md:p-5 rounded-xl md:rounded-2xl outline-none focus:border-cyan-500 transition-all font-bold text-sm md:text-base" placeholder="מספר טלפון" />
-                <textarea rows={3} className="w-full bg-black/30 border border-white/5 p-4 md:p-5 rounded-xl md:rounded-2xl outline-none focus:border-cyan-500 transition-all font-bold text-sm md:text-base" placeholder="סוג המערכת..." />
-                <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="w-full bg-cyan-500 text-black py-4 md:py-5 rounded-xl md:rounded-2xl font-[1000] text-lg md:text-xl italic shadow-xl flex items-center justify-center gap-3">
+            <div className="bg-[#2a2f3a]/50 backdrop-blur-md border border-white/10 p-10 rounded-[3rem] shadow-2xl relative">
+              <div className="space-y-5">
+                <input type="text" className="w-full bg-black/30 border border-white/5 p-5 rounded-2xl outline-none focus:border-cyan-500 transition-all font-bold placeholder:text-slate-600" placeholder="שם מלא" />
+                <input type="tel" className="w-full bg-black/30 border border-white/5 p-5 rounded-2xl outline-none focus:border-cyan-500 transition-all font-bold placeholder:text-slate-600" placeholder="מספר טלפון" />
+                <textarea rows={3} className="w-full bg-black/30 border border-white/5 p-5 rounded-2xl outline-none focus:border-cyan-500 transition-all font-bold placeholder:text-slate-600" placeholder="סוג המערכת..." />
+                <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="w-full bg-cyan-500 text-black py-5 rounded-2xl font-[1000] text-xl italic shadow-xl hover:bg-white transition-all flex items-center justify-center gap-3">
                   שלח נתונים
-                  <Send size={18} className="rotate-180" />
+                  <Send size={20} className="rotate-180" />
                 </motion.button>
               </div>
             </div>
@@ -188,8 +201,8 @@ export default function KeisarMobileOptimized() {
         </div>
       </section>
 
-      <footer className="py-8 md:py-12 text-center border-t border-white/5">
-        <p className="text-slate-500 text-[8px] md:text-[10px] font-black tracking-[0.3em] md:tracking-[0.5em] uppercase italic px-4">Keisar Systems 2026 // כל הזכויות שמורות</p>
+      <footer className="py-12 text-center border-t border-white/5">
+        <p className="text-slate-500 text-[10px] font-black tracking-[0.5em] uppercase italic">Keisar Systems 2026</p>
       </footer>
     </div>
   );
