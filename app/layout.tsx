@@ -10,8 +10,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="he" dir="rtl">
-      {/* כאן אנחנו מוודאים שאין class של bg-white על ה-body */}
-      <body className={`${inter.className} antialiased bg-slate-50`}>
+      <body className={`${inter.className} antialiased bg-[#e0f2fe]`}>
         {children}
       </body>
     </html>
