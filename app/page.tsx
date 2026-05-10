@@ -1,148 +1,104 @@
-"use client";
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Shield, Cpu, Video, Music, Home, Lock, Radio, Zap } from 'lucide-react';
 
-import React from "react";
-import { motion, HTMLMotionProps } from "framer-motion";
-import * as Icons from "lucide-react";
+const services = [
+  { title: "מצלמות אבטחה", icon: <Video />, desc: "ניטור חכם ברזולוציה מקסימלית" },
+  { title: "בית חכם", icon: <Home />, desc: "שליטה מלאה מכל מקום בעולם" },
+  { title: "מערכות אזעקה", icon: <Shield />, desc: "הגנה היקפית ללא פשרות" },
+  { title: "גילוי אש", icon: <Zap />, desc: "בטיחות מצילת חיים בתקנים המחמירים ביותר" },
+  { title: "אינטרקום ובקרות כניסה", icon: <Lock />, desc: "ניהול גישה חכם ומאובטח" },
+  { title: "קולנוע ביתי וסאונד", icon: <Music />, desc: "חוויית סאונד קולנועית אצלך בסלון" },
+];
 
-// קומפוננטת רקע: "מערכת הפעלה בטחונית"
-const FuturisticBackground = () => (
-  <div className="fixed inset-0 z-0 bg-[#e0f2fe]">
-    {/* רשת הנדסית צפופה */}
-    <div 
-      className="absolute inset-0 opacity-[0.1]" 
-      style={{ 
-        backgroundImage: `linear-gradient(#0ea5e9 1px, transparent 1px), linear-gradient(90deg, #0ea5e9 1px, transparent 1px)`, 
-        backgroundSize: '30px 30px' 
-      }} 
-    />
-    
-    {/* אלמנטים של קוד ונתונים רצים בצדדים (נראה כמו HUD) */}
-    <div className="absolute top-20 left-10 text-[10px] font-mono text-blue-400 opacity-40 rotate-90 pointer-events-none">
-      {Array(10).fill("TRACE_IP: 192.168.1.102 // SECURE_LINK: ACTIVE").join(" ")}
-    </div>
-    
-    {/* הילות אור כחולות שזזות לאט */}
-    <motion.div 
-      animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
-      transition={{ duration: 10, repeat: Infinity }}
-      className="absolute top-1/4 -right-20 w-[500px] h-[500px] bg-cyan-300 blur-[150px] rounded-full"
-    />
-  </div>
-);
-
-export default function Home() {
-  const fadeIn: HTMLMotionProps<"div"> = {
-    initial: { opacity: 0, scale: 0.95, y: 20 },
-    whileInView: { opacity: 1, scale: 1, y: 0 },
-    viewport: { once: true },
-    transition: { duration: 0.8, ease: "easeOut" }
-  };
-
-  const services = [
-    { title: "מערכות מצלמות AI", icon: "Video", desc: "זיהוי פנים ואובייקטים בזמן אמת ברזולוציית 4K." },
-    { title: "מערכות אזעקה", icon: "Bell", desc: "הגנה היקפית חכמה עם חיבור ישיר למוקד מבצעי." },
-    { title: "אינטרקום ובקרת כניסה", icon: "Smartphone", desc: "ניהול הרשאות ביומטרי ופתיחה מרחוק מהנייד." },
-    { title: "בית חכם (Smart Home)", icon: "Zap", desc: "שליטה מלאה על תשתיות החשמל והמיזוג במקום אחד." },
-    { title: "תשתיות תקשורת", icon: "Wifi", desc: "פריסת סיבים אופטיים ורשתות אלחוטיות עוצמתיות." },
-    { title: "גילוי אש ועשן", icon: "ShieldAlert", desc: "התקנת מערכות מצילות חיים ע\"פ תקן 1220." }
-  ];
-
+export default function KeisarSystems() {
   return (
-    <main className="relative min-h-screen overflow-hidden" dir="rtl">
-      <FuturisticBackground />
-
-      {/* Navbar עתידני מואר */}
-      <nav className="fixed top-6 left-1/2 -translate-x-1/2 w-[95%] max-w-6xl z-50 bg-white/40 backdrop-blur-2xl border border-white/30 rounded-2xl px-8 py-5 flex justify-between items-center shadow-2xl shadow-blue-500/20">
-        <div className="flex items-center gap-4">
-          <motion.div 
-            animate={{ rotate: [0, 180, 360] }} 
-            transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-            className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-400"
-          >
-            <Icons.ShieldCheck className="text-white" size={28} />
-          </motion.div>
-          <div className="flex flex-col leading-tight">
-            <span className="text-2xl font-black text-blue-950 italic tracking-tighter">KEISAR SYSTEMS</span>
-            <span className="text-[9px] font-bold text-blue-500 tracking-[0.2em] uppercase">Security Architecture</span>
-          </div>
+    <div className="min-h-screen bg-[#F0F9FF] text-slate-900 font-sans dir-rtl text-right">
+      
+      {/* Hero Section */}
+      <nav className="flex justify-between items-center p-6 bg-white/30 backdrop-blur-md sticky top-0 z-50 border-b border-sky-100">
+        <div className="text-2xl font-black tracking-tighter text-black">
+          KEISAR <span className="text-sky-500">SYSTEMS</span>
         </div>
-        <button className="bg-blue-600 text-white px-8 py-2.5 rounded-full text-sm font-black hover:bg-blue-700 transition-all shadow-lg shadow-blue-400/30">
-          כניסת מורשים
+        <button className="bg-black text-white px-6 py-2 rounded-full font-bold hover:bg-sky-600 transition-all">
+          צור קשר
         </button>
       </nav>
 
-      {/* Hero Section */}
-      <section className="relative pt-64 pb-32 px-6 z-10 text-center">
-        <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }}>
-          <div className="inline-block px-4 py-1.5 rounded-md bg-blue-100 text-blue-600 text-[10px] font-bold mb-8 border border-blue-200 uppercase tracking-widest">
-            // Intelligence Protocol Active
-          </div>
-          <h1 className="text-7xl md:text-[140px] font-black text-blue-950 leading-[0.8] tracking-tighter mb-10">
-            הגנה <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-l from-blue-600 to-cyan-400 drop-shadow-sm">ללא גבולות.</span>
-          </h1>
-          <p className="text-blue-900/60 text-2xl font-medium max-w-3xl mx-auto mb-16 leading-relaxed">
-            קיסר מערכות מעצבת את עתיד הביטחון בישראל. אנחנו משלבים הנדסה מדויקת עם טכנולוגיה עילית כדי להעניק לך שקט נפשי אבסולוטי.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <button className="bg-blue-600 text-white px-16 py-6 rounded-3xl font-black text-2xl shadow-2xl shadow-blue-400/40 hover:bg-blue-700 transition-all flex items-center gap-3">
-              אבחון בטחוני חינם <Icons.ChevronLeft size={30} />
-            </button>
-          </div>
-        </motion.div>
+      <section className="relative h-[80vh] flex flex-col justify-center items-center text-center px-4 overflow-hidden">
+        {/* Background Decorative Elements */}
+        <motion.div 
+          animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
+          transition={{ duration: 8, repeat: Infinity }}
+          className="absolute top-20 left-10 w-64 h-64 bg-sky-300 rounded-full blur-[120px] -z-10" 
+        />
+        
+        <motion.h1 
+          initial={{ y: 30, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          className="text-6xl md:text-8xl font-black mb-6 leading-tight"
+        >
+          העתיד של <br />
+          <span className="text-sky-500 underline decoration-black decoration-4">מערכות המתח הנמוך</span>
+        </motion.h1>
+
+        <motion.p 
+          initial={{ y: 30, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.2 }}
+          className="text-xl max-w-2xl text-slate-600 font-medium"
+        >
+          תכנון, ביצוע ותחזוקת מערכות אבטחה, חשמל ובית חכם בסטנדרט הגבוה ביותר. 
+          טכנולוגיה פוגשת ביטחון.
+        </motion.p>
       </section>
 
-      {/* Services Grid - Glassmorphism */}
-      <section id="services" className="relative py-32 px-6 z-10 max-w-7xl mx-auto">
-        <div className="grid md:grid-cols-3 gap-10">
-          {services.map((s, i) => {
-            const IconComp = Icons[s.icon as keyof typeof Icons] as React.ElementType;
-            return (
-              <motion.div
-                key={i}
-                {...fadeIn}
-                transition={{ delay: i * 0.1 }}
-                whileHover={{ y: -15, scale: 1.02 }}
-                className="p-12 rounded-[50px] bg-white/40 backdrop-blur-xl border border-white/50 shadow-2xl shadow-blue-500/5 group relative overflow-hidden"
-              >
-                <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 blur-3xl rounded-full" />
-                <div className="w-20 h-20 bg-white border border-blue-100 text-blue-600 rounded-3xl flex items-center justify-center mb-8 shadow-inner group-hover:bg-blue-600 group-hover:text-white transition-all duration-500">
-                  <IconComp size={40} strokeWidth={1.5} />
-                </div>
-                <h3 className="text-3xl font-black text-blue-950 mb-6 tracking-tight italic">{s.title}</h3>
-                <p className="text-blue-900/70 text-lg font-medium leading-relaxed">{s.desc}</p>
-              </motion.div>
-            );
-          })}
+      {/* Services Grid */}
+      <section className="py-20 px-6 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {services.map((service, index) => (
+            <motion.div
+              key={index}
+              whileHover={{ y: -10 }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="p-8 bg-white border border-sky-50 rounded-3xl shadow-xl shadow-sky-100/50 flex flex-col items-start"
+            >
+              <div className="bg-sky-500 text-white p-4 rounded-2xl mb-6 shadow-lg shadow-sky-200">
+                {service.icon}
+              </div>
+              <h3 className="text-2xl font-bold mb-3">{service.title}</h3>
+              <p className="text-slate-500 leading-relaxed">{service.desc}</p>
+            </motion.div>
+          ))}
         </div>
       </section>
 
-      {/* CTA Box - Dashboard Style */}
-      <section className="relative py-40 px-6 z-10">
-        <div className="max-w-6xl mx-auto rounded-[60px] bg-blue-950 p-1 md:p-3 shadow-2xl relative">
-            <div className="absolute top-6 left-10 flex gap-2">
-                <div className="w-3 h-3 rounded-full bg-red-400" />
-                <div className="w-3 h-3 rounded-full bg-yellow-400" />
-                <div className="w-3 h-3 rounded-full bg-green-400" />
-            </div>
-            <div className="bg-white rounded-[55px] p-16 md:p-32 text-center">
-                <div className="w-24 h-24 bg-blue-50 rounded-full flex items-center justify-center text-blue-600 mb-10 mx-auto animate-pulse">
-                    <Icons.Zap size={48} />
-                </div>
-                <h2 className="text-5xl md:text-8xl font-black text-blue-950 mb-8 tracking-tighter">הגיע הזמן להתקדם.</h2>
-                <p className="text-blue-900/50 text-2xl font-medium mb-12">השאירו פרטים לסנכרון מערכות ביוזמתכם.</p>
-                <button className="bg-blue-600 text-white px-20 py-7 rounded-[35px] font-black text-2xl shadow-2xl shadow-blue-200 hover:bg-blue-950 transition-all">
-                    שלח פקודת התקשרות
-                </button>
-            </div>
+      {/* Futuristic Feature Section */}
+      <section className="bg-black text-white py-24 px-6 relative">
+        <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12">
+          <div className="flex-1">
+            <h2 className="text-4xl font-bold mb-6 italic">Integration is Key.</h2>
+            <p className="text-sky-200 text-lg leading-relaxed">
+              אנחנו לא רק מתקינים מערכות, אנחנו יוצרים אקו-סיסטם שלם. 
+              החל מחשמל וצלחות לווין ועד למערכות כריזה וגילוי אש - הכל מסונכרן, הכל חכם.
+            </p>
+          </div>
+          <motion.div 
+            animate={{ rotate: 360 }}
+            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            className="w-64 h-64 border-2 border-sky-500 border-dashed rounded-full flex items-center justify-center"
+          >
+             <Cpu size={100} className="text-sky-500" />
+          </motion.div>
         </div>
       </section>
 
-      <footer className="relative py-20 text-center z-10 border-t border-blue-200">
-        <p className="text-blue-900/30 font-black text-xs tracking-[0.6em] uppercase">
-          Keisar Elite Defense // Protocol 2026 // ShieldUp Agency
-        </p>
+      {/* Footer */}
+      <footer className="py-12 text-center text-slate-400 border-t border-sky-100">
+        <p>© 2026 KEISAR SYSTEMS | Professional Low Voltage Solutions</p>
       </footer>
-    </main>
+    </div>
   );
 }
