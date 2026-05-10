@@ -74,28 +74,28 @@ export default function KeisarFinalClean() {
 
         <motion.div style={{ x: mousePos.x * 25, y: mousePos.y * 25 }} className="text-center relative z-20 flex flex-col items-center w-full max-w-6xl">
           
-          {/* --- LARGE LOGO CONTAINER --- */}
+          {/* --- MEDIUM LOGO CONTAINER --- */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="relative w-64 h-64 md:w-[450px] md:h-[450px] mb-8 group"
+            className="relative w-56 h-56 md:w-80 md:h-80 mb-10 group"
           >
-            {/* טבעות היקפיות ענקיות */}
-            <div className="absolute inset-[-20px] border border-cyan-500/10 rounded-[4rem] animate-[spin_20s_linear_infinite]" />
-            <div className="absolute inset-0 border-2 border-cyan-500/20 rounded-[3.5rem] animate-[spin_15s_linear_infinite_reverse]" />
+            {/* טבעות היקפיות */}
+            <div className="absolute inset-[-15px] border border-cyan-500/10 rounded-[3.5rem] animate-[spin_20s_linear_infinite]" />
+            <div className="absolute inset-0 border-2 border-cyan-500/20 rounded-[3rem] animate-[spin_15s_linear_infinite_reverse]" />
             
             {/* מכולת הלוגו המרכזית */}
-            <div className="absolute inset-4 bg-gradient-to-b from-white/10 to-transparent backdrop-blur-2xl rounded-[3rem] border border-white/10 shadow-[0_0_80px_rgba(6,182,212,0.2)] flex items-center justify-center p-12 overflow-hidden">
+            <div className="absolute inset-4 flex items-center justify-center p-8 overflow-hidden shadow-[0_0_60px_rgba(6,182,212,0.15)] rounded-[2.5rem]">
               <img 
-                src="/keisar systems.jpg" 
+                src="/keisar_systems-removebg-preview.png" 
                 alt="Keisar Systems Logo" 
                 className="w-full h-full object-contain filter drop-shadow-[0_0_20px_rgba(6,182,212,0.6)]"
               />
-              {/* אפקט סריקה מוגדל */}
+              {/* אפקט סריקה */}
               <motion.div 
                 animate={{ top: ['-10%', '110%'] }} 
                 transition={{ duration: 3, repeat: Infinity, ease: "linear" }} 
-                className="absolute left-0 w-full h-1.5 bg-cyan-400/50 blur-md z-30" 
+                className="absolute left-0 w-full h-1 bg-cyan-400/50 blur-md z-30" 
               />
             </div>
           </motion.div>
