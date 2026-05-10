@@ -1,160 +1,172 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
-import { ShieldCheck, Video, Bell, Smartphone, ChevronLeft, Lock, ShieldAlert } from "lucide-react";
+import { motion, useScroll, useTransform, HTMLMotionProps } from "framer-motion";
+import * as Icons from "lucide-react";
+
+// הגדרת סוג הנתונים לשירותים
+interface Service {
+  title: string;
+  icon: keyof typeof Icons;
+  desc: string;
+}
 
 export default function Home() {
-  const fadeIn = {
+  const { scrollYProgress } = useScroll();
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
+
+  // פתרון ה-Error: הגדרת הטיפוס עבור האנימציה
+  const fadeIn: HTMLMotionProps<"div"> = {
     initial: { opacity: 0, y: 30 },
     whileInView: { opacity: 1, y: 0 },
     viewport: { once: true },
-    transition: { duration: 0.8, ease: "easeOut" }
+    transition: { duration: 0.7, ease: "easeOut" }
   };
 
-  const services = [
-    { 
-      title: "מערכות מצלמות IP", 
-      icon: <Video className="w-10 h-10" />, 
-      desc: "צפייה מרחוק באיכות 4K עם טכנולוגיית זיהוי פנים וראיית לילה מתקדמת." 
-    },
-    { 
-      title: "מערכות אזעקה חכמות", 
-      icon: <ShieldAlert className="w-10 h-10" />, 
-      desc: "הגנה היקפית לבית ולעסק עם חיבור ישיר למוקד ומניעת פריצות בזמן אמת." 
-    },
-    { 
-      title: "אינטרקום ובקרת כניסה", 
-      icon: <Lock className="w-10 h-10" />, 
-      desc: "ניהול כניסות חכם דרך הסמארטפון, כולל קודנים ומערכות זיהוי ביומטריות." 
-    }
+  const services: Service[] = [
+    { title: "מערכות מצלמות (CCTV)", icon: "Video", desc: "פתרונות הקלטה וצפייה מרחוק באיכות 4K עם זיהוי אנושי מבוסס AI." },
+    { title: "מערכות אזעקה", icon: "Bell", desc: "מערכות פריצה קוויות ואלחוטיות מהמותגים המובילים בעולם עם חיבור למוקד." },
+    { title: "אינטרקום ובקרת כניסה", icon: "Smartphone", desc: "מערכות IP מתקדמות, פתיחה מהסמארטפון ובקרות כניסה ביומטריות." },
+    { title: "בית חכם (Smart Home)", icon: "Zap", desc: "שליטה מלאה על תאורה, מיזוג וחשמל מכל מקום בעולם בממשק אחד." },
+    { title: "תשתיות תקשורת", icon: "Wifi", desc: "הקמת רשתות WI-FI עוצמתיות, פריסת סיבים אופטיים וארונות תקשורת." },
+    { title: "גילוי אש ועשן", icon: "AlertTriangle", desc: "התקנת מערכות עפ\"י תקן 1220 לבטיחות מקסימלית של המבנה." }
   ];
 
   return (
-    <main className="min-h-screen bg-[#020203] text-white overflow-hidden font-sans selection:bg-blue-500/30">
+    <main className="min-h-screen bg-slate-50 text-slate-900 overflow-hidden font-sans" dir="rtl">
+      
+      {/* Background Decor */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <motion.div 
+          style={{ y: backgroundY }}
+          className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-blue-100/50 blur-[120px] rounded-full" 
+        />
+        <div className="absolute top-[20%] right-[-5%] w-[40%] h-[40%] bg-cyan-50/50 blur-[100px] rounded-full" />
+      </div>
+
       {/* Navbar */}
-      <nav className="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-xl border-b border-white/5 px-6 md:px-12 py-5 flex justify-between items-center" dir="rtl">
-        <div className="flex items-center gap-2">
-          <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
-            <ShieldCheck className="text-white" size={24} />
+      <nav className="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl border-b border-blue-100 px-6 md:px-20 py-4 flex justify-between items-center">
+        <div className="flex items-center gap-3">
+          <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-cyan-500 rounded-xl flex items-center justify-center shadow-lg shadow-blue-200">
+            <Icons.ShieldCheck className="text-white" size={28} />
           </div>
-          <div className="flex flex-col leading-none">
-            <span className="text-xl font-black tracking-tight">KEISAR</span>
-            <span className="text-[10px] text-blue-500 font-bold tracking-[0.2em]">SECURITY SYSTEMS</span>
+          <div className="flex flex-col leading-tight text-right">
+            <span className="text-2xl font-black tracking-tight text-blue-900">קיסר מערכות</span>
+            <span className="text-[10px] text-blue-500 font-bold tracking-[0.1em]">SECURITY & TECHNOLOGY</span>
           </div>
-        </div>
-        
-        <div className="hidden md:flex gap-8 text-sm font-medium text-gray-400">
-          <a href="#" className="hover:text-white transition-colors">בית</a>
-          <a href="#" className="hover:text-white transition-colors">שירותים</a>
-          <a href="#" className="hover:text-white transition-colors">פרויקטים</a>
-          <a href="#" className="hover:text-white transition-colors">צור קשר</a>
         </div>
 
-        <button className="bg-white text-black px-6 py-2 rounded-full text-sm font-bold hover:bg-blue-500 hover:text-white transition-all duration-300">
-          שיחת ייעוץ חינם
+        <div className="hidden md:flex gap-10 text-sm font-bold text-slate-600">
+          <a href="#services" className="hover:text-blue-600 transition-colors">שירותים</a>
+          <a href="#" className="hover:text-blue-600 transition-colors">עלינו</a>
+          <a href="#" className="hover:text-blue-600 transition-colors">לקוחות</a>
+        </div>
+
+        <button className="bg-blue-600 text-white px-7 py-2.5 rounded-full text-sm font-bold hover:bg-blue-700 transition-all shadow-md shadow-blue-200">
+          צור קשר
         </button>
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-48 pb-32 px-6 flex flex-col items-center justify-center text-center">
-        {/* Ambient Background Light */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-blue-600/10 blur-[150px] rounded-full pointer-events-none" />
+      <section className="relative pt-48 pb-32 px-6 text-center">
+        <div className="max-w-6xl mx-auto">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 text-blue-600 text-sm font-bold mb-8 border border-blue-100"
+          >
+            מצוינות במיגון וטכנולוגיה
+          </motion.div>
 
-        <motion.div 
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/20 bg-blue-500/5 text-blue-400 text-xs font-bold mb-6 tracking-widest"
-        >
-          <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse" />
-          מערכות מיגון מהדור הבא
-        </motion.div>
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-6xl md:text-8xl font-black mb-8 text-slate-900 leading-[0.95] tracking-tight"
+          >
+            הגנה חכמה. <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-l from-blue-600 to-cyan-500">שקט נפשי מלא.</span>
+          </motion.h1>
 
-        <motion.h1 
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8 }}
-          className="text-5xl md:text-8xl font-black mb-8 tracking-tighter leading-[0.9]"
-        >
-          השקט שלך. <br />
-          <span className="text-blue-600">המומחיות שלנו.</span>
-        </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4 }}
+            className="text-slate-500 max-w-3xl mx-auto text-xl md:text-2xl mb-12 font-medium leading-relaxed"
+          >
+            קיסר מערכות מספקת פתרונות קצה לעולם הביטחון והמתח הנמוך. אנו משלבים טכנולוגיה מתקדמת עם התקנה מקצועית לבית ולעסק.
+          </motion.p>
 
-        <motion.p 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.4 }}
-          className="text-gray-400 max-w-2xl text-lg md:text-xl mb-12 leading-relaxed"
-          dir="rtl"
-        >
-          קיסר מערכות מספקת פתרונות אבטחה מתקדמים למגזר הפרטי והעסקי. ממעגל סגור ועד בית חכם - אנחנו דואגים שתרגישו בטוחים 24/7.
-        </motion.p>
-
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
-          className="flex flex-col sm:flex-row-reverse gap-4"
-        >
-          <button className="bg-blue-600 text-white px-10 py-5 rounded-2xl font-bold flex items-center justify-center gap-3 hover:bg-blue-700 transition-all hover:scale-105 active:scale-95 shadow-xl shadow-blue-600/20">
-            קבל הצעת מחיר <ChevronLeft size={20} />
-          </button>
-          <button className="border border-white/10 bg-white/5 backdrop-blur-sm px-10 py-5 rounded-2xl font-bold hover:bg-white/10 transition-all">
-            השירותים שלנו
-          </button>
-        </motion.div>
-      </section>
-
-      {/* Grid Pattern Background */}
-      <div className="absolute inset-0 z-[-1] opacity-[0.03] pointer-events-none" 
-           style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M54.826 10.558c1.026 1.312 1.174 3.106.41 4.395L49.036 25.4a4.415 4.415 0 0 1-3.13 2.14l-11.455 1.48a4.415 4.415 0 0 1-3.923-2.14L24.328 14.953a4.415 4.415 0 0 1 .41-4.395L30.138 2.5a4.415 4.415 0 0 1 3.13-2.14l11.455-1.48a4.415 4.415 0 0 1 3.923 2.14l6.18 10.538z' fill='%23ffffff' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E")` }} 
-      />
-
-      {/* Services Section */}
-      <section className="py-32 px-6 max-w-7xl mx-auto" dir="rtl">
-        <motion.div {...fadeIn} className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-black mb-4">מעטפת אבטחה מלאה</h2>
-          <p className="text-gray-500 text-lg">כל מה שאתה צריך כדי לישון בשקט בלילה</p>
-        </motion.div>
-
-        <div className="grid md:grid-cols-3 gap-8">
-          {services.map((s, i) => (
-            <motion.div
-              key={i}
-              whileHover={{ y: -12, border: "1px solid rgba(37, 99, 235, 0.5)" }}
-              className="p-10 rounded-[32px] bg-gradient-to-b from-[#111] to-[#080808] border border-white/5 transition-all duration-500"
-            >
-              <div className="w-16 h-16 bg-blue-600/10 rounded-2xl flex items-center justify-center text-blue-500 mb-8">
-                {s.icon}
-              </div>
-              <h3 className="text-2xl font-bold mb-4">{s.title}</h3>
-              <p className="text-gray-400 leading-relaxed text-lg">{s.desc}</p>
-            </motion.div>
-          ))}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+            className="flex flex-col sm:flex-row gap-5 justify-center"
+          >
+            <button className="bg-blue-600 text-white px-12 py-5 rounded-2xl font-bold text-xl hover:bg-blue-700 transition-all hover:shadow-2xl hover:shadow-blue-200 active:scale-95 flex items-center justify-center gap-3">
+              לקבלת הצעת מחיר <Icons.ChevronLeft size={24} />
+            </button>
+            <button className="bg-white text-slate-700 border border-slate-200 px-12 py-5 rounded-2xl font-bold text-xl hover:bg-slate-50 transition-all">
+              הפרויקטים שלנו
+            </button>
+          </motion.div>
         </div>
       </section>
 
-      {/* Contact CTA */}
-      <section className="py-24 px-6">
-        <motion.div 
-          {...fadeIn}
-          className="max-w-5xl mx-auto rounded-[40px] bg-blue-600 p-12 md:p-20 flex flex-col md:flex-row justify-between items-center gap-12 relative overflow-hidden"
-        >
-          <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 blur-[80px] rounded-full -mr-20 -mt-20" />
-          
-          <div className="text-right flex-1" dir="rtl">
-            <h2 className="text-3xl md:text-5xl font-black mb-6">רוצה להגן על הבית שלך עוד היום?</h2>
-            <p className="text-blue-100 text-xl">השאר פרטים ונחזור אליך עם הצעה מנצחת.</p>
+      {/* Services Grid */}
+      <section id="services" className="py-32 px-6 relative bg-white/40">
+        <div className="max-w-7xl mx-auto">
+          <motion.div {...fadeIn} className="text-right mb-20 border-r-4 border-blue-600 pr-6">
+            <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-4">פתרונות טכנולוגיים מתקדמים</h2>
+            <p className="text-slate-500 text-xl font-medium">המומחיות שלנו היא הביטחון האישי שלך</p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-8 text-right">
+            {services.map((s, i) => {
+              const IconComponent = Icons[s.icon] as React.ElementType;
+              return (
+                <motion.div
+                  key={i}
+                  {...fadeIn}
+                  transition={{ ...fadeIn.transition, delay: i * 0.1 }}
+                  whileHover={{ y: -10 }}
+                  className="group p-8 rounded-[40px] bg-white border border-blue-50 shadow-sm hover:shadow-xl hover:shadow-blue-100 transition-all duration-500"
+                >
+                  <div className="w-16 h-16 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+                    <IconComponent size={32} />
+                  </div>
+                  <h3 className="text-2xl font-black text-slate-900 mb-4">{s.title}</h3>
+                  <p className="text-slate-500 leading-relaxed text-lg font-medium">
+                    {s.desc}
+                  </p>
+                </motion.div>
+              );
+            })}
           </div>
-          
-          <button className="bg-white text-blue-600 px-12 py-6 rounded-2xl font-black text-xl hover:bg-gray-100 transition-all shadow-2xl">
-            דבר איתנו
-          </button>
-        </motion.div>
+        </div>
       </section>
 
-      <footer className="py-12 text-center text-gray-600 border-t border-white/5 text-sm tracking-widest">
-        © 2026 KEISAR SECURITY SYSTEMS | DEVELOPED BY SHIELDUP AGENCY
+      {/* CTA Section */}
+      <section className="py-32 bg-blue-600 relative overflow-hidden text-center">
+        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }} />
+        <div className="max-w-5xl mx-auto px-6 relative z-10">
+          <motion.div {...fadeIn}>
+            <h2 className="text-4xl md:text-6xl font-black text-white mb-10">מוכנים לשדרג את הביטחון?</h2>
+            <p className="text-blue-100 text-xl md:text-2xl mb-12 font-medium">
+              הצטרפו למאות לקוחות שכבר נהנים משירות מקצועי, יחס אישי וטכנולוגיה ללא פשרות.
+            </p>
+            <button className="bg-white text-blue-600 px-16 py-6 rounded-[28px] font-black text-2xl hover:scale-105 transition-transform shadow-2xl active:scale-95 flex items-center gap-4 mx-auto">
+              <Icons.PhoneCall size={28} /> דברו איתנו עכשיו
+            </button>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-12 bg-white border-t border-slate-100 text-center">
+        <p className="text-slate-400 font-bold tracking-widest text-sm uppercase">
+          © 2026 קיסר מערכות | פותח ע"י ShieldUp
+        </p>
       </footer>
     </main>
   );
