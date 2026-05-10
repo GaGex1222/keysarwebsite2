@@ -1,185 +1,121 @@
 "use client";
 
 import React, { useRef } from "react";
-import { motion, useScroll, useTransform, HTMLMotionProps, useSpring } from "framer-motion";
+import { motion, useScroll, useTransform, HTMLMotionProps } from "framer-motion";
 import * as Icons from "lucide-react";
 
-// הגדרת סוג הנתונים לשירותים
 interface Service {
   title: string;
   icon: keyof typeof Icons;
   desc: string;
 }
 
-// קומפוננטת רקע עתידני דינמי
-const FuturisticBackground = () => {
-  return (
-    <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-40">
-      {/* 3D Grid Parallel */}
-      <div 
-        className="absolute inset-0"
-        style={{
-          backgroundImage: `linear-gradient(#e0f7fa 1px, transparent 1px), linear-gradient(90deg, #e0f7fa 1px, transparent 1px)`,
-          backgroundSize: '50px 50px',
-          transform: 'perspective(500px) rotateX(60deg) translateY(-200px) scale(3)',
-          transformOrigin: 'top',
-        }}
-      />
-      {/* Radial Glows */}
-      <div className="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] bg-cyan-100 blur-[150px] rounded-full" />
-      <div className="absolute bottom-[-10%] right-[-5%] w-[50%] h-[50%] bg-white blur-[120px] rounded-full" />
+// אלמנטים עיצוביים לרקע - "שכבת המטריקס הלבנה"
+const TechOverlay = () => (
+  <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.05]">
+    <div className="absolute top-20 left-10 text-[10px] font-mono text-cyan-600 leading-none rotate-90">
+      {Array(20).fill("01011001 11010110 ").join("\n")}
     </div>
-  );
-};
+    <div className="absolute bottom-40 right-10 text-[10px] font-mono text-cyan-600 leading-none -rotate-90">
+      {Array(20).fill("SYSTEM_SECURE_BY_SHIELDUP ").join("\n")}
+    </div>
+    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] border-[1px] border-cyan-200 rounded-full opacity-20" />
+    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border-[1px] border-cyan-100 rounded-full opacity-20" />
+  </div>
+);
 
 export default function Home() {
   const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"]
-  });
+  const { scrollYProgress } = useScroll({ target: containerRef });
 
-  // אפקט Parallax מורכב יותר לכותרת
-  const textY = useTransform(scrollYProgress, [0, 0.3], ["0%", "50%"]);
-  const textOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
-
-  // הגדרת טיפוס עבור האנימציה - פתרון ה-Error
   const fadeInProps: HTMLMotionProps<"div"> = {
-    initial: { opacity: 0, y: 40, rotateX: -10 },
-    whileInView: { opacity: 1, y: 0, rotateX: 0 },
-    viewport: { once: true, amount: 0.2 },
-    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } // Custom easeOutExponetial
+    initial: { opacity: 0, y: 30 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true },
+    transition: { duration: 0.8, ease: "easeOut" }
   };
 
   const services: Service[] = [
-    { title: "מערכות מצלמות (CCTV)", icon: "Video", desc: "צפייה מרחוק ב-4K עם אנליטיקה מתקדמת מבוססת AI." },
-    { title: "מערכות אזעקה", icon: "Bell", desc: "הגנה היקפית חכמה עם חיבור ישיר למוקד ואפליקציה." },
-    { title: "אינטרקום ובקרת כניסה", icon: "Smartphone", desc: "מערכות IP, פתיחה ביומטרית ושליטה מהסמארטפון." },
-    { title: "בית חכם (Smart Home)", icon: "Zap", desc: "אוטומציה מלאה של תאורה, מיזוג וחשמל בממשק אחד." },
-    { title: "תשתיות תקשורת", icon: "Wifi", desc: "פריסת סיבים אופטיים ורשתות WI-FI 6 עוצמתיות." },
-    { title: "גילוי אש ועשן", icon: "AlertTriangle", desc: "התקנת מערכות תקניות (תקן 1220) לבטיחות המבנה." }
+    { title: "מערכות מצלמות IP", icon: "Video", desc: "ניטור בזמן אמת ב-4K עם אנליטיקה חכמה וזיהוי פנים." },
+    { title: "מערכות אזעקה", icon: "Bell", desc: "מיגון היקפי חכם עם שליטה מלאה מהנייד וחיבור למוקד." },
+    { title: "בקרת כניסה", icon: "Lock", desc: "אינטרקום IP, זיהוי ביומטרי וניהול הרשאות כניסה מרחוק." },
+    { title: "בית חכם PRO", icon: "Zap", desc: "אוטומציה מלאה למערכות חשמל, מיזוג ותאורה תחת ממשק אחד." },
+    { title: "תשתיות תקשורת", icon: "Wifi", desc: "פתרונות רשת מתקדמים, WI-FI 6 ופריסת סיבים אופטיים." },
+    { title: "גילוי אש ועשן", icon: "AlertTriangle", desc: "התקנה ותחזוקה לפי תקן 1220 לבטיחות מקסימלית." }
   ];
 
   return (
-    <main ref={containerRef} className="min-h-screen bg-white text-slate-950 overflow-hidden font-sans selection:bg-cyan-100" dir="rtl">
+    <main ref={containerRef} className="min-h-screen bg-slate-50 text-slate-900 overflow-hidden font-sans selection:bg-cyan-100" dir="rtl">
       
-      <FuturisticBackground />
+      {/* Background Layer */}
+      <div className="fixed inset-0 z-0">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-cyan-50/40 via-transparent to-transparent" />
+        <TechOverlay />
+      </div>
 
-      {/* Navbar - Glassmorphism מודגש */}
-      <nav className="fixed top-0 w-full z-50 bg-white/40 backdrop-blur-2xl border-b border-cyan-100 px-6 md:px-20 py-4 flex justify-between items-center shadow-lg shadow-cyan-50/20 tracking-tight">
+      {/* Navbar */}
+      <nav className="fixed top-0 w-full z-50 bg-white/60 backdrop-blur-2xl border-b border-cyan-100 px-6 md:px-20 py-4 flex justify-between items-center shadow-sm">
         <div className="flex items-center gap-3">
-          {/* לוגו עתידני מואר */}
-          <motion.div 
-            animate={{ rotate: [0, 360], scale: [1, 1.1, 1] }} 
-            transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
-            className="w-12 h-12 bg-gradient-to-br from-cyan-400 to-cyan-600 rounded-xl flex items-center justify-center shadow-md shadow-cyan-300/50"
-          >
-            <Icons.ShieldCheck className="text-white" size={28} />
+          <motion.div whileHover={{ rotate: 180 }} className="w-10 h-10 bg-cyan-600 rounded-lg flex items-center justify-center shadow-lg shadow-cyan-200">
+            <Icons.ShieldCheck className="text-white" size={24} />
           </motion.div>
-          <div className="flex flex-col leading-tight text-right">
-            <span className="text-2xl font-black text-cyan-950">קיסר מערכות</span>
-            <span className="text-[10px] text-cyan-600 font-bold tracking-[0.15em]">ADVANCED SECURITY TECHNOLOGIES</span>
+          <div className="flex flex-col leading-none text-right">
+            <span className="text-xl font-black text-slate-900 uppercase">Keisar</span>
+            <span className="text-[9px] text-cyan-600 font-bold tracking-widest">SYSTEMS & PROTECTION</span>
           </div>
         </div>
-
-        <div className="hidden md:flex gap-10 text-sm font-bold text-cyan-900/80">
-          <a href="#services" className="hover:text-cyan-500 transition-colors">פרוטוקול שירותים</a>
-          <a href="#" className="hover:text-cyan-500 transition-colors">ממשק עלינו</a>
-          <a href="#" className="hover:text-cyan-500 transition-colors">מרכז תמיכה</a>
-        </div>
-
-        <button className="bg-cyan-600 text-white px-7 py-2.5 rounded-full text-sm font-bold hover:bg-cyan-700 transition-all shadow-md shadow-cyan-200 active:scale-95">
-          סנכרון התקשרות
+        <button className="bg-slate-900 text-white px-6 py-2 rounded-full text-xs font-bold hover:bg-cyan-600 transition-all">
+          התחברות מערכת
         </button>
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-60 pb-40 px-6 text-center z-10">
-        <motion.div style={{ y: textY, opacity: textOpacity }} className="max-w-6xl mx-auto">
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
-            animate={{ opacity: 1, scale: 1, rotate: 0 }}
-            transition={{ duration: 1, ease: [0.34, 1.56, 0.64, 1] }} // Overshoot ease
-            className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-cyan-50 text-cyan-700 text-sm font-black mb-10 border border-cyan-100 shadow-inner tracking-widest uppercase"
-          >
-            SYSTEM STATUS: ACTIVE // CYBER-PHYSICAL PROTECTION
-          </motion.div>
-
-          <motion.h1 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.2 }}
-            className="text-7xl md:text-9xl font-black mb-10 text-cyan-950 leading-[0.9] tracking-tighter"
-          >
-            אבטחה. <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-l from-cyan-500 to-cyan-300">בפקודתך.</span>
-          </motion.h1>
-
-          <motion.p 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
-            className="text-cyan-900/70 max-w-4xl mx-auto text-2xl md:text-3xl mb-16 font-medium leading-relaxed tracking-tight"
-          >
-            קיסר מערכות הופכת טכנולוגיית מיגון מורכבת לשקט נפשי טוטאלי. מהנדסים את הביטחון שלך, פאזה אחר פאזה.
-          </motion.p>
-
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7 }}
-            className="flex flex-col sm:flex-row gap-6 justify-center"
-          >
-            <button className="bg-cyan-600 text-white px-14 py-6 rounded-3xl font-black text-2xl hover:bg-cyan-700 transition-all hover:shadow-2xl hover:shadow-cyan-200 active:scale-95 flex items-center justify-center gap-4 group">
-              אתחול הצעת מחיר <Icons.ChevronLeft size={28} className="group-hover:-translate-x-2 transition-transform" />
+      <section className="relative pt-48 pb-32 px-6 z-10 text-center">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="max-w-5xl mx-auto"
+        >
+          <div className="inline-block px-4 py-1 rounded-md bg-cyan-100 text-cyan-700 text-[10px] font-black mb-6 tracking-tighter border border-cyan-200 uppercase">
+            // Security Protocol v2.6 // Status: Ready
+          </div>
+          <h1 className="text-6xl md:text-9xl font-black mb-8 leading-[0.85] tracking-tighter text-slate-900">
+            הגנה שחושבת <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-l from-cyan-600 to-blue-500">לפני כולם.</span>
+          </h1>
+          <p className="text-slate-500 max-w-2xl mx-auto text-xl md:text-2xl mb-12 font-medium leading-relaxed">
+            קיסר מערכות מעצבת מחדש את גבולות הביטחון. טכנולוגיה עילית, התקנה נקייה ושקט נפשי שמתחיל מהפרט הקטן ביותר.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button className="bg-cyan-600 text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-cyan-700 transition-all shadow-xl shadow-cyan-200 flex items-center justify-center gap-2 group">
+              ייעוץ טכנולוגי <Icons.ChevronLeft className="group-hover:-translate-x-1 transition-transform" />
             </button>
-            <button className="bg-white text-cyan-900 border-2 border-cyan-100 px-14 py-6 rounded-3xl font-black text-2xl hover:bg-cyan-50 transition-all shadow-sm">
-              ארכיון פרויקטים
+            <button className="bg-white border border-slate-200 px-10 py-4 rounded-xl font-bold text-lg hover:bg-slate-50 transition-all">
+              הפרויקטים שלנו
             </button>
-          </motion.div>
+          </div>
         </motion.div>
       </section>
 
-      {/* Services Grid */}
-      <section id="services" className="py-40 px-6 relative bg-white/80 backdrop-blur-sm z-10 border-y border-cyan-50">
+      {/* Services Section */}
+      <section id="services" className="relative py-32 px-6 z-10">
         <div className="max-w-7xl mx-auto">
-          <motion.div {...fadeInProps} className="text-right mb-24 border-r-8 border-cyan-500 pr-8">
-            <h2 className="text-5xl md:text-7xl font-black text-cyan-950 mb-5 tracking-tight">ארכיטקטורת מיגון היקפית</h2>
-            <p className="text-cyan-900/60 text-2xl font-semibold tracking-tight">מודולים טכנולוגיים מותאמים אישית לצרכים שלך</p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-3 gap-10 text-right">
+          <div className="grid md:grid-cols-3 gap-6">
             {services.map((s, i) => {
-              const IconComponent = Icons[s.icon] as React.ElementType;
+              const IconComp = Icons[s.icon] as React.ElementType;
               return (
                 <motion.div
                   key={i}
                   {...fadeInProps}
-                  transition={{ ...fadeInProps.transition, delay: 0.2 + i * 0.15, rotateX: { delay: 0.2 + i * 0.15, duration: 1 } }}
-                  whileHover={{ 
-                    y: -15, 
-                    scale: 1.02, 
-                    boxShadow: "0 25px 50px -12px rgba(34, 211, 238, 0.3)",
-                    borderColor: "rgba(34, 211, 238, 0.5)"
-                  }}
-                  className="group p-10 rounded-[50px] bg-white border border-cyan-50 shadow-sm transition-all duration-500 relative overflow-hidden"
+                  transition={{ delay: i * 0.1 }}
+                  whileHover={{ y: -5, borderColor: "rgba(8, 145, 178, 0.3)" }}
+                  className="p-10 rounded-3xl bg-white/50 backdrop-blur-sm border border-slate-100 shadow-sm transition-all group"
                 >
-                  {/* Hover Glow Effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-50 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0" />
-                  
-                  <div className="relative z-10">
-                    <motion.div 
-                      whileHover={{ rotateY: 180 }}
-                      transition={{ duration: 0.6 }}
-                      className="w-20 h-20 bg-cyan-50 text-cyan-600 rounded-3xl flex items-center justify-center mb-10 border border-cyan-100 group-hover:bg-cyan-600 group-hover:text-white transition-colors duration-300 shadow-inner"
-                    >
-                      <IconComponent size={40} strokeWidth={1.5} />
-                    </motion.div>
-                    <h3 className="text-3xl font-black text-cyan-950 mb-5 tracking-tight group-hover:text-cyan-700 transition-colors">{s.title}</h3>
-                    <p className="text-cyan-900/70 leading-relaxed text-xl font-medium tracking-tight">
-                      {s.desc}
-                    </p>
+                  <div className="w-14 h-14 bg-white border border-cyan-50 rounded-2xl flex items-center justify-center text-cyan-600 mb-8 shadow-inner group-hover:bg-cyan-600 group-hover:text-white transition-colors duration-500">
+                    <IconComp size={28} />
                   </div>
+                  <h3 className="text-2xl font-black mb-4 text-slate-900 tracking-tight">{s.title}</h3>
+                  <p className="text-slate-500 leading-relaxed font-medium">{s.desc}</p>
                 </motion.div>
               );
             })}
@@ -187,43 +123,52 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA Section - עתידני קיצוני */}
-      <section className="py-40 bg-cyan-600 relative overflow-hidden text-center z-10 border-t-8 border-cyan-400/50">
-        {/* Animated Lines Background */}
-        <div className="absolute inset-0 opacity-20 pointer-events-none">
-          {[...Array(10)].map((_, i) => (
-            <motion.div
-              key={i}
-              animate={{ x: ["-100%", "100%"] }}
-              transition={{ duration: 5 + i, repeat: Infinity, ease: "linear", delay: i * 0.5 }}
-              className="absolute h-px bg-white"
-              style={{ top: `${i * 10}%`, left: 0, right: 0 }}
-            />
-          ))}
-        </div>
-
-        <div className="max-w-6xl mx-auto px-6 relative z-20">
-          <motion.div {...fadeInProps}>
-            <h2 className="text-5xl md:text-8xl font-black text-white mb-12 tracking-tighter leading-tight">פרוטוקול שדרוג אבטחה ביוזמתך</h2>
-            <p className="text-cyan-50 max-w-4xl mx-auto text-2xl md:text-3xl mb-16 font-medium leading-relaxed tracking-tight">
-              אל תחכה לפריצה הבאה. צור קשר עכשיו לסנכרון מערכות מלא והטמעת טכנולוגיית המיגון המתקדמת ביותר.
-            </p>
-            <motion.button 
-              whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(255,255,255,0.4)" }}
-              whileButtonActive={{ scale: 0.95 }}
-              className="bg-white text-cyan-700 px-20 py-8 rounded-[35px] font-black text-3xl hover:bg-cyan-50 transition-all shadow-2xl shadow-cyan-900/30 active:scale-95 flex items-center gap-5 mx-auto border-4 border-white/50"
-            >
-              <Icons.PhoneCall size={35} /> הפעלת תקשורת מיידית
-            </motion.button>
+      {/* Contact Section - "The Command Center" */}
+      <section className="relative py-40 px-6 z-10">
+        <div className="max-w-6xl mx-auto">
+          <motion.div 
+            {...fadeInProps}
+            className="relative rounded-[40px] bg-slate-900 p-1 md:p-2 overflow-hidden shadow-2xl"
+          >
+            {/* Animated Command Lines */}
+            <div className="absolute inset-0 opacity-10 pointer-events-none font-mono text-[8px] text-cyan-400 p-4 leading-none">
+              {Array(50).fill("INIT_CONNECTION... PING_SUCCESS... ENCRYPTING_DATA... ").join(" ")}
+            </div>
+            
+            <div className="relative bg-white rounded-[36px] p-12 md:p-24 flex flex-col items-center text-center">
+              <div className="w-20 h-20 bg-cyan-100 rounded-full flex items-center justify-center text-cyan-600 mb-10 animate-bounce">
+                <Icons.PhoneCall size={32} />
+              </div>
+              <h2 className="text-4xl md:text-6xl font-black text-slate-900 mb-6 tracking-tight">מוכן לסנכרן אבטחה?</h2>
+              <p className="text-slate-500 text-xl max-w-2xl mb-12 font-medium">
+                המערכות שלנו מחכות לפקודה שלך. השאר פרטים ונציג טכני יבנה עבורך את פרוטוקול ההגנה המושלם.
+              </p>
+              
+              <div className="w-full max-w-md flex flex-col gap-4">
+                <div className="flex gap-2">
+                  <input type="text" placeholder="שם מלא" className="flex-1 bg-slate-50 border border-slate-200 rounded-xl px-4 py-4 text-sm focus:outline-none focus:border-cyan-500 transition-colors" />
+                  <input type="text" placeholder="טלפון" className="flex-1 bg-slate-50 border border-slate-200 rounded-xl px-4 py-4 text-sm focus:outline-none focus:border-cyan-500 transition-colors" />
+                </div>
+                <button className="w-full bg-cyan-600 text-white font-black py-5 rounded-xl hover:bg-slate-900 transition-all shadow-lg shadow-cyan-100 tracking-widest uppercase text-sm">
+                  שלח פקודת התקשרות
+                </button>
+              </div>
+              
+              <div className="mt-12 flex gap-8">
+                <div className="flex items-center gap-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                  <div className="w-2 h-2 bg-green-500 rounded-full" /> 24/7 Support Available
+                </div>
+                <div className="flex items-center gap-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                  <div className="w-2 h-2 bg-blue-500 rounded-full" /> Verified Encryption
+                </div>
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-16 bg-white border-t border-slate-100 text-center relative z-10">
-        <p className="text-cyan-900/40 font-bold tracking-[0.2em] text-xs uppercase">
-          © 2026 קיסר מערכות // קריפטו-סקיוריטי פרוטוקול // פותח ע"י ShieldUp Agency
-        </p>
+      <footer className="py-12 text-center text-slate-400 font-bold text-[10px] uppercase tracking-[0.3em]">
+        © 2026 KEISAR PROTECTION // SECURED BY SHIELDUP AGENCY
       </footer>
     </main>
   );
