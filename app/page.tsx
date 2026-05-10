@@ -87,7 +87,7 @@ export default function KeisarFinalClean() {
             {/* מכולת הלוגו המרכזית */}
             <div className="absolute inset-4 bg-gradient-to-b from-white/10 to-transparent backdrop-blur-2xl rounded-[3rem] border border-white/10 shadow-[0_0_80px_rgba(6,182,212,0.2)] flex items-center justify-center p-12 overflow-hidden">
               <img 
-                src="/keisar systems.png" 
+                src="/keisar systems.jpg" 
                 alt="Keisar Systems Logo" 
                 className="w-full h-full object-contain filter drop-shadow-[0_0_20px_rgba(6,182,212,0.6)]"
               />
