@@ -1,22 +1,253 @@
+"use client"; 
 import "./globals.css";
-import { Heebo } from "next/font/google"; // ייבוא של Heebo במקום Inter
+import React, { useState } from 'react';
+import { Heebo } from "next/font/google";
+import { motion, AnimatePresence } from 'framer-motion';
+import { 
+  Shield, Phone, Mail, ChevronLeft, 
+  ChevronDown, Menu, X, Target, Scan 
+} from 'lucide-react';
 
-// הגדרת הפונט Heebo עם המשקלים הרלוונטיים
 const heebo = Heebo({ 
   subsets: ["hebrew", "latin"],
   weight: ["300", "400", "500", "700", "800", "900"],
-  variable: "--font-heebo", // הגדרת משתנה CSS למקרה שנצטרך
+  variable: "--font-heebo",
 });
+
+// --- DATA STRUCTURE UPDATED ---
+const menuItems = [
+  {
+    id: 'cameras',
+    label: 'מצלמות אבטחה',
+    href: "/outside-camera", // לינק ברירת מחדל
+    children: [
+      { title: "מחירון מתקין", href: "/installation-guide" },
+      { title: "מצלמות אבטחה לעסק", href: "/outside-camera" },
+      { title: "מצלמה לבית", href: "/home-camera" },
+      { title: "מכשירי DVR", href: "/dvr-camera" },
+      { title: "מצלמות אבטחה IP", href: "/ip-cameras" },
+      { title: "מצלמה עם מסך", href: "/security-camera-with-screen" },
+      { title: "מצלמות לחצר", href: "/camera-for-yard" },
+      { title: "מצלמה אלחוטית", href: "/wifi-camera" },
+      { title: "מצלמה אנלוגית", href: "/hd-camera" },
+      { title: "שירות התקנה", href: "/installation-guide" },
+      { title: "מצלמות אנליטיקה", href: "/analytical-camera" },
+    ]
+  },
+  {
+    id: 'alarms',
+    label: 'אזעקות לבית',
+    href: "/home-alarms",
+    children: [
+      { title: "איך לבחור מערכת אזעקה?", href: "/how-to-choose-alarm" },
+      { title: "אזעקות לבית", href: "/home-alarms" },
+      { title: "טכנאי אזעקות לבית", href: "/alarm-technician" },
+    ]
+  },
+  {
+    id: 'intercom',
+    label: 'אינטרקום',
+    href: "/intercom-for-apartment",
+    children: [
+      { title: "מערכת אינטרקום לעסק", href: "/intercom-for-business" },
+      { title: "קודן לבית", href: "/intercom-coder" },
+      { title: "אינטרקום לבניין משותף", href: "/intercom-for-building" },
+      { title: "אינטרקום לדירה", href: "/intercom-for-apartment" },
+      { title: "אינטרקום עם מסך", href: "/intercom-with-screen" },
+    ]
+  },
+  {
+    id: 'comm',
+    label: 'תקשורת',
+    href: "/comm-technician",
+    children: [
+      { title: "ארון תקשורת לבית", href: "/comm-closet" },
+      { title: "טכנאי מערכות תקשורת", href: "/comm-technician" },
+    ]
+  },
+  {
+    id: 'shelter',
+    label: 'אינטרנט במקלט',
+    href: "/internet-in-shelter", // לינק ישיר ללא דרופדאון
+    children: []
+  },
+  {
+    id: 'areas',
+    label: 'אזורי שירות',
+    href: "/services-area",
+    children: [
+      { title: "מחוז מרכז", href: "/services-area" }, // ניתן להוסיף דפים ייעודיים בהמשך
+      { title: "מחוז צפון", href: "/services-area" },
+      { title: "מחוז דרום", href: "/services-area" },
+    ]
+  },
+];
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const [activeMenu, setActiveMenu] = useState<string | null>(null); 
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   return (
     <html lang="he" dir="rtl">
-      <body className={`${heebo.className} antialiased bg-[#e0f2fe]`}>
-        {children}
+      <body className={`${heebo.className} antialiased bg-[#1c1f26] text-white overflow-x-hidden selection:bg-cyan-500/30 p-0 m-0`}>
+        
+        {/* --- BACKGROUND DECORATION --- */}
+        <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+          <div className="absolute inset-0 opacity-[0.05] bg-[radial-gradient(#94a3b8_1px,transparent_1px)] [background-size:30px_30px]" />
+          <div className="absolute top-[-10%] right-[-5%] w-[700px] h-[700px] bg-cyan-600/10 blur-[150px] rounded-full" />
+        </div>
+
+        {/* --- NAVBAR --- */}
+        <nav className="fixed top-0 left-0 w-full z-[100] border-b border-white/5 bg-[#1c1f26]/95 backdrop-blur-xl">
+          <div className="max-w-7xl mx-auto px-4 h-20 flex justify-between items-center">
+            
+            {/* Logo */}
+            <a href="/" className="flex items-center gap-3 shrink-0">
+              <div className="w-10 h-10 bg-cyan-500 rounded-xl flex items-center justify-center text-[#1c1f26] shadow-[0_0_15px_rgba(6,182,212,0.3)]">
+                <Shield size={22} fill="currentColor" />
+              </div>
+              <span className="text-xl md:text-2xl font-[1000] italic uppercase tracking-tighter">קיסר מערכות</span>
+            </a>
+
+            {/* Desktop Menu */}
+            <div className="hidden lg:flex items-center gap-6 h-full">
+              {menuItems.map((item) => (
+                <div 
+                  key={item.id} 
+                  className="relative h-full flex items-center" 
+                  onMouseEnter={() => item.children.length > 0 && setActiveMenu(item.id)}
+                  onMouseLeave={() => setActiveMenu(null)}
+                >
+                  <a 
+                    href={item.href}
+                    className={`flex items-center gap-1.5 font-bold text-[14px] italic transition-colors hover:text-cyan-400 ${activeMenu === item.id ? 'text-cyan-400' : 'text-slate-200'}`}
+                  >
+                    {item.label}
+                    {item.children.length > 0 && (
+                      <ChevronDown size={14} className={activeMenu === item.id ? 'rotate-180 transition-transform' : 'transition-transform'} />
+                    )}
+                  </a>
+
+                  {/* Desktop Mega-Dropdown */}
+                  <AnimatePresence>
+                    {activeMenu === item.id && item.children.length > 0 && (
+                      <motion.div 
+                        initial={{ opacity: 0, y: 10 }} 
+                        animate={{ opacity: 1, y: 0 }} 
+                        exit={{ opacity: 0, y: 10 }}
+                        className="absolute top-full right-0 w-[240px] bg-[#2a2f3a] border border-white/10 shadow-2xl rounded-b-xl overflow-hidden py-2"
+                      >
+                        {item.children.map((child, idx) => (
+                          <a 
+                            key={idx} 
+                            href={child.href} 
+                            className="block px-5 py-2.5 text-[13px] font-bold text-slate-300 hover:text-cyan-400 hover:bg-white/5 transition-all italic flex items-center gap-2"
+                          >
+                            <span className="w-1 h-1 bg-cyan-500 rounded-full opacity-50" />
+                            {child.title}
+                          </a>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              ))}
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex items-center gap-3">
+              <a href="tel:0559705013" className="hidden sm:flex bg-cyan-500 text-black px-4 py-2 rounded-lg font-black text-sm italic hover:bg-white transition-colors items-center gap-2">
+                <Phone size={14} />
+                055-970-5013
+              </a>
+              <button 
+                className="lg:hidden p-2 bg-white/5 rounded-lg border border-white/10" 
+                onClick={() => setIsMobileMenuOpen(true)}
+              >
+                <Menu size={24} className="text-cyan-400" />
+              </button>
+            </div>
+          </div>
+        </nav>
+
+        {/* --- MOBILE FULLSCREEN MENU --- */}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div 
+              initial={{ x: '100%' }} animate={{ x: 0 }} exit={{ x: '100%' }}
+              transition={{ type: 'tween', duration: 0.3 }}
+              className="fixed inset-0 bg-[#1c1f26] z-[200] flex flex-col lg:hidden"
+            >
+              <div className="p-6 border-b border-white/5 flex justify-between items-center h-20 bg-[#1c1f26]">
+                <span className="text-cyan-500 font-black italic text-xl uppercase">קיסר תפריט</span>
+                <button onClick={() => setIsMobileMenuOpen(false)} className="p-2 bg-white/5 rounded-full">
+                  <X size={30} />
+                </button>
+              </div>
+              
+              <div className="flex-1 overflow-y-auto p-6 space-y-6 text-right">
+                {menuItems.map((item) => (
+                  <div key={item.id} className="border-b border-white/5 pb-4">
+                    <a 
+                      href={item.href}
+                      onClick={() => item.children.length === 0 && setIsMobileMenuOpen(false)}
+                      className="text-xl font-black italic flex justify-between items-center text-white"
+                    >
+                      {item.label}
+                      {item.children.length > 0 && <ChevronDown size={18} className="text-cyan-500" />}
+                    </a>
+                    {item.children.length > 0 && (
+                      <div className="mt-4 mr-4 grid grid-cols-1 gap-3">
+                        {item.children.map((child, i) => (
+                          <a 
+                            key={i} 
+                            href={child.href} 
+                            onClick={() => setIsMobileMenuOpen(false)} 
+                            className="flex items-center gap-2 text-slate-400 font-bold hover:text-cyan-400 italic py-1"
+                          >
+                            <ChevronLeft size={14} className="text-cyan-500" />
+                            {child.title}
+                          </a>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+
+              <div className="p-6 bg-black/40 backdrop-blur-md border-t border-white/5 space-y-4">
+                <div className="flex items-center gap-3 text-slate-400 justify-center">
+                  <Mail size={18} />
+                  <span className="text-sm font-bold">office@keisar.co.il</span>
+                </div>
+                <a href="tel:0559705013" className="block w-full bg-cyan-500 text-black text-center py-4 rounded-xl font-black italic text-lg shadow-lg shadow-cyan-500/20">
+                  התקשר לייעוץ: 055-970-5013
+                </a>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* --- MAIN CONTENT --- */}
+        <div className="relative z-10 pt-20"> 
+          {children}
+        </div>
+
+        {/* --- FOOTER --- */}
+        <footer className="py-20 text-center border-t border-white/5 bg-black/20 mt-20 relative z-10">
+          <div className="flex justify-center gap-6 mb-8 text-slate-500">
+              <Shield size={24} />
+              <Target size={24} />
+              <Scan size={24} />
+          </div>
+          <p className="text-slate-500 text-[11px] font-[1000] tracking-[0.6em] uppercase italic">
+            Keisar Systems Engineering Protocol &copy; 2026 | All Rights Reserved
+          </p>
+        </footer>
       </body>
     </html>
   );
