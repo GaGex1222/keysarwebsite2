@@ -189,9 +189,9 @@ export default function RecordingSystemsPage() {
       <footer className="py-20 text-center bg-black/40 border-t border-white/5 relative z-20">
         <div className="max-w-2xl mx-auto px-6">
           <h3 className="text-3xl font-[1000] italic mb-6 uppercase">מחפש מערכת אבטחה איכותית?</h3>
-          <p className="text-slate-400 italic mb-10">הגעת למקום הנכון. צוות אלסק זמין עבורך לייעוץ והתאמת המערכת המדויקת ביותר.</p>
+          <p className="text-slate-400 italic mb-10">הגעת למקום הנכון. צוות קיסר זמין עבורך לייעוץ והתאמת המערכת המדויקת ביותר.</p>
           <div className="text-[10px] font-black tracking-[0.6em] uppercase italic opacity-30">
-            Alsec Systems // DVR_NVR_Protocol // 2026
+            Keisar Systems // DVR_NVR_Protocol // 2026
           </div>
         </div>
       </footer>

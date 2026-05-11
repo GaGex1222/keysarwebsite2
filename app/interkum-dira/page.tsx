@@ -156,7 +156,7 @@ export default function ApartmentIntercomPage() {
             <div className="text-center space-y-4">
               <h2 className="text-4xl md:text-6xl font-black italic uppercase">התקנה מקצועית <br /><span className="text-cyan-500">ללא דופי.</span></h2>
               <p className="text-slate-400 italic text-xl leading-relaxed">
-                אנשי המקצוע של אלסק בוחנים את תנאי השטח, מתאימים את המערכת באופן אישי ודואגים להתקנה נקייה ומהירה.
+                אנשי המקצוע של קיסר בוחנים את תנאי השטח, מתאימים את המערכת באופן אישי ודואגים להתקנה נקייה ומהירה.
               </p>
             </div>
 
@@ -180,7 +180,7 @@ export default function ApartmentIntercomPage() {
         {/* --- FINAL CTA --- */}
         <section className="text-center space-y-12">
            <h2 className="text-5xl md:text-8xl font-[1000] italic leading-tight uppercase">
-             אלסק. הביטחון <br /> <span className="text-cyan-500 underline decoration-1 underline-offset-[15px]">שלכם בידיים שלנו.</span>
+             קיסר. הביטחון <br /> <span className="text-cyan-500 underline decoration-1 underline-offset-[15px]">שלכם בידיים שלנו.</span>
            </h2>
            <p className="text-slate-500 font-bold italic tracking-widest uppercase text-sm">
              Available nationwide: Tel Aviv • Jerusalem • Haifa • Eilat • Beer Sheva
@@ -203,7 +203,7 @@ export default function ApartmentIntercomPage() {
         <div className="flex flex-col items-center gap-6">
           <div className="flex items-center gap-4">
             <Home className="text-cyan-500" />
-            <span className="text-2xl font-black italic uppercase tracking-tighter">ALSEC RESIDENTIAL</span>
+            <span className="text-2xl font-black italic uppercase tracking-tighter">Keisar RESIDENTIAL</span>
           </div>
           <p className="max-w-md text-slate-600 font-bold italic text-xs leading-relaxed uppercase tracking-widest">
             Providing futuristic security & intercom solutions for modern living environments.

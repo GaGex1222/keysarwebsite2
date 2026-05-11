@@ -46,7 +46,7 @@ export default function SecurityInstallationGuide() {
           <span className="text-transparent" style={{ WebkitTextStroke: '2px #06b6d4' }}>YOUR ASSETS</span>
         </h1>
         <p className="text-xl md:text-2xl text-slate-400 max-w-3xl mx-auto italic font-light leading-relaxed">
-          פריצה יכולה להסתיים באובדן רכוש או פגיעה בנפש. עם התקנה מקצועית של אלסק, אתם לא רק צופים במתרחש – אתם שולטים בסיטואציה בזמן אמת.
+          פריצה יכולה להסתיים באובדן רכוש או פגיעה בנפש. עם התקנה מקצועית של קיסר, אתם לא רק צופים במתרחש – אתם שולטים בסיטואציה בזמן אמת.
         </p>
       </section>
 
@@ -95,7 +95,7 @@ export default function SecurityInstallationGuide() {
       <section className="max-w-7xl mx-auto px-6 py-24">
         <div className="text-center mb-20">
           <h2 className="text-5xl font-[1000] italic mb-4 uppercase">5 נקודות קריטיות להתקנה</h2>
-          <p className="text-slate-500 italic">המקומות שבהם פורצים מעדיפים להיכנס - והדרך של אלסק לחסום אותם.</p>
+          <p className="text-slate-500 italic">המקומות שבהם פורצים מעדיפים להיכנס - והדרך של קיסר לחסום אותם.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
           {[
@@ -122,7 +122,7 @@ export default function SecurityInstallationGuide() {
         <div className="mt-12 p-8 bg-cyan-500 rounded-[2rem] text-black flex flex-col md:flex-row items-center gap-8 relative overflow-hidden">
            <Info size={48} className="shrink-0 opacity-20" />
            <div>
-              <h4 className="text-2xl font-black italic mb-2 uppercase italic">טיפ המומחים של אלסק:</h4>
+              <h4 className="text-2xl font-black italic mb-2 uppercase italic">טיפ המומחים של קיסר:</h4>
               <p className="text-lg font-bold leading-tight italic">
                 התקינו מצלמות בחור ההצצה של הדלת או בגובה קומה שנייה כדי למנוע חבלה פיזית. השתמשו במצלמות כיפה (Dome) באזורים נגישים.
               </p>
@@ -135,7 +135,7 @@ export default function SecurityInstallationGuide() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col lg:flex-row gap-20">
             <div className="lg:w-1/3 space-y-10">
-              <h2 className="text-5xl font-[1000] italic leading-none uppercase pr-6 border-r-8 border-cyan-500">מדריך <br/>ההתקנה <br/>של אלסק</h2>
+              <h2 className="text-5xl font-[1000] italic leading-none uppercase pr-6 border-r-8 border-cyan-500">מדריך <br/>ההתקנה <br/>של קיסר</h2>
               <p className="text-slate-400 italic leading-relaxed">
                 התקנה היא לא רק הברגת ברגים. היא אמנות של תכנון רשתי, מיקום אופטימלי ואיטום מקצועי. הנה איך אנחנו עושים את זה:
               </p>
@@ -193,8 +193,8 @@ export default function SecurityInstallationGuide() {
         <div className="space-y-4">
           {[
             { q: "כמה עולות מצלמות אבטחה?", a: "החל מ-2490 ש\"ח לסט מלא הכולל 4 מצלמות 5MP, מכשיר הקלטה NVR, חיווט, התקנה ואפליקציה." },
-            { q: "איך למקם את המצלמות?", a: "המיקום הוא הפרמטר הכי חשוב. המתקינים של אלסק מבצעים אפיון שטח מקצועי למקסום זווית הצפייה וכיסוי כל נקודות התורפה." },
-            { q: "האם אתם גם מתקינים מצלמות?", a: "בהחלט. אלסק מספקת שירות התקנה קצה-לקצה לבתים פרטיים, משרדים ומוסדות ציבור בכל רחבי הארץ." }
+            { q: "איך למקם את המצלמות?", a: "המיקום הוא הפרמטר הכי חשוב. המתקינים של קיסר מבצעים אפיון שטח מקצועי למקסום זווית הצפייה וכיסוי כל נקודות התורפה." },
+            { q: "האם אתם גם מתקינים מצלמות?", a: "בהחלט. קיסר מספקת שירות התקנה קצה-לקצה לבתים פרטיים, משרדים ומוסדות ציבור בכל רחבי הארץ." }
           ].map((faq, i) => (
             <div key={i} className="p-8 bg-white/5 rounded-[2rem] border border-white/10 group hover:border-cyan-500 transition-all">
               <div className="flex gap-4 items-start mb-4">
@@ -216,11 +216,11 @@ export default function SecurityInstallationGuide() {
             <span className="text-cyan-500">UPGRADE?</span>
           </h2>
           <p className="text-xl text-slate-400 italic mb-12 font-light">
-            אלסק מערכות אבטחה – השותף שלכם לשקט נפשי. תכנון, התקנה ושירות מקצועי ללא פשרות.
+            קיסר מערכות אבטחה – השותף שלכם לשקט נפשי. תכנון, התקנה ושירות מקצועי ללא פשרות.
           </p>
           <div className="flex flex-col md:flex-row gap-6 justify-center">
             <button className="bg-cyan-500 text-black px-12 py-5 rounded-2xl font-[1000] text-xl italic hover:shadow-[0_0_50px_rgba(6,182,212,0.5)] transition-all">
-              תיאום טכנאי אלסק
+              תיאום טכנאי קיסר
             </button>
             <button className="bg-white/5 border border-white/20 text-white px-12 py-5 rounded-2xl font-[1000] text-xl italic hover:bg-white/10 transition-colors">
               לצפייה בתיק עבודות
@@ -231,7 +231,7 @@ export default function SecurityInstallationGuide() {
 
       <footer className="py-12 border-t border-white/5 text-center">
         <p className="text-[10px] font-black tracking-[0.8em] uppercase italic opacity-30">
-          ALSEC SECURITY // INSTALLATION_GUIDE_V2 // 2026
+          Keisar SECURITY // INSTALLATION_GUIDE_V2 // 2026
         </p>
       </footer>
     </div>

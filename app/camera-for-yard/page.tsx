@@ -138,7 +138,7 @@ export default function OutdoorSecurityPage() {
         </div>
       </section>
 
-      {/* Alsec Advantage - Brand Section */}
+      {/* Keisar Advantage - Brand Section */}
       <section className="max-w-7xl mx-auto px-6 py-20 bg-cyan-500/5 rounded-[3rem] border border-cyan-500/10 mb-32">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
           <div className="text-center md:text-right px-8">
@@ -167,7 +167,7 @@ export default function OutdoorSecurityPage() {
             <span className="text-cyan-500 underline decoration-2 underline-offset-8">הגנו על הבית עכשיו</span>
           </h2>
           <p className="text-xl text-slate-400 italic mb-12">
-            מצלמות נסתרות לחצר מבית אלסק מערכות אבטחה מעניקות לכם ביטחון אמיתי וטכנולוגיה חכמה ששומרת על כל מה שחשוב לכם.
+            מצלמות נסתרות לחצר מבית קיסר מערכות אבטחה מעניקות לכם ביטחון אמיתי וטכנולוגיה חכמה ששומרת על כל מה שחשוב לכם.
           </p>
           <div className="flex flex-col md:flex-row gap-6 justify-center">
             <button className="bg-transparent border border-white/20 text-white px-12 py-5 rounded-2xl font-[1000] text-xl italic hover:bg-white/5 transition-colors">
@@ -179,7 +179,7 @@ export default function OutdoorSecurityPage() {
 
       <footer className="py-12 border-t border-white/5 text-center">
         <p className="text-[10px] font-black tracking-[0.8em] uppercase italic opacity-30">
-          ALSEC SECURITY SYSTEMS // OUTDOOR_STEALTH_UNIT // 2026
+          Keisar SECURITY SYSTEMS // OUTDOOR_STEALTH_UNIT // 2026
         </p>
       </footer>
     </div>

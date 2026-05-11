@@ -161,7 +161,7 @@ export default function CommunicationTechnicianPage() {
             אל תחכו <br /> <span className="text-cyan-500 italic uppercase">לקריסת המערכת.</span>
           </h2>
           <p className="relative z-10 text-slate-400 text-xl md:text-2xl italic mb-12 max-w-2xl mx-auto font-light">
-            אנחנו באלסק מבינים לעומק רשתות, אבטחת מידע ופתרון תקלות מורכבות. המקצוענים שלנו בדרך אליכם.
+            אנחנו בקיסר מבינים לעומק רשתות, אבטחת מידע ופתרון תקלות מורכבות. המקצוענים שלנו בדרך אליכם.
           </p>
           <div className="relative z-10 flex flex-wrap justify-center gap-6">
             <button className="bg-cyan-500 text-black px-12 py-5 rounded-2xl font-[1000] text-2xl italic hover:bg-white transition-all shadow-xl shadow-cyan-500/20">

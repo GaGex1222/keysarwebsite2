@@ -206,7 +206,7 @@ export default function IntercomWithScreen() {
         <div className="flex flex-col items-center gap-4">
           <div className="flex items-center gap-4">
             <Eye className="text-cyan-500" />
-            <span className="text-2xl font-black italic uppercase tracking-[0.2em]">ALSEC VISUAL_SECURITY</span>
+            <span className="text-2xl font-black italic uppercase tracking-[0.2em]">Keisar VISUAL_SECURITY</span>
           </div>
           <p className="text-slate-600 font-bold italic text-[10px] uppercase tracking-widest">
             Future-proof monitoring solutions for home and business.

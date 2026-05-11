@@ -54,13 +54,13 @@ export default function AlarmTechnicianPage() {
         </motion.h1>
 
         <p className="max-w-3xl mx-auto text-slate-400 text-xl md:text-2xl font-light italic leading-relaxed">
-          מערכת אבטחה היא טובה רק כמו הטכנאי שהתקין אותה. באלסק, אנחנו מבטיחים מקצוענות ללא פשרות, ציוד קצה ושירות שזמין עבורך מסביב לשעון.
+          מערכת אבטחה היא טובה רק כמו הטכנאי שהתקין אותה. בקיסר, אנחנו מבטיחים מקצוענות ללא פשרות, ציוד קצה ושירות שזמין עבורך מסביב לשעון.
         </p>
       </header>
 
       <main className="relative z-10 max-w-7xl mx-auto px-6 space-y-40 pb-40">
         
-        {/* --- SECTION: WHY ALSEC (The Core Strengths) --- */}
+        {/* --- SECTION: WHY Keisar (The Core Strengths) --- */}
         <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {[
             { icon: <ShieldCheck />, t: "מומחיות מוכחת", d: "צוות טכנאים עם ניסיון שטח עשיר בכל סוגי המערכות הקיימות בשוק." },
@@ -173,7 +173,7 @@ export default function AlarmTechnicianPage() {
         <div className="flex flex-col items-center gap-4">
           <div className="flex items-center gap-4">
             <CheckCircle2 size={32} className="text-orange-500" />
-            <span className="text-2xl font-black italic uppercase tracking-tighter">ALSEC SERVICE_CORE</span>
+            <span className="text-2xl font-black italic uppercase tracking-tighter">Keisar SERVICE_CORE</span>
           </div>
           <p className="text-slate-600 font-bold italic text-[10px] uppercase tracking-widest max-w-sm leading-relaxed">
             Professional maintenance and field support for nationwide security infrastructures.

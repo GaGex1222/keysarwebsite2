@@ -57,7 +57,7 @@ export default function OutdoorSurveillancePage() {
             <span className="text-transparent" style={{ WebkitTextStroke: '2px #06b6d4' }}>SHIELD</span>
           </h1>
           <p className="text-2xl md:text-3xl text-slate-300 font-light italic max-w-4xl mx-auto leading-tight">
-            שקט נפשי מתחיל בביטחון חיצוני. מצלמות האבטחה של אלסק מספקות שכבת הגנה בלתי חדירה לנכס, לעסק ולרכוש שלכם.
+            שקט נפשי מתחיל בביטחון חיצוני. מצלמות האבטחה של קיסר מספקות שכבת הגנה בלתי חדירה לנכס, לעסק ולרכוש שלכם.
           </p>
         </div>
       </section>
@@ -121,12 +121,12 @@ export default function OutdoorSurveillancePage() {
         </div>
       </section>
 
-      {/* Alsec Expertise - Professionalism */}
+      {/* Keisar Expertise - Professionalism */}
       <section className="max-w-7xl mx-auto px-6 py-32">
         <div className="text-center mb-20">
           <h2 className="text-5xl font-[1000] italic mb-6">מקצוענות זה אנחנו</h2>
           <p className="text-xl text-slate-400 italic max-w-3xl mx-auto">
-            אלסק היא חברה מובילה לפתרונות אבטחה, המשלבת טכנולוגיה עילית עם שירות בסטנדרט בלתי מתפשר.
+            קיסר היא חברה מובילה לפתרונות אבטחה, המשלבת טכנולוגיה עילית עם שירות בסטנדרט בלתי מתפשר.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
@@ -149,7 +149,7 @@ export default function OutdoorSurveillancePage() {
           <div>
             <h3 className="text-3xl font-[1000] italic mb-6 uppercase">מעטפת הגנה מושלמת</h3>
             <p className="text-slate-400 italic mb-8 leading-relaxed">
-              אנחנו לא רק מתקינים מצלמות. אלסק מספקת פתרון אבטחה היקפי הכולל מערכות אזעקה, בקרת כניסה, אינטרקום חכם וסידור ארונות תקשורת. צוות המתקינים שלנו מגיע לכל מקום בארץ עם 100% מחויבות לתוצאה.
+              אנחנו לא רק מתקינים מצלמות. קיסר מספקת פתרון אבטחה היקפי הכולל מערכות אזעקה, בקרת כניסה, אינטרקום חכם וסידור ארונות תקשורת. צוות המתקינים שלנו מגיע לכל מקום בארץ עם 100% מחויבות לתוצאה.
             </p>
             <div className="flex flex-wrap gap-4">
               {["אזעקות", "אינטרקום", "ארונות תקשורת", "מצלמות במעגל סגור"].map((tag, i) => (
@@ -206,7 +206,7 @@ export default function OutdoorSurveillancePage() {
            <Smartphone size={18} />
         </div>
         <p className="text-[10px] font-black tracking-[0.8em] uppercase italic opacity-30">
-          ALSEC SECURITY // OUTDOOR_PROTECTION_GROUP // 2026
+          Keisar SECURITY // OUTDOOR_PROTECTION_GROUP // 2026
         </p>
       </footer>
     </div>

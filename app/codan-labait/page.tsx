@@ -77,7 +77,7 @@ export default function KeypadsHomePage() {
         </motion.h1>
 
         <p className="max-w-2xl mx-auto text-slate-400 text-xl md:text-2xl font-light italic leading-relaxed">
-          תפסיקו לחפש את המפתחות בתיק. הקודנים הדיגיטליים של אלסק הופכים את הכניסה לבית לחוויה חכמה, בטוחה ומעוצבת.
+          תפסיקו לחפש את המפתחות בתיק. הקודנים הדיגיטליים של קיסר הופכים את הכניסה לבית לחוויה חכמה, בטוחה ומעוצבת.
         </p>
       </section>
 
@@ -138,7 +138,7 @@ export default function KeypadsHomePage() {
                <Settings className="w-12 h-12 text-cyan-500 mb-6 animate-spin-slow" />
                <h3 className="text-3xl font-black italic mb-4 text-white">התקנה מקצועית</h3>
                <p className="text-slate-400 italic leading-relaxed mb-8">
-                 תהליך ההתקנה מבוצע על ידי המומחים של אלסק, תוך שמירה קפדנית על אסתטיקת הכניסה שלכם ואיכות רכיבים ללא פשרות.
+                 תהליך ההתקנה מבוצע על ידי המומחים של קיסר, תוך שמירה קפדנית על אסתטיקת הכניסה שלכם ואיכות רכיבים ללא פשרות.
                </p>
                <div className="flex gap-4">
                   <CheckCircle className="text-cyan-500" />
@@ -175,7 +175,7 @@ export default function KeypadsHomePage() {
            </div>
            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12">
               <h2 className="text-4xl md:text-6xl font-[1000] italic leading-tight">
-                היתרונות <br /> <span className="text-cyan-500">של אלסק.</span>
+                היתרונות <br /> <span className="text-cyan-500">של קיסר.</span>
               </h2>
               <ul className="space-y-6">
                  {benefits.map((benefit, i) => (
@@ -208,7 +208,7 @@ export default function KeypadsHomePage() {
       </main>
 
       <footer className="py-12 border-t border-white/5 text-center text-slate-700 font-bold italic text-sm tracking-widest">
-        ALSEC SECURITY SOLUTIONS &copy; 2026 | THE FUTURE OF ACCESS CONTROL
+        Keisar SECURITY SOLUTIONS &copy; 2026 | THE FUTURE OF ACCESS CONTROL
       </footer>
 
       <style jsx global>{`

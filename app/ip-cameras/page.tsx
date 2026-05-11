@@ -159,7 +159,7 @@ export default function IPCamerasPage() {
         <h2 className="text-4xl font-[1000] italic mb-16 text-center italic">שאלות <span className="text-cyan-500">ותשובות</span></h2>
         <div className="space-y-6">
           {[
-            { q: "כמה עולות מצלמות אבטחה?", a: "המחיר תלוי באיכות ובכמות. באלסק ניתן למצוא סטים החל מ-2,490 ש\"ח הכוללים 4 מצלמות 5MP, מערכת הקלטה 8 ערוצים, חיווט, עבודה והדרכה מלאה." },
+            { q: "כמה עולות מצלמות אבטחה?", a: "המחיר תלוי באיכות ובכמות. בקיסר ניתן למצוא סטים החל מ-2,490 ש\"ח הכוללים 4 מצלמות 5MP, מערכת הקלטה 8 ערוצים, חיווט, עבודה והדרכה מלאה." },
             { q: "האם מומלץ לקנות מצלמות IP אלחוטיות?", a: "יש להן יתרונות וחסרונות. התשובה תלויה ביצרן ובמיקום ההתקנה. אם אתם מחפשים ביטחון ושקט נפשי, מומלץ להתייעץ עם מתקין מקצועי." },
             { q: "איך למקם את המצלמות?", a: "מיקום המצלמה הוא הפרמטר החשוב ביותר. הוא קובע את יעילות המערכת. צרו איתנו קשר ונפענח יחד את המיקום האופטימלי לצרכים שלכם." },
             { q: "האם אתם גם מתקינים מצלמות?", a: "בהחלט. אנו מספקים התקנה מקצועית לבתים פרטיים, בניינים, משרדים ועסקים, כולל הגדרת רשת ותמיכה טכנית." }
@@ -187,7 +187,7 @@ export default function IPCamerasPage() {
             של הנכס שלך
           </h2>
           <p className="text-xl text-slate-400 italic mb-12 max-w-2xl mx-auto">
-            מצלמות IP הן ביטוי למחויבות שלך לשמור על הבית והעסק. צוות אלסק כאן לייעוץ, התאמה והתקנה מקצועית עם אחריות מלאה.
+            מצלמות IP הן ביטוי למחויבות שלך לשמור על הבית והעסק. צוות קיסר כאן לייעוץ, התאמה והתקנה מקצועית עם אחריות מלאה.
           </p>
           <div className="flex flex-col md:flex-row gap-6 justify-center">
             <button className="bg-cyan-500 text-black px-12 py-5 rounded-2xl font-[1000] text-xl italic shadow-[0_10px_40px_rgba(6,182,212,0.3)] hover:scale-105 transition-transform">
@@ -202,7 +202,7 @@ export default function IPCamerasPage() {
 
       <footer className="py-12 text-center text-slate-700 border-t border-white/5">
         <p className="text-[9px] font-black tracking-[0.8em] uppercase italic">
-          ALSEC SECURITY SOLUTIONS // IP_PROTOCOL_MODULE_V3 // 2026
+          Keisar SECURITY SOLUTIONS // IP_PROTOCOL_MODULE_V3 // 2026
         </p>
       </footer>
     </div>

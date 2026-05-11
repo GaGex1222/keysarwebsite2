@@ -63,7 +63,7 @@ export default function SecurityAlarmPage() {
             animate={{ opacity: 1, scale: 1 }}
             className="inline-flex items-center gap-2 px-4 py-1 bg-red-500/10 border border-red-500/20 rounded-full text-red-500 text-xs font-black tracking-widest italic mb-8"
           >
-            <BellRing size={14} className="animate-bounce" /> ALSEC_PROTECTION_ARMED
+            <BellRing size={14} className="animate-bounce" /> Keisar_PROTECTION_ARMED
           </motion.div>
 
           <h1 className="text-7xl md:text-9xl font-[1000] italic leading-[0.85] uppercase tracking-tighter mb-12">
@@ -72,7 +72,7 @@ export default function SecurityAlarmPage() {
           </h1>
 
           <p className="text-xl text-slate-400 italic max-w-2xl leading-relaxed border-r-4 border-blue-600 pr-6">
-            בישראל, ביטחון הוא לא מותרות – הוא טבע שני. המדריך של אלסק יעזור לכם לבחור את מערכת ההגנה המושלמת לבית שלכם, בלי כאבי ראש מיותרים.
+            בישראל, ביטחון הוא לא מותרות – הוא טבע שני. המדריך של קיסר יעזור לכם לבחור את מערכת ההגנה המושלמת לבית שלכם, בלי כאבי ראש מיותרים.
           </p>
         </header>
 
@@ -138,7 +138,7 @@ export default function SecurityAlarmPage() {
             </div>
             <div className="lg:w-1/2 relative">
                <div className="bg-black/20 p-8 rounded-[3rem] border border-black/10 backdrop-blur-md">
-                 <h4 className="font-black italic mb-6 border-b border-black/10 pb-4 italic">טיפ מקצועי מהמומחים של אלסק:</h4>
+                 <h4 className="font-black italic mb-6 border-b border-black/10 pb-4 italic">טיפ מקצועי מהמומחים של קיסר:</h4>
                  <p className="text-sm font-bold italic leading-relaxed">
                    אל תרכזו את כל הגלאים בפינה אחת. פריסה חכמה על פני כל השטח מקשה על ניטרול המערכת ושומרת על אפקטיביות מקסימלית. גלאי חיצוני הוא יקר, אך הוא משנה את חוקי המשחק.
                  </p>
@@ -198,11 +198,11 @@ export default function SecurityAlarmPage() {
             <Users className="mx-auto text-blue-500" size={64} />
             <h2 className="text-5xl md:text-6xl font-[1000] italic leading-none uppercase italic">אל תתפשרו על <br/>המקום הבטוח שלכם</h2>
             <p className="text-xl text-slate-400 italic leading-relaxed">
-              השקעה במערכת אזעקה היא השקעה בשקט הנפשי. צוות אלסק זמין עבורכם בכל הארץ לייעוץ מקצועי, התקנה מוסמכת ויחס אישי.
+              השקעה במערכת אזעקה היא השקעה בשקט הנפשי. צוות קיסר זמין עבורכם בכל הארץ לייעוץ מקצועי, התקנה מוסמכת ויחס אישי.
             </p>
             <button className="bg-white text-black px-16 py-6 rounded-2xl font-[1000] italic text-2xl uppercase hover:bg-blue-500 transition-all flex items-center gap-4 mx-auto group">
               <Zap size={24} className="group-hover:animate-pulse" />
-              קבלו ייעוץ מאלסק עכשיו
+              קבלו ייעוץ מקיסר עכשיו
             </button>
           </div>
         </section>
@@ -211,7 +211,7 @@ export default function SecurityAlarmPage() {
 
       <footer className="py-12 border-t border-white/5 text-center">
         <p className="text-[10px] font-black tracking-[1em] uppercase italic text-slate-700 italic">
-          ALSEC_SECURITY // ALARM_SYSTEMS_GUIDE // 2026
+          Keisar_SECURITY // ALARM_SYSTEMS_GUIDE // 2026
         </p>
       </footer>
     </div>

@@ -51,7 +51,7 @@ export default function AlarmSystemsPage() {
         </motion.h1>
 
         <p className="max-w-3xl mx-auto text-slate-400 text-xl md:text-2xl font-light italic leading-relaxed">
-          מערכת האזעקה היא קו ההגנה הראשון של הבית. באלסק, אנחנו הופכים את הבית שלכם למבצר חכם שמתריע עוד לפני שהפורץ נוגע בדלת.
+          מערכת האזעקה היא קו ההגנה הראשון של הבית. בקיסר, אנחנו הופכים את הבית שלכם למבצר חכם שמתריע עוד לפני שהפורץ נוגע בדלת.
         </p>
       </header>
 
@@ -147,7 +147,7 @@ export default function AlarmSystemsPage() {
             <UserCheck2 className="text-red-500 w-16 h-16" />
             <h2 className="text-4xl md:text-6xl font-black italic leading-tight uppercase">איך לבחור <br /> <span className="text-red-500">איש מקצוע?</span></h2>
             <p className="text-slate-400 text-lg italic leading-relaxed">
-              אל תתפשרו על הביטחון שלכם. בחרו מתקין מוסמך, וודאו שיש לו ניסיון והכי חשוב – כימיה ויחסי אנוש. באלסק, השירות הוא חלק בלתי נפרד מהמיגון.
+              אל תתפשרו על הביטחון שלכם. בחרו מתקין מוסמך, וודאו שיש לו ניסיון והכי חשוב – כימיה ויחסי אנוש. בקיסר, השירות הוא חלק בלתי נפרד מהמיגון.
             </p>
             <div className="space-y-4 font-bold italic text-sm">
               <div className="flex items-center gap-3">
@@ -204,7 +204,7 @@ export default function AlarmSystemsPage() {
         <div className="flex flex-col items-center gap-4">
           <div className="flex items-center gap-4">
             <ShieldAlert size={32} className="text-red-500" />
-            <span className="text-2xl font-black italic uppercase tracking-tighter">ALSEC DEFENSE_SYSTEMS</span>
+            <span className="text-2xl font-black italic uppercase tracking-tighter">Keisar DEFENSE_SYSTEMS</span>
           </div>
           <p className="text-slate-600 font-bold italic text-[10px] uppercase tracking-widest max-w-sm leading-relaxed">
             Professional security integration and alert systems for high-end residential and commercial assets.

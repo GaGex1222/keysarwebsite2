@@ -75,7 +75,7 @@ export default function SharedBuildingIntercom() {
               לא חולמים. <br /><span className="text-cyan-500">משדרגים.</span>
             </h2>
             <p className="text-slate-400 text-lg md:text-xl italic leading-relaxed">
-              יש לכם תשתית ישנה בבניין? מעולה. אנחנו לא צריכים לחפור קירות. טכנאי אלסק יודעים להלביש את המערכות החדשניות ביותר על תשתית קיימת – מה שחוסך זמן יקר ועלויות התקנה משמעותיות.
+              יש לכם תשתית ישנה בבניין? מעולה. אנחנו לא צריכים לחפור קירות. טכנאי קיסר יודעים להלביש את המערכות החדשניות ביותר על תשתית קיימת – מה שחוסך זמן יקר ועלויות התקנה משמעותיות.
             </p>
             <div className="flex items-center gap-4 p-6 border border-white/5 rounded-3xl bg-white/[0.02]">
               <TrendingUp className="text-cyan-500 w-10 h-10" />
@@ -161,7 +161,7 @@ export default function SharedBuildingIntercom() {
         {/* --- SECTION: SERVICE AREA & CLOSING --- */}
         <section className="space-y-20">
           <div className="text-center space-y-6">
-            <h2 className="text-4xl md:text-7xl font-black italic uppercase">אלסק בפריסה <span className="text-cyan-500">ארצית.</span></h2>
+            <h2 className="text-4xl md:text-7xl font-black italic uppercase">קיסר בפריסה <span className="text-cyan-500">ארצית.</span></h2>
             <p className="text-slate-400 italic font-bold">מגיעים לכל נקודה בישראל עם שירות ללא פשרות.</p>
           </div>
 
@@ -194,7 +194,7 @@ export default function SharedBuildingIntercom() {
       <footer className="py-20 border-t border-white/5 text-center">
         <div className="flex items-center justify-center gap-4 mb-8">
           <Building className="text-cyan-500" />
-          <span className="text-2xl font-black italic uppercase">ALSEC SHARED_BUILDINGS</span>
+          <span className="text-2xl font-black italic uppercase">Keisar SHARED_BUILDINGS</span>
         </div>
         <p className="text-slate-600 font-bold italic tracking-widest text-xs uppercase">
           Providing high-end security infrastructure across all sectors.

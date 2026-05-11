@@ -50,7 +50,7 @@ export default function SecurityCablesPage() {
         </motion.h1>
 
         <p className="max-w-3xl mx-auto text-slate-400 text-xl md:text-2xl font-light italic leading-relaxed">
-          הכבל הוא קו החיים של המערכת. פתרונות התשתית של אלסק מבטיחים חיבור יציב, מאובטח ונטול הפרעות בין המצלמה למרכז הבקרה.
+          הכבל הוא קו החיים של המערכת. פתרונות התשתית של קיסר מבטיחים חיבור יציב, מאובטח ונטול הפרעות בין המצלמה למרכז הבקרה.
         </p>
       </header>
 
@@ -201,7 +201,7 @@ export default function SecurityCablesPage() {
         <div className="flex flex-col items-center gap-4">
           <div className="flex items-center gap-4">
             <Server className="text-cyan-500" />
-            <span className="text-2xl font-black italic uppercase tracking-tighter">ALSEC INFRASTRUCTURE</span>
+            <span className="text-2xl font-black italic uppercase tracking-tighter">Keisar INFRASTRUCTURE</span>
           </div>
           <p className="text-slate-600 font-bold italic text-[10px] uppercase tracking-widest max-w-xs leading-relaxed">
             Leading the field of high-end surveillance cabling and digital signal stability.

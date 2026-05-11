@@ -181,7 +181,7 @@ export default function BusinessSecurityPage() {
           <h2 className="text-4xl font-[1000] italic mb-12 text-center uppercase">Security_FAQ</h2>
           <div className="space-y-6">
             {[
-              { q: "כמה עולות מצלמות אבטחה?", a: "המחיר משתנה, אך ב'אלסק' ניתן למצוא סטים החל מ-2,490 ש\"ח הכוללים 4 מצלמות, DVR, חיווט והתקנה מלאה." },
+              { q: "כמה עולות מצלמות אבטחה?", a: "המחיר משתנה, אך ב'קיסר' ניתן למצוא סטים החל מ-2,490 ש\"ח הכוללים 4 מצלמות, DVR, חיווט והתקנה מלאה." },
               { q: "איך למקם את המצלמות?", a: "זה הפרמטר הקריטי ביותר. מומלץ להתקין בכניסות, יציאות, אזור קופה, מחסנים (בכל מעבר) ובנקודות רגישות בעסק." },
               { q: "האם מומלץ לקנות מצלמות IP אלחוטיות?", a: "זה תלוי באופי העסק. למקומות ללא תשתית זה פתרון טוב, אך לעסק שדורש אמינות 24/7 אנו ממליצים על מערכת קווית." }
             ].map((faq, i) => (
@@ -202,7 +202,7 @@ export default function BusinessSecurityPage() {
            <hardDrive className="text-cyan-500" />
         </div>
         <p className="text-[10px] font-black tracking-[0.6em] uppercase italic">
-          Alsec // Business Security Standards // 2026
+          Keisar // Business Security Standards // 2026
         </p>
       </footer>
     </div>

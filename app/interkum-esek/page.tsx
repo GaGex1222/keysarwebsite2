@@ -84,7 +84,7 @@ export default function IntercomBusinessPage() {
         </p>
 
         <button className="bg-white/5 border border-white/10 hover:border-cyan-500/50 px-10 py-4 rounded-2xl font-black italic text-xl transition-all group">
-          <span className="group-hover:text-cyan-400 transition-colors">גלה את פתרונות ALSEC</span>
+          <span className="group-hover:text-cyan-400 transition-colors">גלה את פתרונות Keisar</span>
         </button>
       </header>
 
@@ -225,7 +225,7 @@ export default function IntercomBusinessPage() {
               AL
             </div>
             <div className="flex flex-col text-right">
-              <span className="text-xl font-black italic uppercase leading-none">ALSEC SYSTEMS</span>
+              <span className="text-xl font-black italic uppercase leading-none">Keisar SYSTEMS</span>
               <span className="text-[8px] text-slate-500 font-bold tracking-[0.4em]">SECURITY_INFRASTRUCTURE</span>
             </div>
           </div>

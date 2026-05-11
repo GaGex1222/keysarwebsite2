@@ -104,7 +104,7 @@ export default function CommunicationCabinetPage() {
                 ארון תקשורת לבית הוא המקום שבו כל הכבלים הופכים למערכת אחת חכמה. אינטרנט, מצלמות, אזעקה וחשמל חכם – הכל מסונכרן במקום אחד.
               </p>
               <div className="p-6 bg-white/[0.03] border-r-2 border-cyan-500 rounded-xl">
-                <p className="text-white font-bold">פתרונות ALSEC:</p>
+                <p className="text-white font-bold">פתרונות Keisar:</p>
                 תכנון הנדסי מדויק המונע הפרעות אלקטרומגנטיות ומבטיח מהירות מקסימלית לכל נקודה בבית.
               </div>
             </div>
@@ -133,7 +133,7 @@ export default function CommunicationCabinetPage() {
           </div>
         </motion.section>
 
-        {/* Section: The ALSEC Quality (AESTHETIC RE-DESIGN) */}
+        {/* Section: The Keisar Quality (AESTHETIC RE-DESIGN) */}
         <section className="relative py-24">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(6,182,212,0.08),transparent_70%)]" />
 
@@ -238,7 +238,7 @@ export default function CommunicationCabinetPage() {
           </div>
 
           <div className="text-[10px] text-slate-700 font-mono text-center md:text-left">
-            &copy; ALSEC SOLUTIONS & KEISAR ENG. <br /> 
+            &copy; Keisar SOLUTIONS & KEISAR ENG. <br /> 
             ALL SYSTEMS OPERATIONAL
           </div>
         </div>

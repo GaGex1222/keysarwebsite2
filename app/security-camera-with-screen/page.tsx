@@ -180,7 +180,7 @@ export default function SecurityWithMonitorPage() {
       <section className="py-32 text-center">
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="text-5xl font-[1000] italic mb-8 italic">השקעה חכמה לשקט נפשי ארוך טווח</h2>
-          <p className="text-xl text-slate-400 italic mb-12">צוות אלסק מציע פתרונות מותאמים אישית, התקנה מקצועית ושירות מקיף לכל אורך הדרך.</p>
+          <p className="text-xl text-slate-400 italic mb-12">צוות קיסר מציע פתרונות מותאמים אישית, התקנה מקצועית ושירות מקיף לכל אורך הדרך.</p>
           <div className="flex flex-col md:flex-row gap-6 justify-center">
             <button className="bg-cyan-500 text-black px-12 py-5 rounded-2xl font-[1000] text-xl italic shadow-[0_10px_40px_rgba(6,182,212,0.3)] hover:scale-105 transition-transform">
               לקבלת הצעת מחיר אישית
@@ -195,7 +195,7 @@ export default function SecurityWithMonitorPage() {
 
       <footer className="py-12 border-t border-white/5 text-center">
         <p className="text-[10px] font-black tracking-[0.8em] uppercase italic opacity-30">
-          ALSEC SECURITY // MONITOR_INTEGRATED_SYSTEM // 2026
+          Keisar SECURITY // MONITOR_INTEGRATED_SYSTEM // 2026
         </p>
       </footer>
     </div>

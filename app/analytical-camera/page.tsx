@@ -190,7 +190,7 @@ export default function AnalyticalCamerasPage() {
             </button>
           </div>
           <p className="mt-8 text-[10px] font-black tracking-[1em] uppercase italic text-slate-700">
-            ALSEC_ANALYTICS // AI_ENGINE_2026
+            Keisar_ANALYTICS // AI_ENGINE_2026
           </p>
         </section>
 

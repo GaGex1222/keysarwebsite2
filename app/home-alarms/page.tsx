@@ -179,7 +179,7 @@ export default function HomeAlarmInstallation() {
               <div className="absolute top-0 right-0 p-8 opacity-20"><Info size={80}/></div>
               <h3 className="text-3xl font-[1000] italic mb-6 uppercase text-blue-500">התקנה מקצועית</h3>
               <p className="text-slate-300 italic mb-6 text-sm leading-relaxed">
-                טכנאי מוסמך של אלסק מבצע את כל החיווט, התכנות וההדרכה. מבטיח שהמערכת עובדת ב-100% דיוק ושלמות ללא תקלות עתידיות.
+                טכנאי מוסמך של קיסר מבצע את כל החיווט, התכנות וההדרכה. מבטיח שהמערכת עובדת ב-100% דיוק ושלמות ללא תקלות עתידיות.
               </p>
               <div className="flex items-center gap-2 text-blue-400 font-black italic">
                  <ShieldCheck size={20} /> אחריות מלאה על הציוד והעבודה
@@ -192,12 +192,12 @@ export default function HomeAlarmInstallation() {
           <div className="relative z-10">
             <h2 className="text-5xl md:text-7xl font-[1000] italic mb-8 uppercase leading-none italic">מוכנים לאבטח את הבית?</h2>
             <p className="text-xl font-bold italic mb-12 max-w-2xl mx-auto italic leading-tight">
-              צוות אלסק מחכה לייעוץ לכם ולהתאים לכם את מערכת האזעקה האידיאלית שתגן על היקר לכם מכל. אל תחכו למקרה הבא.
+              צוות קיסר מחכה לייעוץ לכם ולהתאים לכם את מערכת האזעקה האידיאלית שתגן על היקר לכם מכל. אל תחכו למקרה הבא.
             </p>
             <div className="flex flex-col md:flex-row items-center justify-center gap-6">
               <button className="bg-black text-white px-16 py-6 rounded-2xl font-[1000] italic text-2xl uppercase hover:scale-105 transition-transform flex items-center gap-4">
                 <Zap size={24} />
-                קבלו הצעת מחיר מאלסק
+                קבלו הצעת מחיר מקיסר
               </button>
             </div>
           </div>
@@ -207,7 +207,7 @@ export default function HomeAlarmInstallation() {
 
       <footer className="py-12 border-t border-white/5 text-center">
         <p className="text-[10px] font-black tracking-[1em] uppercase italic text-slate-700 italic">
-          ALSEC_SECURITY // SMART_ALARM_INSTALLATION // 2026
+          Keisar_SECURITY // SMART_ALARM_INSTALLATION // 2026
         </p>
       </footer>
     </div>

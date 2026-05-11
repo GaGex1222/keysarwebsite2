@@ -169,7 +169,7 @@ export default function HomeSecurityPage() {
         <div className="absolute inset-0 bg-cyan-500/5 -skew-y-3" />
         <div className="relative z-10 max-w-4xl mx-auto px-6">
           <h2 className="text-5xl font-[1000] italic mb-8">אל תתפשרו על <span className="text-cyan-500">הביטחון שלכם.</span></h2>
-          <p className="text-xl text-slate-400 italic mb-12">צרו קשר עם מומחי 'אלסק' להתקנה מקצועית ושקט נפשי אמיתי.</p>
+          <p className="text-xl text-slate-400 italic mb-12">צרו קשר עם מומחי 'קיסר' להתקנה מקצועית ושקט נפשי אמיתי.</p>
           <motion.button 
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -182,7 +182,7 @@ export default function HomeSecurityPage() {
 
       <footer className="py-12 text-center text-slate-600 border-t border-white/5">
         <p className="text-[10px] font-black tracking-[0.6em] uppercase italic">
-          Alsec Home Security // Advanced_Monitoring_System // 2026
+          Keisar Home Security // Advanced_Monitoring_System // 2026
         </p>
       </footer>
     </div>

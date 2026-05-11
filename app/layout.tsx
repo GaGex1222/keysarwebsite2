@@ -14,14 +14,13 @@ const heebo = Heebo({
   variable: "--font-heebo",
 });
 
-// --- DATA STRUCTURE UPDATED ---
 const menuItems = [
   {
     id: 'cameras',
     label: 'מצלמות אבטחה',
-    href: "/outside-camera", // לינק ברירת מחדל
+    href: "/outside-camera",
     children: [
-      { title: "מחירון מתקין", href: "/installation-guide" },
+      { title: "מחירון מתקין", href: "/mehiron-matkin" },
       { title: "מצלמות אבטחה לעסק", href: "/outside-camera" },
       { title: "מצלמה לבית", href: "/home-camera" },
       { title: "מכשירי DVR", href: "/dvr-camera" },
@@ -29,7 +28,7 @@ const menuItems = [
       { title: "מצלמה עם מסך", href: "/security-camera-with-screen" },
       { title: "מצלמות לחצר", href: "/camera-for-yard" },
       { title: "מצלמה אלחוטית", href: "/wifi-camera" },
-      { title: "מצלמה אנלוגית", href: "/hd-camera" },
+      { title: "מצלמה אנלוגית", href: "/analogical-camera" },
       { title: "שירות התקנה", href: "/installation-guide" },
       { title: "מצלמות אנליטיקה", href: "/analytical-camera" },
     ]
@@ -41,7 +40,7 @@ const menuItems = [
     children: [
       { title: "איך לבחור מערכת אזעקה?", href: "/how-to-choose-alarm" },
       { title: "אזעקות לבית", href: "/home-alarms" },
-      { title: "טכנאי אזעקות לבית", href: "/alarm-technician" },
+      { title: "טכנאי אזעקות לבית", href: "/technai-azakot-labait" },
     ]
   },
   {
@@ -49,11 +48,11 @@ const menuItems = [
     label: 'אינטרקום',
     href: "/intercom-for-apartment",
     children: [
-      { title: "מערכת אינטרקום לעסק", href: "/intercom-for-business" },
-      { title: "קודן לבית", href: "/intercom-coder" },
-      { title: "אינטרקום לבניין משותף", href: "/intercom-for-building" },
-      { title: "אינטרקום לדירה", href: "/intercom-for-apartment" },
-      { title: "אינטרקום עם מסך", href: "/intercom-with-screen" },
+      { title: "מערכת אינטרקום לעסק", href: "/interkum-esek" },
+      { title: "קודן לבית", href: "/codan-labait" },
+      { title: "אינטרקום לבניין משותף", href: "/interkum-building" },
+      { title: "אינטרקום לדירה", href: "/interkum-dira" },
+      { title: "אינטרקום עם מסך", href: "/interkum-masach" },
     ]
   },
   {
@@ -61,25 +60,21 @@ const menuItems = [
     label: 'תקשורת',
     href: "/comm-technician",
     children: [
-      { title: "ארון תקשורת לבית", href: "/comm-closet" },
-      { title: "טכנאי מערכות תקשורת", href: "/comm-technician" },
+      { title: "ארון תקשורת לבית", href: "/aron-tikshoret-labait" },
+      { title: "טכנאי מערכות תקשורת", href: "/marachot-tikshoret" },
     ]
   },
   {
     id: 'shelter',
     label: 'אינטרנט במקלט',
-    href: "/internet-in-shelter", // לינק ישיר ללא דרופדאון
+    href: "/internet-miklat",
     children: []
   },
   {
     id: 'areas',
     label: 'אזורי שירות',
     href: "/services-area",
-    children: [
-      { title: "מחוז מרכז", href: "/services-area" }, // ניתן להוסיף דפים ייעודיים בהמשך
-      { title: "מחוז צפון", href: "/services-area" },
-      { title: "מחוז דרום", href: "/services-area" },
-    ]
+    children: [] // Added empty array here
   },
 ];
 
@@ -95,17 +90,14 @@ export default function RootLayout({
     <html lang="he" dir="rtl">
       <body className={`${heebo.className} antialiased bg-[#1c1f26] text-white overflow-x-hidden selection:bg-cyan-500/30 p-0 m-0`}>
         
-        {/* --- BACKGROUND DECORATION --- */}
         <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
           <div className="absolute inset-0 opacity-[0.05] bg-[radial-gradient(#94a3b8_1px,transparent_1px)] [background-size:30px_30px]" />
           <div className="absolute top-[-10%] right-[-5%] w-[700px] h-[700px] bg-cyan-600/10 blur-[150px] rounded-full" />
         </div>
 
-        {/* --- NAVBAR --- */}
         <nav className="fixed top-0 left-0 w-full z-[100] border-b border-white/5 bg-[#1c1f26]/95 backdrop-blur-xl">
           <div className="max-w-7xl mx-auto px-4 h-20 flex justify-between items-center">
             
-            {/* Logo */}
             <a href="/" className="flex items-center gap-3 shrink-0">
               <div className="w-10 h-10 bg-cyan-500 rounded-xl flex items-center justify-center text-[#1c1f26] shadow-[0_0_15px_rgba(6,182,212,0.3)]">
                 <Shield size={22} fill="currentColor" />
@@ -119,7 +111,7 @@ export default function RootLayout({
                 <div 
                   key={item.id} 
                   className="relative h-full flex items-center" 
-                  onMouseEnter={() => item.children.length > 0 && setActiveMenu(item.id)}
+                  onMouseEnter={() => (item.children?.length ?? 0) > 0 && setActiveMenu(item.id)}
                   onMouseLeave={() => setActiveMenu(null)}
                 >
                   <a 
@@ -127,21 +119,20 @@ export default function RootLayout({
                     className={`flex items-center gap-1.5 font-bold text-[14px] italic transition-colors hover:text-cyan-400 ${activeMenu === item.id ? 'text-cyan-400' : 'text-slate-200'}`}
                   >
                     {item.label}
-                    {item.children.length > 0 && (
+                    {(item.children?.length ?? 0) > 0 && (
                       <ChevronDown size={14} className={activeMenu === item.id ? 'rotate-180 transition-transform' : 'transition-transform'} />
                     )}
                   </a>
 
-                  {/* Desktop Mega-Dropdown */}
                   <AnimatePresence>
-                    {activeMenu === item.id && item.children.length > 0 && (
+                    {activeMenu === item.id && (item.children?.length ?? 0) > 0 && (
                       <motion.div 
                         initial={{ opacity: 0, y: 10 }} 
                         animate={{ opacity: 1, y: 0 }} 
                         exit={{ opacity: 0, y: 10 }}
                         className="absolute top-full right-0 w-[240px] bg-[#2a2f3a] border border-white/10 shadow-2xl rounded-b-xl overflow-hidden py-2"
                       >
-                        {item.children.map((child, idx) => (
+                        {item.children?.map((child, idx) => (
                           <a 
                             key={idx} 
                             href={child.href} 
@@ -158,7 +149,6 @@ export default function RootLayout({
               ))}
             </div>
 
-            {/* Action Buttons */}
             <div className="flex items-center gap-3">
               <a href="tel:0559705013" className="hidden sm:flex bg-cyan-500 text-black px-4 py-2 rounded-lg font-black text-sm italic hover:bg-white transition-colors items-center gap-2">
                 <Phone size={14} />
@@ -174,7 +164,6 @@ export default function RootLayout({
           </div>
         </nav>
 
-        {/* --- MOBILE FULLSCREEN MENU --- */}
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div 
@@ -194,15 +183,15 @@ export default function RootLayout({
                   <div key={item.id} className="border-b border-white/5 pb-4">
                     <a 
                       href={item.href}
-                      onClick={() => item.children.length === 0 && setIsMobileMenuOpen(false)}
+                      onClick={() => (item.children?.length ?? 0) === 0 && setIsMobileMenuOpen(false)}
                       className="text-xl font-black italic flex justify-between items-center text-white"
                     >
                       {item.label}
-                      {item.children.length > 0 && <ChevronDown size={18} className="text-cyan-500" />}
+                      {(item.children?.length ?? 0) > 0 && <ChevronDown size={18} className="text-cyan-400" />}
                     </a>
-                    {item.children.length > 0 && (
+                    {(item.children?.length ?? 0) > 0 && (
                       <div className="mt-4 mr-4 grid grid-cols-1 gap-3">
-                        {item.children.map((child, i) => (
+                        {item.children?.map((child, i) => (
                           <a 
                             key={i} 
                             href={child.href} 
@@ -232,12 +221,10 @@ export default function RootLayout({
           )}
         </AnimatePresence>
 
-        {/* --- MAIN CONTENT --- */}
         <div className="relative z-10 pt-20"> 
           {children}
         </div>
 
-        {/* --- FOOTER --- */}
         <footer className="py-20 text-center border-t border-white/5 bg-black/20 mt-20 relative z-10">
           <div className="flex justify-center gap-6 mb-8 text-slate-500">
               <Shield size={24} />

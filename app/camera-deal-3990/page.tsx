@@ -59,7 +59,7 @@ export default function PromoPackagePage() {
             className="px-4 py-1 bg-cyan-500/10 border border-cyan-500/20 rounded-full flex items-center gap-2"
           >
             <ShieldCheck size={14} className="text-cyan-400" />
-            <span className="text-cyan-400 text-xs font-black tracking-widest uppercase italic">Limited_Time_Offer // Alsec_Elite</span>
+            <span className="text-cyan-400 text-xs font-black tracking-widest uppercase italic">Limited_Time_Offer // Keisar_Elite</span>
           </motion.div>
         </div>
 
@@ -160,7 +160,7 @@ export default function PromoPackagePage() {
           <div className="relative z-10">
             <h2 className="text-4xl md:text-6xl font-[1000] italic mb-8">מוכנים לאבטחה ברמה אחרת?</h2>
             <p className="text-xl text-slate-400 italic mb-12 max-w-2xl mx-auto">
-              הצוות של אלסק מחכה להפוך את הבית או העסק שלך למבצר טכנולוגי. 
+              הצוות של קיסר מחכה להפוך את הבית או העסק שלך למבצר טכנולוגי. 
               התקנה מהירה, מקצועית ושירות ללא פשרות.
             </p>
             
@@ -176,7 +176,7 @@ export default function PromoPackagePage() {
             
             <div className="mt-12 flex justify-center items-center gap-8 text-slate-500 opacity-50">
                <Layers size={20} />
-               <span className="text-[10px] font-black tracking-[0.4em] uppercase italic">Alsec_Standard_Security_2026</span>
+               <span className="text-[10px] font-black tracking-[0.4em] uppercase italic">Keisar_Standard_Security_2026</span>
                <Layers size={20} />
             </div>
           </div>
@@ -187,7 +187,7 @@ export default function PromoPackagePage() {
       {/* Footer Branding */}
       <footer className="py-10 text-center border-t border-white/5">
         <p className="text-[9px] font-black tracking-[1em] uppercase italic text-slate-600">
-          Security // Innovation // ALSEC_SYSTEMS
+          Security // Innovation // Keisar_SYSTEMS
         </p>
       </footer>
     </div>

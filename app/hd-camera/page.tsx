@@ -127,7 +127,7 @@ export default function HDUpgradePage() {
             <div className="md:w-1/2 space-y-6">
                <h2 className="text-4xl font-[1000] italic uppercase italic leading-none">ההבדל <br/>שמשנה הכל</h2>
                <p className="text-slate-400 italic">
-                 מצלמה סטנדרטית מקליטה ב-0.4MP בלבד. המערכות של אלסק מקליטות עד 29MP. זה ההבדל בין "כתם מטושטש" לבין זיהוי פנים ולוחית רישוי שניתן להשתמש בו בבית משפט.
+                 מצלמה סטנדרטית מקליטה ב-0.4MP בלבד. המערכות של קיסר מקליטות עד 29MP. זה ההבדל בין "כתם מטושטש" לבין זיהוי פנים ולוחית רישוי שניתן להשתמש בו בבית משפט.
                </p>
                <div className="space-y-4">
                  <div className="flex items-center gap-4">
@@ -181,7 +181,7 @@ export default function HDUpgradePage() {
           <div className="relative z-10">
             <h2 className="text-5xl md:text-7xl font-[1000] italic mb-8 uppercase italic leading-none">עוזבים את האנלוג מאחור</h2>
             <p className="text-xl font-bold italic mb-12 max-w-2xl mx-auto italic">
-              זה הזמן למצוא את הדרך מחוץ לסבך האנלוגי לעבר עולם ה-HD. שפרו את היעילות העסקית והגבירו את הביטחון עם אלסק.
+              זה הזמן למצוא את הדרך מחוץ לסבך האנלוגי לעבר עולם ה-HD. שפרו את היעילות העסקית והגבירו את הביטחון עם קיסר.
             </p>
             <div className="flex flex-col md:flex-row items-center justify-center gap-6">
               <button className="bg-black text-white px-12 py-5 rounded-2xl font-[1000] italic text-xl flex items-center justify-center gap-3 hover:scale-105 transition-transform group">
@@ -196,7 +196,7 @@ export default function HDUpgradePage() {
       
       <footer className="py-12 border-t border-white/5 text-center">
         <p className="text-[10px] font-black tracking-[1em] uppercase italic text-slate-600 italic">
-          ALSEC_EVOLUTION // HD_SYSTEMS // 2026
+          Keisar_EVOLUTION // HD_SYSTEMS // 2026
         </p>
       </footer>
     </div>

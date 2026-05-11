@@ -117,7 +117,7 @@ export default function WifiSecurityPage() {
           {[
             { q: "מה היתרון המרכזי של Wi-Fi על פני מצלמה רגילה?", a: "הגמישות בהתקנה. ללא כבלי תקשורת כבדים, ניתן להתקין את המצלמה בכל מקום במהירות ובצורה נקייה." },
             { q: "האם המצלמה תמשיך לעבוד אם האינטרנט יתנתק?", a: "רוב המצלמות החדשניות כוללות כרטיס זיכרון פנימי שממשיך להקליט מקומית גם ללא רשת, ומסנכרן את המידע לענן כשהחיבור חוזר." },
-            { q: "איך מוודאים שהקליטה תהיה חזקה ויציבה?", a: "המתקינים של אלסק מבצעים בדיקת 'עוצמת סיגנל' ומתקינים במידת הצורך מגדילי טווח (Range Extenders) להבטחת שידור חלק." },
+            { q: "איך מוודאים שהקליטה תהיה חזקה ויציבה?", a: "המתקינים של קיסר מבצעים בדיקת 'עוצמת סיגנל' ומתקינים במידת הצורך מגדילי טווח (Range Extenders) להבטחת שידור חלק." },
             { q: "האם מצלמות אלחוטיות בטוחות מפני פריצות?", a: "המערכות שלנו משתמשות בפרוטוקולי הצפנה מתקדמים (WPA3) ואימות דו-שלבי להגנה מקסימלית על הפרטיות שלכם." }
           ].map((item, i) => (
             <div key={i} className="p-6 bg-white/5 rounded-2xl border border-white/10 group hover:border-cyan-500 transition-all">
@@ -136,9 +136,9 @@ export default function WifiSecurityPage() {
         <div className="max-w-5xl mx-auto p-12 bg-cyan-500 rounded-[4rem] text-black text-center relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10" />
           <div className="relative z-10">
-            <h2 className="text-5xl font-[1000] italic mb-6">הצטרפו לעידן החדש של אלסק</h2>
+            <h2 className="text-5xl font-[1000] italic mb-6">הצטרפו לעידן החדש של קיסר</h2>
             <p className="text-xl font-bold italic mb-10 max-w-2xl mx-auto leading-tight">
-              אלסק מציעה לכם טכנולוגיה אלחוטית מתקדמת, התקנה מקצועית וליווי אישי. בואו נהפוך את הנכס שלכם לבטוח וחכם יותר.
+              קיסר מציעה לכם טכנולוגיה אלחוטית מתקדמת, התקנה מקצועית וליווי אישי. בואו נהפוך את הנכס שלכם לבטוח וחכם יותר.
             </p>
             <div className="flex flex-col md:flex-row gap-4 justify-center">
               <button className="bg-black text-white px-10 py-4 rounded-2xl font-black italic text-lg hover:scale-105 transition-transform flex items-center justify-center gap-2">
@@ -154,7 +154,7 @@ export default function WifiSecurityPage() {
 
       <footer className="py-12 border-t border-white/5 text-center">
         <p className="text-[10px] font-black tracking-[0.8em] uppercase italic opacity-30">
-          ALSEC SECURITY // WIRELESS_REVOLUTION // 2026
+          Keisar SECURITY // WIRELESS_REVOLUTION // 2026
         </p>
       </footer>
     </div>
