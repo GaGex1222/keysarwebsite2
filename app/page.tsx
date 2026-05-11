@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Zap, Video, Flame, UserCheck, Share2, Cpu, 
   Phone, Mail, Activity, ChevronLeft, Eye,
-  ShieldCheck, Clock, Award, Target, ZapOff
+  ShieldCheck, Clock, Award, Target, ZapOff, Hexagon
 } from 'lucide-react';
 
 export default function KeisarProWebsite() {
@@ -41,41 +41,74 @@ export default function KeisarProWebsite() {
 
       {/* --- HERO SECTION --- */}
       <header className="relative min-h-screen flex items-center justify-center px-4 overflow-hidden text-center">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-cyan-500/10 via-transparent to-transparent" />
+        {/* Animated Background Orbs */}
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/10 blur-[120px] rounded-full animate-pulse" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/10 blur-[120px] rounded-full animate-pulse" style={{ animationDelay: '2s' }} />
         
-        <motion.div style={{ x: mousePos.x * 20, y: mousePos.y * 20 }} className="relative z-10 w-full max-w-6xl mx-auto">
+        <motion.div style={{ x: mousePos.x * 20, y: mousePos.y * 20 }} className="relative z-10 w-full max-w-6xl mx-auto flex flex-col items-center">
+          
+          {/* --- LOGO ARCHITECTURE --- */}
+<div className="relative mb-12 group">
+  {/* HUD Animated Visuals */}
+  <motion.div 
+    animate={{ rotate: 360 }}
+    transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+    className="absolute -inset-12 border border-cyan-500/10 rounded-full"
+  />
+  <motion.div 
+    animate={{ rotate: -360 }}
+    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+    className="absolute -inset-8 border border-cyan-500/20 rounded-[3rem] border-dashed"
+  />
+  
+  {/* Image Container */}
+            <div className="relative w-40 h-40 sm:w-56 sm:h-56 bg-[#1a1d23] rounded-[2.5rem] p-1 shadow-2xl shadow-cyan-500/20 overflow-hidden border border-white/10 group">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10" />
+              
+              {/* REPLACE THE SRC BELOW WITH YOUR LOGO/IMAGE PATH */}
+              <img 
+                src="/keisar_systems-removebg-preview.png" 
+                alt="Keisar Systems Logo" 
+                className="w-full h-full object-cover rounded-[2.3rem] transition-transform duration-700 group-hover:scale-110"
+              />
+
+              {/* Decorative HUD Elements on Image */}
+              <div className="absolute top-4 right-4 z-20 flex gap-1">
+                <div className="w-1 h-1 bg-cyan-500 rounded-full animate-ping" />
+                <div className="w-1 h-1 bg-cyan-500 rounded-full opacity-50" />
+              </div>
+            </div>
+
+            {/* Outer Corner Brackets */}
+            <div className="absolute -top-4 -left-4 w-8 h-8 border-t-2 border-l-2 border-cyan-500/40 rounded-tl-xl" />
+            <div className="absolute -bottom-4 -right-4 w-8 h-8 border-b-2 border-r-2 border-cyan-500/40 rounded-br-xl" />
+          </div>
+
           <div className="text-cyan-500 mb-6 flex justify-center items-center gap-3">
-            <div className="hidden sm:block h-[1px] w-12 bg-cyan-500/30" />
-            <Eye size={20} className="animate-pulse" />
-            <span className="text-[10px] sm:text-xs font-black tracking-[0.3em] sm:tracking-[0.4em] uppercase italic">System_Integrity_Verified</span>
-            <div className="hidden sm:block h-[1px] w-12 bg-cyan-500/30" />
+            <div className="hidden sm:block h-[1px] w-8 bg-cyan-500/30" />
+            <span className="text-[10px] sm:text-xs font-black tracking-[0.4em] uppercase italic">Keisar_Systems_Intelligence</span>
+            <div className="hidden sm:block h-[1px] w-8 bg-cyan-500/30" />
           </div>
           
-          <h1 className="text-5xl sm:text-7xl md:text-[130px] font-[1000] italic leading-[0.9] tracking-tighter uppercase mb-8">
+          <h1 className="text-6xl sm:text-7xl md:text-[140px] font-[1000] italic leading-[0.8] tracking-tighter uppercase mb-8">
             קיסר <span className="text-transparent" style={{ WebkitTextStroke: '1.5px #06b6d4' }}>מערכות.</span>
           </h1>
           
-          <p className="text-lg sm:text-2xl md:text-3xl text-slate-300 max-w-3xl mx-auto italic font-light leading-relaxed border-r-4 border-cyan-500 pr-4 sm:pr-6 text-right mb-12 px-4 sm:px-0">
-            תכנון, התקנה ותחזוקה של מערכות אבטחה חכמות, תקשורת מתקדמת ופתרונות מתח נמוך.
+          <p className="text-lg sm:text-2xl md:text-3xl text-slate-300 max-w-3xl mx-auto italic font-light leading-relaxed border-r-4 border-cyan-500 pr-4 sm:pr-6 text-right mb-12">
+            הדור הבא של אבטחה וטכנולוגיה. תכנון והקמת מערכות מתח נמוך ומיגון חכם לעסקים ולפרטיים.
           </p>
 
-          <div className="flex flex-col items-center gap-8">
-            <button 
-              onClick={scrollToContact}
-              className="w-full max-w-xs sm:w-auto bg-cyan-500 text-black px-12 py-5 rounded-2xl font-black text-xl sm:text-2xl italic shadow-2xl shadow-cyan-500/40 hover:bg-white transition-all transform hover:-translate-y-1 active:scale-95"
-            >
-              צרו קשר עכשיו
-            </button>
-            <div className="flex items-center gap-3 bg-white/5 border border-white/10 px-6 py-3 rounded-full backdrop-blur-md">
-              <Activity size={16} className="text-cyan-500 animate-pulse" />
-              <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">Live_Network_Active</span>
-            </div>
-          </div>
+          <button 
+            onClick={scrollToContact}
+            className="w-full max-w-xs sm:w-auto bg-cyan-500 text-black px-16 py-6 rounded-2xl font-black text-2xl italic shadow-[0_20px_50px_rgba(6,182,212,0.3)] hover:bg-white hover:shadow-white/20 transition-all transform hover:-translate-y-2 active:scale-95 z-20"
+          >
+            בואו נתחיל
+          </button>
         </motion.div>
       </header>
 
       {/* --- STATS STRIP --- */}
-      <section className="py-16 bg-black/50 border-y border-white/5 backdrop-blur-sm">
+      <section className="py-16 bg-black/50 border-y border-white/5 backdrop-blur-sm relative z-10">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 text-center">
           {[
             { label: 'INSTALLED_UNITS', val: '4,800+', icon: <ShieldCheck size={14}/> },
@@ -96,7 +129,7 @@ export default function KeisarProWebsite() {
       </section>
 
       {/* --- SERVICES SECTION --- */}
-      <section className="py-24 px-6 max-w-7xl mx-auto">
+      <section className="py-24 px-6 max-w-7xl mx-auto relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-16 gap-8 text-center md:text-right">
           <h2 className="text-5xl sm:text-7xl md:text-8xl font-black italic leading-none">הפתרונות <br/><span className="text-cyan-500">שלנו.</span></h2>
           <p className="text-slate-400 max-w-sm italic font-bold border-r-2 md:border-r-0 md:border-l-2 border-cyan-500 pr-4 md:pr-0 md:pl-4">מערכות הגנה חכמות המותאמות אישית לצרכים שלך.</p>
@@ -140,7 +173,7 @@ export default function KeisarProWebsite() {
       </section>
 
       {/* --- ADVANTAGE SECTION --- */}
-      <section className="py-24 bg-white/5 border-y border-white/5 text-center">
+      <section className="py-24 bg-white/5 border-y border-white/5 text-center relative z-10">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-4xl sm:text-6xl font-black italic mb-12">למה דווקא <span className="text-cyan-500">קיסר?</span></h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -160,7 +193,7 @@ export default function KeisarProWebsite() {
       </section>
 
       {/* --- CONTACT SECTION --- */}
-      <section ref={contactRef} id="contact" className="py-24 px-6 max-w-7xl mx-auto">
+      <section ref={contactRef} id="contact" className="py-24 px-6 max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="text-center lg:text-right">
             <h2 className="text-6xl sm:text-8xl font-black italic mb-8 leading-[0.8]">מוכנים <br/><span className="text-cyan-500">לביטחון?</span></h2>
@@ -193,13 +226,13 @@ export default function KeisarProWebsite() {
             </div>
             <textarea className="w-full bg-black/40 border border-white/5 p-5 rounded-xl font-bold italic focus:border-cyan-500 transition-all outline-none text-right" rows={4} placeholder="באיזה נושא נוכל לעזור?" />
             <button className="w-full bg-cyan-500 text-black py-6 rounded-2xl font-[1000] text-xl sm:text-2xl italic shadow-xl shadow-cyan-500/20 hover:bg-white transition-all transform active:scale-95">
-              שלח פנייה למנהל
+              שלח פנייה למערכת
             </button>
           </div>
         </div>
       </section>
 
-      <footer className="py-8 border-t border-white/5 text-center px-4">
+      <footer className="py-8 border-t border-white/5 text-center px-4 relative z-10">
         <p className="text-slate-600 font-mono text-[10px] tracking-widest uppercase italic">
           © 2026 KEISAR_SYSTEMS // SECURED_BY_AI // DESIGNED_FOR_SAFETY
         </p>
