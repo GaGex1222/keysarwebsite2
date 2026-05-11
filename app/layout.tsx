@@ -46,7 +46,7 @@ const menuItems = [
   {
     id: 'intercom',
     label: 'אינטרקום',
-    href: "/intercom-for-apartment",
+    href: "/interkum-for-apartment",
     children: [
       { title: "מערכת אינטרקום לעסק", href: "/interkum-esek" },
       { title: "קודן לבית", href: "/codan-labait" },
@@ -74,7 +74,7 @@ const menuItems = [
     id: 'areas',
     label: 'אזורי שירות',
     href: "/services-area",
-    children: [] // Added empty array here
+    children: []
   },
 ];
 
@@ -85,6 +85,13 @@ export default function RootLayout({
 }) {
   const [activeMenu, setActiveMenu] = useState<string | null>(null); 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  
+  // State to track which mobile category is currently expanded
+  const [openMobileSubmenu, setOpenMobileSubmenu] = useState<string | null>(null);
+
+  const toggleMobileSubmenu = (id: string) => {
+    setOpenMobileSubmenu(openMobileSubmenu === id ? null : id);
+  };
 
   return (
     <html lang="he" dir="rtl">
@@ -179,33 +186,63 @@ export default function RootLayout({
               </div>
               
               <div className="flex-1 overflow-y-auto p-6 space-y-6 text-right">
-                {menuItems.map((item) => (
-                  <div key={item.id} className="border-b border-white/5 pb-4">
-                    <a 
-                      href={item.href}
-                      onClick={() => (item.children?.length ?? 0) === 0 && setIsMobileMenuOpen(false)}
-                      className="text-xl font-black italic flex justify-between items-center text-white"
-                    >
-                      {item.label}
-                      {(item.children?.length ?? 0) > 0 && <ChevronDown size={18} className="text-cyan-400" />}
-                    </a>
-                    {(item.children?.length ?? 0) > 0 && (
-                      <div className="mt-4 mr-4 grid grid-cols-1 gap-3">
-                        {item.children?.map((child, i) => (
-                          <a 
-                            key={i} 
-                            href={child.href} 
-                            onClick={() => setIsMobileMenuOpen(false)} 
-                            className="flex items-center gap-2 text-slate-400 font-bold hover:text-cyan-400 italic py-1"
+                {menuItems.map((item) => {
+                  const hasChildren = (item.children?.length ?? 0) > 0;
+                  const isExpanded = openMobileSubmenu === item.id;
+
+                  return (
+                    <div key={item.id} className="border-b border-white/5 pb-4">
+                      {/* Main Category Row */}
+                      <div className="flex justify-between items-center">
+                        <a 
+                          href={item.href}
+                          onClick={() => !hasChildren && setIsMobileMenuOpen(false)}
+                          className={`text-xl font-black italic text-white flex-1 ${isExpanded ? 'text-cyan-400' : ''}`}
+                        >
+                          {item.label}
+                        </a>
+                        
+                        {hasChildren && (
+                          <button 
+                            onClick={() => toggleMobileSubmenu(item.id)}
+                            className="p-2 bg-white/5 rounded-lg"
                           >
-                            <ChevronLeft size={14} className="text-cyan-500" />
-                            {child.title}
-                          </a>
-                        ))}
+                            <ChevronDown 
+                              size={20} 
+                              className={`text-cyan-400 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`} 
+                            />
+                          </button>
+                        )}
                       </div>
-                    )}
-                  </div>
-                ))}
+
+                      {/* Collapsible Children Section */}
+                      <AnimatePresence>
+                        {hasChildren && isExpanded && (
+                          <motion.div 
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: 'auto', opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            className="overflow-hidden"
+                          >
+                            <div className="mt-4 mr-4 grid grid-cols-1 gap-3">
+                              {item.children?.map((child, i) => (
+                                <a 
+                                  key={i} 
+                                  href={child.href} 
+                                  onClick={() => setIsMobileMenuOpen(false)} 
+                                  className="flex items-center gap-2 text-slate-400 font-bold hover:text-cyan-400 italic py-1"
+                                >
+                                  <ChevronLeft size={14} className="text-cyan-500" />
+                                  {child.title}
+                                </a>
+                              ))}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  );
+                })}
               </div>
 
               <div className="p-6 bg-black/40 backdrop-blur-md border-t border-white/5 space-y-4">
