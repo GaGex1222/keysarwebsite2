@@ -20,7 +20,6 @@ const menuItems = [
     label: 'מצלמות אבטחה',
     href: "/outside-camera",
     children: [
-      { title: "מחירון מתקין", href: "/mehiron-matkin" },
       { title: "מצלמות אבטחה לעסק", href: "/outside-camera" },
       { title: "מצלמה לבית", href: "/home-camera" },
       { title: "מכשירי DVR", href: "/dvr-camera" },
