@@ -49,8 +49,8 @@ export default function CommunicationCabinetPage() {
               <span className="text-[10px] text-cyan-500 font-bold tracking-[0.3em]">NET_INFRA_v3</span>
             </div>
           </div>
-          <a href="tel:0559705013" className="hidden sm:block text-cyan-400 border border-cyan-400/30 px-6 py-2 rounded-full font-black text-xs italic hover:bg-cyan-400 hover:text-black transition-all">
-            055-970-5013
+          <a href="tel:0525022222" className="hidden sm:block text-cyan-400 border border-cyan-400/30 px-6 py-2 rounded-full font-black text-xs italic hover:bg-cyan-400 hover:text-black transition-all">
+            052-502-2222
           </a>
         </div>
       </nav>
@@ -233,7 +233,7 @@ export default function CommunicationCabinetPage() {
           </div>
           
           <div className="flex flex-col md:flex-row gap-8 md:gap-16 text-slate-400 font-black italic text-lg uppercase tracking-tighter">
-            <a href="tel:0559705013" className="hover:text-cyan-500 transition-colors">055-970-5013</a>
+            <a href="tel:0525022222" className="hover:text-cyan-500 transition-colors">052-502-2222</a>
             <a href="mailto:office@keisar.co.il" className="hover:text-cyan-500 transition-colors text-sm md:text-lg">office@keisar.co.il</a>
           </div>
 

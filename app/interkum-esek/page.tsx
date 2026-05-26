@@ -230,7 +230,7 @@ export default function IntercomBusinessPage() {
             </div>
           </div>
           <div className="flex flex-col md:flex-row gap-8 text-slate-600 font-bold italic text-sm">
-            <a href="tel:0559705013" className="hover:text-cyan-500 transition-colors">055-970-5013</a>
+            <a href="tel:0525022222" className="hover:text-cyan-500 transition-colors">052-502-2222</a>
             <span>OFFICE@KEISAR.CO.IL</span>
             <span>PETAH TIKVA, ISRAEL</span>
           </div>

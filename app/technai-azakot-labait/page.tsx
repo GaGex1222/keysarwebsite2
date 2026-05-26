@@ -206,7 +206,7 @@ export default function AlarmTechnicianPage() {
           <div className="flex gap-10 text-slate-500 text-sm font-bold italic">
             <a href="#" className="hover:text-cyan-500 transition-colors">SECURITY_PLAN_2026</a>
             <span className="text-white/10">|</span>
-            <span>055-970-5013</span>
+            <span>052-502-2222</span>
           </div>
         </div>
       </footer>

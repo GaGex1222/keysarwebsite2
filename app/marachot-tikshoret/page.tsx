@@ -185,7 +185,7 @@ export default function CommunicationTechnicianPage() {
             </div>
           </div>
           <div className="flex gap-10 text-slate-500 text-sm font-bold italic">
-            <a href="tel:0559705013" className="hover:text-cyan-500 transition-colors">055-970-5013</a>
+            <a href="tel:0525022222" className="hover:text-cyan-500 transition-colors">052-502-2222</a>
             <span>OFFICE@KEISAR.CO.IL</span>
           </div>
         </div>

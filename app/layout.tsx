@@ -156,9 +156,9 @@ export default function RootLayout({
             </div>
 
             <div className="flex items-center gap-3">
-              <a href="tel:0559705013" className="hidden sm:flex bg-cyan-500 text-black px-4 py-2 rounded-lg font-black text-sm italic hover:bg-white transition-colors items-center gap-2">
+              <a href="tel:0525022222" className="hidden sm:flex bg-cyan-500 text-black px-4 py-2 rounded-lg font-black text-sm italic hover:bg-white transition-colors items-center gap-2">
                 <Phone size={14} />
-                055-970-5013
+                052-502-2222
               </a>
               <button 
                 className="lg:hidden p-2 bg-white/5 rounded-lg border border-white/10" 
@@ -249,8 +249,8 @@ export default function RootLayout({
                   <Mail size={18} />
                   <span className="text-sm font-bold">office@keisar.co.il</span>
                 </div>
-                <a href="tel:0559705013" className="block w-full bg-cyan-500 text-black text-center py-4 rounded-xl font-black italic text-lg shadow-lg shadow-cyan-500/20">
-                  התקשר לייעוץ: 055-970-5013
+                <a href="tel:0525022222" className="block w-full bg-cyan-500 text-black text-center py-4 rounded-xl font-black italic text-lg shadow-lg shadow-cyan-500/20">
+                  התקשר לייעוץ: 052-502-2222
                 </a>
               </div>
             </motion.div>

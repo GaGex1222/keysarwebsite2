@@ -71,7 +71,7 @@ export default function ShelterInternetPage() {
             ))}
           </div>
 
-          <a href="tel:0559705013" className="bg-cyan-500 text-black px-5 py-2 rounded-md font-black text-xs italic hover:bg-white transition-all shadow-[0_0_20px_rgba(6,182,212,0.4)]">
+          <a href="tel:0525022222" className="bg-cyan-500 text-black px-5 py-2 rounded-md font-black text-xs italic hover:bg-white transition-all shadow-[0_0_20px_rgba(6,182,212,0.4)]">
             CONNECT_NOW
           </a>
         </div>
@@ -265,7 +265,7 @@ export default function ShelterInternetPage() {
                    </div>
                    <div>
                       <span className="text-[10px] font-black uppercase text-slate-500 italic tracking-widest">Voice_Comm</span>
-                      <p className="text-3xl md:text-4xl font-black italic">055-970-5013</p>
+                      <p className="text-3xl md:text-4xl font-black italic">052-502-2222</p>
                    </div>
                 </div>
                 <div className="flex items-center gap-6 group">

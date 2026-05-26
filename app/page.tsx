@@ -56,7 +56,7 @@ const SLIDES = [
 // ────────────────────────────────────────────────────
 // Price calculator
 // ────────────────────────────────────────────────────
-const WHATSAPP_NUMBER = '972559705013';
+const WHATSAPP_NUMBER = '972525022222';
 
 const QUESTIONS = [
   {
@@ -304,11 +304,11 @@ function PriceDialog({ onClose }: { onClose: () => void }) {
                   שלח הצעה בוואטסאפ
                 </a>
                 <a
-                  href="tel:0559705013"
+                  href="tel:0525022222"
                   className="flex items-center justify-center gap-3 w-full py-3 rounded-2xl bg-white/5 border border-white/10 font-bold text-sm hover:border-cyan-500/30 transition-colors"
                 >
                   <span className="text-cyan-500">📞</span>
-                  055-970-5013
+                  052-502-2222
                 </a>
               </div>
 
@@ -687,7 +687,7 @@ export default function KeisarUltraModern() {
 
           <div className="flex flex-col items-center space-y-12">
             <div className="flex flex-wrap justify-center gap-12 text-lg">
-              <a href="tel:0559705013" className="flex items-center gap-3 font-[900] italic hover:text-cyan-500 transition-colors"><Phone size={22} className="text-cyan-500" /> 055-970-5013</a>
+              <a href="tel:0525022222" className="flex items-center gap-3 font-[900] italic hover:text-cyan-500 transition-colors"><Phone size={22} className="text-cyan-500" /> 052-502-2222</a>
               <a href="mailto:office@keisar.co.il" className="flex items-center gap-3 font-[900] italic hover:text-cyan-500 transition-colors"><Mail size={22} className="text-cyan-500" /> office@keisar.co.il</a>
             </div>
             <div className="w-full pt-12 border-t border-white/5 text-center">
