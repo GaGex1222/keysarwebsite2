@@ -89,6 +89,12 @@ const QUESTIONS = [
     hint: 'חוטי יציב יותר; אלחוטי גמיש יותר',
     options: ['קוויות (כבל CAT6/7)', 'אלחוטיות (WiFi)'],
   },
+  {
+    id: 'installation',
+    label: 'האם לכלול התקנה בהצעת המחיר?',
+    hint: 'ההתקנה כוללת הנחת כבלים, הגדרת מערכת ובדיקה מלאה',
+    options: ['כן – כולל התקנה מקצועית', 'לא – ציוד בלבד'],
+  },
 ];
 
 function calculatePrice(ans: Record<string, string>) {
@@ -109,11 +115,12 @@ function calculatePrice(ans: Record<string, string>) {
   };
 
   const cd = countMap[ans.count] ?? { avg: 3, perCam: 800, install: 600 };
+  const includeInstall = ans.installation !== 'לא – ציוד בלבד';
   const total =
     (cd.perCam + (locAdd[ans.location] ?? 0)) * cd.avg +
     (qualAdd[ans.quality] ?? 0) +
     (dvrAdd[ans.dvr] ?? 0) +
-    cd.install;
+    (includeInstall ? cd.install : 0);
 
   return {
     min: Math.ceil((total * 0.88) / 100) * 100,
@@ -130,6 +137,7 @@ function buildWhatsAppMsg(ans: Record<string, string>, price: { min: number; max
     `• איכות תמונה: ${ans.quality}`,
     `• מכשיר הקלטה: ${ans.dvr}`,
     `• סוג חיבור: ${ans.cable}`,
+    `• התקנה: ${ans.installation}`,
     '',
     `הצעת מחיר משוערת: ₪${price.min.toLocaleString('he-IL')} – ₪${price.max.toLocaleString('he-IL')}`,
     '',
