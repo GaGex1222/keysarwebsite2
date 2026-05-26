@@ -24,7 +24,7 @@ export default function OutdoorSecurityPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#0b0d11] text-white font-sans" dir="rtl">
+    <div className="min-h-screen bg-sky-50 text-slate-900 font-sans" dir="rtl">
       
       {/* Hero Section */}
       <section className="relative pt-32 pb-24 px-6 overflow-hidden">
@@ -34,14 +34,14 @@ export default function OutdoorSecurityPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-black uppercase mb-8">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sky-100 border border-sky-500/20 text-sky-600 text-xs font-black uppercase mb-8">
               <Shield size={14} /> OUTDOOR_SURVEILLANCE_2026
             </div>
             <h1 className="text-6xl md:text-8xl font-[1000] italic leading-none mb-8 tracking-tighter">
               החצר שלך <br/>
               <span className="text-transparent" style={{ WebkitTextStroke: '2px #06b6d4' }}>תחת שליטה</span>
             </h1>
-            <p className="text-xl md:text-2xl text-slate-400 max-w-3xl font-light italic leading-relaxed border-r-4 border-cyan-500 pr-6">
+            <p className="text-xl md:text-2xl text-slate-600 max-w-3xl font-light italic leading-relaxed border-r-4 border-sky-500 pr-6">
               מצלמות נסתרות וגלויות לחצר הן כבר לא מוצר יוקרה – הן כלי חיוני לשמירה על הרכוש, הביטחון האישי והשקט הנפשי שלכם.
             </p>
           </motion.div>
@@ -52,8 +52,8 @@ export default function OutdoorSecurityPage() {
       <section className="max-w-7xl mx-auto px-6 py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="space-y-8">
-            <h2 className="text-4xl font-[1000] italic uppercase border-r-4 border-cyan-500 pr-6">היתרון הנסתר בחצר</h2>
-            <p className="text-slate-400 leading-relaxed italic">
+            <h2 className="text-4xl font-[1000] italic uppercase border-r-4 border-sky-500 pr-6">היתרון הנסתר בחצר</h2>
+            <p className="text-slate-600 leading-relaxed italic">
               בניגוד למצלמות גלויות, מצלמה נסתרת לחצר מאפשרת תיעוד שקט מבלי לעורר חשד. היא הפתרון המושלם למניעת גניבות ציוד (אופניים, ריהוט גן), ונדליזם, ומעקב אחר כניסות ויציאות של אנשי מקצוע ודיירים.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -63,8 +63,8 @@ export default function OutdoorSecurityPage() {
                  { t: "מיגון אנטי-ונדל", d: "מצלמות עשויות ברזל העמידות בפני ניסיונות חבלה." },
                  { t: "תיעוד מוסלק", d: "מצלמות מוסתרות בתוך עציצים או גופי תאורה." }
                ].map((box, i) => (
-                 <div key={i} className="p-5 bg-white/5 border border-white/5 rounded-2xl">
-                    <CheckCircle2 className="text-cyan-500 mb-2" size={18} />
+                 <div key={i} className="p-5 bg-sky-50 border border-sky-100 rounded-2xl">
+                    <CheckCircle2 className="text-sky-600 mb-2" size={18} />
                     <div className="font-black italic text-sm mb-1">{box.t}</div>
                     <div className="text-[11px] text-slate-500 leading-tight italic">{box.d}</div>
                  </div>
@@ -72,22 +72,22 @@ export default function OutdoorSecurityPage() {
             </div>
           </div>
           <div className="relative">
-            <div className="aspect-square bg-gradient-to-br from-cyan-900/20 to-black rounded-[3rem] border border-white/10 flex items-center justify-center relative overflow-hidden">
-               <Trees className="text-white/5 absolute -bottom-10 -right-10" size={300} />
-               <Camera size={120} className="text-cyan-500 opacity-20 animate-pulse" />
+            <div className="aspect-square bg-gradient-to-br from-cyan-900/20 to-black rounded-[3rem] border border-sky-200 flex items-center justify-center relative overflow-hidden">
+               <Trees className="text-slate-900/5 absolute -bottom-10 -right-10" size={300} />
+               <Camera size={120} className="text-sky-600 opacity-20 animate-pulse" />
             </div>
           </div>
         </div>
       </section>
 
       {/* Feature Grid */}
-      <section className="bg-white/5 py-32">
+      <section className="bg-sky-50 py-32">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h2 className="text-4xl font-[1000] italic mb-16 uppercase">תכונות קריטיות למצלמת חוץ</h2>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {outdoorFeatures.map((f, i) => (
-              <div key={i} className="p-10 bg-[#161a21] rounded-[2.5rem] border border-white/5 group hover:border-cyan-500/50 transition-all">
-                <div className="text-cyan-500 mb-6 group-hover:scale-110 transition-transform">{f.icon}</div>
+              <div key={i} className="p-10 bg-white rounded-[2.5rem] border border-sky-100 group hover:border-sky-500/50 transition-all">
+                <div className="text-sky-600 mb-6 group-hover:scale-110 transition-transform">{f.icon}</div>
                 <h4 className="text-xl font-black italic mb-3">{f.title}</h4>
                 <p className="text-slate-500 text-sm italic leading-relaxed">{f.desc}</p>
               </div>
@@ -100,24 +100,24 @@ export default function OutdoorSecurityPage() {
       <section className="max-w-7xl mx-auto px-6 py-32">
         <div className="flex flex-col lg:flex-row gap-16">
           <div className="lg:w-1/3">
-            <h3 className="text-4xl font-[1000] italic mb-8 italic">איך מקבלים <br/><span className="text-cyan-500">החלטה?</span></h3>
-            <p className="text-slate-400 italic mb-8">לפני הרכישה, שאלו את עצמכם:</p>
-            <ul className="space-y-4 text-sm italic text-slate-300">
-              <li className="flex gap-3"><HelpCircle size={18} className="text-cyan-500 shrink-0" /> מה המטרה? (ביטחון או פיקוח בסיסי)</li>
-              <li className="flex gap-3"><HelpCircle size={18} className="text-cyan-500 shrink-0" /> היכן להתקין? (חצר פתוחה או שטח מקורה)</li>
-              <li className="flex gap-3"><HelpCircle size={18} className="text-cyan-500 shrink-0" /> האם המצלמות צריכות להיות גלויות או מוסלקות?</li>
-              <li className="flex gap-3"><HelpCircle size={18} className="text-cyan-500 shrink-0" /> האם נדרש תיעוד של כל השטח או רק חלק ממנו?</li>
+            <h3 className="text-4xl font-[1000] italic mb-8 italic">איך מקבלים <br/><span className="text-sky-600">החלטה?</span></h3>
+            <p className="text-slate-600 italic mb-8">לפני הרכישה, שאלו את עצמכם:</p>
+            <ul className="space-y-4 text-sm italic text-slate-700">
+              <li className="flex gap-3"><HelpCircle size={18} className="text-sky-600 shrink-0" /> מה המטרה? (ביטחון או פיקוח בסיסי)</li>
+              <li className="flex gap-3"><HelpCircle size={18} className="text-sky-600 shrink-0" /> היכן להתקין? (חצר פתוחה או שטח מקורה)</li>
+              <li className="flex gap-3"><HelpCircle size={18} className="text-sky-600 shrink-0" /> האם המצלמות צריכות להיות גלויות או מוסלקות?</li>
+              <li className="flex gap-3"><HelpCircle size={18} className="text-sky-600 shrink-0" /> האם נדרש תיעוד של כל השטח או רק חלק ממנו?</li>
             </ul>
           </div>
           
-          <div className="lg:w-2/3 bg-[#1c1f26] rounded-[3rem] border border-white/10 overflow-hidden shadow-2xl">
-            <div className="p-8 bg-cyan-500 text-black">
+          <div className="lg:w-2/3 bg-white rounded-[3rem] border border-sky-200 overflow-hidden shadow-2xl">
+            <div className="p-8 bg-sky-600 text-white">
               <h4 className="text-2xl font-[1000] italic uppercase italic">מחירון והערכות תקציב (₪)</h4>
             </div>
             <div className="overflow-x-auto">
               <table className="w-full text-right">
                 <thead>
-                  <tr className="bg-black/20 text-[10px] font-black uppercase tracking-widest text-slate-500">
+                  <tr className="bg-sky-100 text-[10px] font-black uppercase tracking-widest text-slate-500">
                     <th className="p-6">סוג המוצר / פונקציה</th>
                     <th className="p-6">מחיר משוער</th>
                     <th className="p-6">פרטים טכניים</th>
@@ -125,10 +125,10 @@ export default function OutdoorSecurityPage() {
                 </thead>
                 <tbody className="text-sm italic">
                   {priceTable.map((row, i) => (
-                    <tr key={i} className="border-b border-white/5 hover:bg-white/5 transition-colors">
-                      <td className="p-6 font-black text-white">{row.item}</td>
-                      <td className="p-6 text-cyan-500 font-bold">{row.price}</td>
-                      <td className="p-6 text-slate-400 text-xs">{row.detail}</td>
+                    <tr key={i} className="border-b border-sky-100 hover:bg-sky-50 transition-colors">
+                      <td className="p-6 font-black text-slate-900">{row.item}</td>
+                      <td className="p-6 text-sky-600 font-bold">{row.price}</td>
+                      <td className="p-6 text-slate-600 text-xs">{row.detail}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -139,22 +139,22 @@ export default function OutdoorSecurityPage() {
       </section>
 
       {/* Keisar Advantage - Brand Section */}
-      <section className="max-w-7xl mx-auto px-6 py-20 bg-cyan-500/5 rounded-[3rem] border border-cyan-500/10 mb-32">
+      <section className="max-w-7xl mx-auto px-6 py-20 bg-sky-50 rounded-[3rem] border border-sky-500/10 mb-32">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
           <div className="text-center md:text-right px-8">
-            <Home className="text-cyan-500 mb-4 mx-auto md:mr-0" size={40} />
+            <Home className="text-sky-600 mb-4 mx-auto md:mr-0" size={40} />
             <h4 className="text-2xl font-[1000] italic mb-2">פתרונות לבתים פרטיים</h4>
-            <p className="text-slate-400 text-sm italic">התאמה אישית לבתים חד-קומתיים עם חצרות וגינות.</p>
+            <p className="text-slate-600 text-sm italic">התאמה אישית לבתים חד-קומתיים עם חצרות וגינות.</p>
           </div>
-          <div className="text-center md:text-right px-8 border-y md:border-y-0 md:border-x border-white/10">
-            <Lock className="text-cyan-500 mb-4 mx-auto md:mr-0" size={40} />
+          <div className="text-center md:text-right px-8 border-y md:border-y-0 md:border-x border-sky-200">
+            <Lock className="text-sky-600 mb-4 mx-auto md:mr-0" size={40} />
             <h4 className="text-2xl font-[1000] italic mb-2">אבטחה מוסלקת</h4>
-            <p className="text-slate-400 text-sm italic">תיעוד אפקטיבי מבלי לפגוע באסתטיקה של הבית.</p>
+            <p className="text-slate-600 text-sm italic">תיעוד אפקטיבי מבלי לפגוע באסתטיקה של הבית.</p>
           </div>
           <div className="text-center md:text-right px-8">
-            <Smartphone className="text-cyan-500 mb-4 mx-auto md:mr-0" size={40} />
+            <Smartphone className="text-sky-600 mb-4 mx-auto md:mr-0" size={40} />
             <h4 className="text-2xl font-[1000] italic mb-2">שליטה מהנייד</h4>
-            <p className="text-slate-400 text-sm italic">קבלת התראות בזמן אמת וצפייה מכל מקום בעולם.</p>
+            <p className="text-slate-600 text-sm italic">קבלת התראות בזמן אמת וצפייה מכל מקום בעולם.</p>
           </div>
         </div>
       </section>
@@ -164,20 +164,20 @@ export default function OutdoorSecurityPage() {
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="text-5xl font-[1000] italic mb-8 uppercase leading-[0.9]">
             אל תחכו לאירוע חריג <br/>
-            <span className="text-cyan-500 underline decoration-2 underline-offset-8">הגנו על הבית עכשיו</span>
+            <span className="text-sky-600 underline decoration-2 underline-offset-8">הגנו על הבית עכשיו</span>
           </h2>
-          <p className="text-xl text-slate-400 italic mb-12">
+          <p className="text-xl text-slate-600 italic mb-12">
             מצלמות נסתרות לחצר מבית קיסר מערכות אבטחה מעניקות לכם ביטחון אמיתי וטכנולוגיה חכמה ששומרת על כל מה שחשוב לכם.
           </p>
           <div className="flex flex-col md:flex-row gap-6 justify-center">
-            <button className="bg-transparent border border-white/20 text-white px-12 py-5 rounded-2xl font-[1000] text-xl italic hover:bg-white/5 transition-colors">
+            <button className="bg-transparent border border-sky-300 text-slate-900 px-12 py-5 rounded-2xl font-[1000] text-xl italic hover:bg-sky-50 transition-colors">
               ייעוץ אישי חינם
             </button>
           </div>
         </div>
       </section>
 
-      <footer className="py-12 border-t border-white/5 text-center">
+      <footer className="py-12 border-t border-sky-100 text-center">
         <p className="text-[10px] font-black tracking-[0.8em] uppercase italic opacity-30">
           Keisar SECURITY SYSTEMS // OUTDOOR_STEALTH_UNIT // 2026
         </p>

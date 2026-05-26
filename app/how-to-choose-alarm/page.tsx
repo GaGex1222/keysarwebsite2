@@ -31,7 +31,7 @@ export default function SecurityAlarmPage() {
     },
     {
       title: "מערכת אלחוטית",
-      icon: <Wifi className="text-cyan-400" />,
+      icon: <Wifi className="text-sky-600" />,
       recom: "מומלץ לבתים קיימים",
       pros: ["התקנה נקייה ומהירה", "גמישות במיקום גלאים", "טכנולוגיה מתקדמת"],
       cons: ["דורשת החלפת סוללות", "רגישות להפרעות קליטה"],
@@ -46,7 +46,7 @@ export default function SecurityAlarmPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#020408] text-white font-sans selection:bg-red-500 overflow-hidden" dir="rtl">
+    <div className="min-h-screen bg-sky-50 text-slate-900 font-sans selection:bg-red-500 overflow-hidden" dir="rtl">
       
       {/* Dynamic Security Radar Background */}
       <div className="fixed inset-0 pointer-events-none opacity-20">
@@ -71,7 +71,7 @@ export default function SecurityAlarmPage() {
             <span className="text-blue-500">מערכת אזעקה</span>
           </h1>
 
-          <p className="text-xl text-slate-400 italic max-w-2xl leading-relaxed border-r-4 border-blue-600 pr-6">
+          <p className="text-xl text-slate-600 italic max-w-2xl leading-relaxed border-r-4 border-blue-600 pr-6">
             בישראל, ביטחון הוא לא מותרות – הוא טבע שני. המדריך של קיסר יעזור לכם לבחור את מערכת ההגנה המושלמת לבית שלכם, בלי כאבי ראש מיותרים.
           </p>
         </header>
@@ -79,7 +79,7 @@ export default function SecurityAlarmPage() {
         {/* System Type Comparison */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-32">
           {systemTypes.map((type, i) => (
-            <div key={i} className={`p-12 bg-white/5 border border-white/10 rounded-[4rem] relative overflow-hidden group hover:border-${type.color}-500/50 transition-all`}>
+            <div key={i} className={`p-12 bg-sky-50 border border-sky-200 rounded-[4rem] relative overflow-hidden group hover:border-${type.color}-500/50 transition-all`}>
               <div className="flex justify-between items-start mb-10">
                 <div className={`p-5 bg-${type.color}-500/10 rounded-3xl text-${type.color}-500`}>
                   {type.icon}
@@ -93,7 +93,7 @@ export default function SecurityAlarmPage() {
                   <h4 className="text-xs font-black text-green-500 uppercase mb-4 tracking-widest italic">יתרונות מרכזיים</h4>
                   <ul className="space-y-3">
                     {type.pros.map((p, idx) => (
-                      <li key={idx} className="flex items-center gap-2 text-sm italic text-slate-300">
+                      <li key={idx} className="flex items-center gap-2 text-sm italic text-slate-700">
                         <CheckCircle2 size={14} className="text-green-500" /> {p}
                       </li>
                     ))}
@@ -137,7 +137,7 @@ export default function SecurityAlarmPage() {
               </div>
             </div>
             <div className="lg:w-1/2 relative">
-               <div className="bg-black/20 p-8 rounded-[3rem] border border-black/10 backdrop-blur-md">
+               <div className="bg-sky-100 p-8 rounded-[3rem] border border-black/10 backdrop-blur-md">
                  <h4 className="font-black italic mb-6 border-b border-black/10 pb-4 italic">טיפ מקצועי מהמומחים של קיסר:</h4>
                  <p className="text-sm font-bold italic leading-relaxed">
                    אל תרכזו את כל הגלאים בפינה אחת. פריסה חכמה על פני כל השטח מקשה על ניטרול המערכת ושומרת על אפקטיביות מקסימלית. גלאי חיצוני הוא יקר, אך הוא משנה את חוקי המשחק.
@@ -155,7 +155,7 @@ export default function SecurityAlarmPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {detectorTypes.map((det, i) => (
-              <div key={i} className="p-10 bg-white/5 border border-white/10 rounded-[3rem] hover:bg-white/[0.08] transition-all group">
+              <div key={i} className="p-10 bg-sky-50 border border-sky-200 rounded-[3rem] hover:bg-white/[0.08] transition-all group">
                 <div className="mb-8 p-4 bg-blue-500/10 rounded-2xl w-fit text-blue-500 group-hover:scale-110 transition-transform">
                   {det.icon}
                 </div>
@@ -168,23 +168,23 @@ export default function SecurityAlarmPage() {
 
         {/* Pricing Table */}
         <section className="mb-32">
-          <div className="bg-white/5 border border-white/10 rounded-[4rem] p-12 overflow-hidden relative">
+          <div className="bg-sky-50 border border-sky-200 rounded-[4rem] p-12 overflow-hidden relative">
             <div className="absolute top-0 right-0 p-8 text-blue-500/5">
               <Microchip size={300} />
             </div>
             <h2 className="text-4xl font-[1000] italic uppercase mb-12 text-center italic">כמה זה עולה לכם?</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                <div className="space-y-6">
-                  <div className="flex justify-between items-end border-b border-white/10 pb-4">
+                  <div className="flex justify-between items-end border-b border-sky-200 pb-4">
                     <span className="text-2xl font-black italic italic">מערכת קווית</span>
                     <span className="text-3xl font-[1000] text-blue-500 italic">₪1,700 - 3,500</span>
                   </div>
                   <p className="text-xs text-slate-500 italic">כולל 2 גלאים, לוח מקשים ושני צופרים. לא כולל תשתית (₪250 לנקודה).</p>
                </div>
                <div className="space-y-6">
-                  <div className="flex justify-between items-end border-b border-white/10 pb-4">
+                  <div className="flex justify-between items-end border-b border-sky-200 pb-4">
                     <span className="text-2xl font-black italic italic">מערכת אלחוטית</span>
-                    <span className="text-3xl font-[1000] text-cyan-400 italic">עד ₪5,000</span>
+                    <span className="text-3xl font-[1000] text-sky-600 italic">עד ₪5,000</span>
                   </div>
                   <p className="text-xs text-slate-500 italic">כולל 2 גלאים, לוח מקשים, חייגן ושני צופרים. התקנה מהירה ללא חיווט.</p>
                </div>
@@ -193,11 +193,11 @@ export default function SecurityAlarmPage() {
         </section>
 
         {/* Final CTA */}
-        <section className="text-center bg-gradient-to-b from-transparent to-blue-500/10 rounded-[4rem] p-20 border border-white/5">
+        <section className="text-center bg-gradient-to-b from-transparent to-blue-500/10 rounded-[4rem] p-20 border border-sky-100">
           <div className="max-w-3xl mx-auto space-y-10">
             <Users className="mx-auto text-blue-500" size={64} />
             <h2 className="text-5xl md:text-6xl font-[1000] italic leading-none uppercase italic">אל תתפשרו על <br/>המקום הבטוח שלכם</h2>
-            <p className="text-xl text-slate-400 italic leading-relaxed">
+            <p className="text-xl text-slate-600 italic leading-relaxed">
               השקעה במערכת אזעקה היא השקעה בשקט הנפשי. צוות קיסר זמין עבורכם בכל הארץ לייעוץ מקצועי, התקנה מוסמכת ויחס אישי.
             </p>
             <button className="bg-white text-black px-16 py-6 rounded-2xl font-[1000] italic text-2xl uppercase hover:bg-blue-500 transition-all flex items-center gap-4 mx-auto group">
@@ -209,7 +209,7 @@ export default function SecurityAlarmPage() {
 
       </div>
 
-      <footer className="py-12 border-t border-white/5 text-center">
+      <footer className="py-12 border-t border-sky-100 text-center">
         <p className="text-[10px] font-black tracking-[1em] uppercase italic text-slate-700 italic">
           Keisar_SECURITY // ALARM_SYSTEMS_GUIDE // 2026
         </p>

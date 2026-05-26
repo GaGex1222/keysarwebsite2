@@ -19,33 +19,33 @@ import {
 export default function PromoPackagePage() {
   const specs = [
     {
-      icon: <Cctv className="text-cyan-400" />,
+      icon: <Cctv className="text-sky-600" />,
       title: "4 מצלמות אינפרא 5MP",
       desc: "מוגנות מים, אנטי-ונדל, עדשה רחבה 3.6 מ\"מ וראיית לילה ל-40 מטר."
     },
     {
-      icon: <HardDrive className="text-cyan-400" />,
+      icon: <HardDrive className="text-sky-600" />,
       title: "DVR היברידי 8 ערוצים",
       desc: "תמיכה ב-5MP, כניסות מוזהבות, 4 מיקרופונים ואחסון עד 8TB."
     },
     {
-      icon: <Smartphone className="text-cyan-400" />,
+      icon: <Smartphone className="text-sky-600" />,
       title: "אפליקציית שליטה חכמה",
       desc: "צפייה בזמן אמת, שחזור הקלטות וגיבוי ישירות לנייד מכל מקום בעולם."
     },
     {
-      icon: <Zap className="text-cyan-400" />,
+      icon: <Zap className="text-sky-600" />,
       title: "התקנה והדרכה מלאה",
       desc: "חיווט מקצועי, הגדרת מערכת והדרכה אישית בבית הלקוח או בעסק."
     }
   ];
 
   return (
-    <div className="min-h-screen bg-[#020408] text-white font-sans overflow-hidden" dir="rtl">
+    <div className="min-h-screen bg-sky-50 text-slate-900 font-sans overflow-hidden" dir="rtl">
       
       {/* Background Decorative Elements */}
       <div className="absolute top-0 left-0 w-full h-full">
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-cyan-500/10 blur-[120px] rounded-full" />
+        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-sky-100 blur-[120px] rounded-full" />
         <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-blue-600/10 blur-[120px] rounded-full" />
       </div>
 
@@ -56,10 +56,10 @@ export default function PromoPackagePage() {
           <motion.div 
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="px-4 py-1 bg-cyan-500/10 border border-cyan-500/20 rounded-full flex items-center gap-2"
+            className="px-4 py-1 bg-sky-100 border border-sky-500/20 rounded-full flex items-center gap-2"
           >
-            <ShieldCheck size={14} className="text-cyan-400" />
-            <span className="text-cyan-400 text-xs font-black tracking-widest uppercase italic">Limited_Time_Offer // Keisar_Elite</span>
+            <ShieldCheck size={14} className="text-sky-600" />
+            <span className="text-sky-600 text-xs font-black tracking-widest uppercase italic">Limited_Time_Offer // Keisar_Elite</span>
           </motion.div>
         </div>
 
@@ -72,11 +72,11 @@ export default function PromoPackagePage() {
           
           <div className="inline-block relative">
             <div className="absolute inset-0 bg-cyan-500 blur-3xl opacity-20" />
-            <div className="relative bg-white/5 border border-white/10 backdrop-blur-md px-12 py-6 rounded-[2.5rem]">
-              <span className="text-slate-400 text-xl italic block mb-1">חבילת הכל כלול ב-</span>
+            <div className="relative bg-sky-50 border border-sky-200 backdrop-blur-md px-12 py-6 rounded-[2.5rem]">
+              <span className="text-slate-600 text-xl italic block mb-1">חבילת הכל כלול ב-</span>
               <div className="flex items-baseline justify-center gap-2">
-                <span className="text-7xl font-[1000] text-white italic">3,990</span>
-                <span className="text-3xl font-black text-cyan-500">₪</span>
+                <span className="text-7xl font-[1000] text-slate-900 italic">3,990</span>
+                <span className="text-3xl font-black text-sky-600">₪</span>
               </div>
               <p className="text-[10px] text-slate-500 mt-2 font-bold">*המחיר אינו כולל מע"מ | כולל התקנה מלאה</p>
             </div>
@@ -89,27 +89,27 @@ export default function PromoPackagePage() {
           {/* Visual Showcase Left */}
           <div className="relative group">
             <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-[3rem]" />
-            <div className="h-full bg-white/5 border border-white/10 p-12 rounded-[3rem] flex flex-col justify-between overflow-hidden">
+            <div className="h-full bg-sky-50 border border-sky-200 p-12 rounded-[3rem] flex flex-col justify-between overflow-hidden">
               <div className="space-y-6 relative z-10">
                 <div className="flex items-center gap-4">
-                  <div className="p-3 bg-cyan-500/20 rounded-2xl text-cyan-400">
+                  <div className="p-3 bg-sky-100 rounded-2xl text-sky-600">
                     <Eye size={24} />
                   </div>
                   <h3 className="text-2xl font-black italic">ראייה מעבר לאופק</h3>
                 </div>
-                <p className="text-slate-400 italic text-lg leading-relaxed">
-                  הסט כולל 4 מצלמות אינפרא 5MP בתקן <span className="text-white font-bold">אנטי-ונדל</span>. 
+                <p className="text-slate-600 italic text-lg leading-relaxed">
+                  הסט כולל 4 מצלמות אינפרא 5MP בתקן <span className="text-slate-900 font-bold">אנטי-ונדל</span>. 
                   איכות FULL-HD שמבטיחה זיהוי פנים ולוחיות רישוי גם בחשיכה מוחלטת עד 40 מטר.
                 </p>
               </div>
               
               <div className="mt-12 grid grid-cols-2 gap-4">
-                <div className="p-4 bg-black/40 rounded-2xl border border-white/5 text-center">
-                  <div className="text-cyan-500 font-black text-xl italic mb-1">5MP</div>
+                <div className="p-4 bg-sky-100 rounded-2xl border border-sky-100 text-center">
+                  <div className="text-sky-600 font-black text-xl italic mb-1">5MP</div>
                   <div className="text-[10px] text-slate-500 uppercase tracking-widest">Resolution</div>
                 </div>
-                <div className="p-4 bg-black/40 rounded-2xl border border-white/5 text-center">
-                  <div className="text-cyan-500 font-black text-xl italic mb-1">IP67</div>
+                <div className="p-4 bg-sky-100 rounded-2xl border border-sky-100 text-center">
+                  <div className="text-sky-600 font-black text-xl italic mb-1">IP67</div>
                   <div className="text-[10px] text-slate-500 uppercase tracking-widest">Waterproof</div>
                 </div>
               </div>
@@ -119,7 +119,7 @@ export default function PromoPackagePage() {
           {/* Specs List Right */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {specs.map((spec, i) => (
-              <div key={i} className="p-8 bg-white/5 border border-white/10 rounded-[2.5rem] hover:bg-white/[0.08] transition-all group">
+              <div key={i} className="p-8 bg-sky-50 border border-sky-200 rounded-[2.5rem] hover:bg-white/[0.08] transition-all group">
                 <div className="mb-4 group-hover:scale-110 transition-transform w-fit italic">
                   {spec.icon}
                 </div>
@@ -131,7 +131,7 @@ export default function PromoPackagePage() {
         </div>
 
         {/* Feature Highlights Bar */}
-        <div className="bg-cyan-500 p-8 rounded-[3rem] text-black mb-20 overflow-hidden relative">
+        <div className="bg-sky-600 p-8 rounded-[3rem] text-white mb-20 overflow-hidden relative">
           <div className="absolute top-0 right-0 p-4 opacity-10">
             <ShieldAlert size={120} />
           </div>
@@ -140,12 +140,12 @@ export default function PromoPackagePage() {
               <Clock className="shrink-0" />
               <span className="font-black italic">הקלטה רציפה ל-30 יום</span>
             </div>
-            <div className="h-8 w-px bg-black/20 hidden md:block" />
+            <div className="h-8 w-px bg-sky-100 hidden md:block" />
             <div className="flex items-center gap-3">
               <CheckCircle2 className="shrink-0" />
               <span className="font-black italic">כניסות מוזהבות למניעת רעשים</span>
             </div>
-            <div className="h-8 w-px bg-black/20 hidden md:block" />
+            <div className="h-8 w-px bg-sky-100 hidden md:block" />
             <div className="flex items-center gap-3">
               <AppWindow className="shrink-0" />
               <span className="font-black italic">ממשק היברידי מתקדם</span>
@@ -154,12 +154,12 @@ export default function PromoPackagePage() {
         </div>
 
         {/* Call To Action Section */}
-        <section className="text-center bg-white/5 border border-white/10 rounded-[4rem] p-16 relative overflow-hidden">
+        <section className="text-center bg-sky-50 border border-sky-200 rounded-[4rem] p-16 relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-cyan-500/10 via-transparent to-transparent opacity-50" />
           
           <div className="relative z-10">
             <h2 className="text-4xl md:text-6xl font-[1000] italic mb-8">מוכנים לאבטחה ברמה אחרת?</h2>
-            <p className="text-xl text-slate-400 italic mb-12 max-w-2xl mx-auto">
+            <p className="text-xl text-slate-600 italic mb-12 max-w-2xl mx-auto">
               הצוות של קיסר מחכה להפוך את הבית או העסק שלך למבצר טכנולוגי. 
               התקנה מהירה, מקצועית ושירות ללא פשרות.
             </p>
@@ -169,7 +169,7 @@ export default function PromoPackagePage() {
                 <MousePointerClick size={20} className="group-hover:scale-125 transition-transform" />
                 להזמנת החבילה עכשיו
               </button>
-              <button className="w-full md:w-auto bg-transparent border border-white/20 text-white px-12 py-5 rounded-2xl font-[1000] italic text-xl hover:bg-white/5 transition-all">
+              <button className="w-full md:w-auto bg-transparent border border-sky-300 text-slate-900 px-12 py-5 rounded-2xl font-[1000] italic text-xl hover:bg-sky-50 transition-all">
                 ייעוץ חינם עם טכנאי
               </button>
             </div>
@@ -185,7 +185,7 @@ export default function PromoPackagePage() {
       </div>
 
       {/* Footer Branding */}
-      <footer className="py-10 text-center border-t border-white/5">
+      <footer className="py-10 text-center border-t border-sky-100">
         <p className="text-[9px] font-black tracking-[1em] uppercase italic text-slate-600">
           Security // Innovation // Keisar_SYSTEMS
         </p>

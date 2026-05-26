@@ -94,21 +94,21 @@ export default function RootLayout({
 
   return (
     <html lang="he" dir="rtl">
-      <body className={`${heebo.className} antialiased bg-[#1c1f26] text-white overflow-x-hidden selection:bg-cyan-500/30 p-0 m-0`}>
+      <body className={`${heebo.className} antialiased bg-sky-50 text-slate-900 overflow-x-hidden selection:bg-sky-300 p-0 m-0`}>
         
         <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
           <div className="absolute inset-0 opacity-[0.05] bg-[radial-gradient(#94a3b8_1px,transparent_1px)] [background-size:30px_30px]" />
-          <div className="absolute top-[-10%] right-[-5%] w-[700px] h-[700px] bg-cyan-600/10 blur-[150px] rounded-full" />
+          <div className="absolute top-[-10%] right-[-5%] w-[700px] h-[700px] bg-sky-100 blur-[150px] rounded-full" />
         </div>
 
-        <nav className="fixed top-0 left-0 w-full z-[100] border-b border-white/5 bg-[#1c1f26]/95 backdrop-blur-xl">
+        <nav className="fixed top-0 left-0 w-full z-[100] border-b border-sky-100 bg-white/95 backdrop-blur-xl">
           <div className="max-w-7xl mx-auto px-4 h-20 flex justify-between items-center">
             
             <a href="/" className="flex items-center gap-3 shrink-0">
-              <div className="w-10 h-10 bg-cyan-500 rounded-xl flex items-center justify-center text-[#1c1f26] shadow-[0_0_15px_rgba(6,182,212,0.3)]">
+              <div className="w-10 h-10 bg-sky-600 rounded-xl flex items-center justify-center text-white shadow-[0_0_15px_rgba(2,132,199,0.3)]">
                 <Shield size={22} fill="currentColor" />
               </div>
-              <span className="text-xl md:text-2xl font-[1000] italic uppercase tracking-tighter">קיסר מערכות</span>
+              <span className="text-xl md:text-2xl font-[1000] italic uppercase tracking-tighter text-slate-900">קיסר מערכות</span>
             </a>
 
             {/* Desktop Menu */}
@@ -122,7 +122,7 @@ export default function RootLayout({
                 >
                   <a 
                     href={item.href}
-                    className={`flex items-center gap-1.5 font-bold text-[14px] italic transition-colors hover:text-cyan-400 ${activeMenu === item.id ? 'text-cyan-400' : 'text-slate-200'}`}
+                    className={`flex items-center gap-1.5 font-bold text-[14px] italic transition-colors hover:text-sky-600 ${activeMenu === item.id ? 'text-sky-600' : 'text-slate-800'}`}
                   >
                     {item.label}
                     {(item.children?.length ?? 0) > 0 && (
@@ -136,13 +136,13 @@ export default function RootLayout({
                         initial={{ opacity: 0, y: 10 }} 
                         animate={{ opacity: 1, y: 0 }} 
                         exit={{ opacity: 0, y: 10 }}
-                        className="absolute top-full right-0 w-[240px] bg-[#2a2f3a] border border-white/10 shadow-2xl rounded-b-xl overflow-hidden py-2"
+                        className="absolute top-full right-0 w-[240px] bg-white border border-sky-200 shadow-2xl rounded-b-xl overflow-hidden py-2"
                       >
                         {item.children?.map((child, idx) => (
                           <a 
                             key={idx} 
                             href={child.href} 
-                            className="block px-5 py-2.5 text-[13px] font-bold text-slate-300 hover:text-cyan-400 hover:bg-white/5 transition-all italic flex items-center gap-2"
+                            className="block px-5 py-2.5 text-[13px] font-bold text-slate-700 hover:text-sky-600 hover:bg-sky-50 transition-all italic flex items-center gap-2"
                           >
                             <span className="w-1 h-1 bg-cyan-500 rounded-full opacity-50" />
                             {child.title}
@@ -156,15 +156,15 @@ export default function RootLayout({
             </div>
 
             <div className="flex items-center gap-3">
-              <a href="tel:0525022222" className="hidden sm:flex bg-cyan-500 text-black px-4 py-2 rounded-lg font-black text-sm italic hover:bg-white transition-colors items-center gap-2">
+              <a href="tel:0525022222" className="hidden sm:flex bg-sky-600 text-white px-4 py-2 rounded-lg font-black text-sm italic hover:bg-sky-700 transition-colors items-center gap-2">
                 <Phone size={14} />
                 052-502-2222
               </a>
               <button 
-                className="lg:hidden p-2 bg-white/5 rounded-lg border border-white/10" 
+                className="lg:hidden p-2 bg-sky-50 rounded-lg border border-sky-200" 
                 onClick={() => setIsMobileMenuOpen(true)}
               >
-                <Menu size={24} className="text-cyan-400" />
+                <Menu size={24} className="text-sky-600" />
               </button>
             </div>
           </div>
@@ -175,11 +175,11 @@ export default function RootLayout({
             <motion.div 
               initial={{ x: '100%' }} animate={{ x: 0 }} exit={{ x: '100%' }}
               transition={{ type: 'tween', duration: 0.3 }}
-              className="fixed inset-0 bg-[#1c1f26] z-[200] flex flex-col lg:hidden"
+              className="fixed inset-0 bg-white z-[200] flex flex-col lg:hidden"
             >
-              <div className="p-6 border-b border-white/5 flex justify-between items-center h-20 bg-[#1c1f26]">
-                <span className="text-cyan-500 font-black italic text-xl uppercase">קיסר תפריט</span>
-                <button onClick={() => setIsMobileMenuOpen(false)} className="p-2 bg-white/5 rounded-full">
+              <div className="p-6 border-b border-sky-100 flex justify-between items-center h-20 bg-white">
+                <span className="text-sky-600 font-black italic text-xl uppercase">קיסר תפריט</span>
+                <button onClick={() => setIsMobileMenuOpen(false)} className="p-2 bg-sky-50 rounded-full">
                   <X size={30} />
                 </button>
               </div>
@@ -190,13 +190,13 @@ export default function RootLayout({
                   const isExpanded = openMobileSubmenu === item.id;
 
                   return (
-                    <div key={item.id} className="border-b border-white/5 pb-4">
+                    <div key={item.id} className="border-b border-sky-100 pb-4">
                       {/* Main Category Row */}
                       <div className="flex justify-between items-center">
                         <a 
                           href={item.href}
                           onClick={() => !hasChildren && setIsMobileMenuOpen(false)}
-                          className={`text-xl font-black italic text-white flex-1 ${isExpanded ? 'text-cyan-400' : ''}`}
+                          className={`text-xl font-black italic text-slate-900 flex-1 ${isExpanded ? 'text-sky-600' : ''}`}
                         >
                           {item.label}
                         </a>
@@ -204,11 +204,11 @@ export default function RootLayout({
                         {hasChildren && (
                           <button 
                             onClick={() => toggleMobileSubmenu(item.id)}
-                            className="p-2 bg-white/5 rounded-lg"
+                            className="p-2 bg-sky-50 rounded-lg"
                           >
                             <ChevronDown 
                               size={20} 
-                              className={`text-cyan-400 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`} 
+                              className={`text-sky-600 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`} 
                             />
                           </button>
                         )}
@@ -229,9 +229,9 @@ export default function RootLayout({
                                   key={i} 
                                   href={child.href} 
                                   onClick={() => setIsMobileMenuOpen(false)} 
-                                  className="flex items-center gap-2 text-slate-400 font-bold hover:text-cyan-400 italic py-1"
+                                  className="flex items-center gap-2 text-slate-600 font-bold hover:text-sky-600 italic py-1"
                                 >
-                                  <ChevronLeft size={14} className="text-cyan-500" />
+                                  <ChevronLeft size={14} className="text-sky-600" />
                                   {child.title}
                                 </a>
                               ))}
@@ -244,12 +244,12 @@ export default function RootLayout({
                 })}
               </div>
 
-              <div className="p-6 bg-black/40 backdrop-blur-md border-t border-white/5 space-y-4">
-                <div className="flex items-center gap-3 text-slate-400 justify-center">
+              <div className="p-6 bg-sky-100 backdrop-blur-md border-t border-sky-100 space-y-4">
+                <div className="flex items-center gap-3 text-slate-600 justify-center">
                   <Mail size={18} />
                   <span className="text-sm font-bold">office@keisar.co.il</span>
                 </div>
-                <a href="tel:0525022222" className="block w-full bg-cyan-500 text-black text-center py-4 rounded-xl font-black italic text-lg shadow-lg shadow-cyan-500/20">
+                <a href="tel:0525022222" className="block w-full bg-sky-600 text-white text-center py-4 rounded-xl font-black italic text-lg shadow-lg shadow-sky-500/20">
                   התקשר לייעוץ: 052-502-2222
                 </a>
               </div>
@@ -261,7 +261,7 @@ export default function RootLayout({
           {children}
         </div>
 
-        <footer className="py-20 text-center border-t border-white/5 bg-black/20 mt-20 relative z-10">
+        <footer className="py-20 text-center border-t border-sky-100 bg-sky-100 mt-20 relative z-10">
           <div className="flex justify-center gap-6 mb-8 text-slate-500">
               <Shield size={24} />
               <Target size={24} />

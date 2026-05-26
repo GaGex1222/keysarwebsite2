@@ -24,7 +24,7 @@ export default function SecurityCablesPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#06080c] text-white font-sans selection:bg-cyan-500/30 overflow-hidden" dir="rtl">
+    <div className="min-h-screen bg-sky-50 text-slate-900 font-sans selection:bg-sky-200/30 overflow-hidden" dir="rtl">
       
       {/* --- GRID BACKGROUND --- */}
       <div className="fixed inset-0 z-0 opacity-20 pointer-events-none">
@@ -35,7 +35,7 @@ export default function SecurityCablesPage() {
       <header className="relative pt-32 pb-20 px-6 z-10 text-center">
         <motion.div 
           initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-[10px] font-black uppercase tracking-[0.3em] mb-8"
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sky-100 border border-sky-500/20 text-sky-600 text-[10px] font-black uppercase tracking-[0.3em] mb-8"
         >
           <Activity size={14} className="animate-pulse" />
           <span>The Backbone of Surveillance</span>
@@ -49,7 +49,7 @@ export default function SecurityCablesPage() {
           <span className="text-transparent" style={{ WebkitTextStroke: '1px #06b6d4' }}>של האבטחה.</span>
         </motion.h1>
 
-        <p className="max-w-3xl mx-auto text-slate-400 text-xl md:text-2xl font-light italic leading-relaxed">
+        <p className="max-w-3xl mx-auto text-slate-600 text-xl md:text-2xl font-light italic leading-relaxed">
           הכבל הוא קו החיים של המערכת. פתרונות התשתית של קיסר מבטיחים חיבור יציב, מאובטח ונטול הפרעות בין המצלמה למרכז הבקרה.
         </p>
       </header>
@@ -59,14 +59,14 @@ export default function SecurityCablesPage() {
         {/* --- SECTION: THE BACKBONE --- */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           <div className="space-y-8">
-            <div className="flex items-center gap-3 text-cyan-500 font-bold italic uppercase text-sm">
+            <div className="flex items-center gap-3 text-sky-600 font-bold italic uppercase text-sm">
               <Cable size={20} />
               <span>עמידות ללא פשרות</span>
             </div>
             <h2 className="text-4xl md:text-6xl font-black italic uppercase leading-tight">
-              יציבות <br /><span className="text-cyan-500">בתנאי קיצון.</span>
+              יציבות <br /><span className="text-sky-600">בתנאי קיצון.</span>
             </h2>
-            <p className="text-slate-400 text-lg md:text-xl italic leading-relaxed">
+            <p className="text-slate-600 text-lg md:text-xl italic leading-relaxed">
               הכבלים שלנו מתוכננים לשרוד הכל: גשם זלעפות, קרינת UV ישירה ותנודות טמפרטורה קיצוניות. כי במערכת אבטחה, אובדן אות הוא לא אופציה.
             </p>
             
@@ -76,7 +76,7 @@ export default function SecurityCablesPage() {
                 { icon: <Wind size={16} />, t: "עמידות ברוחות" },
                 { icon: <Zap size={16} />, t: "סינון רעשים" }
               ].map((badge, idx) => (
-                <div key={idx} className="flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-white/5 border border-white/10 text-sm font-bold italic">
+                <div key={idx} className="flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-sky-50 border border-sky-200 text-sm font-bold italic">
                   {badge.icon} {badge.t}
                 </div>
               ))}
@@ -84,8 +84,8 @@ export default function SecurityCablesPage() {
           </div>
 
           <div className="relative group">
-            <div className="absolute inset-0 bg-cyan-500/20 blur-[120px] rounded-full opacity-20 group-hover:opacity-40 transition-opacity" />
-            <div className="relative border border-white/10 rounded-[3rem] bg-gradient-to-br from-white/5 to-transparent p-12 overflow-hidden">
+            <div className="absolute inset-0 bg-sky-100 blur-[120px] rounded-full opacity-20 group-hover:opacity-40 transition-opacity" />
+            <div className="relative border border-sky-200 rounded-[3rem] bg-gradient-to-br from-white/5 to-transparent p-12 overflow-hidden">
                <motion.div 
                  animate={{ rotate: 360 }} transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                  className="absolute -top-20 -right-20 opacity-5"
@@ -98,7 +98,7 @@ export default function SecurityCablesPage() {
                    <div className="w-4 h-1 bg-white/20 rounded-full" />
                  </div>
                  <h4 className="text-3xl font-black italic uppercase tracking-tighter">ULTRA_STABLE<br />CONDUCTOR</h4>
-                 <div className="grid grid-cols-2 gap-4 pt-10 font-mono text-[10px] text-cyan-400/50 uppercase">
+                 <div className="grid grid-cols-2 gap-4 pt-10 font-mono text-[10px] text-sky-600/50 uppercase">
                     <div>Status: Active</div>
                     <div>Bandwidth: 10Gbps</div>
                     <div>Shielding: Dual-Layer</div>
@@ -110,7 +110,7 @@ export default function SecurityCablesPage() {
         </section>
 
         {/* --- SECTION: THE REVOLUTION (PoE) --- */}
-        <section className="p-12 md:p-24 border border-white/5 rounded-[4rem] bg-white/[0.01] relative overflow-hidden">
+        <section className="p-12 md:p-24 border border-sky-100 rounded-[4rem] bg-white/[0.01] relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_0%_0%,rgba(6,182,212,0.05),transparent_50%)]" />
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="order-2 lg:order-1">
@@ -126,10 +126,10 @@ export default function SecurityCablesPage() {
             </div>
             <div className="order-1 lg:order-2 space-y-8">
               <h2 className="text-4xl md:text-6xl font-black italic leading-tight uppercase">הכל על כבל בודד.</h2>
-              <p className="text-slate-400 text-lg italic leading-relaxed">
+              <p className="text-slate-600 text-lg italic leading-relaxed">
                 עידן החדשנות מפשט הכל. טכנולוגיית ה-PoE מאפשרת להעביר מתח ונתונים על כבל אחד, מבלי צורך במקורות חשמל נפרדים ליד כל מצלמה. פחות כבלים, פחות עלויות, יותר ביטחון.
               </p>
-              <div className="flex items-center gap-4 text-cyan-400 font-black italic uppercase text-sm">
+              <div className="flex items-center gap-4 text-sky-600 font-black italic uppercase text-sm">
                 <ShieldCheck /> <span>חיסכון של עד 40% בעלויות התשתית</span>
               </div>
             </div>
@@ -139,7 +139,7 @@ export default function SecurityCablesPage() {
         {/* --- SECTION: FAQ GRID (Questions & Answers) --- */}
         <section className="space-y-20">
           <div className="text-center space-y-4">
-             <h2 className="text-4xl md:text-7xl font-black italic uppercase">מומחיות <span className="text-cyan-500">במספרים.</span></h2>
+             <h2 className="text-4xl md:text-7xl font-black italic uppercase">מומחיות <span className="text-sky-600">במספרים.</span></h2>
              <p className="text-slate-500 font-bold italic uppercase tracking-widest">Q&A Technology Overview</p>
           </div>
 
@@ -161,9 +161,9 @@ export default function SecurityCablesPage() {
                 icon: <Cpu />
               }
             ].map((faq, i) => (
-              <div key={i} className="group p-10 border border-white/5 rounded-[3rem] bg-white/[0.01] hover:bg-white/[0.03] transition-all flex flex-col gap-6">
-                <div className="text-cyan-500 group-hover:scale-110 transition-transform">{faq.icon}</div>
-                <h4 className="text-xl font-black italic uppercase text-white">{faq.q}</h4>
+              <div key={i} className="group p-10 border border-sky-100 rounded-[3rem] bg-white/[0.01] hover:bg-white/[0.03] transition-all flex flex-col gap-6">
+                <div className="text-sky-600 group-hover:scale-110 transition-transform">{faq.icon}</div>
+                <h4 className="text-xl font-black italic uppercase text-slate-900">{faq.q}</h4>
                 <p className="text-slate-500 text-sm italic leading-relaxed">{faq.a}</p>
               </div>
             ))}
@@ -171,13 +171,13 @@ export default function SecurityCablesPage() {
         </section>
 
         {/* --- SECTION: CALL TO ACTION --- */}
-        <section className="relative py-20 px-10 border border-white/5 rounded-[4rem] bg-gradient-to-br from-white/[0.02] to-transparent text-center overflow-hidden">
+        <section className="relative py-20 px-10 border border-sky-100 rounded-[4rem] bg-gradient-to-br from-white/[0.02] to-transparent text-center overflow-hidden">
           <div className="absolute bottom-0 right-0 p-20 opacity-5 rotate-12">
             <Server size={300} />
           </div>
           <div className="relative z-10 space-y-10">
             <h2 className="text-5xl md:text-8xl font-[1000] italic leading-tight uppercase">
-              תשתית חזקה. <br /> <span className="text-cyan-500 italic">ביטחון שקט.</span>
+              תשתית חזקה. <br /> <span className="text-sky-600 italic">ביטחון שקט.</span>
             </h2>
             <div className="flex flex-col md:flex-row items-center justify-center gap-6">
                <button className="group relative px-12 py-6 bg-white text-black font-[1000] italic text-2xl rounded-2xl transition-all hover:scale-105">
@@ -186,8 +186,8 @@ export default function SecurityCablesPage() {
                     <ChevronLeft className="group-hover:-translate-x-2 transition-transform" />
                   </span>
                </button>
-               <button className="flex items-center gap-3 px-8 py-4 border border-white/10 rounded-2xl font-bold italic hover:bg-white/5 transition-colors">
-                 <HardDriveDownload size={20} className="text-cyan-500" />
+               <button className="flex items-center gap-3 px-8 py-4 border border-sky-200 rounded-2xl font-bold italic hover:bg-sky-50 transition-colors">
+                 <HardDriveDownload size={20} className="text-sky-600" />
                  מפרט טכני לכבלים (PDF)
                </button>
             </div>
@@ -197,10 +197,10 @@ export default function SecurityCablesPage() {
       </main>
 
       {/* --- FOOTER --- */}
-      <footer className="py-20 border-t border-white/5 text-center">
+      <footer className="py-20 border-t border-sky-100 text-center">
         <div className="flex flex-col items-center gap-4">
           <div className="flex items-center gap-4">
-            <Server className="text-cyan-500" />
+            <Server className="text-sky-600" />
             <span className="text-2xl font-black italic uppercase tracking-tighter">Keisar INFRASTRUCTURE</span>
           </div>
           <p className="text-slate-600 font-bold italic text-[10px] uppercase tracking-widest max-w-xs leading-relaxed">

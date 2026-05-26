@@ -24,7 +24,7 @@ export default function AlarmTechnicianPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#040508] text-white font-sans selection:bg-orange-500/30 overflow-hidden" dir="rtl">
+    <div className="min-h-screen bg-sky-50 text-slate-900 font-sans selection:bg-orange-500/30 overflow-hidden" dir="rtl">
       
       {/* --- SERVICE STATUS BAR --- */}
       <div className="fixed top-0 left-0 w-full z-[100] bg-orange-500/10 border-b border-orange-500/20 backdrop-blur-md px-6 py-2 flex justify-between items-center">
@@ -32,14 +32,14 @@ export default function AlarmTechnicianPage() {
           <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
           <span className="text-[10px] font-black uppercase tracking-widest text-orange-400">Technicians Online: 24/7 Support Active</span>
         </div>
-        <div className="text-[10px] font-mono text-white/40 uppercase hidden md:block">System Check: Optimal</div>
+        <div className="text-[10px] font-mono text-slate-900/40 uppercase hidden md:block">System Check: Optimal</div>
       </div>
 
       {/* --- HERO SECTION --- */}
       <header className="relative pt-40 pb-20 px-6 z-10 text-center">
         <motion.div 
           initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-400 text-[10px] font-black uppercase tracking-[0.3em] mb-8"
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sky-50 border border-sky-200 text-slate-600 text-[10px] font-black uppercase tracking-[0.3em] mb-8"
         >
           <UserCog size={14} />
           <span>Precision Engineering & Support</span>
@@ -53,7 +53,7 @@ export default function AlarmTechnicianPage() {
           <span className="text-transparent" style={{ WebkitTextStroke: '1.5px #f97316' }}>עד הבית.</span>
         </motion.h1>
 
-        <p className="max-w-3xl mx-auto text-slate-400 text-xl md:text-2xl font-light italic leading-relaxed">
+        <p className="max-w-3xl mx-auto text-slate-600 text-xl md:text-2xl font-light italic leading-relaxed">
           מערכת אבטחה היא טובה רק כמו הטכנאי שהתקין אותה. בקיסר, אנחנו מבטיחים מקצוענות ללא פשרות, ציוד קצה ושירות שזמין עבורך מסביב לשעון.
         </p>
       </header>
@@ -72,7 +72,7 @@ export default function AlarmTechnicianPage() {
           ].map((item, i) => (
             <motion.div 
               key={i} whileHover={{ y: -5 }}
-              className="p-8 border border-white/5 rounded-[2.5rem] bg-white/[0.02] hover:bg-orange-500/[0.05] hover:border-orange-500/20 transition-all group"
+              className="p-8 border border-sky-100 rounded-[2.5rem] bg-white/[0.02] hover:bg-orange-500/[0.05] hover:border-orange-500/20 transition-all group"
             >
               <div className="text-orange-500 mb-6 group-hover:scale-110 transition-transform">{item.icon}</div>
               <h4 className="text-xl font-black italic uppercase mb-3">{item.t}</h4>
@@ -82,7 +82,7 @@ export default function AlarmTechnicianPage() {
         </section>
 
         {/* --- SECTION: INSTALLATION PROCESS (The Flow) --- */}
-        <section className="relative py-24 px-12 border border-white/5 rounded-[4rem] bg-white/[0.01] overflow-hidden">
+        <section className="relative py-24 px-12 border border-sky-100 rounded-[4rem] bg-white/[0.01] overflow-hidden">
           <div className="absolute top-0 right-0 w-1/2 h-full bg-orange-500/5 blur-[120px] opacity-20" />
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div className="space-y-10">
@@ -104,7 +104,7 @@ export default function AlarmTechnicianPage() {
               </div>
             </div>
             <div className="relative">
-              <div className="aspect-video rounded-3xl bg-slate-900 border border-white/10 flex items-center justify-center relative overflow-hidden">
+              <div className="aspect-video rounded-3xl bg-slate-900 border border-sky-200 flex items-center justify-center relative overflow-hidden">
                 <Smartphone className="text-orange-500/20 w-40 h-40 absolute animate-pulse" />
                 <div className="relative z-10 text-center space-y-4">
                    <div className="px-6 py-2 rounded-full border border-orange-500 bg-orange-500/10 text-orange-500 text-xs font-black italic uppercase">System Integration Active</div>
@@ -122,21 +122,21 @@ export default function AlarmTechnicianPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="p-12 border border-white/5 rounded-[3rem] bg-gradient-to-br from-white/[0.03] to-transparent flex gap-8 items-start">
+            <div className="p-12 border border-sky-100 rounded-[3rem] bg-gradient-to-br from-white/[0.03] to-transparent flex gap-8 items-start">
               <Stethoscope className="text-orange-500 w-12 h-12 flex-shrink-0" />
               <div className="space-y-4">
                 <h4 className="text-2xl font-black italic uppercase">בדיקות תקופתיות</h4>
-                <p className="text-slate-400 italic leading-relaxed text-lg">
+                <p className="text-slate-600 italic leading-relaxed text-lg">
                   אנחנו לא מחכים לתקלה. הטכנאים שלנו מבצעים בדיקות שגרתיות לוודא שכל חיישן, סירנה ופאנל פועלים בשיא הדיוק.
                 </p>
               </div>
             </div>
 
-            <div className="p-12 border border-white/5 rounded-[3rem] bg-gradient-to-br from-white/[0.03] to-transparent flex gap-8 items-start">
+            <div className="p-12 border border-sky-100 rounded-[3rem] bg-gradient-to-br from-white/[0.03] to-transparent flex gap-8 items-start">
               <BatteryCharging className="text-orange-500 w-12 h-12 flex-shrink-0" />
               <div className="space-y-4">
                 <h4 className="text-2xl font-black italic uppercase">אנרגיה ועדכונים</h4>
-                <p className="text-slate-400 italic leading-relaxed text-lg">
+                <p className="text-slate-600 italic leading-relaxed text-lg">
                   החלפת סוללות יזומה ועדכוני גרסה לתוכנה כדי להגן עליכם מפני פריצות דיגיטליות ולשמור על אמינות המערכת.
                 </p>
               </div>
@@ -152,14 +152,14 @@ export default function AlarmTechnicianPage() {
                צריך טכנאי <span className="text-orange-500 italic uppercase">עכשיו?</span>
              </h2>
              <div className="flex flex-col md:flex-row items-center justify-center gap-6">
-               <button className="group relative px-16 py-8 bg-orange-600 text-white font-[1000] italic text-2xl rounded-2xl shadow-[0_0_50px_rgba(249,115,22,0.3)] transition-all hover:scale-105 active:scale-95">
+               <button className="group relative px-16 py-8 bg-orange-600 text-slate-900 font-[1000] italic text-2xl rounded-2xl shadow-[0_0_50px_rgba(249,115,22,0.3)] transition-all hover:scale-105 active:scale-95">
                   <span className="flex items-center gap-4">
                     הזמן טכנאי מוסמך
                     <ChevronLeft className="group-hover:-translate-x-2 transition-transform" />
                   </span>
                </button>
                <div className="text-right">
-                 <p className="text-slate-400 font-bold italic uppercase text-xs">שירות חירום 24/7</p>
+                 <p className="text-slate-600 font-bold italic uppercase text-xs">שירות חירום 24/7</p>
                  <p className="text-2xl font-black italic">05X-XXXXXXX</p>
                </div>
              </div>
@@ -169,7 +169,7 @@ export default function AlarmTechnicianPage() {
       </main>
 
       {/* --- FOOTER --- */}
-      <footer className="py-20 border-t border-white/5 text-center">
+      <footer className="py-20 border-t border-sky-100 text-center">
         <div className="flex flex-col items-center gap-4">
           <div className="flex items-center gap-4">
             <CheckCircle2 size={32} className="text-orange-500" />

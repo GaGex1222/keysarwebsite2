@@ -28,7 +28,7 @@ export default function CommunicationCabinetPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#080a0f] text-white font-sans overflow-x-hidden selection:bg-cyan-500/30" dir="rtl">
+    <div className="min-h-screen bg-sky-50 text-slate-900 font-sans overflow-x-hidden selection:bg-sky-200/30" dir="rtl">
       
       {/* --- TECH BACKGROUND (NO SOLID BLOCKS) --- */}
       <div className="fixed inset-0 z-0 pointer-events-none">
@@ -38,18 +38,18 @@ export default function CommunicationCabinetPage() {
       </div>
 
       {/* --- NAVBAR --- */}
-      <nav className="fixed top-0 left-0 w-full z-[100] border-b border-white/5 bg-[#080a0f]/80 backdrop-blur-xl">
+      <nav className="fixed top-0 left-0 w-full z-[100] border-b border-sky-100 bg-sky-50/80 backdrop-blur-xl">
         <div className="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
           <div className="flex items-center gap-4">
-            <div className="w-10 h-10 border border-cyan-500/30 rounded-lg flex items-center justify-center text-cyan-400">
+            <div className="w-10 h-10 border border-sky-500/30 rounded-lg flex items-center justify-center text-sky-600">
               <Server size={20} />
             </div>
             <div className="flex flex-col">
               <span className="text-xl font-[1000] italic tracking-tighter uppercase leading-none">KEISAR PRO</span>
-              <span className="text-[10px] text-cyan-500 font-bold tracking-[0.3em]">NET_INFRA_v3</span>
+              <span className="text-[10px] text-sky-600 font-bold tracking-[0.3em]">NET_INFRA_v3</span>
             </div>
           </div>
-          <a href="tel:0525022222" className="hidden sm:block text-cyan-400 border border-cyan-400/30 px-6 py-2 rounded-full font-black text-xs italic hover:bg-cyan-400 hover:text-black transition-all">
+          <a href="tel:0525022222" className="hidden sm:block text-sky-600 border border-cyan-400/30 px-6 py-2 rounded-full font-black text-xs italic hover:bg-cyan-400 hover:text-black transition-all">
             052-502-2222
           </a>
         </div>
@@ -60,10 +60,10 @@ export default function CommunicationCabinetPage() {
         <motion.div 
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mb-8 inline-flex items-center gap-3 px-4 py-2 bg-white/5 border border-white/10 rounded-full backdrop-blur-md"
+          className="mb-8 inline-flex items-center gap-3 px-4 py-2 bg-sky-50 border border-sky-200 rounded-full backdrop-blur-md"
         >
           <div className="w-2 h-2 bg-cyan-500 rounded-full animate-pulse" />
-          <span className="text-[10px] font-black uppercase tracking-[0.2em] text-cyan-400">Domestic_Grid_Management</span>
+          <span className="text-[10px] font-black uppercase tracking-[0.2em] text-sky-600">Domestic_Grid_Management</span>
         </motion.div>
 
         <motion.h1 
@@ -74,12 +74,12 @@ export default function CommunicationCabinetPage() {
           <span className="text-transparent" style={{ WebkitTextStroke: '1.5px #06b6d4' }}>תקשורת חכם.</span>
         </motion.h1>
 
-        <p className="max-w-3xl text-slate-400 text-xl md:text-3xl italic font-light leading-relaxed mb-12 border-r-4 border-cyan-500 pr-8 text-right">
+        <p className="max-w-3xl text-slate-600 text-xl md:text-3xl italic font-light leading-relaxed mb-12 border-r-4 border-sky-500 pr-8 text-right">
           הבית המודרני דורש סדר אבסולוטי. אנחנו מרכזים את כל תשתיות האינטרנט, הטלוויזיה והאבטחה בתוך יחידת ניהול אחת, נקייה ועוצמתית.
         </p>
 
         <div className="flex flex-wrap justify-center gap-6">
-          <button className="bg-cyan-500 text-black px-12 py-5 rounded-2xl font-[1000] text-2xl italic shadow-2xl shadow-cyan-500/20 hover:scale-105 transition-all active:scale-95">
+          <button className="bg-sky-600 text-white px-12 py-5 rounded-2xl font-[1000] text-2xl italic shadow-2xl shadow-sky-500/20 hover:scale-105 transition-all active:scale-95">
             ייעוץ תשתית עכשיו
           </button>
         </div>
@@ -93,18 +93,18 @@ export default function CommunicationCabinetPage() {
           initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn}
           className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center"
         >
-          <div className="relative p-10 md:p-16 rounded-[3.5rem] border border-white/5 bg-white/[0.01] backdrop-blur-sm group transition-all hover:border-cyan-500/20">
-            <div className="absolute top-0 left-0 w-20 h-20 border-t-2 border-l-2 border-cyan-500/30 rounded-tl-[3.5rem]" />
+          <div className="relative p-10 md:p-16 rounded-[3.5rem] border border-sky-100 bg-white/[0.01] backdrop-blur-sm group transition-all hover:border-sky-500/20">
+            <div className="absolute top-0 left-0 w-20 h-20 border-t-2 border-l-2 border-sky-500/30 rounded-tl-[3.5rem]" />
             <div className="flex items-center gap-4 mb-10">
-              <Box className="text-cyan-500" size={40} />
-              <h2 className="text-4xl md:text-6xl font-[1000] italic leading-none">הלב של <br /> <span className="text-cyan-500">הבית.</span></h2>
+              <Box className="text-sky-600" size={40} />
+              <h2 className="text-4xl md:text-6xl font-[1000] italic leading-none">הלב של <br /> <span className="text-sky-600">הבית.</span></h2>
             </div>
-            <div className="space-y-8 text-slate-300 text-xl italic leading-relaxed">
+            <div className="space-y-8 text-slate-700 text-xl italic leading-relaxed">
               <p>
                 ארון תקשורת לבית הוא המקום שבו כל הכבלים הופכים למערכת אחת חכמה. אינטרנט, מצלמות, אזעקה וחשמל חכם – הכל מסונכרן במקום אחד.
               </p>
-              <div className="p-6 bg-white/[0.03] border-r-2 border-cyan-500 rounded-xl">
-                <p className="text-white font-bold">פתרונות Keisar:</p>
+              <div className="p-6 bg-white/[0.03] border-r-2 border-sky-500 rounded-xl">
+                <p className="text-slate-900 font-bold">פתרונות Keisar:</p>
                 תכנון הנדסי מדויק המונע הפרעות אלקטרומגנטיות ומבטיח מהירות מקסימלית לכל נקודה בבית.
               </div>
             </div>
@@ -119,9 +119,9 @@ export default function CommunicationCabinetPage() {
               <motion.div 
                 whileHover={{ x: -10 }}
                 key={i} 
-                className="flex items-center gap-6 p-8 rounded-3xl bg-white/[0.02] border border-white/5 hover:border-cyan-500/40 transition-all"
+                className="flex items-center gap-6 p-8 rounded-3xl bg-white/[0.02] border border-sky-100 hover:border-sky-500/40 transition-all"
               >
-                <div className="w-16 h-16 rounded-2xl border border-cyan-500/30 flex items-center justify-center text-cyan-400 group-hover:bg-cyan-500 transition-all">
+                <div className="w-16 h-16 rounded-2xl border border-sky-500/30 flex items-center justify-center text-sky-600 group-hover:bg-sky-500 transition-all">
                   {item.icon}
                 </div>
                 <div>
@@ -140,8 +140,8 @@ export default function CommunicationCabinetPage() {
           <div className="relative z-10 flex flex-col lg:flex-row gap-16 items-center">
             
             <div className="lg:w-1/2 space-y-8">
-              <div className="inline-flex items-center gap-2 text-cyan-500 font-mono text-[10px] tracking-[0.3em] uppercase">
-                <div className="h-[1px] w-8 bg-cyan-500/50" />
+              <div className="inline-flex items-center gap-2 text-sky-600 font-mono text-[10px] tracking-[0.3em] uppercase">
+                <div className="h-[1px] w-8 bg-sky-500" />
                 Engineering_Excellence
               </div>
               
@@ -150,7 +150,7 @@ export default function CommunicationCabinetPage() {
                 <span className="text-transparent" style={{ WebkitTextStroke: '1.5px #06b6d4' }}>פשרות.</span>
               </h2>
 
-              <p className="text-slate-400 text-xl md:text-2xl italic leading-relaxed max-w-xl">
+              <p className="text-slate-600 text-xl md:text-2xl italic leading-relaxed max-w-xl">
                 אנחנו מחויבים לסטנדרט הגבוה ביותר. כל ארון מיוצר מחומרים מבודדים, מבטיח פיזור חום אופטימלי ושירות לשנים קדימה.
               </p>
 
@@ -161,9 +161,9 @@ export default function CommunicationCabinetPage() {
                   { text: "סידור קפדני", icon: <Layers size={18} /> },
                   { text: "ליווי טכני", icon: <UserCheck size={18} /> }
                 ].map((item, idx) => (
-                  <div key={idx} className="flex items-center gap-3 p-5 bg-white/[0.02] border border-white/5 rounded-2xl hover:border-cyan-500/30 transition-all group">
-                    <div className="text-cyan-500 group-hover:scale-110 transition-transform">{item.icon}</div>
-                    <span className="font-black italic text-slate-200">{item.text}</span>
+                  <div key={idx} className="flex items-center gap-3 p-5 bg-white/[0.02] border border-sky-100 rounded-2xl hover:border-sky-500/30 transition-all group">
+                    <div className="text-sky-600 group-hover:scale-110 transition-transform">{item.icon}</div>
+                    <span className="font-black italic text-slate-800">{item.text}</span>
                   </div>
                 ))}
               </div>
@@ -173,26 +173,26 @@ export default function CommunicationCabinetPage() {
             <div className="lg:w-1/2 relative flex justify-center">
               <div className="relative w-full max-w-[500px] aspect-square flex items-center justify-center">
                 
-                <div className="absolute inset-0 border border-cyan-500/10 rounded-full animate-[spin_30s_linear_infinite]" />
-                <div className="absolute inset-12 border border-white/5 rounded-full animate-[spin_20s_linear_infinite_reverse]" />
+                <div className="absolute inset-0 border border-sky-500/10 rounded-full animate-[spin_30s_linear_infinite]" />
+                <div className="absolute inset-12 border border-sky-100 rounded-full animate-[spin_20s_linear_infinite_reverse]" />
                 
-                <div className="relative z-10 w-56 h-56 bg-cyan-500/5 backdrop-blur-3xl border border-cyan-500/20 rounded-[3rem] flex items-center justify-center shadow-[0_0_80px_rgba(6,182,212,0.15)]">
-                  <Database size={80} className="text-cyan-500 animate-pulse" />
+                <div className="relative z-10 w-56 h-56 bg-sky-50 backdrop-blur-3xl border border-sky-500/20 rounded-[3rem] flex items-center justify-center shadow-[0_0_20px_rgba(2,132,199,0.15)]">
+                  <Database size={80} className="text-sky-600 animate-pulse" />
                   
-                  <div className="absolute -top-3 -left-3 w-6 h-6 border-t-2 border-l-2 border-cyan-500" />
-                  <div className="absolute -bottom-3 -right-3 w-6 h-6 border-b-2 border-r-2 border-cyan-500" />
+                  <div className="absolute -top-3 -left-3 w-6 h-6 border-t-2 border-l-2 border-sky-500" />
+                  <div className="absolute -bottom-3 -right-3 w-6 h-6 border-b-2 border-r-2 border-sky-500" />
                 </div>
 
                 <motion.div 
                   animate={{ y: [0, -15, 0] }} transition={{ duration: 4, repeat: Infinity }}
-                  className="absolute top-5 right-5 p-3 bg-black/60 border border-white/10 backdrop-blur-md rounded-xl text-[10px] font-mono text-cyan-400"
+                  className="absolute top-5 right-5 p-3 bg-sky-200 border border-sky-200 backdrop-blur-md rounded-xl text-[10px] font-mono text-sky-600"
                 >
                   INFRA_INTEGRITY: 100%
                 </motion.div>
                 
                 <motion.div 
                   animate={{ y: [0, 15, 0] }} transition={{ duration: 5, repeat: Infinity }}
-                  className="absolute bottom-10 left-5 p-3 bg-black/60 border border-white/10 backdrop-blur-md rounded-xl text-[10px] font-mono text-slate-500"
+                  className="absolute bottom-10 left-5 p-3 bg-sky-200 border border-sky-200 backdrop-blur-md rounded-xl text-[10px] font-mono text-slate-500"
                 >
                   ACTIVE_NODES: 24/24
                 </motion.div>
@@ -207,12 +207,12 @@ export default function CommunicationCabinetPage() {
           className="text-center py-20 bg-gradient-to-b from-transparent via-cyan-500/[0.03] to-transparent rounded-[5rem]"
         >
           <h2 className="text-5xl md:text-[100px] font-[1000] italic leading-none mb-10 uppercase">
-            הכל מחובר <br /> <span className="text-cyan-500">במקום אחד.</span>
+            הכל מחובר <br /> <span className="text-sky-600">במקום אחד.</span>
           </h2>
-          <p className="text-slate-400 text-2xl italic mb-12 max-w-2xl mx-auto font-light leading-relaxed">
+          <p className="text-slate-600 text-2xl italic mb-12 max-w-2xl mx-auto font-light leading-relaxed">
             אנחנו כאן כדי להבטיח שהבית שלכם יהיה מחובר בצורה אופטימלית, אסתטית ומקצועית.
           </p>
-          <button className="bg-cyan-500 text-black px-16 py-6 rounded-3xl font-[1000] text-3xl italic shadow-2xl shadow-cyan-500/40 hover:bg-white transition-all transform active:scale-95">
+          <button className="bg-sky-600 text-white px-16 py-6 rounded-3xl font-[1000] text-3xl italic shadow-2xl shadow-sky-500/40 hover:bg-sky-700 transition-all transform active:scale-95">
             דברו עם המומחים שלנו
           </button>
         </motion.section>
@@ -220,10 +220,10 @@ export default function CommunicationCabinetPage() {
       </main>
 
       {/* --- FOOTER --- */}
-      <footer className="relative bg-[#050608] border-t border-white/5 pt-32 pb-20 px-6">
+      <footer className="relative bg-sky-50 border-t border-sky-100 pt-32 pb-20 px-6">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
           <div className="flex items-center gap-5">
-            <div className="w-14 h-14 border border-cyan-500/30 rounded-2xl flex items-center justify-center text-cyan-400">
+            <div className="w-14 h-14 border border-sky-500/30 rounded-2xl flex items-center justify-center text-sky-600">
               <Shield size={28} />
             </div>
             <div className="flex flex-col">
@@ -232,9 +232,9 @@ export default function CommunicationCabinetPage() {
             </div>
           </div>
           
-          <div className="flex flex-col md:flex-row gap-8 md:gap-16 text-slate-400 font-black italic text-lg uppercase tracking-tighter">
-            <a href="tel:0525022222" className="hover:text-cyan-500 transition-colors">052-502-2222</a>
-            <a href="mailto:office@keisar.co.il" className="hover:text-cyan-500 transition-colors text-sm md:text-lg">office@keisar.co.il</a>
+          <div className="flex flex-col md:flex-row gap-8 md:gap-16 text-slate-600 font-black italic text-lg uppercase tracking-tighter">
+            <a href="tel:0525022222" className="hover:text-sky-600 transition-colors">052-502-2222</a>
+            <a href="mailto:office@keisar.co.il" className="hover:text-sky-600 transition-colors text-sm md:text-lg">office@keisar.co.il</a>
           </div>
 
           <div className="text-[10px] text-slate-700 font-mono text-center md:text-left">

@@ -47,7 +47,7 @@ export default function ApartmentIntercomPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#080a0f] text-white font-sans selection:bg-cyan-500/30 overflow-x-hidden" dir="rtl">
+    <div className="min-h-screen bg-sky-50 text-slate-900 font-sans selection:bg-sky-200/30 overflow-x-hidden" dir="rtl">
       
       {/* --- BACKDROP DECOR --- */}
       <div className="fixed inset-0 z-0 pointer-events-none">
@@ -59,10 +59,10 @@ export default function ApartmentIntercomPage() {
       <header className="relative pt-32 pb-20 px-6 z-10 text-center">
         <framerMotion.div 
           initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md mb-8"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-sky-200 bg-sky-50 backdrop-blur-md mb-8"
         >
-          <Zap size={14} className="text-cyan-400" />
-          <span className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-300">Smart_Home_Access</span>
+          <Zap size={14} className="text-sky-600" />
+          <span className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-700">Smart_Home_Access</span>
         </framerMotion.div>
 
         <framerMotion.h1 
@@ -73,7 +73,7 @@ export default function ApartmentIntercomPage() {
           <span className="text-transparent" style={{ WebkitTextStroke: '1.5px #06b6d4' }}>שלכם בבית.</span>
         </framerMotion.h1>
 
-        <p className="max-w-2xl mx-auto text-slate-400 text-xl md:text-2xl font-light italic leading-relaxed">
+        <p className="max-w-2xl mx-auto text-slate-600 text-xl md:text-2xl font-light italic leading-relaxed">
           זה כבר לא רק מכשיר פלסטיק על הקיר. האינטרקום המודרני הוא פריט דקורטיבי, חכם ואפקטיבי שהופך את החיים לקלים (ובטוחים) הרבה יותר.
         </p>
       </header>
@@ -87,14 +87,14 @@ export default function ApartmentIntercomPage() {
         >
           <div className="space-y-8">
             <h2 className="text-4xl md:text-6xl font-black italic leading-tight">
-              יותר מסתם <br /><span className="text-cyan-500 uppercase">'מקשר פנים'</span>
+              יותר מסתם <br /><span className="text-sky-600 uppercase">'מקשר פנים'</span>
             </h2>
-            <div className="text-slate-400 text-lg md:text-xl italic leading-relaxed space-y-6">
+            <div className="text-slate-600 text-lg md:text-xl italic leading-relaxed space-y-6">
               <p>
                 האינטרקום עבר גלגול טכנולוגי. ממכשיר שפופרת פשוט למערכת בקרה מתוחכמת המאפשרת תקשורת בין חדרים, זיהוי פנים וצפייה בשידור חי.
               </p>
-              <div className="p-6 border border-cyan-500/20 rounded-3xl bg-cyan-500/5 backdrop-blur-sm">
-                <p className="text-white font-bold italic">
+              <div className="p-6 border border-sky-500/20 rounded-3xl bg-sky-50 backdrop-blur-sm">
+                <p className="text-slate-900 font-bold italic">
                   "בדיקה מהירה של מי עומד מעבר לדלת היא לא מותרות – היא הביטחון הבסיסי שלכם."
                 </p>
               </div>
@@ -103,15 +103,15 @@ export default function ApartmentIntercomPage() {
 
           <div className="relative group">
             <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-[3rem] blur opacity-20 group-hover:opacity-40 transition duration-1000" />
-            <div className="relative h-[450px] border border-white/10 rounded-[3rem] bg-[#0d1117] overflow-hidden flex items-center justify-center">
-               <MonitorCheck size={120} className="text-cyan-500/20" />
-               <div className="absolute bottom-10 left-10 right-10 p-6 border border-white/5 rounded-2xl bg-white/5 backdrop-blur-md">
+            <div className="relative h-[450px] border border-sky-200 rounded-[3rem] bg-sky-50 overflow-hidden flex items-center justify-center">
+               <MonitorCheck size={120} className="text-sky-600/20" />
+               <div className="absolute bottom-10 left-10 right-10 p-6 border border-sky-100 rounded-2xl bg-sky-50 backdrop-blur-md">
                   <div className="flex justify-between items-center mb-4">
-                    <span className="text-xs font-mono text-cyan-400">ENCRYPTED_SIGNAL</span>
+                    <span className="text-xs font-mono text-sky-600">ENCRYPTED_SIGNAL</span>
                     <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
                   </div>
-                  <div className="h-2 w-full bg-white/10 rounded-full mb-2" />
-                  <div className="h-2 w-2/3 bg-white/10 rounded-full" />
+                  <div className="h-2 w-full bg-sky-100 rounded-full mb-2" />
+                  <div className="h-2 w-2/3 bg-sky-100 rounded-full" />
                </div>
             </div>
           </div>
@@ -120,7 +120,7 @@ export default function ApartmentIntercomPage() {
         {/* --- SECTION: TYPES GRID --- */}
         <section className="space-y-16">
           <div className="text-center space-y-4">
-            <h2 className="text-4xl md:text-7xl font-black italic uppercase">אפשרויות <span className="text-cyan-500">ללא גבולות.</span></h2>
+            <h2 className="text-4xl md:text-7xl font-black italic uppercase">אפשרויות <span className="text-sky-600">ללא גבולות.</span></h2>
             <p className="text-slate-500 font-bold italic">מהבסיסי ועד לביומטרי - פתרונות לכל צורך ותקציב.</p>
           </div>
 
@@ -129,13 +129,13 @@ export default function ApartmentIntercomPage() {
               <framerMotion.div 
                 key={i}
                 whileHover={{ scale: 1.02 }}
-                className="p-10 border border-white/5 rounded-[3rem] bg-white/[0.01] hover:bg-white/[0.03] transition-all flex flex-col md:flex-row gap-8 items-center text-center md:text-right"
+                className="p-10 border border-sky-100 rounded-[3rem] bg-white/[0.01] hover:bg-white/[0.03] transition-all flex flex-col md:flex-row gap-8 items-center text-center md:text-right"
               >
-                <div className="p-6 rounded-3xl bg-cyan-500/10 text-cyan-500">
+                <div className="p-6 rounded-3xl bg-sky-100 text-sky-600">
                   {type.icon}
                 </div>
                 <div>
-                  <h4 className="text-2xl font-black italic mb-3 text-white">{type.t}</h4>
+                  <h4 className="text-2xl font-black italic mb-3 text-slate-900">{type.t}</h4>
                   <p className="text-slate-500 italic font-medium leading-relaxed">{type.d}</p>
                 </div>
               </framerMotion.div>
@@ -145,7 +145,7 @@ export default function ApartmentIntercomPage() {
 
         {/* --- SECTION: INSTALLATION PROCESS --- */}
         <framerMotion.section 
-          className="relative py-24 px-8 border border-white/5 rounded-[4rem] bg-gradient-to-br from-white/[0.02] to-transparent overflow-hidden"
+          className="relative py-24 px-8 border border-sky-100 rounded-[4rem] bg-gradient-to-br from-white/[0.02] to-transparent overflow-hidden"
           initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn}
         >
           <div className="absolute top-0 right-0 p-12 opacity-[0.03]">
@@ -154,8 +154,8 @@ export default function ApartmentIntercomPage() {
           
           <div className="relative z-10 max-w-4xl mx-auto space-y-12">
             <div className="text-center space-y-4">
-              <h2 className="text-4xl md:text-6xl font-black italic uppercase">התקנה מקצועית <br /><span className="text-cyan-500">ללא דופי.</span></h2>
-              <p className="text-slate-400 italic text-xl leading-relaxed">
+              <h2 className="text-4xl md:text-6xl font-black italic uppercase">התקנה מקצועית <br /><span className="text-sky-600">ללא דופי.</span></h2>
+              <p className="text-slate-600 italic text-xl leading-relaxed">
                 אנשי המקצוע של קיסר בוחנים את תנאי השטח, מתאימים את המערכת באופן אישי ודואגים להתקנה נקייה ומהירה.
               </p>
             </div>
@@ -167,7 +167,7 @@ export default function ApartmentIntercomPage() {
                 { t: "אחריות מקיפה", i: <Zap /> }
               ].map((item, idx) => (
                 <div key={idx} className="space-y-4">
-                  <div className="mx-auto w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-cyan-500">
+                  <div className="mx-auto w-16 h-16 rounded-2xl bg-sky-50 border border-sky-200 flex items-center justify-center text-sky-600">
                     {item.i}
                   </div>
                   <h5 className="font-bold italic text-lg">{item.t}</h5>
@@ -180,7 +180,7 @@ export default function ApartmentIntercomPage() {
         {/* --- FINAL CTA --- */}
         <section className="text-center space-y-12">
            <h2 className="text-5xl md:text-8xl font-[1000] italic leading-tight uppercase">
-             קיסר. הביטחון <br /> <span className="text-cyan-500 underline decoration-1 underline-offset-[15px]">שלכם בידיים שלנו.</span>
+             קיסר. הביטחון <br /> <span className="text-sky-600 underline decoration-1 underline-offset-[15px]">שלכם בידיים שלנו.</span>
            </h2>
            <p className="text-slate-500 font-bold italic tracking-widest uppercase text-sm">
              Available nationwide: Tel Aviv • Jerusalem • Haifa • Eilat • Beer Sheva
@@ -199,10 +199,10 @@ export default function ApartmentIntercomPage() {
       </main>
 
       {/* --- FOOTER --- */}
-      <footer className="py-20 border-t border-white/5 text-center">
+      <footer className="py-20 border-t border-sky-100 text-center">
         <div className="flex flex-col items-center gap-6">
           <div className="flex items-center gap-4">
-            <Home className="text-cyan-500" />
+            <Home className="text-sky-600" />
             <span className="text-2xl font-black italic uppercase tracking-tighter">Keisar RESIDENTIAL</span>
           </div>
           <p className="max-w-md text-slate-600 font-bold italic text-xs leading-relaxed uppercase tracking-widest">

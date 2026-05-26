@@ -61,7 +61,7 @@ export default function ServiceRegionPage({ region = 'center' }: { region?: keyo
   const data = regionsData[region];
 
   return (
-    <div className="min-h-screen bg-[#030508] text-white font-sans selection:bg-cyan-500 overflow-hidden" dir="rtl">
+    <div className="min-h-screen bg-sky-50 text-slate-900 font-sans selection:bg-sky-200 overflow-hidden" dir="rtl">
       
       {/* Dynamic Background Aura - Fixed with Theme Map */}
       <div className={`fixed inset-0 pointer-events-none opacity-20 blur-[120px] rounded-full -top-24 -right-24 w-96 h-96 ${data.theme.aura}`} />
@@ -85,7 +85,7 @@ export default function ServiceRegionPage({ region = 'center' }: { region?: keyo
             כל האיזורים <br/>
             <span className={data.theme.text}>בארץ</span>
           </motion.h1>
-          <p className="text-2xl text-slate-400 italic max-w-3xl leading-tight border-r-4 border-white/10 pr-8">
+          <p className="text-2xl text-slate-600 italic max-w-3xl leading-tight border-r-4 border-sky-200 pr-8">
             {data.subTitle}. צוות הטכנאים המוסמכים של קיסר מערכות פרוס בכל רחבי המחוז, מוכן להעניק פתרונות מיגון ואבטחה בזמן אמת.
           </p>
         </header>
@@ -97,7 +97,7 @@ export default function ServiceRegionPage({ region = 'center' }: { region?: keyo
             { label: "זמן תגובה ממוצע", value: data.stats.responseTime, icon: <Clock /> },
             { label: "פרויקטים פעילים", value: data.stats.activeProjects, icon: <ShieldCheck /> }
           ].map((stat, i) => (
-            <div key={i} className="p-10 bg-white/5 border border-white/10 rounded-[3rem] flex flex-col items-center text-center group hover:bg-white/[0.08] transition-all">
+            <div key={i} className="p-10 bg-sky-50 border border-sky-200 rounded-[3rem] flex flex-col items-center text-center group hover:bg-white/[0.08] transition-all">
               <div className={`${data.theme.text} mb-6 group-hover:scale-110 transition-transform`}>{stat.icon}</div>
               <div className="text-4xl font-[1000] italic mb-2 uppercase">{stat.value}</div>
               <div className="text-[10px] font-black text-slate-500 uppercase tracking-widest italic">{stat.label}</div>
@@ -109,12 +109,12 @@ export default function ServiceRegionPage({ region = 'center' }: { region?: keyo
         <section className="mb-32">
           <div className="flex items-center gap-4 mb-16">
             <h2 className="text-3xl font-[1000] italic uppercase">ערים מרכזיות בשירות</h2>
-            <div className="flex-grow h-px bg-white/10" />
+            <div className="flex-grow h-px bg-sky-100" />
             <MapPin className={data.theme.text} />
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {data.cities.map((city, i) => (
-              <div key={i} className="p-6 bg-white/5 border border-white/10 rounded-2xl hover:border-white/30 transition-all flex items-center justify-between group">
+              <div key={i} className="p-6 bg-sky-50 border border-sky-200 rounded-2xl hover:border-white/30 transition-all flex items-center justify-between group">
                 <span className="font-bold italic text-lg">{city}</span>
                 <div className={`w-2 h-2 rounded-full ${data.theme.bg} group-hover:animate-ping`} />
               </div>
@@ -123,14 +123,14 @@ export default function ServiceRegionPage({ region = 'center' }: { region?: keyo
         </section>
 
         {/* Visual Map / Info Section */}
-        <section className="bg-white/5 border border-white/10 rounded-[4rem] p-12 lg:p-20 overflow-hidden relative mb-32">
+        <section className="bg-sky-50 border border-sky-200 rounded-[4rem] p-12 lg:p-20 overflow-hidden relative mb-32">
           <div className="absolute top-0 left-0 p-12 opacity-5 pointer-events-none">
             <Globe size={300} className={data.theme.text} />
           </div>
           <div className="relative z-10 flex flex-col lg:flex-row gap-16 items-center">
             <div className="lg:w-1/2 space-y-8 text-right">
               <h3 className="text-5xl font-[1000] italic uppercase leading-none">פריסה ארצית,<br/> שירות מקומי</h3>
-              <p className="text-slate-400 italic leading-relaxed text-lg">
+              <p className="text-slate-600 italic leading-relaxed text-lg">
                 אנחנו מבינים שביטחון הוא עניין של זמן. לכן, חילקנו את המערך למחוזות עצמאיים. כל מחוז מצויד בטכנאים מקומיים שמכירים את השטח ואת צרכי האבטחה הספציפיים של האזור.
               </p>
               <div className="flex gap-4">
@@ -140,7 +140,7 @@ export default function ServiceRegionPage({ region = 'center' }: { region?: keyo
                 </button>
               </div>
             </div>
-            <div className="lg:w-1/2 w-full aspect-square bg-black/40 rounded-[3rem] border border-white/5 flex items-center justify-center relative">
+            <div className="lg:w-1/2 w-full aspect-square bg-sky-100 rounded-[3rem] border border-sky-100 flex items-center justify-center relative">
                <div className="space-y-4 text-center">
                   <div className={`text-6xl font-[1000] italic uppercase ${data.theme.text}`}>{region}</div>
                   <div className="text-xs font-black tracking-[0.5em] text-slate-500 uppercase italic">Active_Service_Zone</div>
@@ -156,7 +156,7 @@ export default function ServiceRegionPage({ region = 'center' }: { region?: keyo
           <p className="text-xl font-bold italic mb-12 max-w-2xl mx-auto leading-tight">
             הבית או העסק שלכם ב{data.title.split(' ')[1]} זקוקים להגנה? אל תתפשרו על פחות מהטובים ביותר. צוות המחוז זמין עבורכם עכשיו.
           </p>
-          <button className="bg-black text-white px-16 py-6 rounded-2xl font-[1000] italic text-2xl uppercase flex items-center gap-4 mx-auto group hover:scale-105 transition-transform">
+          <button className="bg-black text-slate-900 px-16 py-6 rounded-2xl font-[1000] italic text-2xl uppercase flex items-center gap-4 mx-auto group hover:scale-105 transition-transform">
             <Zap size={24} className="group-hover:animate-pulse" />
             קבלו הצעה מנצחת במחוז {data.title.split(' ')[1]}
           </button>
@@ -164,7 +164,7 @@ export default function ServiceRegionPage({ region = 'center' }: { region?: keyo
 
       </div>
 
-      <footer className="py-12 border-t border-white/5 text-center">
+      <footer className="py-12 border-t border-sky-100 text-center">
         <p className="text-[10px] font-black tracking-[1em] uppercase italic text-slate-700">
           KEISAR_REGIONAL_NETWORK // {region.toUpperCase()}_DISTRICT // 2026
         </p>

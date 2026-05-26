@@ -35,7 +35,7 @@ export default function IPCamerasGuidePage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#05070a] text-white font-sans overflow-x-hidden selection:bg-blue-500/30" dir="rtl">
+    <div className="min-h-screen bg-sky-50 text-slate-900 font-sans overflow-x-hidden selection:bg-blue-500/30" dir="rtl">
       
       {/* --- GRID BACKGROUND --- */}
       <div className="fixed inset-0 z-0 pointer-events-none">
@@ -62,7 +62,7 @@ export default function IPCamerasGuidePage() {
           <span className="text-transparent" style={{ WebkitTextStroke: '1px rgba(255,255,255,0.3)' }}>מול ה-HD.</span>
         </motion.h1>
 
-        <p className="max-w-3xl text-slate-400 text-xl md:text-2xl italic font-light leading-relaxed border-l-4 border-blue-500/50 pl-8">
+        <p className="max-w-3xl text-slate-600 text-xl md:text-2xl italic font-light leading-relaxed border-l-4 border-blue-500/50 pl-8">
           המדריך המלא לבחירת מערכות צילום: מרזולוציות מגה-פיקסל ועד תשתיות כבילה חכמות. 
           כל מה שצריך לדעת על המעבר לדיגיטל.
         </p>
@@ -76,7 +76,7 @@ export default function IPCamerasGuidePage() {
           initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn}
           className="space-y-16"
         >
-          <div className="flex items-end gap-6 border-b border-white/5 pb-10">
+          <div className="flex items-end gap-6 border-b border-sky-100 pb-10">
             <div className="bg-blue-500 p-4 rounded-2xl"><Video size={40} className="text-black" /></div>
             <div>
               <h2 className="text-5xl font-[1000] italic uppercase">העליונות של IP</h2>
@@ -85,26 +85,26 @@ export default function IPCamerasGuidePage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="p-10 rounded-[3rem] bg-white/[0.02] border border-white/5 hover:border-blue-500/40 transition-all group">
+            <div className="p-10 rounded-[3rem] bg-white/[0.02] border border-sky-100 hover:border-blue-500/40 transition-all group">
               <Maximize className="mb-6 text-blue-500 group-hover:scale-110 transition-transform" size={32} />
               <h3 className="text-2xl font-black italic mb-4">רזולוציה ללא פשרות</h3>
-              <p className="text-slate-400 leading-relaxed font-light italic">
+              <p className="text-slate-600 leading-relaxed font-light italic">
                 יכולת זיהוי פרטים לשימוש משפטי, הגדלה דיגיטלית ללא איבוד צלילות ודיוק רב לניתוח אוטומטי.
               </p>
             </div>
 
-            <div className="p-10 rounded-[3rem] bg-white/[0.02] border border-white/5 hover:border-blue-500/40 transition-all group">
+            <div className="p-10 rounded-[3rem] bg-white/[0.02] border border-sky-100 hover:border-blue-500/40 transition-all group">
               <Layers className="mb-6 text-blue-500 group-hover:scale-110 transition-transform" size={32} />
               <h3 className="text-2xl font-black italic mb-4">PoE - כבל אחד להכל</h3>
-              <p className="text-slate-400 leading-relaxed font-light italic">
+              <p className="text-slate-600 leading-relaxed font-light italic">
                 חשמל, וידאו ונתונים על גבי כבל Ethernet בודד. פשטות התקנה שחוסכת זמן ותשתית כפולה.
               </p>
             </div>
 
-            <div className="p-10 rounded-[3rem] bg-white/[0.02] border border-white/5 hover:border-blue-500/40 transition-all group">
+            <div className="p-10 rounded-[3rem] bg-white/[0.02] border border-sky-100 hover:border-blue-500/40 transition-all group">
               <Network className="mb-6 text-blue-500 group-hover:scale-110 transition-transform" size={32} />
               <h3 className="text-2xl font-black italic mb-4">עצמאות רשתית</h3>
-              <p className="text-slate-400 leading-relaxed font-light italic">
+              <p className="text-slate-600 leading-relaxed font-light italic">
                 כל מצלמה היא שרת וידאו עצמאי עם כתובת IP ייחודית, המאפשרת גישה ישירה מכל מקום בעולם.
               </p>
             </div>
@@ -125,7 +125,7 @@ export default function IPCamerasGuidePage() {
                 "השהיית וידאו (Latency) נפוצה בשידורים חיים",
                 "צריכת רוחב פס משמעותית ברשת הארגונית"
               ].map((text, i) => (
-                <li key={i} className="flex items-center gap-4 text-lg font-bold italic text-slate-300">
+                <li key={i} className="flex items-center gap-4 text-lg font-bold italic text-slate-700">
                   <span className="w-1.5 h-1.5 rounded-full bg-red-500" />
                   {text}
                 </li>
@@ -137,13 +137,13 @@ export default function IPCamerasGuidePage() {
             <h2 className="text-5xl font-[1000] italic leading-tight">
               האלטרנטיבה: <br /> <span className="text-blue-500">ANALOG HD</span>
             </h2>
-            <p className="text-slate-400 text-xl font-light leading-relaxed italic">
+            <p className="text-slate-600 text-xl font-light leading-relaxed italic">
               מערכות אלו מספקות איכות של 1080p על גבי תשתית קואקסיאלית קיימת. זהו הפתרון האידיאלי לשדרוג מבלי להחליף את כל הכבילה בבניין.
             </p>
             <div className="flex flex-wrap gap-4">
-               <div className="px-6 py-3 border border-white/10 rounded-full font-mono text-xs">NO_LICENSE_FEES</div>
-               <div className="px-6 py-3 border border-white/10 rounded-full font-mono text-xs">ZERO_LATENCY</div>
-               <div className="px-6 py-3 border border-white/10 rounded-full font-mono text-xs">500M_RANGE</div>
+               <div className="px-6 py-3 border border-sky-200 rounded-full font-mono text-xs">NO_LICENSE_FEES</div>
+               <div className="px-6 py-3 border border-sky-200 rounded-full font-mono text-xs">ZERO_LATENCY</div>
+               <div className="px-6 py-3 border border-sky-200 rounded-full font-mono text-xs">500M_RANGE</div>
             </div>
           </div>
         </section>
@@ -158,10 +158,10 @@ export default function IPCamerasGuidePage() {
             <h2 className="text-5xl font-[1000] italic uppercase">השוואת טכנולוגיות</h2>
           </div>
 
-          <div className="overflow-x-auto rounded-[2rem] border border-white/10 bg-white/[0.02] backdrop-blur-md">
+          <div className="overflow-x-auto rounded-[2rem] border border-sky-200 bg-white/[0.02] backdrop-blur-md">
             <table className="w-full text-right border-collapse">
               <thead>
-                <tr className="border-b border-white/10 bg-white/5">
+                <tr className="border-b border-sky-200 bg-sky-50">
                   <th className="p-6 font-black italic uppercase text-blue-400">טכנולוגיה</th>
                   <th className="p-6 font-black italic uppercase text-blue-400">רזולוציה מקסימלית</th>
                   <th className="p-6 font-black italic uppercase text-blue-400">איכות שידור</th>
@@ -171,12 +171,12 @@ export default function IPCamerasGuidePage() {
               </thead>
               <tbody className="font-bold italic">
                 {techComparison.map((row, i) => (
-                  <tr key={i} className="border-b border-white/5 hover:bg-white/[0.03] transition-colors">
-                    <td className="p-6 text-white text-xl">{row.tech}</td>
-                    <td className="p-6 text-slate-400">{row.res}</td>
-                    <td className="p-6 text-slate-400">{row.quality}</td>
-                    <td className="p-6 text-slate-400">{row.distance}</td>
-                    <td className="p-6 text-slate-400">{row.compatibility}</td>
+                  <tr key={i} className="border-b border-sky-100 hover:bg-white/[0.03] transition-colors">
+                    <td className="p-6 text-slate-900 text-xl">{row.tech}</td>
+                    <td className="p-6 text-slate-600">{row.res}</td>
+                    <td className="p-6 text-slate-600">{row.quality}</td>
+                    <td className="p-6 text-slate-600">{row.distance}</td>
+                    <td className="p-6 text-slate-600">{row.compatibility}</td>
                   </tr>
                 ))}
               </tbody>
@@ -192,17 +192,17 @@ export default function IPCamerasGuidePage() {
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16">
             <div className="space-y-6">
               <h3 className="text-4xl font-[1000] italic">אחסון ורוחב פס</h3>
-              <p className="text-slate-400 text-lg leading-relaxed italic">
+              <p className="text-slate-600 text-lg leading-relaxed italic">
                 רזולוציות גבוהות (5MP-20MP) דורשות נפח אחסון אדיר. בחירה נכונה של קצב פריימים (FPS) ושיטת דחיסה היא קריטית לאופטימיזציה של המערכת. בקיסר, אנו מתכננים את השרתים כך שיעמדו בעומס המידע מבלי לקרוס.
               </p>
             </div>
             <div className="grid grid-cols-2 gap-4">
-              <div className="p-8 rounded-3xl bg-black/40 border border-white/5 flex flex-col items-center justify-center text-center">
+              <div className="p-8 rounded-3xl bg-sky-100 border border-sky-100 flex flex-col items-center justify-center text-center">
                 <Cpu className="text-blue-500 mb-4" />
                 <div className="text-2xl font-black">H.265+</div>
                 <div className="text-[10px] text-slate-500 uppercase tracking-tighter">Compression_Standard</div>
               </div>
-              <div className="p-8 rounded-3xl bg-black/40 border border-white/5 flex flex-col items-center justify-center text-center">
+              <div className="p-8 rounded-3xl bg-sky-100 border border-sky-100 flex flex-col items-center justify-center text-center">
                 <HardDrive className="text-blue-500 mb-4" />
                 <div className="text-2xl font-black">20TB+</div>
                 <div className="text-[10px] text-slate-500 uppercase tracking-tighter">Scalable_Storage</div>
@@ -220,11 +220,11 @@ export default function IPCamerasGuidePage() {
             צריכים ייעוץ <br /> <span className="text-blue-500">טכנולוגי מקצועי?</span>
           </h2>
           <div className="flex flex-wrap justify-center gap-6">
-            <button className="bg-blue-500 text-black px-16 py-6 rounded-2xl font-[1000] text-2xl italic hover:bg-white transition-all shadow-2xl shadow-blue-500/20 flex items-center gap-4">
+            <button className="bg-blue-500 text-black px-16 py-6 rounded-2xl font-[1000] text-2xl italic hover:bg-sky-700 transition-all shadow-2xl shadow-blue-500/20 flex items-center gap-4">
               <Zap size={24} />
               תכננו לי מערכת IP
             </button>
-            <button className="border border-white/10 text-white px-16 py-6 rounded-2xl font-[1000] text-2xl italic hover:bg-white/5 transition-all">
+            <button className="border border-sky-200 text-slate-900 px-16 py-6 rounded-2xl font-[1000] text-2xl italic hover:bg-sky-50 transition-all">
               דברו עם מומחה
             </button>
           </div>
@@ -233,7 +233,7 @@ export default function IPCamerasGuidePage() {
       </main>
 
       {/* --- FOOTER --- */}
-      <footer className="bg-[#030508] border-t border-white/5 py-20 px-6">
+      <footer className="bg-sky-50 border-t border-sky-100 py-20 px-6">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
           <div className="flex items-center gap-4 text-right">
             <div className="w-12 h-12 border border-blue-500/20 rounded-xl flex items-center justify-center text-blue-500">
@@ -246,7 +246,7 @@ export default function IPCamerasGuidePage() {
           </div>
           <div className="flex gap-10 text-slate-500 text-sm font-bold italic">
             <span>OFFICE@KEISAR.CO.IL</span>
-            <span className="text-white/20">//</span>
+            <span className="text-slate-900/20">//</span>
             <span>2026 TECHNOLOGY REPORT</span>
           </div>
         </div>

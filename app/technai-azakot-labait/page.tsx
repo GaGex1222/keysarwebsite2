@@ -28,14 +28,14 @@ export default function AlarmTechnicianPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#020408] text-white font-sans overflow-x-hidden selection:bg-cyan-500/30" dir="rtl">
+    <div className="min-h-screen bg-sky-50 text-slate-900 font-sans overflow-x-hidden selection:bg-sky-200/30" dir="rtl">
       
       {/* --- CYBERNETIC BACKGROUND --- */}
       <div className="fixed inset-0 z-0 pointer-events-none">
         <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#ffffff_1px,transparent_1px)] bg-[size:40px_40px]" />
         <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/5 via-transparent to-cyan-500/5" />
         {/* Scanning Line Effect */}
-        <div className="absolute top-0 left-0 w-full h-[2px] bg-cyan-500/10 shadow-[0_0_15px_rgba(6,182,212,0.5)] animate-[scan_6s_linear_infinite]" />
+        <div className="absolute top-0 left-0 w-full h-[2px] bg-sky-100 shadow-[0_0_20px_rgba(2,132,199,0.5)] animate-[scan_6s_linear_infinite]" />
       </div>
 
       {/* --- HERO SECTION --- */}
@@ -57,7 +57,7 @@ export default function AlarmTechnicianPage() {
           <span className="text-transparent" style={{ WebkitTextStroke: '1px #06b6d4' }}>לבית חכם.</span>
         </motion.h1>
 
-        <p className="max-w-3xl text-slate-400 text-xl md:text-3xl italic font-light leading-relaxed border-r-4 border-cyan-500 pr-8">
+        <p className="max-w-3xl text-slate-600 text-xl md:text-3xl italic font-light leading-relaxed border-r-4 border-sky-500 pr-8">
           מחפש ביטחון מקסימלי? קיסר מערכות מציעה את הדור הבא של מערכות המיגון. 
           טכנולוגיית קצה, התקנה כירורגית ושקט נפשי מוחלט.
         </p>
@@ -73,7 +73,7 @@ export default function AlarmTechnicianPage() {
         >
           <div className="col-span-full mb-8">
             <h2 className="text-4xl font-[1000] italic uppercase flex items-center gap-4">
-              <ChevronLeft className="text-cyan-500" /> למה לבחור בקיסר?
+              <ChevronLeft className="text-sky-600" /> למה לבחור בקיסר?
             </h2>
           </div>
 
@@ -85,8 +85,8 @@ export default function AlarmTechnicianPage() {
             { title: "ייעוץ מבוסס AI", desc: "תכנון אסטרטגי של מיקומי חיישנים לכיסוי מקסימלי.", icon: <Crosshair /> },
             { title: "אבטחה אישית", desc: "התאמה מדויקת לצרכי המשפחה ואופי המבנה.", icon: <ShieldCheck /> }
           ].map((item, i) => (
-            <div key={i} className="p-8 rounded-[2.5rem] bg-white/[0.02] border border-white/5 hover:border-blue-500/30 hover:bg-blue-500/[0.02] transition-all group">
-              <div className="text-cyan-500 mb-6 group-hover:scale-110 transition-transform">{item.icon}</div>
+            <div key={i} className="p-8 rounded-[2.5rem] bg-white/[0.02] border border-sky-100 hover:border-blue-500/30 hover:bg-blue-500/[0.02] transition-all group">
+              <div className="text-sky-600 mb-6 group-hover:scale-110 transition-transform">{item.icon}</div>
               <h3 className="text-2xl font-black italic mb-3">{item.title}</h3>
               <p className="text-slate-500 leading-relaxed italic">{item.desc}</p>
             </div>
@@ -95,11 +95,11 @@ export default function AlarmTechnicianPage() {
 
         {/* Section 2: Installation Process (Visual Map) */}
         <section className="relative">
-          <div className="absolute -right-20 top-0 w-64 h-64 bg-cyan-500/10 blur-[120px] rounded-full" />
+          <div className="absolute -right-20 top-0 w-64 h-64 bg-sky-100 blur-[120px] rounded-full" />
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div className="space-y-10">
               <h2 className="text-5xl md:text-7xl font-[1000] italic uppercase leading-none">
-                פרוטוקול <br /> <span className="text-cyan-500">התקנה</span>
+                פרוטוקול <br /> <span className="text-sky-600">התקנה</span>
               </h2>
               <div className="space-y-8">
                 {[
@@ -111,26 +111,26 @@ export default function AlarmTechnicianPage() {
                   <div key={idx} className="flex gap-6 group">
                     <span className="text-blue-500 font-mono text-xl font-bold">{item.step}</span>
                     <div>
-                      <h4 className="text-xl font-black italic group-hover:text-cyan-500 transition-colors">{item.title}</h4>
-                      <p className="text-slate-400 font-light italic">{item.desc}</p>
+                      <h4 className="text-xl font-black italic group-hover:text-sky-600 transition-colors">{item.title}</h4>
+                      <p className="text-slate-600 font-light italic">{item.desc}</p>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
             
-            <div className="relative aspect-square bg-white/[0.02] border border-white/5 rounded-[4rem] flex items-center justify-center overflow-hidden">
+            <div className="relative aspect-square bg-white/[0.02] border border-sky-100 rounded-[4rem] flex items-center justify-center overflow-hidden">
                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(6,182,212,0.1),transparent_70%)]" />
                <motion.div 
                  animate={{ rotate: 360 }} 
                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                  className="w-[80%] h-[80%] border-2 border-dashed border-blue-500/20 rounded-full flex items-center justify-center"
                >
-                 <Bell size={80} className="text-cyan-500 animate-bounce" />
+                 <Bell size={80} className="text-sky-600 animate-bounce" />
                </motion.div>
                <div className="absolute bottom-10 text-center">
                  <div className="text-[10px] font-mono text-blue-400 tracking-[0.5em] mb-2 uppercase">System_Layout_Scan</div>
-                 <div className="w-32 h-1 bg-white/10 rounded-full overflow-hidden">
+                 <div className="w-32 h-1 bg-sky-100 rounded-full overflow-hidden">
                     <motion.div animate={{ x: [-100, 100] }} transition={{ duration: 1.5, repeat: Infinity }} className="w-full h-full bg-blue-500" />
                  </div>
                </div>
@@ -139,28 +139,28 @@ export default function AlarmTechnicianPage() {
         </section>
 
         {/* Section 3: Maintenance (The Service Hub) */}
-        <section className="bg-white/[0.02] border border-white/5 rounded-[4rem] p-12 md:p-24 relative overflow-hidden">
+        <section className="bg-white/[0.02] border border-sky-100 rounded-[4rem] p-12 md:p-24 relative overflow-hidden">
           <div className="absolute top-0 left-0 p-12 opacity-5 pointer-events-none">
             <Settings size={300} className="text-blue-500" />
           </div>
           <div className="relative z-10 text-center max-w-4xl mx-auto space-y-12">
-            <h2 className="text-5xl font-[1000] italic">תחזוקה מונעת - <span className="text-cyan-500">שירות V.I.P</span></h2>
-            <p className="text-slate-400 text-xl font-light italic leading-relaxed">
+            <h2 className="text-5xl font-[1000] italic">תחזוקה מונעת - <span className="text-sky-600">שירות V.I.P</span></h2>
+            <p className="text-slate-600 text-xl font-light italic leading-relaxed">
               מערכת אזעקה היא מצילת חיים, ולכן היא חייבת להיות בשיא הכושר. השירות שלנו כולל בדיקות תקופתיות, החלפת סוללות יזומה ועדכוני קושחה (Firmware) כדי להקדים כל ניסיון פריצה.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="p-6 border border-white/10 rounded-3xl bg-black/40">
-                <BatteryCharging className="text-cyan-500 mx-auto mb-4" />
+              <div className="p-6 border border-sky-200 rounded-3xl bg-sky-100">
+                <BatteryCharging className="text-sky-600 mx-auto mb-4" />
                 <h5 className="font-bold">ניהול אנרגיה</h5>
                 <p className="text-xs text-slate-500 uppercase mt-2">Power_Grid_Check</p>
               </div>
               <div className="p-6 border border-blue-500/30 rounded-3xl bg-blue-500/5 backdrop-blur-sm">
-                <Zap className="text-cyan-500 mx-auto mb-4" />
+                <Zap className="text-sky-600 mx-auto mb-4" />
                 <h5 className="font-bold">תיקון תקלות בזק</h5>
                 <p className="text-xs text-slate-500 uppercase mt-2">Rapid_Response</p>
               </div>
-              <div className="p-6 border border-white/10 rounded-3xl bg-black/40">
-                <Lock className="text-cyan-500 mx-auto mb-4" />
+              <div className="p-6 border border-sky-200 rounded-3xl bg-sky-100">
+                <Lock className="text-sky-600 mx-auto mb-4" />
                 <h5 className="font-bold">עדכוני אבטחה</h5>
                 <p className="text-xs text-slate-500 uppercase mt-2">Firmware_Update</p>
               </div>
@@ -174,15 +174,15 @@ export default function AlarmTechnicianPage() {
           className="text-center py-20"
         >
           <div className="inline-block p-1 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-[3rem] mb-12 shadow-[0_0_60px_rgba(37,99,235,0.1)]">
-            <div className="bg-[#020408] rounded-[2.9rem] px-16 py-20 md:px-32 relative overflow-hidden">
+            <div className="bg-sky-50 rounded-[2.9rem] px-16 py-20 md:px-32 relative overflow-hidden">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(6,182,212,0.05),transparent_70%)]" />
               <h2 className="relative z-10 text-4xl md:text-8xl font-[1000] italic leading-tight mb-8">
-                אל תחכה <br /> <span className="text-cyan-500">לפריצה הבאה.</span>
+                אל תחכה <br /> <span className="text-sky-600">לפריצה הבאה.</span>
               </h2>
-              <p className="relative z-10 text-slate-400 text-xl mb-12 max-w-xl mx-auto italic">
+              <p className="relative z-10 text-slate-600 text-xl mb-12 max-w-xl mx-auto italic">
                 הצטרף למשפחת קיסר ותתחיל לישון בשקט. המקצוענים שלנו מחכים לשיחה שלך.
               </p>
-              <button className="relative z-10 bg-cyan-500 text-black px-16 py-6 rounded-2xl font-[1000] text-2xl italic uppercase hover:bg-white transition-all shadow-[0_0_50px_rgba(6,182,212,0.3)] hover:shadow-cyan-500/50">
+              <button className="relative z-10 bg-sky-600 text-white px-16 py-6 rounded-2xl font-[1000] text-2xl italic uppercase hover:bg-sky-700 transition-all shadow-[0_0_20px_rgba(2,132,199,0.3)] hover:shadow-sky-500/50">
                 הזמן טכנאי עכשיו
               </button>
             </div>
@@ -192,20 +192,20 @@ export default function AlarmTechnicianPage() {
       </main>
 
       {/* --- FOOTER --- */}
-      <footer className="bg-[#010204] border-t border-white/5 py-20 px-6">
+      <footer className="bg-sky-100 border-t border-sky-100 py-20 px-6">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
           <div className="flex items-center gap-4 text-right">
-            <div className="w-12 h-12 border border-cyan-500/20 rounded-xl flex items-center justify-center text-cyan-500 shadow-[0_0_15px_rgba(6,182,212,0.1)]">
+            <div className="w-12 h-12 border border-sky-500/20 rounded-xl flex items-center justify-center text-sky-600 shadow-[0_0_20px_rgba(2,132,199,0.1)]">
               <ShieldCheck size={24} />
             </div>
             <div className="flex flex-col">
               <span className="text-xl font-black italic uppercase leading-none tracking-tight">Keisar Security</span>
-              <span className="text-[8px] text-cyan-500 font-bold tracking-[0.5em] uppercase">Tactical_Home_Defense</span>
+              <span className="text-[8px] text-sky-600 font-bold tracking-[0.5em] uppercase">Tactical_Home_Defense</span>
             </div>
           </div>
           <div className="flex gap-10 text-slate-500 text-sm font-bold italic">
-            <a href="#" className="hover:text-cyan-500 transition-colors">SECURITY_PLAN_2026</a>
-            <span className="text-white/10">|</span>
+            <a href="#" className="hover:text-sky-600 transition-colors">SECURITY_PLAN_2026</a>
+            <span className="text-slate-900/10">|</span>
             <span>052-502-2222</span>
           </div>
         </div>

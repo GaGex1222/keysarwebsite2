@@ -188,24 +188,24 @@ function PriceDialog({ onClose }: { onClose: () => void }) {
         animate={{ scale: 1, y: 0 }}
         exit={{ scale: 0.9, y: 30 }}
         transition={{ type: 'spring', stiffness: 280, damping: 24 }}
-        className="relative w-full max-w-lg bg-[#11141d] border border-white/10 rounded-[2.5rem] p-8 md:p-10 shadow-2xl text-right"
+        className="relative w-full max-w-lg bg-white border border-sky-200 rounded-[2.5rem] p-8 md:p-10 shadow-2xl text-right"
         onClick={e => e.stopPropagation()}
       >
         {/* Close */}
         <button
           onClick={onClose}
-          className="absolute top-6 left-6 p-2 rounded-full bg-white/5 hover:bg-white/10 transition-colors"
+          className="absolute top-6 left-6 p-2 rounded-full bg-sky-50 hover:bg-sky-100 transition-colors"
         >
-          <X size={18} className="text-slate-400" />
+          <X size={18} className="text-slate-600" />
         </button>
 
         {/* Header */}
         <div className="flex items-center gap-3 mb-6">
-          <div className="w-10 h-10 bg-cyan-500/10 border border-cyan-500/30 rounded-xl flex items-center justify-center">
-            <Camera size={20} className="text-cyan-400" />
+          <div className="w-10 h-10 bg-sky-100 border border-sky-500/30 rounded-xl flex items-center justify-center">
+            <Camera size={20} className="text-sky-600" />
           </div>
           <div>
-            <p className="text-[10px] font-black uppercase tracking-[0.25em] text-cyan-500">מחשבון מחירים</p>
+            <p className="text-[10px] font-black uppercase tracking-[0.25em] text-sky-600">מחשבון מחירים</p>
             <h3 className="text-lg font-black italic">הצעת מחיר למצלמות אבטחה</h3>
           </div>
         </div>
@@ -225,7 +225,7 @@ function PriceDialog({ onClose }: { onClose: () => void }) {
                   <span>שאלה {step + 1} מתוך {QUESTIONS.length}</span>
                   <span>{Math.round(((step) / QUESTIONS.length) * 100)}%</span>
                 </div>
-                <div className="h-1 bg-white/5 rounded-full overflow-hidden">
+                <div className="h-1 bg-sky-50 rounded-full overflow-hidden">
                   <motion.div
                     className="h-full bg-cyan-500 rounded-full"
                     initial={{ width: `${(step / QUESTIONS.length) * 100}%` }}
@@ -245,9 +245,9 @@ function PriceDialog({ onClose }: { onClose: () => void }) {
                   <button
                     key={opt}
                     onClick={() => choose(opt)}
-                    className="w-full text-right px-5 py-4 rounded-2xl bg-white/5 border border-white/10 font-bold text-sm hover:border-cyan-500/50 hover:bg-cyan-500/10 hover:text-cyan-300 transition-all group flex items-center justify-between"
+                    className="w-full text-right px-5 py-4 rounded-2xl bg-sky-50 border border-sky-200 font-bold text-sm hover:border-sky-500/50 hover:bg-sky-100 hover:text-sky-500 transition-all group flex items-center justify-between"
                   >
-                    <ChevronLeft size={16} className="text-slate-600 group-hover:text-cyan-500 transition-colors shrink-0" />
+                    <ChevronLeft size={16} className="text-slate-600 group-hover:text-sky-600 transition-colors shrink-0" />
                     <span>{opt}</span>
                   </button>
                 ))}
@@ -257,7 +257,7 @@ function PriceDialog({ onClose }: { onClose: () => void }) {
               {step > 0 && (
                 <button
                   onClick={() => setStep(step - 1)}
-                  className="mt-4 text-xs text-slate-500 hover:text-slate-300 font-bold transition-colors"
+                  className="mt-4 text-xs text-slate-500 hover:text-slate-700 font-bold transition-colors"
                 >
                   ← חזור לשאלה הקודמת
                 </button>
@@ -272,25 +272,25 @@ function PriceDialog({ onClose }: { onClose: () => void }) {
             >
               {/* Price result */}
               <div className="text-center mb-6">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-cyan-500/10 border border-cyan-500/30 mb-4">
-                  <CheckCircle2 size={32} className="text-cyan-400" />
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-sky-100 border border-sky-500/30 mb-4">
+                  <CheckCircle2 size={32} className="text-sky-600" />
                 </div>
-                <p className="text-slate-400 font-bold italic mb-2">הצעת המחיר המשוערת שלך:</p>
-                <p className="text-4xl md:text-5xl font-[900] italic text-cyan-400 leading-tight">
+                <p className="text-slate-600 font-bold italic mb-2">הצעת המחיר המשוערת שלך:</p>
+                <p className="text-4xl md:text-5xl font-[900] italic text-sky-600 leading-tight">
                   ₪{price!.min.toLocaleString('he-IL')}
                 </p>
-                <p className="text-slate-400 font-bold text-sm mt-1">
+                <p className="text-slate-600 font-bold text-sm mt-1">
                   עד ₪{price!.max.toLocaleString('he-IL')}
                 </p>
                 <p className="text-[10px] text-slate-600 mt-2">*המחיר הוא הערכה. הצעה מדויקת תינתן לאחר סקר מקום</p>
               </div>
 
               {/* Summary */}
-              <div className="bg-white/5 rounded-2xl border border-white/10 p-4 mb-6 space-y-2">
+              <div className="bg-sky-50 rounded-2xl border border-sky-200 p-4 mb-6 space-y-2">
                 {QUESTIONS.map(q => (
                   answers[q.id] && (
                     <div key={q.id} className="flex justify-between text-sm">
-                      <span className="text-cyan-500 font-bold">{answers[q.id]}</span>
+                      <span className="text-sky-600 font-bold">{answers[q.id]}</span>
                       <span className="text-slate-500 font-bold">{q.label.replace('?','').trim()}</span>
                     </div>
                   )
@@ -299,30 +299,30 @@ function PriceDialog({ onClose }: { onClose: () => void }) {
 
               {/* WhatsApp CTA */}
               <div className="space-y-3">
-                <p className="text-center text-sm font-bold text-slate-300 italic">
+                <p className="text-center text-sm font-bold text-slate-700 italic">
                   לקבלת הצעה מדויקת, צרו קשר עם הצוות שלנו:
                 </p>
                 <a
                   href={`https://wa.me/${WHATSAPP_NUMBER}?text=${buildWhatsAppMsg(answers, price!)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-3 w-full py-4 rounded-2xl bg-[#25D366] text-white font-[900] text-lg italic hover:brightness-110 transition-all shadow-lg shadow-green-500/20"
+                  className="flex items-center justify-center gap-3 w-full py-4 rounded-2xl bg-[#25D366] text-slate-900 font-[900] text-lg italic hover:brightness-110 transition-all shadow-lg shadow-green-500/20"
                 >
                   <MessageCircle size={22} />
                   שלח הצעה בוואטסאפ
                 </a>
                 <a
                   href="tel:0525022222"
-                  className="flex items-center justify-center gap-3 w-full py-3 rounded-2xl bg-white/5 border border-white/10 font-bold text-sm hover:border-cyan-500/30 transition-colors"
+                  className="flex items-center justify-center gap-3 w-full py-3 rounded-2xl bg-sky-50 border border-sky-200 font-bold text-sm hover:border-sky-500/30 transition-colors"
                 >
-                  <span className="text-cyan-500">📞</span>
+                  <span className="text-sky-600">📞</span>
                   052-502-2222
                 </a>
               </div>
 
               <button
                 onClick={reset}
-                className="mt-4 w-full text-center text-xs text-slate-600 hover:text-slate-400 font-bold transition-colors"
+                className="mt-4 w-full text-center text-xs text-slate-600 hover:text-slate-600 font-bold transition-colors"
               >
                 חשב מחדש
               </button>
@@ -361,15 +361,15 @@ function ServicesSlideshow({ onOpenOffer }: { onOpenOffer: () => void }) {
       <div className="max-w-7xl mx-auto">
         {/* Section label */}
         <div className="text-center mb-10">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/5 border border-white/10 rounded-full">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-sky-50 border border-sky-200 rounded-full">
             <div className="w-1.5 h-1.5 bg-cyan-500 rounded-full animate-ping" />
-            <span className="text-[11px] font-black uppercase tracking-[0.25em] text-cyan-400">השירותים המובילים שלנו</span>
+            <span className="text-[11px] font-black uppercase tracking-[0.25em] text-sky-600">השירותים המובילים שלנו</span>
           </div>
         </div>
 
         {/* Slide card */}
-        <div className="relative overflow-hidden rounded-[3rem] border border-white/10 bg-[#0d1018] min-h-[480px] md:min-h-[420px]"
-          style={{ boxShadow: `0 0 80px ${slide.glowColor}` }}
+        <div className="relative overflow-hidden rounded-[3rem] border border-sky-200 bg-white min-h-[480px] md:min-h-[420px]"
+          style={{ boxShadow: `0 0 60px ${slide.glowColor}` }}
         >
           {/* Animated background glow */}
           <AnimatePresence mode="wait">
@@ -404,13 +404,13 @@ function ServicesSlideshow({ onOpenOffer }: { onOpenOffer: () => void }) {
                   {slide.badge}
                 </div>
 
-                <h2 className="text-4xl md:text-6xl font-[900] italic leading-tight mb-2">
+                <h2 className="text-4xl md:text-6xl font-[900] italic leading-tight mb-2 text-slate-900">
                   {slide.title}
                 </h2>
                 <p className="text-xl font-bold mb-4" style={{ color: slide.accent }}>
                   {slide.subtitle}
                 </p>
-                <p className="text-slate-400 italic font-medium leading-relaxed mb-8 max-w-md">
+                <p className="text-slate-500 italic font-medium leading-relaxed mb-8 max-w-md">
                   {slide.desc}
                 </p>
 
@@ -484,15 +484,15 @@ function ServicesSlideshow({ onOpenOffer }: { onOpenOffer: () => void }) {
           {/* Navigation arrows */}
           <button
             onClick={prev}
-            className="absolute top-1/2 right-6 -translate-y-1/2 w-10 h-10 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full flex items-center justify-center transition-all z-20"
+            className="absolute top-1/2 right-6 -translate-y-1/2 w-10 h-10 bg-sky-50 hover:bg-sky-100 border border-sky-200 rounded-full flex items-center justify-center transition-all z-20"
           >
-            <ChevronRight size={18} className="text-slate-300" />
+            <ChevronRight size={18} className="text-slate-700" />
           </button>
           <button
             onClick={next}
-            className="absolute top-1/2 left-6 -translate-y-1/2 w-10 h-10 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full flex items-center justify-center transition-all z-20"
+            className="absolute top-1/2 left-6 -translate-y-1/2 w-10 h-10 bg-sky-50 hover:bg-sky-100 border border-sky-200 rounded-full flex items-center justify-center transition-all z-20"
           >
-            <ChevronLeft size={18} className="text-slate-300" />
+            <ChevronLeft size={18} className="text-slate-700" />
           </button>
         </div>
 
@@ -506,7 +506,7 @@ function ServicesSlideshow({ onOpenOffer }: { onOpenOffer: () => void }) {
               style={{
                 width: i === current ? '2rem' : '0.5rem',
                 height: '0.5rem',
-                backgroundColor: i === current ? slide.accent : 'rgba(255,255,255,0.15)',
+                backgroundColor: i === current ? slide.accent : '#bfdbfe',
               }}
             />
           ))}
@@ -535,12 +535,12 @@ export default function KeisarUltraModern() {
   ];
 
   return (
-    <div className="bg-[#02040a] text-white selection:bg-cyan-500 selection:text-black overflow-x-hidden w-full min-h-screen font-sans" dir="rtl">
+    <div className="bg-sky-50 text-slate-900 selection:bg-sky-200 selection:text-black overflow-x-hidden w-full min-h-screen font-sans" dir="rtl">
 
       {/* Background */}
       <div className="fixed inset-0 z-0">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-10" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-cyan-500/5 blur-[150px] rounded-full" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#bae6fd_1px,transparent_1px),linear-gradient(to_bottom,#bae6fd_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-40" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-sky-50 blur-[150px] rounded-full" />
         <motion.div
           animate={{ opacity: [0.1, 0.3, 0.1] }}
           transition={{ duration: 5, repeat: Infinity }}
@@ -553,9 +553,9 @@ export default function KeisarUltraModern() {
         <motion.div style={{ opacity: heroOpacity, scale: heroScale }} className="text-center">
 
           <div className="relative mb-12 group inline-block">
-            <motion.div animate={{ rotate: 360 }} transition={{ duration: 25, repeat: Infinity, ease: 'linear' }} className="absolute -inset-12 border border-cyan-500/10 rounded-full" />
-            <motion.div animate={{ rotate: -360 }} transition={{ duration: 20, repeat: Infinity, ease: 'linear' }} className="absolute -inset-8 border border-cyan-500/20 rounded-[3rem] border-dashed" />
-            <div className="relative w-40 h-40 sm:w-56 sm:h-56 bg-[#1a1d23] rounded-[2.5rem] p-1 shadow-2xl shadow-cyan-500/20 overflow-hidden border border-white/10 mx-auto">
+            <motion.div animate={{ rotate: 360 }} transition={{ duration: 25, repeat: Infinity, ease: 'linear' }} className="absolute -inset-12 border border-sky-500/10 rounded-full" />
+            <motion.div animate={{ rotate: -360 }} transition={{ duration: 20, repeat: Infinity, ease: 'linear' }} className="absolute -inset-8 border border-sky-500/20 rounded-[3rem] border-dashed" />
+            <div className="relative w-40 h-40 sm:w-56 sm:h-56 bg-sky-50 rounded-[2.5rem] p-1 shadow-2xl shadow-sky-500/20 overflow-hidden border border-sky-200 mx-auto">
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10" />
               <img src="/keisar_systems-removebg-preview.png" alt="לוגו קיסר מערכות" className="w-full h-full object-cover rounded-[2.3rem]" />
             </div>
@@ -564,7 +564,7 @@ export default function KeisarUltraModern() {
           <motion.div initial={{ y: 50, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.8 }}>
             <h1 className="text-7xl sm:text-9xl md:text-[150px] font-[900] leading-[0.8] tracking-tighter uppercase italic">
               קיסר <br />
-              <span className="text-transparent" style={{ WebkitTextStroke: '2px #06b6d4' }}>מערכות</span>
+              <span className="text-transparent" style={{ WebkitTextStroke: '2.5px #0284c7' }}>מערכות</span>
             </h1>
           </motion.div>
 
@@ -572,20 +572,20 @@ export default function KeisarUltraModern() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
-            className="mt-8 flex items-center justify-center gap-4 text-cyan-500 font-mono text-sm tracking-[0.3em] uppercase"
+            className="mt-8 flex items-center justify-center gap-4 text-sky-600 font-mono text-sm tracking-[0.3em] uppercase"
           >
             <span className="w-2 h-2 bg-cyan-500 rounded-full animate-ping" />
             תשתית _ מוכנה _ 2026
           </motion.div>
 
-          <motion.p className="text-xl sm:text-2xl text-slate-400 max-w-2xl mx-auto italic mt-8 mb-12 leading-tight font-medium">
-            הקמת תשתיות תקשורת מתקדמות, <span className="text-white font-bold">WiFi 7</span> ומערכות אבטחה חכמות בסטנדרט של המחר.
+          <motion.p className="text-xl sm:text-2xl text-slate-600 max-w-2xl mx-auto italic mt-8 mb-12 leading-tight font-medium">
+            הקמת תשתיות תקשורת מתקדמות, <span className="text-slate-900 font-bold">WiFi 7</span> ומערכות אבטחה חכמות בסטנדרט של המחר.
           </motion.p>
 
           <motion.button
             onClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })}
-            whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(6,182,212,0.4)' }}
-            className="bg-cyan-500 text-black px-16 py-6 rounded-2xl font-[900] text-2xl italic flex items-center gap-3 mx-auto transition-all"
+            whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(2,132,199,0.4)' }}
+            className="bg-sky-600 text-white px-16 py-6 rounded-2xl font-[900] text-2xl italic flex items-center gap-3 mx-auto transition-all hover:bg-sky-700"
           >
             התחל פרויקט <MousePointer2 size={24} />
           </motion.button>
@@ -593,7 +593,7 @@ export default function KeisarUltraModern() {
 
         <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
           <div className="w-[1px] h-12 bg-gradient-to-t from-cyan-500 to-transparent" />
-          <span className="text-[10px] tracking-[0.3em] text-cyan-500 uppercase font-black">גללו למטה</span>
+          <span className="text-[10px] tracking-[0.3em] text-sky-600 uppercase font-black">גללו למטה</span>
         </div>
       </header>
 
@@ -603,7 +603,7 @@ export default function KeisarUltraModern() {
       {/* Services Grid */}
       <section className="relative z-10 py-32 max-w-7xl mx-auto px-6">
         <div className="space-y-4 mb-24 text-right">
-          <h2 className="text-5xl sm:text-8xl font-[900] italic">הפתרונות <span className="text-cyan-500 underline underline-offset-[12px]">שלנו.</span></h2>
+          <h2 className="text-5xl sm:text-8xl font-[900] italic">הפתרונות <span className="text-sky-600 underline underline-offset-[12px]">שלנו.</span></h2>
           <p className="text-slate-500 max-w-xl text-lg font-bold">תשתיות יציבות הן הבסיס לכל טכנולוגיה. אנחנו כאן כדי לוודא שהבסיס שלך חזק מתמיד.</p>
         </div>
 
@@ -611,22 +611,22 @@ export default function KeisarUltraModern() {
           {services.map((s, i) => (
             <motion.div
               key={i}
-              className="p-10 rounded-[2.5rem] bg-[#0f1218]/50 border border-white/5 relative overflow-hidden group transition-all duration-500 hover:border-cyan-500/50"
+              className="p-10 rounded-[2.5rem] bg-sky-50/50 border border-sky-100 relative overflow-hidden group transition-all duration-500 hover:border-sky-500/50"
             >
               <div className="flex justify-between items-start mb-8">
-                <div className="text-cyan-500 transition-transform duration-500 group-hover:scale-110 group-hover:text-white">
+                <div className="text-sky-600 transition-transform duration-500 group-hover:scale-110 group-hover:text-slate-900">
                   {React.cloneElement(s.icon as React.ReactElement<{ size?: number }>, { size: 40 })}
                 </div>
                 <div className="flex gap-1 items-center">
                   <div className="w-1.5 h-1.5 rounded-full bg-cyan-500 animate-pulse" />
-                  <span className="text-[8px] font-mono text-cyan-500 uppercase">פעיל</span>
+                  <span className="text-[8px] font-mono text-sky-600 uppercase">פעיל</span>
                 </div>
               </div>
               <h3 className="text-2xl font-[900] italic mb-4 uppercase">{s.title}</h3>
-              <p className="text-slate-400 font-medium mb-6 leading-relaxed group-hover:text-slate-200 transition-colors italic">{s.desc}</p>
+              <p className="text-slate-600 font-medium mb-6 leading-relaxed group-hover:text-slate-800 transition-colors italic">{s.desc}</p>
               <div className="flex flex-wrap gap-2 justify-start">
                 {s.tags.map(tag => (
-                  <span key={tag} className="text-[10px] font-black px-3 py-1 rounded-full border border-white/10 bg-white/5 group-hover:border-cyan-500/30 group-hover:bg-cyan-500/10">
+                  <span key={tag} className="text-[10px] font-black px-3 py-1 rounded-full border border-sky-200 bg-sky-50 group-hover:border-sky-500/30 group-hover:bg-sky-100">
                     {tag}
                   </span>
                 ))}
@@ -637,57 +637,57 @@ export default function KeisarUltraModern() {
       </section>
 
       {/* Business Section */}
-      <section className="py-40 bg-white/5 border-y border-white/5 relative z-10 text-right">
+      <section className="py-40 bg-sky-50 border-y border-sky-100 relative z-10 text-right">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           <div className="grid grid-cols-2 gap-4">
-            <div className="p-8 bg-[#0a0c12]/80 border border-white/5 rounded-[2.5rem] space-y-4 hover:border-cyan-500/30 transition-all group">
-              <Globe className="text-cyan-500 w-10 h-10 group-hover:animate-spin mr-0 ml-auto" />
+            <div className="p-8 bg-sky-50/80 border border-sky-100 rounded-[2.5rem] space-y-4 hover:border-sky-500/30 transition-all group">
+              <Globe className="text-sky-600 w-10 h-10 group-hover:animate-spin mr-0 ml-auto" />
               <h4 className="text-xl font-[900] italic">תשתית עסקית</h4>
               <p className="text-slate-500 text-sm italic">ניהול רשתות לסניפים מרוחקים תחת מעטפת אבטחה אחת.</p>
             </div>
-            <div className="p-8 bg-[#0a0c12]/80 border border-white/5 rounded-[2.5rem] space-y-4 hover:border-cyan-500/30 transition-all group">
-              <Server className="text-cyan-500 w-10 h-10 group-hover:translate-y-[-5px] transition-transform mr-0 ml-auto" />
+            <div className="p-8 bg-sky-50/80 border border-sky-100 rounded-[2.5rem] space-y-4 hover:border-sky-500/30 transition-all group">
+              <Server className="text-sky-600 w-10 h-10 group-hover:translate-y-[-5px] transition-transform mr-0 ml-auto" />
               <h4 className="text-xl font-[900] italic">חדרי שרתים</h4>
               <p className="text-slate-500 text-sm italic font-bold">הקמת ארונות תקשורת בצורה מודולרית ועמידה לעומס.</p>
             </div>
-            <div className="p-8 bg-[#0a0c12]/80 border border-white/5 rounded-[2.5rem] space-y-4 col-span-2 hover:border-cyan-500/30 transition-all group">
-              <Shield className="text-cyan-500 w-10 h-10 mr-0 ml-auto" />
+            <div className="p-8 bg-sky-50/80 border border-sky-100 rounded-[2.5rem] space-y-4 col-span-2 hover:border-sky-500/30 transition-all group">
+              <Shield className="text-sky-600 w-10 h-10 mr-0 ml-auto" />
               <h4 className="text-xl font-[900] italic">מעטפת אבטחת סייבר</h4>
               <p className="text-slate-500 text-sm italic font-bold">הגנה אקטיבית על כל נקודות הקצה ברשת העסקית שלך.</p>
             </div>
           </div>
           <div className="space-y-8">
-            <h2 className="text-6xl font-[900] italic leading-none">המוח של <br /><span className="text-cyan-500">העסק שלך.</span></h2>
-            <p className="text-xl text-slate-300 font-light italic leading-relaxed">אנחנו לא רק מתקינים כבלים. אנחנו בונים מערכת עצבית חכמה לעסק שלך.</p>
+            <h2 className="text-6xl font-[900] italic leading-none">המוח של <br /><span className="text-sky-600">העסק שלך.</span></h2>
+            <p className="text-xl text-slate-700 font-light italic leading-relaxed">אנחנו לא רק מתקינים כבלים. אנחנו בונים מערכת עצבית חכמה לעסק שלך.</p>
           </div>
         </div>
       </section>
 
       {/* Contact */}
-      <footer id="contact-form" className="py-32 relative z-10 px-6 border-t border-white/5">
+      <footer id="contact-form" className="py-32 relative z-10 px-6 border-t border-sky-100">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16 space-y-4">
             <h3 className="text-5xl sm:text-7xl font-[900] italic">מוכנים לשדרוג?</h3>
-            <p className="text-slate-400 font-bold italic text-xl text-center">השאירו פרטים ונחזור אליכם עם פתרון מנצח</p>
+            <p className="text-slate-600 font-bold italic text-xl text-center">השאירו פרטים ונחזור אליכם עם פתרון מנצח</p>
           </div>
 
-          <form className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20 bg-[#0f1218]/50 p-8 sm:p-12 rounded-[3rem] border border-white/5 shadow-2xl">
+          <form className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20 bg-sky-50/50 p-8 sm:p-12 rounded-[3rem] border border-sky-100 shadow-2xl">
             <div className="space-y-2 text-right">
-              <label className="text-[10px] uppercase tracking-[0.2em] text-cyan-500 font-black mr-4">שם מלא</label>
-              <input type="text" className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:border-cyan-500/50 focus:outline-none transition-all italic font-medium text-right" />
+              <label className="text-[10px] uppercase tracking-[0.2em] text-sky-600 font-black mr-4">שם מלא</label>
+              <input type="text" className="w-full bg-sky-50 border border-sky-200 rounded-2xl px-6 py-4 focus:border-sky-500/50 focus:outline-none transition-all italic font-medium text-right" />
             </div>
             <div className="space-y-2 text-right">
-              <label className="text-[10px] uppercase tracking-[0.2em] text-cyan-500 font-black mr-4">טלפון</label>
-              <input type="tel" className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:border-cyan-500/50 focus:outline-none transition-all italic font-medium text-right" />
+              <label className="text-[10px] uppercase tracking-[0.2em] text-sky-600 font-black mr-4">טלפון</label>
+              <input type="tel" className="w-full bg-sky-50 border border-sky-200 rounded-2xl px-6 py-4 focus:border-sky-500/50 focus:outline-none transition-all italic font-medium text-right" />
             </div>
             <div className="md:col-span-2 space-y-2 text-right">
-              <label className="text-[10px] uppercase tracking-[0.2em] text-cyan-500 font-black mr-4">איך נוכל לעזור?</label>
-              <textarea rows={4} placeholder="ספרו לנו קצת על הפרויקט שלכם..." className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:border-cyan-500/50 focus:outline-none transition-all italic font-medium resize-none text-right" />
+              <label className="text-[10px] uppercase tracking-[0.2em] text-sky-600 font-black mr-4">איך נוכל לעזור?</label>
+              <textarea rows={4} placeholder="ספרו לנו קצת על הפרויקט שלכם..." className="w-full bg-sky-50 border border-sky-200 rounded-2xl px-6 py-4 focus:border-sky-500/50 focus:outline-none transition-all italic font-medium resize-none text-right" />
             </div>
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="md:col-span-2 bg-cyan-500 text-black py-6 rounded-2xl font-[900] text-xl italic flex items-center justify-center gap-3 shadow-lg shadow-cyan-500/20"
+              className="md:col-span-2 bg-sky-600 text-white py-6 rounded-2xl font-[900] text-xl italic flex items-center justify-center gap-3 shadow-lg shadow-sky-500/20 hover:bg-sky-700 transition-colors"
             >
               שלח הודעה <Send size={20} />
             </motion.button>
@@ -695,11 +695,11 @@ export default function KeisarUltraModern() {
 
           <div className="flex flex-col items-center space-y-12">
             <div className="flex flex-wrap justify-center gap-12 text-lg">
-              <a href="tel:0525022222" className="flex items-center gap-3 font-[900] italic hover:text-cyan-500 transition-colors"><Phone size={22} className="text-cyan-500" /> 052-502-2222</a>
-              <a href="mailto:office@keisar.co.il" className="flex items-center gap-3 font-[900] italic hover:text-cyan-500 transition-colors"><Mail size={22} className="text-cyan-500" /> office@keisar.co.il</a>
+              <a href="tel:0525022222" className="flex items-center gap-3 font-[900] italic hover:text-sky-600 transition-colors"><Phone size={22} className="text-sky-600" /> 052-502-2222</a>
+              <a href="mailto:office@keisar.co.il" className="flex items-center gap-3 font-[900] italic hover:text-sky-600 transition-colors"><Mail size={22} className="text-sky-600" /> office@keisar.co.il</a>
             </div>
-            <div className="w-full pt-12 border-t border-white/5 text-center">
-              <div className="text-cyan-500 font-[900] italic tracking-[0.5em] text-[10px] mb-4 uppercase opacity-50">קיסר מערכות // תשתיות תקשורת מתקדמות</div>
+            <div className="w-full pt-12 border-t border-sky-100 text-center">
+              <div className="text-sky-600 font-[900] italic tracking-[0.5em] text-[10px] mb-4 uppercase opacity-50">קיסר מערכות // תשתיות תקשורת מתקדמות</div>
               <p className="text-slate-800 text-[10px] font-mono">&copy; 2026 | נבנה על ידי SHIELDUP | כל הזכויות שמורות</p>
             </div>
           </div>

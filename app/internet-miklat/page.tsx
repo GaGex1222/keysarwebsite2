@@ -35,26 +35,26 @@ export default function ShelterInternetPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0c10] text-white font-sans overflow-x-hidden selection:bg-cyan-500/30" dir="rtl">
+    <div className="min-h-screen bg-sky-50 text-slate-900 font-sans overflow-x-hidden selection:bg-sky-200/30" dir="rtl">
       
       {/* --- BACKGROUND ELEMENTS --- */}
       <div className="fixed inset-0 z-0 pointer-events-none">
         <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
-        <div className="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] bg-cyan-600/10 blur-[120px] rounded-full animate-pulse" />
+        <div className="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] bg-sky-100 blur-[120px] rounded-full animate-pulse" />
         <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-blue-600/10 blur-[120px] rounded-full" />
       </div>
 
       {/* --- HUD NAVIGATION --- */}
-      <nav className="fixed top-0 left-0 w-full z-[100] border-b border-white/5 bg-[#0a0c10]/80 backdrop-blur-2xl">
+      <nav className="fixed top-0 left-0 w-full z-[100] border-b border-sky-100 bg-white/80 backdrop-blur-2xl">
         <div className="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
           <div className="flex items-center gap-4">
-            <div className="w-10 h-10 border border-cyan-500/50 rounded-lg flex items-center justify-center text-cyan-400 shadow-[0_0_15px_rgba(6,182,212,0.2)] relative group overflow-hidden">
+            <div className="w-10 h-10 border border-sky-500/50 rounded-lg flex items-center justify-center text-sky-600 shadow-[0_0_20px_rgba(2,132,199,0.2)] relative group overflow-hidden">
               <Shield size={20} className="relative z-10" />
-              <div className="absolute inset-0 bg-cyan-500/20 translate-y-full group-hover:translate-y-0 transition-transform" />
+              <div className="absolute inset-0 bg-sky-100 translate-y-full group-hover:translate-y-0 transition-transform" />
             </div>
             <div className="flex flex-col">
               <span className="text-xl font-black italic tracking-tighter uppercase leading-none">KEISAR PRO</span>
-              <span className="text-[10px] text-cyan-500 font-bold tracking-[0.3em]">SHELTER_NET_v2.0</span>
+              <span className="text-[10px] text-sky-600 font-bold tracking-[0.3em]">SHELTER_NET_v2.0</span>
             </div>
           </div>
 
@@ -63,15 +63,15 @@ export default function ShelterInternetPage() {
               <a 
                 key={item.id} 
                 href={`#${item.id}`} 
-                className="flex items-center gap-2 text-sm font-bold text-slate-400 hover:text-cyan-400 transition-all group"
+                className="flex items-center gap-2 text-sm font-bold text-slate-600 hover:text-sky-600 transition-all group"
               >
-                <span className="opacity-0 group-hover:opacity-100 transition-opacity text-cyan-500">/</span>
+                <span className="opacity-0 group-hover:opacity-100 transition-opacity text-sky-600">/</span>
                 {item.title}
               </a>
             ))}
           </div>
 
-          <a href="tel:0525022222" className="bg-cyan-500 text-black px-5 py-2 rounded-md font-black text-xs italic hover:bg-white transition-all shadow-[0_0_20px_rgba(6,182,212,0.4)]">
+          <a href="tel:0525022222" className="bg-sky-600 text-white px-5 py-2 rounded-md font-black text-xs italic hover:bg-sky-700 transition-all shadow-[0_0_20px_rgba(2,132,199,0.4)]">
             CONNECT_NOW
           </a>
         </div>
@@ -85,9 +85,9 @@ export default function ShelterInternetPage() {
           transition={{ duration: 1 }}
           className="text-center z-10 max-w-5xl"
         >
-          <div className="inline-flex items-center gap-3 px-4 py-2 bg-white/5 border border-white/10 rounded-full mb-8 backdrop-blur-md">
+          <div className="inline-flex items-center gap-3 px-4 py-2 bg-sky-50 border border-sky-200 rounded-full mb-8 backdrop-blur-md">
             <div className="w-2 h-2 bg-cyan-500 rounded-full animate-ping" />
-            <span className="text-[10px] font-black uppercase tracking-[0.2em] text-cyan-400">Mission: Digital Continuity</span>
+            <span className="text-[10px] font-black uppercase tracking-[0.2em] text-sky-600">Mission: Digital Continuity</span>
           </div>
           
           <h1 className="text-5xl md:text-[110px] font-[1000] italic leading-[0.9] tracking-tighter uppercase mb-8">
@@ -95,7 +95,7 @@ export default function ShelterInternetPage() {
             <span className="text-transparent" style={{ WebkitTextStroke: '1.5px #06b6d4' }}>בתוך המקלט.</span>
           </h1>
           
-          <p className="text-lg md:text-2xl text-slate-400 max-w-3xl mx-auto italic font-medium leading-relaxed mb-12 relative">
+          <p className="text-lg md:text-2xl text-slate-600 max-w-3xl mx-auto italic font-medium leading-relaxed mb-12 relative">
             <span className="absolute -right-4 top-0 bottom-0 w-1 bg-cyan-500" />
             במצבי חירום, המקלט הוא המבצר שלכם. אנחנו דואגים שהוא לא יהיה מנותק. פתרונות תקשורת חודרי בטון ופלדה.
           </p>
@@ -103,12 +103,12 @@ export default function ShelterInternetPage() {
           <div className="flex flex-wrap gap-4 justify-center">
             <motion.button 
               whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
-              className="bg-cyan-500 text-black px-10 py-4 rounded-xl font-black text-xl italic shadow-2xl shadow-cyan-500/30"
+              className="bg-sky-600 text-white px-10 py-4 rounded-xl font-black text-xl italic shadow-2xl shadow-sky-500/30 hover:bg-sky-700 transition-colors"
             >
               בדיקת תשתית חינם
             </motion.button>
-            <div className="flex items-center gap-3 bg-white/5 border border-white/10 px-6 py-4 rounded-xl backdrop-blur-md">
-              <Scan size={20} className="text-cyan-500" />
+            <div className="flex items-center gap-3 bg-sky-50 border border-sky-200 px-6 py-4 rounded-xl backdrop-blur-md">
+              <Scan size={20} className="text-sky-600" />
               <span className="text-[10px] font-bold uppercase tracking-widest text-slate-500">Analyzing_Signal_Loss...</span>
             </div>
           </div>
@@ -116,13 +116,13 @@ export default function ShelterInternetPage() {
 
         {/* Floating HUD Elements */}
         <div className="absolute inset-0 pointer-events-none hidden xl:block">
-            <motion.div animate={{ y: [0, -20, 0] }} transition={{ duration: 4, repeat: Infinity }} className="absolute top-1/4 right-10 border border-white/10 p-4 rounded-lg bg-black/20 backdrop-blur-sm">
-                <Wifi className="text-cyan-500 mb-2" />
-                <div className="h-1 w-20 bg-white/10 rounded-full overflow-hidden">
+            <motion.div animate={{ y: [0, -20, 0] }} transition={{ duration: 4, repeat: Infinity }} className="absolute top-1/4 right-10 border border-sky-200 p-4 rounded-lg bg-sky-100 backdrop-blur-sm">
+                <Wifi className="text-sky-600 mb-2" />
+                <div className="h-1 w-20 bg-sky-100 rounded-full overflow-hidden">
                     <div className="h-full bg-cyan-500 w-1/3" />
                 </div>
             </motion.div>
-            <motion.div animate={{ y: [0, 20, 0] }} transition={{ duration: 5, repeat: Infinity }} className="absolute bottom-1/4 left-10 border border-white/10 p-4 rounded-lg bg-black/20 backdrop-blur-sm">
+            <motion.div animate={{ y: [0, 20, 0] }} transition={{ duration: 5, repeat: Infinity }} className="absolute bottom-1/4 left-10 border border-sky-200 p-4 rounded-lg bg-sky-100 backdrop-blur-sm">
                 <ShieldAlert className="text-red-500 mb-2" />
                 <span className="text-[8px] font-mono block">SIGNAL_BLOCKED_BY_CONCRETE</span>
             </motion.div>
@@ -139,18 +139,18 @@ export default function ShelterInternetPage() {
           className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
         >
           <div className="relative group">
-            <div className="absolute -inset-4 bg-cyan-500/10 rounded-[3rem] blur-2xl group-hover:bg-cyan-500/20 transition-all" />
-            <div className="relative bg-[#11141b] border border-white/10 p-8 md:p-12 rounded-[2.5rem] overflow-hidden">
+            <div className="absolute -inset-4 bg-sky-100 rounded-[3rem] blur-2xl group-hover:bg-sky-100 transition-all" />
+            <div className="relative bg-white border border-sky-200 p-8 md:p-12 rounded-[2.5rem] overflow-hidden">
                 <div className="flex items-center gap-4 mb-8">
-                    <Target className="text-cyan-500" />
-                    <h2 className="text-3xl md:text-5xl font-black italic">האתגר <span className="text-cyan-500">הטכנולוגי.</span></h2>
+                    <Target className="text-sky-600" />
+                    <h2 className="text-3xl md:text-5xl font-black italic">האתגר <span className="text-sky-600">הטכנולוגי.</span></h2>
                 </div>
-                <div className="space-y-6 text-slate-300 italic text-lg leading-relaxed">
+                <div className="space-y-6 text-slate-700 italic text-lg leading-relaxed">
                     <p>
                     הקושי המרכזי נובע מכך שקירות הבטון בולעים את אותות ה-WIFI. רבים מנסים להשתמש במגדילי טווח פשוטים, אך התוצאה היא ניתוקים חוזרים ברגע האמת.
                     </p>
-                    <div className="p-6 bg-cyan-500/5 border-r-2 border-cyan-500 rounded-lg">
-                        <p className="font-bold text-white">הפתרון שלנו:</p>
+                    <div className="p-6 bg-sky-50 border-r-2 border-sky-500 rounded-lg">
+                        <p className="font-bold text-slate-900">הפתרון שלנו:</p>
                         יצירת חיבור פיזי מבוסס כבלים ייעודיים לתוך המרחב המוגן, המבטיח רוחב פס מלא ללא פשרות.
                     </div>
                 </div>
@@ -163,8 +163,8 @@ export default function ShelterInternetPage() {
                { icon: <Signal />, label: "אפס ניתוקים" },
                { icon: <Cpu />, label: "ניתוב חכם" }
              ].map((box, i) => (
-               <div key={i} className="aspect-square bg-white/5 border border-white/10 rounded-3xl flex flex-col items-center justify-center gap-4 group hover:bg-cyan-500 transition-all cursor-crosshair">
-                 <div className="text-cyan-500 group-hover:text-black transition-colors">{box.icon}</div>
+               <div key={i} className="aspect-square bg-sky-50 border border-sky-200 rounded-3xl flex flex-col items-center justify-center gap-4 group hover:bg-sky-500 transition-all cursor-crosshair">
+                 <div className="text-sky-600 group-hover:text-black transition-colors">{box.icon}</div>
                  <span className="text-xs font-black group-hover:text-black uppercase tracking-tighter">{box.label}</span>
                </div>
              ))}
@@ -179,30 +179,30 @@ export default function ShelterInternetPage() {
         >
           <div className="text-center mb-16">
              <h2 className="text-5xl md:text-8xl font-[1000] italic uppercase opacity-10 absolute inset-0 -z-10 select-none">EMERGENCY_READY</h2>
-             <h2 className="text-4xl md:text-6xl font-black italic">שגרה <span className="text-cyan-500">וחירום.</span></h2>
+             <h2 className="text-4xl md:text-6xl font-black italic">שגרה <span className="text-sky-600">וחירום.</span></h2>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-[#11141b]/50 backdrop-blur-xl border border-white/5 p-10 rounded-[3rem] hover:border-cyan-500/50 transition-colors">
-                <div className="w-14 h-14 bg-cyan-500 rounded-2xl flex items-center justify-center text-black mb-6 shadow-lg shadow-cyan-500/20">
+            <div className="bg-white border border-sky-200 p-10 rounded-[3rem] hover:border-sky-400 transition-colors shadow-sm">
+                <div className="w-14 h-14 bg-sky-600 rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg shadow-sky-500/20">
                     <ShieldAlert size={28} />
                 </div>
                 <h3 className="text-2xl font-black italic mb-4">ביטחון בחירום</h3>
-                <p className="text-slate-400 italic leading-relaxed">עדכוני פיקוד העורף, חדשות בזמן אמת ותקשורת עם הקרובים לכם כשזה הכי חשוב.</p>
+                <p className="text-slate-600 italic leading-relaxed">עדכוני פיקוד העורף, חדשות בזמן אמת ותקשורת עם הקרובים לכם כשזה הכי חשוב.</p>
             </div>
-            <div className="bg-[#11141b]/50 backdrop-blur-xl border border-white/5 p-10 rounded-[3rem] hover:border-cyan-500/50 transition-colors">
-                <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center text-cyan-500 mb-6">
+            <div className="bg-white border border-sky-200 p-10 rounded-[3rem] hover:border-sky-400 transition-colors shadow-sm">
+                <div className="w-14 h-14 bg-sky-100 rounded-2xl flex items-center justify-center text-sky-600 mb-6">
                     <Radio size={28} />
                 </div>
                 <h3 className="text-2xl font-black italic mb-4">פנאי ועבודה</h3>
-                <p className="text-slate-400 italic leading-relaxed">הפיכת הממ"ד לחדר עבודה שקט או חדר משחקים לילדים עם גלישה מהירה ורציפה.</p>
+                <p className="text-slate-600 italic leading-relaxed">הפיכת הממ"ד לחדר עבודה שקט או חדר משחקים לילדים עם גלישה מהירה ורציפה.</p>
             </div>
-            <div className="bg-[#11141b]/50 backdrop-blur-xl border border-white/5 p-10 rounded-[3rem] hover:border-cyan-500/50 transition-colors">
-                <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center text-cyan-500 mb-6">
+            <div className="bg-white border border-sky-200 p-10 rounded-[3rem] hover:border-sky-400 transition-colors shadow-sm">
+                <div className="w-14 h-14 bg-sky-100 rounded-2xl flex items-center justify-center text-sky-600 mb-6">
                     <Video size={28} />
                 </div>
                 <h3 className="text-2xl font-black italic mb-4">שליטה במצלמות</h3>
-                <p className="text-slate-400 italic leading-relaxed">צפייה במצלמות האבטחה שמחוץ לבית ישירות מהסמארטפון בתוך המקלט הסגור.</p>
+                <p className="text-slate-600 italic leading-relaxed">צפייה במצלמות האבטחה שמחוץ לבית ישירות מהסמארטפון בתוך המקלט הסגור.</p>
             </div>
           </div>
         </motion.section>
@@ -211,7 +211,7 @@ export default function ShelterInternetPage() {
         <motion.section 
           id="execution"
           initial="hidden" whileInView="visible" viewport={{ once: true }} variants={sectionVariants}
-          className="bg-cyan-500 rounded-[4rem] p-12 md:p-24 text-black overflow-hidden relative"
+          className="bg-sky-600 rounded-[4rem] p-12 md:p-24 text-white overflow-hidden relative"
         >
           <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
             <div className="absolute top-10 right-10 flex flex-col gap-2">
@@ -235,8 +235,8 @@ export default function ShelterInternetPage() {
                 </ul>
              </div>
              <div className="relative">
-                <div className="bg-black text-cyan-500 p-8 rounded-3xl border-4 border-black shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-500">
-                    <div className="flex items-center justify-between mb-6 border-b border-cyan-500/30 pb-4">
+                <div className="bg-black text-sky-600 p-8 rounded-3xl border-4 border-black shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-500">
+                    <div className="flex items-center justify-between mb-6 border-b border-sky-500/30 pb-4">
                         <span className="text-[10px] font-mono">SYSTEM_STATUS: OK</span>
                         <div className="flex gap-1">
                             <div className="w-2 h-2 bg-cyan-500 rounded-full" />
@@ -254,13 +254,13 @@ export default function ShelterInternetPage() {
       </main>
 
       {/* --- FOOTER / CONTACT --- */}
-      <footer className="relative bg-[#0a0c10] border-t border-white/5 pt-40 pb-20 px-6">
+      <footer className="relative bg-sky-50 border-t border-sky-100 pt-40 pb-20 px-6">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-start mb-40">
            <div>
-              <h2 className="text-6xl md:text-9xl font-[1000] italic uppercase leading-none mb-10">מוכנים <br /> <span className="text-cyan-500">לגלוש?</span></h2>
+              <h2 className="text-6xl md:text-9xl font-[1000] italic uppercase leading-none mb-10">מוכנים <br /> <span className="text-sky-600">לגלוש?</span></h2>
               <div className="space-y-10">
                 <div className="flex items-center gap-6 group">
-                   <div className="w-20 h-20 bg-white/5 border border-white/10 rounded-3xl flex items-center justify-center text-cyan-500 group-hover:bg-cyan-500 group-hover:text-black transition-all">
+                   <div className="w-20 h-20 bg-sky-50 border border-sky-200 rounded-3xl flex items-center justify-center text-sky-600 group-hover:bg-sky-500 group-hover:text-black transition-all">
                       <Phone size={32} />
                    </div>
                    <div>
@@ -269,7 +269,7 @@ export default function ShelterInternetPage() {
                    </div>
                 </div>
                 <div className="flex items-center gap-6 group">
-                   <div className="w-20 h-20 bg-white/5 border border-white/10 rounded-3xl flex items-center justify-center text-cyan-500 group-hover:bg-cyan-500 group-hover:text-black transition-all">
+                   <div className="w-20 h-20 bg-sky-50 border border-sky-200 rounded-3xl flex items-center justify-center text-sky-600 group-hover:bg-sky-500 group-hover:text-black transition-all">
                       <Mail size={32} />
                    </div>
                    <div>
@@ -280,13 +280,13 @@ export default function ShelterInternetPage() {
               </div>
            </div>
 
-           <div className="bg-[#11141b] p-10 md:p-16 rounded-[4rem] border border-white/10 relative">
-              <div className="absolute -top-10 -left-10 w-32 h-32 bg-cyan-500/10 blur-[60px] rounded-full" />
+           <div className="bg-white p-10 md:p-16 rounded-[4rem] border border-sky-200 relative">
+              <div className="absolute -top-10 -left-10 w-32 h-32 bg-sky-100 blur-[60px] rounded-full" />
               <div className="space-y-6 relative z-10">
-                <input className="w-full bg-black/50 border border-white/5 p-6 rounded-2xl font-bold italic focus:border-cyan-500 transition-colors outline-none text-xl" placeholder="שם מלא" />
-                <input className="w-full bg-black/50 border border-white/5 p-6 rounded-2xl font-bold italic focus:border-cyan-500 transition-colors outline-none text-xl" placeholder="טלפון לחזרה" />
-                <textarea className="w-full bg-black/50 border border-white/5 p-6 rounded-2xl font-bold italic focus:border-cyan-500 transition-colors outline-none text-xl" rows={4} placeholder="איך נוכל לעזור?" />
-                <button className="w-full bg-cyan-500 text-black py-6 rounded-2xl font-[1000] text-2xl italic shadow-2xl shadow-cyan-500/20 hover:bg-white transition-all transform active:scale-95">
+                <input className="w-full bg-sky-50 border border-sky-100 p-6 rounded-2xl font-bold italic focus:border-sky-500 transition-colors outline-none text-xl" placeholder="שם מלא" />
+                <input className="w-full bg-sky-50 border border-sky-100 p-6 rounded-2xl font-bold italic focus:border-sky-500 transition-colors outline-none text-xl" placeholder="טלפון לחזרה" />
+                <textarea className="w-full bg-sky-50 border border-sky-100 p-6 rounded-2xl font-bold italic focus:border-sky-500 transition-colors outline-none text-xl" rows={4} placeholder="איך נוכל לעזור?" />
+                <button className="w-full bg-sky-600 text-white py-6 rounded-2xl font-[1000] text-2xl italic shadow-2xl shadow-sky-500/20 hover:bg-sky-700 transition-all transform active:scale-95">
                   שלח פנייה למנהל
                 </button>
               </div>
@@ -294,7 +294,7 @@ export default function ShelterInternetPage() {
         </div>
 
         <div className="text-center">
-            <div className="flex justify-center gap-4 mb-8 text-white/20">
+            <div className="flex justify-center gap-4 mb-8 text-slate-900/20">
                 <Shield size={20} /> <Target size={20} /> <Cpu size={20} />
             </div>
             <p className="text-[10px] font-black uppercase tracking-[0.6em] text-slate-600">
@@ -305,7 +305,7 @@ export default function ShelterInternetPage() {
 
       {/* Mouse Follower Glow */}
       <div 
-        className="fixed w-[400px] h-[400px] bg-cyan-500/5 rounded-full blur-[100px] pointer-events-none z-0 transition-transform duration-300 ease-out"
+        className="fixed w-[400px] h-[400px] bg-sky-50 rounded-full blur-[100px] pointer-events-none z-0 transition-transform duration-300 ease-out"
         style={{ 
           transform: `translate(${mousePos.x * 100}px, ${mousePos.y * 100}px)`,
           left: 'calc(50% - 200px)',

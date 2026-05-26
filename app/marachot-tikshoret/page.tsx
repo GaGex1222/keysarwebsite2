@@ -28,7 +28,7 @@ export default function CommunicationTechnicianPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#080a0f] text-white font-sans overflow-x-hidden selection:bg-cyan-500/30" dir="rtl">
+    <div className="min-h-screen bg-sky-50 text-slate-900 font-sans overflow-x-hidden selection:bg-sky-200/30" dir="rtl">
       
       {/* --- DIAGNOSTIC BACKGROUND --- */}
       <div className="fixed inset-0 z-0 pointer-events-none">
@@ -56,7 +56,7 @@ export default function CommunicationTechnicianPage() {
           <span className="text-transparent" style={{ WebkitTextStroke: '1px #06b6d4' }}>מערכות תקשורת.</span>
         </motion.h1>
 
-        <p className="max-w-2xl text-slate-400 text-xl md:text-2xl italic font-light leading-relaxed">
+        <p className="max-w-2xl text-slate-600 text-xl md:text-2xl italic font-light leading-relaxed">
           אינטרנט איטי? ניתוקים ברשת? אנחנו הגשר בין התקלה הדיגיטלית לפתרון הפיזי. 
           אבחון, תיקון ואופטימיזציה בזמן אמת.
         </p>
@@ -75,7 +75,7 @@ export default function CommunicationTechnicianPage() {
             { label: "CONNECTION_LOST", title: "ניתוקי רשת", icon: <Wifi className="text-red-500" /> },
             { label: "SECURITY_RISK", title: "איומי סייבר", icon: <ShieldAlert className="text-red-500" /> }
           ].map((item, i) => (
-            <div key={i} className="group relative p-8 rounded-3xl border border-white/5 bg-white/[0.02] overflow-hidden transition-all hover:border-red-500/30">
+            <div key={i} className="group relative p-8 rounded-3xl border border-sky-100 bg-white/[0.02] overflow-hidden transition-all hover:border-red-500/30">
               <div className="absolute top-0 left-0 w-full h-[2px] bg-red-500/20 translate-x-full group-hover:translate-x-0 transition-transform duration-700" />
               <div className="mb-4 font-mono text-[10px] text-slate-600">{item.label}</div>
               <div className="flex items-center gap-4">
@@ -93,7 +93,7 @@ export default function CommunicationTechnicianPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-8">
               <h2 className="text-4xl md:text-6xl font-[1000] italic uppercase leading-none">
-                הגשר בין <br /> <span className="text-cyan-500">פיזי לדיגיטלי.</span>
+                הגשר בין <br /> <span className="text-sky-600">פיזי לדיגיטלי.</span>
               </h2>
               <div className="space-y-4">
                 {[
@@ -102,9 +102,9 @@ export default function CommunicationTechnicianPage() {
                   "ניהול רשתות מקומיות LAN ורשתות WAN",
                   "אבטחת מידע והגנה מפני איומי סייבר"
                 ].map((text, idx) => (
-                  <div key={idx} className="flex items-center gap-4 p-4 rounded-xl bg-white/[0.03] border border-white/5 hover:bg-cyan-500/5 transition-all cursor-default">
-                    <CheckCircle size={20} className="text-cyan-500 shrink-0" />
-                    <span className="text-lg italic font-bold text-slate-300">{text}</span>
+                  <div key={idx} className="flex items-center gap-4 p-4 rounded-xl bg-white/[0.03] border border-sky-100 hover:bg-sky-50 transition-all cursor-default">
+                    <CheckCircle size={20} className="text-sky-600 shrink-0" />
+                    <span className="text-lg italic font-bold text-slate-700">{text}</span>
                   </div>
                 ))}
               </div>
@@ -112,11 +112,11 @@ export default function CommunicationTechnicianPage() {
 
             {/* Visual Element: Tech HUD */}
             <div className="relative aspect-square flex items-center justify-center">
-               <div className="absolute inset-0 border border-cyan-500/5 rounded-full" />
-               <div className="relative w-64 h-64 border border-cyan-500/20 rounded-2xl backdrop-blur-xl flex flex-col items-center justify-center gap-4 shadow-[0_0_100px_rgba(6,182,212,0.1)]">
-                  <Terminal size={48} className="text-cyan-500 animate-pulse" />
-                  <div className="font-mono text-[10px] text-cyan-400">SYSTEM_REPAIR_INIT...</div>
-                  <div className="w-32 h-1 bg-white/10 rounded-full overflow-hidden">
+               <div className="absolute inset-0 border border-sky-500/5 rounded-full" />
+               <div className="relative w-64 h-64 border border-sky-500/20 rounded-2xl backdrop-blur-xl flex flex-col items-center justify-center gap-4 shadow-[0_0_20px_rgba(2,132,199,0.1)]">
+                  <Terminal size={48} className="text-sky-600 animate-pulse" />
+                  <div className="font-mono text-[10px] text-sky-600">SYSTEM_REPAIR_INIT...</div>
+                  <div className="w-32 h-1 bg-sky-100 rounded-full overflow-hidden">
                     <motion.div 
                       animate={{ x: [-128, 128] }}
                       transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
@@ -125,14 +125,14 @@ export default function CommunicationTechnicianPage() {
                   </div>
                </div>
                {/* Floating Data Icons */}
-               <motion.div animate={{ y: [0, -20, 0] }} transition={{ duration: 4, repeat: Infinity }} className="absolute top-10 right-10 text-cyan-500/40"><Cpu size={40} /></motion.div>
-               <motion.div animate={{ y: [0, 20, 0] }} transition={{ duration: 5, repeat: Infinity }} className="absolute bottom-10 left-10 text-cyan-500/40"><Radio size={40} /></motion.div>
+               <motion.div animate={{ y: [0, -20, 0] }} transition={{ duration: 4, repeat: Infinity }} className="absolute top-10 right-10 text-sky-600/40"><Cpu size={40} /></motion.div>
+               <motion.div animate={{ y: [0, 20, 0] }} transition={{ duration: 5, repeat: Infinity }} className="absolute bottom-10 left-10 text-sky-600/40"><Radio size={40} /></motion.div>
             </div>
           </div>
         </section>
 
         {/* Section: Professionalism (Clean Outlined Style) */}
-        <section className="relative py-24 border-y border-white/5">
+        <section className="relative py-24 border-y border-sky-100">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
             {[
               { title: "אבטחה", desc: "הגנה על הנתונים שלכם", icon: <Lock /> },
@@ -141,7 +141,7 @@ export default function CommunicationTechnicianPage() {
               { title: "מצלמות", desc: "4K אבטחה היקפית", icon: <Monitor /> }
             ].map((item, i) => (
               <div key={i} className="text-center space-y-4 group">
-                <div className="mx-auto w-16 h-16 flex items-center justify-center border border-white/10 rounded-full text-slate-500 group-hover:text-cyan-500 group-hover:border-cyan-500/50 transition-all">
+                <div className="mx-auto w-16 h-16 flex items-center justify-center border border-sky-200 rounded-full text-slate-500 group-hover:text-sky-600 group-hover:border-sky-500/50 transition-all">
                   {item.icon}
                 </div>
                 <h4 className="text-xl font-black italic">{item.title}</h4>
@@ -154,17 +154,17 @@ export default function CommunicationTechnicianPage() {
         {/* CTA: Final Action */}
         <motion.section 
           initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn}
-          className="relative p-12 md:p-24 rounded-[4rem] border border-cyan-500/20 bg-cyan-500/[0.02] text-center overflow-hidden"
+          className="relative p-12 md:p-24 rounded-[4rem] border border-sky-500/20 bg-cyan-500/[0.02] text-center overflow-hidden"
         >
           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,rgba(6,182,212,0.1),transparent_70%)]" />
           <h2 className="relative z-10 text-4xl md:text-8xl font-[1000] italic leading-none mb-8">
-            אל תחכו <br /> <span className="text-cyan-500 italic uppercase">לקריסת המערכת.</span>
+            אל תחכו <br /> <span className="text-sky-600 italic uppercase">לקריסת המערכת.</span>
           </h2>
-          <p className="relative z-10 text-slate-400 text-xl md:text-2xl italic mb-12 max-w-2xl mx-auto font-light">
+          <p className="relative z-10 text-slate-600 text-xl md:text-2xl italic mb-12 max-w-2xl mx-auto font-light">
             אנחנו בקיסר מבינים לעומק רשתות, אבטחת מידע ופתרון תקלות מורכבות. המקצוענים שלנו בדרך אליכם.
           </p>
           <div className="relative z-10 flex flex-wrap justify-center gap-6">
-            <button className="bg-cyan-500 text-black px-12 py-5 rounded-2xl font-[1000] text-2xl italic hover:bg-white transition-all shadow-xl shadow-cyan-500/20">
+            <button className="bg-sky-600 text-white px-12 py-5 rounded-2xl font-[1000] text-2xl italic hover:bg-sky-700 transition-all shadow-xl shadow-sky-500/20">
               הזמן טכנאי עכשיו
             </button>
           </div>
@@ -173,19 +173,19 @@ export default function CommunicationTechnicianPage() {
       </main>
 
       {/* --- FOOTER --- */}
-      <footer className="bg-[#050608] border-t border-white/5 py-20 px-6">
+      <footer className="bg-sky-50 border-t border-sky-100 py-20 px-6">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 border border-cyan-500/20 rounded-xl flex items-center justify-center text-cyan-500">
+            <div className="w-12 h-12 border border-sky-500/20 rounded-xl flex items-center justify-center text-sky-600">
               <Activity size={24} />
             </div>
             <div className="flex flex-col">
               <span className="text-xl font-black italic uppercase leading-none">Keisar Pro</span>
-              <span className="text-[8px] text-cyan-500 font-bold tracking-[0.4em]">TECH_RESPONSE_UNIT</span>
+              <span className="text-[8px] text-sky-600 font-bold tracking-[0.4em]">TECH_RESPONSE_UNIT</span>
             </div>
           </div>
           <div className="flex gap-10 text-slate-500 text-sm font-bold italic">
-            <a href="tel:0525022222" className="hover:text-cyan-500 transition-colors">052-502-2222</a>
+            <a href="tel:0525022222" className="hover:text-sky-600 transition-colors">052-502-2222</a>
             <span>OFFICE@KEISAR.CO.IL</span>
           </div>
         </div>

@@ -52,7 +52,7 @@ export default function IntercomBusinessPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#080a0f] text-white font-sans overflow-x-hidden selection:bg-cyan-500/30" dir="rtl">
+    <div className="min-h-screen bg-sky-50 text-slate-900 font-sans overflow-x-hidden selection:bg-sky-200/30" dir="rtl">
       
       {/* --- AMBIENT BACKGROUND --- */}
       <div className="fixed inset-0 z-0 pointer-events-none">
@@ -65,10 +65,10 @@ export default function IntercomBusinessPage() {
         <motion.div 
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mb-8 flex items-center gap-2 px-4 py-1 rounded-full border border-cyan-500/20 bg-cyan-500/5 backdrop-blur-md"
+          className="mb-8 flex items-center gap-2 px-4 py-1 rounded-full border border-sky-500/20 bg-sky-50 backdrop-blur-md"
         >
-          <Fingerprint size={14} className="text-cyan-400" />
-          <span className="text-[10px] font-black uppercase tracking-[0.3em] text-cyan-400">Identity_Access_Control</span>
+          <Fingerprint size={14} className="text-sky-600" />
+          <span className="text-[10px] font-black uppercase tracking-[0.3em] text-sky-600">Identity_Access_Control</span>
         </motion.div>
 
         <motion.h1 
@@ -79,12 +79,12 @@ export default function IntercomBusinessPage() {
           <span className="text-transparent" style={{ WebkitTextStroke: '1.5px #06b6d4' }}>לעסק ולבית.</span>
         </motion.h1>
 
-        <p className="max-w-2xl text-slate-400 text-xl md:text-2xl italic font-light leading-relaxed mb-10">
+        <p className="max-w-2xl text-slate-600 text-xl md:text-2xl italic font-light leading-relaxed mb-10">
           מעטפת הגנה חכמה שמשלבת וידאו 4K, זיהוי קולי ועיצוב דור העתיד. כי בעידן המודרני, עינית בדלת היא כבר לא מספיקה.
         </p>
 
-        <button className="bg-white/5 border border-white/10 hover:border-cyan-500/50 px-10 py-4 rounded-2xl font-black italic text-xl transition-all group">
-          <span className="group-hover:text-cyan-400 transition-colors">גלה את פתרונות Keisar</span>
+        <button className="bg-sky-50 border border-sky-200 hover:border-sky-500/50 px-10 py-4 rounded-2xl font-black italic text-xl transition-all group">
+          <span className="group-hover:text-sky-600 transition-colors">גלה את פתרונות Keisar</span>
         </button>
       </header>
 
@@ -98,9 +98,9 @@ export default function IntercomBusinessPage() {
         >
           <div className="space-y-8">
             <h2 className="text-4xl md:text-6xl font-[1000] italic leading-tight">
-              עינית בדלת? <br /> <span className="text-cyan-500 uppercase italic">זה פשוט לא מספיק.</span>
+              עינית בדלת? <br /> <span className="text-sky-600 uppercase italic">זה פשוט לא מספיק.</span>
             </h2>
-            <div className="text-slate-400 text-lg md:text-xl italic leading-relaxed space-y-6">
+            <div className="text-slate-600 text-lg md:text-xl italic leading-relaxed space-y-6">
               <p>
                 איך אפשר לבחון מסוכנות רק ממבט חטוף? אינטרקום משולב וידאו וקול מאפשר לכם לנהל שיחה, לוודא זהות ולמנוע כניסת זרים וריגול תעשייתי.
               </p>
@@ -111,8 +111,8 @@ export default function IntercomBusinessPage() {
                   { t: "שליטה מרחוק", i: <Smartphone /> },
                   { t: "זיהוי ביומטרי", i: <ScanEye /> }
                 ].map((f, i) => (
-                  <div key={i} className="flex items-center gap-3 p-4 border border-white/5 rounded-xl bg-white/[0.02]">
-                    <span className="text-cyan-500">{f.i}</span>
+                  <div key={i} className="flex items-center gap-3 p-4 border border-sky-100 rounded-xl bg-white/[0.02]">
+                    <span className="text-sky-600">{f.i}</span>
                     <span className="font-bold text-sm italic">{f.t}</span>
                   </div>
                 ))}
@@ -122,20 +122,20 @@ export default function IntercomBusinessPage() {
 
           {/* Visual: Design Element (No solid blocks) */}
           <div className="relative flex justify-center items-center h-[400px]">
-             <div className="absolute inset-0 border border-cyan-500/10 rounded-[3rem] -rotate-3" />
-             <div className="relative z-10 w-64 h-[450px] border border-white/10 rounded-[2.5rem] bg-white/[0.03] backdrop-blur-xl flex flex-col p-6 items-center justify-between shadow-[0_0_50px_rgba(0,0,0,0.5)]">
+             <div className="absolute inset-0 border border-sky-500/10 rounded-[3rem] -rotate-3" />
+             <div className="relative z-10 w-64 h-[450px] border border-sky-200 rounded-[2.5rem] bg-white/[0.03] backdrop-blur-xl flex flex-col p-6 items-center justify-between shadow-[0_0_50px_rgba(0,0,0,0.5)]">
                 <div className="w-full flex justify-between items-center opacity-50">
                    <div className="w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse" />
                    <span className="text-[8px] font-mono tracking-widest">LIVE_4K_STREAM</span>
                 </div>
-                <div className="w-full h-48 rounded-2xl bg-gradient-to-br from-white/10 to-transparent flex items-center justify-center border border-white/5 overflow-hidden">
-                   <Video size={48} className="text-cyan-500 opacity-20" />
+                <div className="w-full h-48 rounded-2xl bg-gradient-to-br from-white/10 to-transparent flex items-center justify-center border border-sky-100 overflow-hidden">
+                   <Video size={48} className="text-sky-600 opacity-20" />
                 </div>
                 <div className="w-full space-y-3">
-                   <div className="h-2 w-full bg-white/5 rounded-full" />
-                   <div className="h-2 w-2/3 bg-white/5 rounded-full" />
+                   <div className="h-2 w-full bg-sky-50 rounded-full" />
+                   <div className="h-2 w-2/3 bg-sky-50 rounded-full" />
                 </div>
-                <div className="w-16 h-16 rounded-full border border-cyan-500/30 flex items-center justify-center text-cyan-400 group cursor-pointer hover:bg-cyan-500 hover:text-black transition-all">
+                <div className="w-16 h-16 rounded-full border border-sky-500/30 flex items-center justify-center text-sky-600 group cursor-pointer hover:bg-sky-500 hover:text-black transition-all">
                    <Mic size={24} />
                 </div>
              </div>
@@ -145,7 +145,7 @@ export default function IntercomBusinessPage() {
         {/* Section: Next Gen Design */}
         <section className="relative py-20">
            <div className="text-center mb-16 space-y-4">
-              <h2 className="text-4xl md:text-7xl font-[1000] italic uppercase">הדור <span className="text-cyan-500">החדש.</span></h2>
+              <h2 className="text-4xl md:text-7xl font-[1000] italic uppercase">הדור <span className="text-sky-600">החדש.</span></h2>
               <p className="text-slate-500 italic max-w-xl mx-auto font-bold">לא עוד לוחות מתכת מגושמים. מערכות מעוצבות שמהוות אלמנט אסתטי בכניסה לעסק.</p>
            </div>
            
@@ -155,8 +155,8 @@ export default function IntercomBusinessPage() {
                 { t: "שליטה באפליקציה", d: "צפו ודברו עם הנכנסים גם כשאתם לא נמצאים בעסק.", i: <SmartphoneNfc /> },
                 { t: "עיצוב חדשני", d: "חומרים איכותיים, מסכי מגע ומראה מודרני ונקי.", i: <LayoutGrid /> }
               ].map((item, idx) => (
-                <div key={idx} className="p-8 border border-white/5 rounded-3xl bg-white/[0.01] hover:border-cyan-500/30 transition-all group">
-                   <div className="mb-6 text-cyan-500 group-hover:scale-110 transition-transform">{item.i}</div>
+                <div key={idx} className="p-8 border border-sky-100 rounded-3xl bg-white/[0.01] hover:border-sky-500/30 transition-all group">
+                   <div className="mb-6 text-sky-600 group-hover:scale-110 transition-transform">{item.i}</div>
                    <h4 className="text-2xl font-black italic mb-4">{item.t}</h4>
                    <p className="text-slate-500 italic font-medium leading-relaxed">{item.d}</p>
                 </div>
@@ -167,19 +167,19 @@ export default function IntercomBusinessPage() {
         {/* Section: FAQ (Modern Accordion) */}
         <section className="max-w-4xl mx-auto space-y-12">
           <div className="flex items-center gap-4">
-            <HelpCircle className="text-cyan-500" />
-            <h3 className="text-3xl font-[1000] italic">שאלות <span className="text-cyan-500">ותשובות.</span></h3>
+            <HelpCircle className="text-sky-600" />
+            <h3 className="text-3xl font-[1000] italic">שאלות <span className="text-sky-600">ותשובות.</span></h3>
           </div>
           
           <div className="space-y-4">
             {faqs.map((faq, i) => (
-              <div key={i} className="border border-white/5 rounded-2xl overflow-hidden bg-white/[0.02]">
+              <div key={i} className="border border-sky-100 rounded-2xl overflow-hidden bg-white/[0.02]">
                 <button 
                   onClick={() => setActiveFaq(activeFaq === i ? null : i)}
                   className="w-full p-6 flex justify-between items-center text-right hover:bg-white/[0.02] transition-colors"
                 >
-                  <span className="font-bold italic text-slate-200">{faq.q}</span>
-                  <ChevronDown className={`text-cyan-500 transition-transform ${activeFaq === i ? 'rotate-180' : ''}`} />
+                  <span className="font-bold italic text-slate-800">{faq.q}</span>
+                  <ChevronDown className={`text-sky-600 transition-transform ${activeFaq === i ? 'rotate-180' : ''}`} />
                 </button>
                 <AnimatePresence>
                   {activeFaq === i && (
@@ -199,17 +199,17 @@ export default function IntercomBusinessPage() {
         {/* CTA: Protection Call */}
         <motion.section 
           initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn}
-          className="relative text-center py-20 border-t border-white/5"
+          className="relative text-center py-20 border-t border-sky-100"
         >
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(6,182,212,0.05),transparent_70%)]" />
           <h2 className="text-5xl md:text-8xl font-[1000] italic leading-tight mb-8">
-            שומרים על <br /> <span className="text-cyan-500 uppercase">כל אקזיט לעתיד.</span>
+            שומרים על <br /> <span className="text-sky-600 uppercase">כל אקזיט לעתיד.</span>
           </h2>
-          <p className="text-slate-400 text-xl italic mb-10 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-slate-600 text-xl italic mb-10 max-w-2xl mx-auto leading-relaxed">
             חומר מסווג, רעיונות חדשניים או פשוט בטיחות המשפחה – אנחנו כאן כדי לספק מעטפת הגנה אפסית לחדירה.
           </p>
           <div className="flex flex-wrap justify-center gap-6">
-            <button className="bg-cyan-500 text-black px-12 py-5 rounded-2xl font-[1000] text-2xl italic hover:bg-white transition-all shadow-[0_0_40px_rgba(6,182,212,0.3)]">
+            <button className="bg-sky-600 text-white px-12 py-5 rounded-2xl font-[1000] text-2xl italic hover:bg-sky-700 transition-all shadow-[0_0_20px_rgba(2,132,199,0.3)]">
               לקבלת הצעה חכמה
             </button>
           </div>
@@ -218,10 +218,10 @@ export default function IntercomBusinessPage() {
       </main>
 
       {/* --- FOOTER --- */}
-      <footer className="bg-[#050608] border-t border-white/5 py-20 px-6">
+      <footer className="bg-sky-50 border-t border-sky-100 py-20 px-6">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 border border-cyan-500/20 rounded-xl flex items-center justify-center text-cyan-500 italic font-black">
+            <div className="w-12 h-12 border border-sky-500/20 rounded-xl flex items-center justify-center text-sky-600 italic font-black">
               AL
             </div>
             <div className="flex flex-col text-right">
@@ -230,7 +230,7 @@ export default function IntercomBusinessPage() {
             </div>
           </div>
           <div className="flex flex-col md:flex-row gap-8 text-slate-600 font-bold italic text-sm">
-            <a href="tel:0525022222" className="hover:text-cyan-500 transition-colors">052-502-2222</a>
+            <a href="tel:0525022222" className="hover:text-sky-600 transition-colors">052-502-2222</a>
             <span>OFFICE@KEISAR.CO.IL</span>
             <span>PETAH TIKVA, ISRAEL</span>
           </div>
