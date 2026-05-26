@@ -1,225 +1,58 @@
 "use client";
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  Key, 
-  SquareAsterisk, 
-  ScanFace, 
-  ShieldAlert, 
-  Home, 
-  Building2, 
-  Briefcase, 
-  Zap, 
-  Settings, 
-  CheckCircle, 
-  Smartphone,
-  Unlock, 
-  MousePointerClick
-} from 'lucide-react';
-
-export default function KeypadsHomePage() {
-  const fadeIn = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
-  };
-
-  const types = [
-    { 
-      title: "קודן בסיסי", 
-      desc: "לחצנים פיזיים אמינים המשמשים רובד אבטחה נוסף למפתח המסורתי.", 
-      icon: <SquareAsterisk className="w-8 h-8" /> 
-    },
-    { 
-      title: "זיהוי פנים 4K", 
-      desc: "הדור הבא של הקודנים. מצלמה מובנית שמזהה אתכם עוד לפני שנגעתם בדלת.", 
-      icon: <ScanFace className="w-8 h-8" /> 
-    },
-    { 
-      title: "קודן דיגיטלי חכם", 
-      desc: "מסכי מגע אלגנטיים, דיבורית מובנית ושליטה מלאה מהסמארטפון.", 
-      icon: <Smartphone className="w-8 h-8" /> 
-    }
-  ];
-
-  const benefits = [
-    "נוחות מקסימלית - להתראות למפתחות שאובדים",
-    "ניהול הרשאות זמניות לאורחים ולעובדים",
-    "עמידות מלאה בתנאי חוץ ומזג אוויר קיצוני",
-    "מעקב כניסות ויציאות בזמן אמת",
-    "עיצוב יוקרתי המשתלב בכל סגנון אדריכלי"
-  ];
-
+import { CheckCircle, Phone, Award, Clock, Users, MapPin, KeyRound, Lock, Smartphone, Shield } from 'lucide-react';
+export default function Page() {
+  const features = [{icon:KeyRound,t:"פתיחה ללא מפתח",d:"קוד אישי, טביעת אצבע, כרטיס או אפליקציה — בלי לחפש מפתח."},{icon:Lock,t:"אבטחה גבוהה",d:"מנגנון נגד ניחוש קוד עם נעילה אוטומטית לאחר ניסיונות כושלים."},{icon:Smartphone,t:"ניהול מרחוק",d:"הגדרת קודים, יומן כניסות ופתיחה מרחוק מהאפליקציה."}];
   return (
-    <div className="min-h-screen bg-sky-50 text-slate-900 font-sans overflow-x-hidden" dir="rtl">
-      
-      {/* --- BACKGROUND ELEMENTS --- */}
-      <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] bg-blue-600/10 blur-[120px] rounded-full" />
-        <div className="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-cyan-600/5 blur-[120px] rounded-full" />
-      </div>
-
-      {/* --- HERO SECTION --- */}
-      <section className="relative pt-32 pb-20 px-6 z-10 text-center">
-        <motion.div 
-          initial={{ scale: 0.9, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          className="inline-block p-3 rounded-2xl bg-sky-50 border border-sky-200 mb-6"
-        >
-          <Unlock className="text-sky-600 w-6 h-6" />
-        </motion.div>
-        
-        <motion.h1 
-          className="text-6xl md:text-9xl font-[1000] italic leading-tight tracking-tighter uppercase mb-6"
-          initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-        >
-          הבית שלך. <br />
-          <span className="text-transparent" style={{ WebkitTextStroke: '1px rgba(255,255,255,0.4)' }}>הקוד שלך.</span>
-        </motion.h1>
-
-        <p className="max-w-2xl mx-auto text-slate-600 text-xl md:text-2xl font-light italic leading-relaxed">
-          תפסיקו לחפש את המפתחות בתיק. הקודנים הדיגיטליים של קיסר הופכים את הכניסה לבית לחוויה חכמה, בטוחה ומעוצבת.
-        </p>
+    <div className="bg-slate-50 min-h-screen" dir="rtl">
+      <section className="bg-white border-b border-slate-200 py-16 md:py-24 px-4">
+        <div className="max-w-5xl mx-auto">
+          <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-900 bg-blue-50 border border-blue-200 rounded-full px-3 py-1.5 mb-6"><KeyRound size={12}/> קודן לבית</span>
+          <h1 className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight mb-5">מנעול חכם וקודן לבית<br/><span className="text-blue-900">גישה נוחה ומאובטחת</span></h1>
+          <p className="text-lg text-slate-500 max-w-2xl leading-relaxed mb-8">קודנים ומנעולים חכמים לבית — פתיחה בקוד, בכרטיס, ביומטריה או מהמובייל ללא מפתח.</p>
+          <div className="flex flex-wrap gap-3">
+            <a href="tel:0525022222" className="flex items-center gap-2 bg-amber-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-amber-700 transition-colors"><Phone size={16}/> 052-502-2222</a>
+            <a href="/" className="border border-slate-300 text-slate-700 px-6 py-3 rounded-lg font-semibold hover:bg-slate-100 transition-colors">קבל הצעת מחיר</a>
+          </div>
+        </div>
       </section>
-
-      <main className="relative z-10 max-w-7xl mx-auto px-6 space-y-40 pb-40">
-        
-        {/* --- SECTION: TYPES --- */}
-        <section>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {types.map((type, idx) => (
-              <motion.div 
-                key={idx}
-                whileHover={{ y: -10 }}
-                className="group relative p-10 rounded-[3rem] border border-sky-100 bg-white/[0.02] backdrop-blur-sm transition-all hover:border-sky-500/30"
-              >
-                <div className="mb-8 text-sky-600 group-hover:text-slate-900 transition-colors">
-                  {type.icon}
-                </div>
-                <h3 className="text-2xl font-black italic mb-4">{type.title}</h3>
-                <p className="text-slate-500 italic font-medium leading-relaxed">
-                  {type.desc}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </section>
-
-        {/* --- SECTION: INSTALLATION --- */}
-        <motion.section 
-          className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center"
-          initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn}
-        >
-          <div className="space-y-10">
-            <h2 className="text-5xl md:text-7xl font-[1000] italic uppercase leading-none">
-              איך זה <br /><span className="text-sky-600">עובד?</span>
-            </h2>
-            <div className="space-y-8">
-              {[
-                { n: "01", t: "הכנת תשתית", d: "התקנת הקודן על הדלת או השער ללא צורך במנעולן חיצוני." },
-                { n: "02", t: "סנכרון יחידה פנימית", d: "חיבור ליחידת הבקרה בתוך הבית לשליטה מרחוק." },
-                { n: "03", t: "הגדרת קוד אישי", d: "הזנת הסיסמה והרשאות הגישה שלכם ויוצאים לדרך." }
-              ].map((step, i) => (
-                <div key={i} className="flex gap-6 items-start group" dir="rtl">
-                  <span className="text-4xl font-[1000] italic text-slate-900/10 group-hover:text-sky-600/40 transition-colors">
-                    {step.n}
-                  </span>
-                  <div>
-                    <h4 className="text-xl font-bold italic text-slate-900">{step.t}</h4>
-                    <p className="text-slate-500 italic font-medium">{step.d}</p>
-                  </div>
-                </div>
-              ))}
+      <section className="py-16 px-4"><div className="max-w-5xl mx-auto">
+        <div className="text-center mb-10"><p className="text-xs font-semibold text-blue-900 uppercase tracking-widest mb-2">יתרונות</p><h2 className="text-2xl font-bold text-slate-900">מה אנחנו מציעים</h2></div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">{features.map((f,i)=>(<motion.div key={i} whileHover={{y:-3}} transition={{duration:0.2}} className="bg-white border border-slate-200 rounded-xl p-6 shadow-sm"><div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center mb-4"><f.icon size={20} className="text-blue-900"/></div><h3 className="font-semibold text-slate-900 mb-2">{f.t}</h3><p className="text-sm text-slate-500 leading-relaxed">{f.d}</p></motion.div>))}</div>
+      </div></section>
+      <section className="py-16 px-4 bg-white border-y border-slate-200"><div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div><p className="text-xs font-semibold text-blue-900 uppercase tracking-widest mb-3">למה לבחור בנו?</p><h2 className="text-2xl font-bold text-slate-900 mb-6">נוחות ואבטחה יחד</h2>
+          <ul className="space-y-3"><li key="אין צ" className="flex items-start gap-3 text-sm text-slate-600"><CheckCircle size={16} className="text-blue-900 mt-0.5 shrink-0"/>אין צורך במפתח פיזי</li><li key="הגדרת" className="flex items-start gap-3 text-sm text-slate-600"><CheckCircle size={16} className="text-blue-900 mt-0.5 shrink-0"/>הגדרת קודים לאורחים זמניים</li><li key="יומן " className="flex items-start gap-3 text-sm text-slate-600"><CheckCircle size={16} className="text-blue-900 mt-0.5 shrink-0"/>יומן כניסות מלא</li><li key="נעילה" className="flex items-start gap-3 text-sm text-slate-600"><CheckCircle size={16} className="text-blue-900 mt-0.5 shrink-0"/>נעילה אוטומטית</li><li key="עמיד " className="flex items-start gap-3 text-sm text-slate-600"><CheckCircle size={16} className="text-blue-900 mt-0.5 shrink-0"/>עמיד לנסיונות פריצה</li><li key="סוללה" className="flex items-start gap-3 text-sm text-slate-600"><CheckCircle size={16} className="text-blue-900 mt-0.5 shrink-0"/>סוללה עם חיי שנתיים</li></ul>
+        </div>
+        <div className="bg-slate-50 border border-slate-200 rounded-xl p-8"><KeyRound size={48} className="text-blue-900 mb-5"/>
+          <h3 className="text-xl font-bold text-slate-900 mb-3">הבית החכם מתחיל בדלת</h3>
+          <p className="text-slate-500 text-sm leading-relaxed mb-5">מנעולים חכמים שמשתלבים עם שאר מערכות הבית החכם — נוחות ואבטחה בפתרון אחד.</p>
+          <div className="grid grid-cols-2 gap-3">{[['15+','שנות ניסיון'],['2,000+','התקנות'],['24/7','תמיכה'],['100%','שביעות רצון']].map(([v,l])=>(<div key={l} className="text-center p-3 bg-white rounded-lg border border-slate-200"><p className="text-xl font-bold text-blue-900">{v}</p><p className="text-xs text-slate-500">{l}</p></div>))}</div>
+        </div>
+      </div></section>
+      <section className="py-16 px-4 bg-blue-900 text-white">
+        <div className="max-w-5xl mx-auto text-center mb-10">
+          <h2 className="text-2xl font-bold mb-2">למה לבחור בקיסר מערכות?</h2>
+          <p className="text-blue-200 text-sm">15 שנות ניסיון, אלפי התקנות, שירות אישי ומקצועי</p>
+        </div>
+        <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
+          {[{icon:Award,t:'מוסמכים',d:'טכנאים מורשים'},{icon:Clock,t:'זמינות 24/7',d:'תמיכה בכל שעה'},{icon:Users,t:'שירות אישי',d:'ליווי מלא'},{icon:MapPin,t:'כיסוי ארצי',d:'בכל מקום בארץ'}].map((item,i)=>(
+            <div key={i} className="text-center">
+              <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center mx-auto mb-3"><item.icon size={18} className="text-blue-200"/></div>
+              <p className="font-semibold text-white text-sm mb-1">{item.t}</p>
+              <p className="text-blue-300 text-xs">{item.d}</p>
             </div>
-          </div>
-
-          <div className="relative">
-            <div className="absolute -inset-4 bg-sky-100 blur-2xl rounded-full opacity-30" />
-            <div className="relative p-12 border border-sky-200 rounded-[4rem] bg-gradient-to-br from-white/5 to-transparent backdrop-blur-xl">
-               <Settings className="w-12 h-12 text-sky-600 mb-6 animate-spin-slow" />
-               <h3 className="text-3xl font-black italic mb-4 text-slate-900">התקנה מקצועית</h3>
-               <p className="text-slate-600 italic leading-relaxed mb-8">
-                 תהליך ההתקנה מבוצע על ידי המומחים של קיסר, תוך שמירה קפדנית על אסתטיקת הכניסה שלכם ואיכות רכיבים ללא פשרות.
-               </p>
-               <div className="flex gap-4">
-                  <CheckCircle className="text-sky-600" />
-                  <span className="font-bold italic">אחריות מלאה על המערכת</span>
-               </div>
-            </div>
-          </div>
-        </motion.section>
-
-        {/* --- SECTION: TARGET --- */}
-        <section className="text-center space-y-16">
-           <h2 className="text-4xl md:text-6xl font-black italic uppercase">למי זה <span className="text-sky-600 underline decoration-1 underline-offset-8">מתאים?</span></h2>
-           <div className="flex flex-wrap justify-center gap-12">
-              {[
-                { icon: <Home />, label: "בתים פרטיים" },
-                { icon: <Building2 />, label: "בנייני מגורים" },
-                { icon: <Briefcase />, label: "משרדים ועסקים" },
-                { icon: <Zap />, label: "חניונים ושערים" }
-              ].map((target, idx) => (
-                <div key={idx} className="flex flex-col items-center gap-4 group">
-                  <div className="w-20 h-20 rounded-full border border-sky-200 flex items-center justify-center group-hover:border-sky-500/50 group-hover:bg-sky-50 transition-all">
-                    {React.cloneElement(target.icon, { className: "w-8 h-8 text-slate-600 group-hover:text-sky-600 transition-colors" })}
-                  </div>
-                  <span className="font-bold italic text-slate-500 group-hover:text-slate-900 transition-colors">{target.label}</span>
-                </div>
-              ))}
-           </div>
-        </section>
-
-        {/* --- SECTION: ADVANTAGES --- */}
-        <section className="relative py-20 px-8 border border-sky-100 rounded-[4rem] overflow-hidden bg-white/[0.01]">
-           <div className="absolute top-0 right-0 p-8 opacity-5">
-              <ShieldAlert size={200} />
-           </div>
-           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12">
-              <h2 className="text-4xl md:text-6xl font-[1000] italic leading-tight">
-                היתרונות <br /> <span className="text-sky-600">של קיסר.</span>
-              </h2>
-              <ul className="space-y-6">
-                 {benefits.map((benefit, i) => (
-                   <li key={i} className="flex items-center gap-4 text-xl italic font-bold text-slate-700">
-                      <div className="w-2 h-2 rounded-full bg-cyan-500 shadow-[0_0_20px_rgba(2,132,199,0.8)]" />
-                      {benefit}
-                   </li>
-                 ))}
-              </ul>
-           </div>
-        </section>
-
-        {/* --- FINAL CTA --- */}
-        <motion.section 
-          className="text-center py-20"
-          initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
-        >
-          <h2 className="text-5xl md:text-8xl font-[1000] italic uppercase mb-8 leading-none">
-            שומרים על הבית <br /> <span className="text-transparent" style={{ WebkitTextStroke: '1.5px #06b6d4' }}>מכל משמר.</span>
-          </h2>
-          <button className="relative group">
-            <div className="absolute -inset-1 bg-cyan-500 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200" />
-            <div className="relative px-12 py-6 bg-sky-50 border border-sky-500/50 rounded-2xl leading-none flex items-center gap-3">
-              <span className="text-2xl font-black italic text-slate-900 transition duration-200 group-hover:text-sky-600">צרו קשר להתקנה</span>
-              <MousePointerClick className="text-sky-600 animate-bounce" />
-            </div>
-          </button>
-        </motion.section>
-
-      </main>
-
-      <footer className="py-12 border-t border-sky-100 text-center text-slate-700 font-bold italic text-sm tracking-widest">
-        Keisar SECURITY SOLUTIONS &copy; 2026 | THE FUTURE OF ACCESS CONTROL
-      </footer>
-
-      <style jsx global>{`
-        @keyframes spin-slow {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
-        }
-        .animate-spin-slow {
-          animation: spin-slow 8s linear infinite;
-        }
-      `}</style>
+          ))}
+        </div>
+      </section>
+      <section className="py-12 px-4 bg-amber-600">
+        <div className="max-w-3xl mx-auto text-center text-white">
+          <h2 className="text-2xl font-bold mb-3">דברו איתנו היום</h2>
+          <p className="text-amber-100 mb-6 text-sm">ייעוץ חינם ותאום סקר מקום ללא התחייבות</p>
+          <a href="tel:0525022222" className="inline-flex items-center gap-2 bg-white text-amber-700 px-8 py-3 rounded-lg font-bold hover:bg-amber-50 transition-colors"><Phone size={18}/> 052-502-2222</a>
+        </div>
+      </section>
     </div>
   );
 }

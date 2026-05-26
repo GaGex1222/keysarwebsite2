@@ -1,174 +1,58 @@
 "use client";
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  MapPin, 
-  Navigation, 
-  Clock, 
-  ShieldCheck, 
-  PhoneCall, 
-  Zap,
-  ChevronLeft,
-  Globe
-} from 'lucide-react';
-
-const regionsData = {
-  north: {
-    title: "צפון הארץ והגליל",
-    subTitle: "ביטחון מקסימלי מהחרמון ועד חיפה",
-    cities: ["חיפה", "קריות", "נהריה", "עכו", "טבריה", "צפת", "כרמיאל", "נצרת"],
-    stats: { technicians: 12, responseTime: "עד 3 שעות", activeProjects: "450+" },
-    theme: {
-      text: "text-emerald-500",
-      bg: "bg-emerald-500",
-      border: "border-emerald-500",
-      from: "from-emerald-600",
-      to: "to-emerald-400",
-      aura: "bg-emerald-500/5"
-    }
-  },
-  center: {
-    title: "גוש דן והמרכז",
-    subTitle: "הגנה חכמה בלב הפועם של ישראל",
-    cities: ["תל אביב", "ראשון לציון", "פתח תקווה", "חולון", "רמת גן", "הרצליה", "נתניה", "רחובות"],
-    stats: { technicians: 28, responseTime: "עד 90 דקות", activeProjects: "1,200+" },
-    theme: {
-      text: "text-blue-500",
-      bg: "bg-blue-500",
-      border: "border-blue-500",
-      from: "from-blue-600",
-      to: "to-blue-400",
-      aura: "bg-blue-500/5"
-    }
-  },
-  south: {
-    title: "דרום הארץ והנגב",
-    subTitle: "מיגון מתקדם מאשדוד ועד אילת",
-    cities: ["באר שבע", "אשדוד", "אשקלון", "שדרות", "נתיבות", "דימונה", "אילת", "ערד"],
-    stats: { technicians: 15, responseTime: "עד 4 שעות", activeProjects: "600+" },
-    theme: {
-      text: "text-orange-500",
-      bg: "bg-orange-500",
-      border: "border-orange-500",
-      from: "from-orange-600",
-      to: "to-orange-400",
-      aura: "bg-orange-500/5"
-    }
-  }
-};
-
-export default function ServiceRegionPage({ region = 'center' }: { region?: keyof typeof regionsData }) {
-  const data = regionsData[region];
-
+import { CheckCircle, Phone, Award, Clock, Users, MapPin, Map, Navigation } from 'lucide-react';
+export default function Page() {
+  const features = [{icon:Map,t:"כיסוי מרכז",d:"תל אביב, גוש דן, פתח תקווה, רמת גן, גבעתיים, בני ברק ועוד."},{icon:Navigation,t:"צפון ודרום",d:"חיפה, הקריות, נצרת, באר שבע, אשקלון, אשדוד ועוד."},{icon:MapPin,t:"שפלה וירושלים",d:"ירושלים, רחובות, נס ציונה, ראשון לציון, לוד, רמלה ועוד."}];
   return (
-    <div className="min-h-screen bg-sky-50 text-slate-900 font-sans selection:bg-sky-200 overflow-hidden" dir="rtl">
-      
-      {/* Dynamic Background Aura - Fixed with Theme Map */}
-      <div className={`fixed inset-0 pointer-events-none opacity-20 blur-[120px] rounded-full -top-24 -right-24 w-96 h-96 ${data.theme.aura}`} />
-
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-20">
-        
-        {/* Breadcrumbs & Badge */}
-        <nav className="flex items-center gap-4 mb-12 text-[10px] font-black tracking-widest uppercase italic text-slate-500">
-          <span>KEISAR_NETWORK</span>
-          <ChevronLeft size={12} />
-          <span className={data.theme.text}>SERVICE_REGION_{region.toUpperCase()}</span>
-        </nav>
-
-        {/* Hero Section - "גוש" changed to "בארץ" */}
-        <header className="mb-24">
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-7xl md:text-[10rem] font-[1000] italic leading-[0.8] mb-10 tracking-tighter uppercase"
-          >
-            כל האיזורים <br/>
-            <span className={data.theme.text}>בארץ</span>
-          </motion.h1>
-          <p className="text-2xl text-slate-600 italic max-w-3xl leading-tight border-r-4 border-sky-200 pr-8">
-            {data.subTitle}. צוות הטכנאים המוסמכים של קיסר מערכות פרוס בכל רחבי המחוז, מוכן להעניק פתרונות מיגון ואבטחה בזמן אמת.
-          </p>
-        </header>
-
-        {/* Quick Stats Dashboard */}
-        <section className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-32">
-          {[
-            { label: "טכנאים במחוז", value: data.stats.technicians, icon: <Navigation /> },
-            { label: "זמן תגובה ממוצע", value: data.stats.responseTime, icon: <Clock /> },
-            { label: "פרויקטים פעילים", value: data.stats.activeProjects, icon: <ShieldCheck /> }
-          ].map((stat, i) => (
-            <div key={i} className="p-10 bg-sky-50 border border-sky-200 rounded-[3rem] flex flex-col items-center text-center group hover:bg-white/[0.08] transition-all">
-              <div className={`${data.theme.text} mb-6 group-hover:scale-110 transition-transform`}>{stat.icon}</div>
-              <div className="text-4xl font-[1000] italic mb-2 uppercase">{stat.value}</div>
-              <div className="text-[10px] font-black text-slate-500 uppercase tracking-widest italic">{stat.label}</div>
+    <div className="bg-slate-50 min-h-screen" dir="rtl">
+      <section className="bg-white border-b border-slate-200 py-16 md:py-24 px-4">
+        <div className="max-w-5xl mx-auto">
+          <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-900 bg-blue-50 border border-blue-200 rounded-full px-3 py-1.5 mb-6"><MapPin size={12}/> אזורי שירות</span>
+          <h1 className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight mb-5">מגיעים לכל מקום בארץ<br/><span className="text-blue-900">כיסוי ארצי מלא</span></h1>
+          <p className="text-lg text-slate-500 max-w-2xl leading-relaxed mb-8">קיסר מערכות פועלת בכל רחבי ישראל — מחיפה ועד באר שבע, מרמת גן ועד אשקלון.</p>
+          <div className="flex flex-wrap gap-3">
+            <a href="tel:0525022222" className="flex items-center gap-2 bg-amber-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-amber-700 transition-colors"><Phone size={16}/> 052-502-2222</a>
+            <a href="/" className="border border-slate-300 text-slate-700 px-6 py-3 rounded-lg font-semibold hover:bg-slate-100 transition-colors">קבל הצעת מחיר</a>
+          </div>
+        </div>
+      </section>
+      <section className="py-16 px-4"><div className="max-w-5xl mx-auto">
+        <div className="text-center mb-10"><p className="text-xs font-semibold text-blue-900 uppercase tracking-widest mb-2">יתרונות</p><h2 className="text-2xl font-bold text-slate-900">מה אנחנו מציעים</h2></div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">{features.map((f,i)=>(<motion.div key={i} whileHover={{y:-3}} transition={{duration:0.2}} className="bg-white border border-slate-200 rounded-xl p-6 shadow-sm"><div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center mb-4"><f.icon size={20} className="text-blue-900"/></div><h3 className="font-semibold text-slate-900 mb-2">{f.t}</h3><p className="text-sm text-slate-500 leading-relaxed">{f.d}</p></motion.div>))}</div>
+      </div></section>
+      <section className="py-16 px-4 bg-white border-y border-slate-200"><div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div><p className="text-xs font-semibold text-blue-900 uppercase tracking-widest mb-3">למה לבחור בנו?</p><h2 className="text-2xl font-bold text-slate-900 mb-6">ערים בהן אנחנו פועלים</h2>
+          <ul className="space-y-3"><li key="תל אב" className="flex items-start gap-3 text-sm text-slate-600"><CheckCircle size={16} className="text-blue-900 mt-0.5 shrink-0"/>תל אביב וגוש דן</li><li key="ירושל" className="flex items-start gap-3 text-sm text-slate-600"><CheckCircle size={16} className="text-blue-900 mt-0.5 shrink-0"/>ירושלים והסביבה</li><li key="חיפה " className="flex items-start gap-3 text-sm text-slate-600"><CheckCircle size={16} className="text-blue-900 mt-0.5 shrink-0"/>חיפה והקריות</li><li key="ראשון" className="flex items-start gap-3 text-sm text-slate-600"><CheckCircle size={16} className="text-blue-900 mt-0.5 shrink-0"/>ראשון לציון ורחובות</li><li key="פתח ת" className="flex items-start gap-3 text-sm text-slate-600"><CheckCircle size={16} className="text-blue-900 mt-0.5 shrink-0"/>פתח תקווה ורמת גן</li><li key="באר ש" className="flex items-start gap-3 text-sm text-slate-600"><CheckCircle size={16} className="text-blue-900 mt-0.5 shrink-0"/>באר שבע ואשקלון</li></ul>
+        </div>
+        <div className="bg-slate-50 border border-slate-200 rounded-xl p-8"><MapPin size={48} className="text-blue-900 mb-5"/>
+          <h3 className="text-xl font-bold text-slate-900 mb-3">מגיעים אליכם בכל מקום</h3>
+          <p className="text-slate-500 text-sm leading-relaxed mb-5">לא משנה איפה נמצא הנכס שלכם — צוות הטכנאים שלנו יגיע אליכם עם כל הציוד הדרוש.</p>
+          <div className="grid grid-cols-2 gap-3">{[['15+','שנות ניסיון'],['2,000+','התקנות'],['24/7','תמיכה'],['100%','שביעות רצון']].map(([v,l])=>(<div key={l} className="text-center p-3 bg-white rounded-lg border border-slate-200"><p className="text-xl font-bold text-blue-900">{v}</p><p className="text-xs text-slate-500">{l}</p></div>))}</div>
+        </div>
+      </div></section>
+      <section className="py-16 px-4 bg-blue-900 text-white">
+        <div className="max-w-5xl mx-auto text-center mb-10">
+          <h2 className="text-2xl font-bold mb-2">למה לבחור בקיסר מערכות?</h2>
+          <p className="text-blue-200 text-sm">15 שנות ניסיון, אלפי התקנות, שירות אישי ומקצועי</p>
+        </div>
+        <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
+          {[{icon:Award,t:'מוסמכים',d:'טכנאים מורשים'},{icon:Clock,t:'זמינות 24/7',d:'תמיכה בכל שעה'},{icon:Users,t:'שירות אישי',d:'ליווי מלא'},{icon:MapPin,t:'כיסוי ארצי',d:'בכל מקום בארץ'}].map((item,i)=>(
+            <div key={i} className="text-center">
+              <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center mx-auto mb-3"><item.icon size={18} className="text-blue-200"/></div>
+              <p className="font-semibold text-white text-sm mb-1">{item.t}</p>
+              <p className="text-blue-300 text-xs">{item.d}</p>
             </div>
           ))}
-        </section>
-
-        {/* Cities Grid */}
-        <section className="mb-32">
-          <div className="flex items-center gap-4 mb-16">
-            <h2 className="text-3xl font-[1000] italic uppercase">ערים מרכזיות בשירות</h2>
-            <div className="flex-grow h-px bg-sky-100" />
-            <MapPin className={data.theme.text} />
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {data.cities.map((city, i) => (
-              <div key={i} className="p-6 bg-sky-50 border border-sky-200 rounded-2xl hover:border-white/30 transition-all flex items-center justify-between group">
-                <span className="font-bold italic text-lg">{city}</span>
-                <div className={`w-2 h-2 rounded-full ${data.theme.bg} group-hover:animate-ping`} />
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Visual Map / Info Section */}
-        <section className="bg-sky-50 border border-sky-200 rounded-[4rem] p-12 lg:p-20 overflow-hidden relative mb-32">
-          <div className="absolute top-0 left-0 p-12 opacity-5 pointer-events-none">
-            <Globe size={300} className={data.theme.text} />
-          </div>
-          <div className="relative z-10 flex flex-col lg:flex-row gap-16 items-center">
-            <div className="lg:w-1/2 space-y-8 text-right">
-              <h3 className="text-5xl font-[1000] italic uppercase leading-none">פריסה ארצית,<br/> שירות מקומי</h3>
-              <p className="text-slate-600 italic leading-relaxed text-lg">
-                אנחנו מבינים שביטחון הוא עניין של זמן. לכן, חילקנו את המערך למחוזות עצמאיים. כל מחוז מצויד בטכנאים מקומיים שמכירים את השטח ואת צרכי האבטחה הספציפיים של האזור.
-              </p>
-              <div className="flex gap-4">
-                <button className={`${data.theme.bg} text-black px-10 py-5 rounded-2xl font-[1000] italic text-lg uppercase flex items-center gap-3 hover:bg-white transition-colors`}>
-                  <PhoneCall size={20} />
-                  חיוג למוקד המחוזי
-                </button>
-              </div>
-            </div>
-            <div className="lg:w-1/2 w-full aspect-square bg-sky-100 rounded-[3rem] border border-sky-100 flex items-center justify-center relative">
-               <div className="space-y-4 text-center">
-                  <div className={`text-6xl font-[1000] italic uppercase ${data.theme.text}`}>{region}</div>
-                  <div className="text-xs font-black tracking-[0.5em] text-slate-500 uppercase italic">Active_Service_Zone</div>
-                  <div className={`w-32 h-1 mx-auto shadow-[0_0_15px_rgba(255,255,255,0.2)] ${data.theme.bg}`} />
-               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Final Regional CTA */}
-        <section className={`bg-gradient-to-br ${data.theme.from} ${data.theme.to} rounded-[4rem] p-16 text-black text-center shadow-2xl`}>
-          <h2 className="text-5xl md:text-7xl font-[1000] italic mb-8 uppercase leading-none">קיסר מערכות ב{data.title.split(' ')[1]}</h2>
-          <p className="text-xl font-bold italic mb-12 max-w-2xl mx-auto leading-tight">
-            הבית או העסק שלכם ב{data.title.split(' ')[1]} זקוקים להגנה? אל תתפשרו על פחות מהטובים ביותר. צוות המחוז זמין עבורכם עכשיו.
-          </p>
-          <button className="bg-black text-slate-900 px-16 py-6 rounded-2xl font-[1000] italic text-2xl uppercase flex items-center gap-4 mx-auto group hover:scale-105 transition-transform">
-            <Zap size={24} className="group-hover:animate-pulse" />
-            קבלו הצעה מנצחת במחוז {data.title.split(' ')[1]}
-          </button>
-        </section>
-
-      </div>
-
-      <footer className="py-12 border-t border-sky-100 text-center">
-        <p className="text-[10px] font-black tracking-[1em] uppercase italic text-slate-700">
-          KEISAR_REGIONAL_NETWORK // {region.toUpperCase()}_DISTRICT // 2026
-        </p>
-      </footer>
+        </div>
+      </section>
+      <section className="py-12 px-4 bg-amber-600">
+        <div className="max-w-3xl mx-auto text-center text-white">
+          <h2 className="text-2xl font-bold mb-3">דברו איתנו היום</h2>
+          <p className="text-amber-100 mb-6 text-sm">ייעוץ חינם ותאום סקר מקום ללא התחייבות</p>
+          <a href="tel:0525022222" className="inline-flex items-center gap-2 bg-white text-amber-700 px-8 py-3 rounded-lg font-bold hover:bg-amber-50 transition-colors"><Phone size={18}/> 052-502-2222</a>
+        </div>
+      </section>
     </div>
   );
 }

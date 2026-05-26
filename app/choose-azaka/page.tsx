@@ -1,217 +1,58 @@
 "use client";
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  ShieldAlert, 
-  Wifi, 
-  WifiOff, 
-  Home, 
-  Wind, 
-  Settings, 
-  Lock, 
-  Eye, 
-  ChevronLeft,
-  Dog,
-  CircleDollarSign,
-  UserCheck2,
-  Radar
-} from 'lucide-react';
-
-export default function AlarmSystemsPage() {
-  const fadeIn = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
-  };
-
+import { CheckCircle, Phone, Award, Clock, Users, MapPin, HelpCircle, CheckSquare, Scale, Shield } from 'lucide-react';
+export default function Page() {
+  const features = [{icon:Scale,t:"השוואת מערכות",d:"אזעקה ביתית, עסקית, עם מוקד או עצמאית — מה ההבדל?"},{icon:CheckSquare,t:"רשימת צרכים",d:"גודל הנכס, מספר חדרים וסוג ההגנה הרצוי קובעים את הבחירה."},{icon:Shield,t:"רמת אבטחה",d:"מהאזעקה הבסיסית לפתרון מקיף עם מוקד וגלאי עשן."}];
   return (
-    <div className="min-h-screen bg-sky-50 text-slate-900 font-sans selection:bg-red-500/30 overflow-hidden" dir="rtl">
-      
-      {/* --- RADAR ANIMATION OVERLAY --- */}
-      <div className="fixed inset-0 z-0 pointer-events-none opacity-20">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-red-500/20 rounded-full animate-[ping_5s_linear_infinite]" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border border-red-500/10 rounded-full" />
-      </div>
-
-      {/* --- HERO SECTION --- */}
-      <header className="relative pt-32 pb-20 px-6 z-10 text-center">
-        <motion.div 
-          initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-500/10 border border-red-500/20 text-red-500 text-[10px] font-black uppercase tracking-[0.3em] mb-8"
-        >
-          <Radar size={14} className="animate-spin-slow" />
-          <span>Active Perimeter Defense</span>
-        </motion.div>
-
-        <motion.h1 
-          className="text-6xl md:text-[110px] font-[1000] italic leading-[0.85] tracking-tighter uppercase mb-8"
-          initial={{ y: 30, opacity: 0 }} animate={{ y: 0, opacity: 1 }}
-        >
-          המקום <br />
-          <span className="text-transparent" style={{ WebkitTextStroke: '1.5px #ef4444' }}>הבטוח בעולם.</span>
-        </motion.h1>
-
-        <p className="max-w-3xl mx-auto text-slate-600 text-xl md:text-2xl font-light italic leading-relaxed">
-          מערכת האזעקה היא קו ההגנה הראשון של הבית. בקיסר, אנחנו הופכים את הבית שלכם למבצר חכם שמתריע עוד לפני שהפורץ נוגע בדלת.
-        </p>
-      </header>
-
-      <main className="relative z-10 max-w-7xl mx-auto px-6 space-y-40 pb-40">
-        
-        {/* --- SECTION: SYSTEM TYPES (WIRED VS WIRELESS) --- */}
-        <section className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          <motion.div 
-            whileHover={{ y: -10 }}
-            className="p-12 border border-sky-100 rounded-[3rem] bg-white/[0.02] space-y-6 relative overflow-hidden"
-          >
-            <div className="absolute top-0 left-0 w-2 h-full bg-red-500" />
-            <WifiOff className="text-red-500 w-12 h-12" />
-            <h3 className="text-3xl font-black italic uppercase">מערכת קווית</h3>
-            <p className="text-slate-600 italic leading-relaxed">
-              הבחירה של אנשי המקצוע לבתים בבנייה. יציבות מקסימלית, ללא צורך בסוללות ועמידות מוחלטת בפני שיבושי קליטה.
-            </p>
-            <div className="text-xs font-mono text-red-500/50 uppercase tracking-widest">Recommended for new builds</div>
-          </motion.div>
-
-          <motion.div 
-            whileHover={{ y: -10 }}
-            className="p-12 border border-sky-100 rounded-[3rem] bg-white/[0.02] space-y-6 relative overflow-hidden"
-          >
-            <div className="absolute top-0 left-0 w-2 h-full bg-cyan-500" />
-            <Wifi className="text-sky-600 w-12 h-12" />
-            <h3 className="text-3xl font-black italic uppercase">מערכת אלחוטית</h3>
-            <p className="text-slate-600 italic leading-relaxed">
-              הפתרון המושלם לבתים קיימים. התקנה נקייה ללא צורך בתשתיות מורכבות, גמישות מלאה במיקום הגלאים ואמינות טכנולוגית גבוהה.
-            </p>
-            <div className="text-xs font-mono text-sky-600/50 uppercase tracking-widest">Perfect for existing homes</div>
-          </motion.div>
-        </section>
-
-        {/* --- SECTION: PERIMETER PROTECTION --- */}
-        <section className="relative py-24 bg-red-500/5 border-y border-sky-100 overflow-hidden">
-          <div className="max-w-4xl mx-auto text-center space-y-8 relative z-10">
-            <h2 className="text-4xl md:text-7xl font-black italic uppercase leading-tight">הגנה היקפית: <br /><span className="text-red-500">להקדים תרופה למכה.</span></h2>
-            <p className="text-slate-600 text-xl italic leading-relaxed">
-              אל תחכו שהפורץ ייכנס לסלון. גלאים חיצוניים בחצר ובמרפסת מרתיעים את הפולשים ומפעילים את האזעקה עוד בשלב ניסיון החדירה.
-            </p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-10">
-               {[
-                 { icon: <Wind />, t: "גלאי וילון" },
-                 { icon: <Eye />, t: "גלאי נפח" },
-                 { icon: <Dog />, t: "מתאים לבעלי חיים" },
-                 { icon: <Lock />, t: "אפס אזעקות שווא" }
-               ].map((item, i) => (
-                 <div key={i} className="flex flex-col items-center gap-3 p-6 rounded-3xl bg-sky-100 border border-sky-100">
-                   <div className="text-red-500">{item.icon}</div>
-                   <span className="font-bold italic text-xs uppercase">{item.t}</span>
-                 </div>
-               ))}
-            </div>
+    <div className="bg-slate-50 min-h-screen" dir="rtl">
+      <section className="bg-white border-b border-slate-200 py-16 md:py-24 px-4">
+        <div className="max-w-5xl mx-auto">
+          <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-900 bg-blue-50 border border-blue-200 rounded-full px-3 py-1.5 mb-6"><HelpCircle size={12}/> בחירת אזעקה</span>
+          <h1 className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight mb-5">איך בוחרים אזעקה?<br/><span className="text-blue-900">המדריך המלא לבחירה נכונה</span></h1>
+          <p className="text-lg text-slate-500 max-w-2xl leading-relaxed mb-8">לא בטוחים איזו מערכת אזעקה מתאימה לכם? המדריך שלנו יוביל אתכם לבחירה הנכונה.</p>
+          <div className="flex flex-wrap gap-3">
+            <a href="tel:0525022222" className="flex items-center gap-2 bg-amber-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-amber-700 transition-colors"><Phone size={16}/> 052-502-2222</a>
+            <a href="/" className="border border-slate-300 text-slate-700 px-6 py-3 rounded-lg font-semibold hover:bg-slate-100 transition-colors">קבל הצעת מחיר</a>
           </div>
-        </section>
-
-        {/* --- SECTION: PRICING & TIERS --- */}
-        <section className="space-y-16">
-          <div className="flex items-end justify-between border-b border-sky-200 pb-8">
-            <h2 className="text-5xl font-black italic uppercase">עלויות <br /><span className="text-red-500 italic">והשקעה.</span></h2>
-            <CircleDollarSign size={60} className="text-slate-800" />
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 text-right">
-            <div className="space-y-4">
-              <h4 className="text-2xl font-black italic text-red-500">מערכת קווית</h4>
-              <p className="text-5xl font-[1000] tracking-tighter">₪1,700 - ₪3,500</p>
-              <ul className="text-slate-500 font-medium italic space-y-2">
-                <li>• כולל 2 גלאים ולוח מקשים</li>
-                <li>• דורש הכנת תשתית מראש</li>
-                <li>• ללא צורך בתחזוקת סוללות</li>
-              </ul>
-            </div>
-            <div className="space-y-4 border-r border-sky-200 pr-12">
-              <h4 className="text-2xl font-black italic text-sky-600">מערכת אלחוטית</h4>
-              <p className="text-5xl font-[1000] tracking-tighter">₪3,000 - ₪5,000</p>
-              <ul className="text-slate-500 font-medium italic space-y-2">
-                <li>• התקנה מהירה ונקייה</li>
-                <li>• כולל חייגן וצופרים עוצמתיים</li>
-                <li>• שליטה מלאה מהסמארטפון</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        {/* --- SECTION: PRO TIPS --- */}
-        <motion.section 
-          initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center bg-white/[0.02] p-12 md:p-24 rounded-[4rem] border border-sky-100"
-        >
-          <div className="space-y-8">
-            <UserCheck2 className="text-red-500 w-16 h-16" />
-            <h2 className="text-4xl md:text-6xl font-black italic leading-tight uppercase">איך לבחור <br /> <span className="text-red-500">איש מקצוע?</span></h2>
-            <p className="text-slate-600 text-lg italic leading-relaxed">
-              אל תתפשרו על הביטחון שלכם. בחרו מתקין מוסמך, וודאו שיש לו ניסיון והכי חשוב – כימיה ויחסי אנוש. בקיסר, השירות הוא חלק בלתי נפרד מהמיגון.
-            </p>
-            <div className="space-y-4 font-bold italic text-sm">
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-red-500 rounded-full" />
-                <span>הסמכה מטעם היבואן</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-red-500 rounded-full" />
-                <span>ליווי צמוד מאפיון ועד התקנה</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="relative aspect-square">
-             <div className="absolute inset-0 bg-red-500/10 blur-[100px] rounded-full" />
-             <div className="relative h-full flex flex-col justify-center gap-6">
-                {[1, 2, 3].map((_, i) => (
-                  <div key={i} className="h-1 bg-sky-50 w-full rounded-full overflow-hidden">
-                    <motion.div 
-                      initial={{ x: "-100%" }} whileInView={{ x: "0%" }} transition={{ delay: i * 0.2, duration: 1.5 }}
-                      className="h-full bg-red-500/40 w-1/2" 
-                    />
-                  </div>
-                ))}
-                <div className="text-center">
-                  <span className="text-[120px] font-[1000] italic leading-none opacity-10">PRO</span>
-                </div>
-             </div>
-          </div>
-        </motion.section>
-
-        {/* --- FINAL CTA --- */}
-        <section className="text-center py-20">
-           <motion.h2 
-             initial={{ scale: 0.9 }} whileInView={{ scale: 1 }}
-             className="text-5xl md:text-[90px] font-[1000] italic leading-tight uppercase mb-12"
-           >
-             הגנו על <span className="text-red-500 italic uppercase underline decoration-2 underline-offset-8">הבית</span> <br /> עוד היום.
-           </motion.h2>
-           <div className="flex flex-col md:flex-row items-center justify-center gap-6">
-             <button className="group relative px-16 py-8 bg-red-600 text-slate-900 font-[1000] italic text-2xl rounded-2xl shadow-[0_0_50px_rgba(239,68,68,0.3)] transition-all hover:scale-105 active:scale-95">
-                <span className="flex items-center gap-4">
-                  קבלו הצעת מחיר למערכת מיגון
-                  <ChevronLeft className="group-hover:-translate-x-2 transition-transform" />
-                </span>
-             </button>
-           </div>
-        </section>
-
-      </main>
-
-      {/* --- FOOTER --- */}
-      <footer className="py-20 border-t border-sky-100 text-center">
-        <div className="flex flex-col items-center gap-4">
-          <div className="flex items-center gap-4">
-            <ShieldAlert size={32} className="text-red-500" />
-            <span className="text-2xl font-black italic uppercase tracking-tighter">Keisar DEFENSE_SYSTEMS</span>
-          </div>
-          <p className="text-slate-600 font-bold italic text-[10px] uppercase tracking-widest max-w-sm leading-relaxed">
-            Professional security integration and alert systems for high-end residential and commercial assets.
-          </p>
         </div>
-      </footer>
-
+      </section>
+      <section className="py-16 px-4"><div className="max-w-5xl mx-auto">
+        <div className="text-center mb-10"><p className="text-xs font-semibold text-blue-900 uppercase tracking-widest mb-2">יתרונות</p><h2 className="text-2xl font-bold text-slate-900">מה אנחנו מציעים</h2></div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">{features.map((f,i)=>(<motion.div key={i} whileHover={{y:-3}} transition={{duration:0.2}} className="bg-white border border-slate-200 rounded-xl p-6 shadow-sm"><div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center mb-4"><f.icon size={20} className="text-blue-900"/></div><h3 className="font-semibold text-slate-900 mb-2">{f.t}</h3><p className="text-sm text-slate-500 leading-relaxed">{f.d}</p></motion.div>))}</div>
+      </div></section>
+      <section className="py-16 px-4 bg-white border-y border-slate-200"><div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div><p className="text-xs font-semibold text-blue-900 uppercase tracking-widest mb-3">למה לבחור בנו?</p><h2 className="text-2xl font-bold text-slate-900 mb-6">שאלות לפני הרכישה</h2>
+          <ul className="space-y-3"><li key="כמה ח" className="flex items-start gap-3 text-sm text-slate-600"><CheckCircle size={16} className="text-blue-900 mt-0.5 shrink-0"/>כמה חדרים לאבטח?</li><li key="האם נ" className="flex items-start gap-3 text-sm text-slate-600"><CheckCircle size={16} className="text-blue-900 mt-0.5 shrink-0"/>האם נדרש מוקד שמירה?</li><li key="מה גו" className="flex items-start gap-3 text-sm text-slate-600"><CheckCircle size={16} className="text-blue-900 mt-0.5 shrink-0"/>מה גובה התקציב?</li><li key="האם י" className="flex items-start gap-3 text-sm text-slate-600"><CheckCircle size={16} className="text-blue-900 mt-0.5 shrink-0"/>האם יש ילדים קטנים בבית?</li><li key="האם ה" className="flex items-start gap-3 text-sm text-slate-600"><CheckCircle size={16} className="text-blue-900 mt-0.5 shrink-0"/>האם הבית עזוב לפעמים לתקופות?</li><li key="האם נ" className="flex items-start gap-3 text-sm text-slate-600"><CheckCircle size={16} className="text-blue-900 mt-0.5 shrink-0"/>האם נדרש גלאי עשן ואש?</li></ul>
+        </div>
+        <div className="bg-slate-50 border border-slate-200 rounded-xl p-8"><HelpCircle size={48} className="text-blue-900 mb-5"/>
+          <h3 className="text-xl font-bold text-slate-900 mb-3">ייעוץ מקצועי בחינם</h3>
+          <p className="text-slate-500 text-sm leading-relaxed mb-5">המומחים שלנו ישמחו לעזור לכם לבחור את מערכת האזעקה המושלמת — ללא עלות וללא לחץ.</p>
+          <div className="grid grid-cols-2 gap-3">{[['15+','שנות ניסיון'],['2,000+','התקנות'],['24/7','תמיכה'],['100%','שביעות רצון']].map(([v,l])=>(<div key={l} className="text-center p-3 bg-white rounded-lg border border-slate-200"><p className="text-xl font-bold text-blue-900">{v}</p><p className="text-xs text-slate-500">{l}</p></div>))}</div>
+        </div>
+      </div></section>
+      <section className="py-16 px-4 bg-blue-900 text-white">
+        <div className="max-w-5xl mx-auto text-center mb-10">
+          <h2 className="text-2xl font-bold mb-2">למה לבחור בקיסר מערכות?</h2>
+          <p className="text-blue-200 text-sm">15 שנות ניסיון, אלפי התקנות, שירות אישי ומקצועי</p>
+        </div>
+        <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
+          {[{icon:Award,t:'מוסמכים',d:'טכנאים מורשים'},{icon:Clock,t:'זמינות 24/7',d:'תמיכה בכל שעה'},{icon:Users,t:'שירות אישי',d:'ליווי מלא'},{icon:MapPin,t:'כיסוי ארצי',d:'בכל מקום בארץ'}].map((item,i)=>(
+            <div key={i} className="text-center">
+              <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center mx-auto mb-3"><item.icon size={18} className="text-blue-200"/></div>
+              <p className="font-semibold text-white text-sm mb-1">{item.t}</p>
+              <p className="text-blue-300 text-xs">{item.d}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+      <section className="py-12 px-4 bg-amber-600">
+        <div className="max-w-3xl mx-auto text-center text-white">
+          <h2 className="text-2xl font-bold mb-3">דברו איתנו היום</h2>
+          <p className="text-amber-100 mb-6 text-sm">ייעוץ חינם ותאום סקר מקום ללא התחייבות</p>
+          <a href="tel:0525022222" className="inline-flex items-center gap-2 bg-white text-amber-700 px-8 py-3 rounded-lg font-bold hover:bg-amber-50 transition-colors"><Phone size={18}/> 052-502-2222</a>
+        </div>
+      </section>
     </div>
   );
 }

@@ -1,187 +1,58 @@
 "use client";
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  Shield, EyeOff, CloudRain, Moon, Smartphone, 
-  Wind, ShieldAlert, TrendingUp, HelpCircle, 
-  Trees, Home, Lock, Camera,
-  CheckCircle2
-} from 'lucide-react';
-
-export default function OutdoorSecurityPage() {
-  const outdoorFeatures = [
-    { icon: <CloudRain />, title: "עמידות למזג אוויר", desc: "מיגון מלא מפני גשם, שמש ישירה ורוחות (מצלמות אנטי-ונדל)." },
-    { icon: <Moon />, title: "ראיית לילה IR", desc: "צילום אינפרא-אדום המפיק סרט ברור גם בחושך מוחלט (24/7)." },
-    { icon: <EyeOff />, title: "פתרונות הסלקה", desc: "מצלמות מוסתרות בתוך גופי תאורה, גלאים או עציצים." },
-    { icon: <TrendingUp />, title: "חיישן תנועה חכם", desc: "הקלטה מבוססת תנועה לחסכון באחסון ונעילה על אובייקט." }
-  ];
-
-  const priceTable = [
-    { item: "מצלמת דמה (צעצוע מרתיע)", price: "₪80 - ₪120", detail: "למטרת הרתעה בלבד, ללא צילום בפועל." },
-    { item: "מצלמת אבטחה בסיסית", price: "החל מ-₪400", detail: "מתאימה בעיקר לצילום פנים או בקרה פשוטה." },
-    { item: "מצלמת חוץ מוגנת (IP66/7)", price: "+20-35% מהבסיס", detail: "עמידה למים ושמש, מיועדת לחצר ללא קירוי." },
-    { item: "מצלמת ראיית לילה מתקדמת", price: "+30% מהבסיס", detail: "אינפרא-אדום איכותי לצילום בחושך מוחלט." }
-  ];
-
+import { CheckCircle, Phone, Award, Clock, Users, MapPin, Sun, CloudRain, Moon, Camera } from 'lucide-react';
+export default function Page() {
+  const features = [{icon:CloudRain,t:"עמידות כל מזג אוויר",d:"IP67 — עמידות מלאה לגשם, שלג, אבק וחום קיצוני."},{icon:Sun,t:"זווית רחבה",d:"כיסוי של עד 120° — לא תפספסו שום נקודה בחצר."},{icon:Moon,t:"ראיית לילה מתקדמת",d:"זיהוי תנועה ברדיוס של עד 30 מטר גם בחשיכה מוחלטת."}];
   return (
-    <div className="min-h-screen bg-sky-50 text-slate-900 font-sans" dir="rtl">
-      
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-24 px-6 overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-cyan-900/20 via-transparent to-transparent opacity-60" />
-        <div className="max-w-7xl mx-auto relative z-10 text-right">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-          >
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sky-100 border border-sky-500/20 text-sky-600 text-xs font-black uppercase mb-8">
-              <Shield size={14} /> OUTDOOR_SURVEILLANCE_2026
+    <div className="bg-slate-50 min-h-screen" dir="rtl">
+      <section className="bg-white border-b border-slate-200 py-16 md:py-24 px-4">
+        <div className="max-w-5xl mx-auto">
+          <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-900 bg-blue-50 border border-blue-200 rounded-full px-3 py-1.5 mb-6"><Sun size={12}/> מצלמות לחצר</span>
+          <h1 className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight mb-5">מצלמות אבטחה לחצר<br/><span className="text-blue-900">הגנה על השטח החיצוני</span></h1>
+          <p className="text-lg text-slate-500 max-w-2xl leading-relaxed mb-8">מצלמות עמידות לחוץ עם זווית צפייה רחבה, ראיית לילה ועמידות לגשם ואבק לכל עונות השנה.</p>
+          <div className="flex flex-wrap gap-3">
+            <a href="tel:0525022222" className="flex items-center gap-2 bg-amber-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-amber-700 transition-colors"><Phone size={16}/> 052-502-2222</a>
+            <a href="/" className="border border-slate-300 text-slate-700 px-6 py-3 rounded-lg font-semibold hover:bg-slate-100 transition-colors">קבל הצעת מחיר</a>
+          </div>
+        </div>
+      </section>
+      <section className="py-16 px-4"><div className="max-w-5xl mx-auto">
+        <div className="text-center mb-10"><p className="text-xs font-semibold text-blue-900 uppercase tracking-widest mb-2">יתרונות</p><h2 className="text-2xl font-bold text-slate-900">מה אנחנו מציעים</h2></div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">{features.map((f,i)=>(<motion.div key={i} whileHover={{y:-3}} transition={{duration:0.2}} className="bg-white border border-slate-200 rounded-xl p-6 shadow-sm"><div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center mb-4"><f.icon size={20} className="text-blue-900"/></div><h3 className="font-semibold text-slate-900 mb-2">{f.t}</h3><p className="text-sm text-slate-500 leading-relaxed">{f.d}</p></motion.div>))}</div>
+      </div></section>
+      <section className="py-16 px-4 bg-white border-y border-slate-200"><div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div><p className="text-xs font-semibold text-blue-900 uppercase tracking-widest mb-3">למה לבחור בנו?</p><h2 className="text-2xl font-bold text-slate-900 mb-6">הגנה על החצר שלכם</h2>
+          <ul className="space-y-3"><li key="עמידו" className="flex items-start gap-3 text-sm text-slate-600"><CheckCircle size={16} className="text-blue-900 mt-0.5 shrink-0"/>עמידות IP67 לתנאי קיצון</li><li key="ראיית" className="flex items-start gap-3 text-sm text-slate-600"><CheckCircle size={16} className="text-blue-900 mt-0.5 shrink-0"/>ראיית לילה עד 30 מטר</li><li key="זיהוי" className="flex items-start gap-3 text-sm text-slate-600"><CheckCircle size={16} className="text-blue-900 mt-0.5 shrink-0"/>זיהוי תנועה חכם</li><li key="כיסוי" className="flex items-start gap-3 text-sm text-slate-600"><CheckCircle size={16} className="text-blue-900 mt-0.5 shrink-0"/>כיסוי זווית רחב</li><li key="גוף א" className="flex items-start gap-3 text-sm text-slate-600"><CheckCircle size={16} className="text-blue-900 mt-0.5 shrink-0"/>גוף אנטי-ונדלי חזק</li><li key="עמיד " className="flex items-start gap-3 text-sm text-slate-600"><CheckCircle size={16} className="text-blue-900 mt-0.5 shrink-0"/>עמיד לחום ולקור קיצוני</li></ul>
+        </div>
+        <div className="bg-slate-50 border border-slate-200 rounded-xl p-8"><Sun size={48} className="text-blue-900 mb-5"/>
+          <h3 className="text-xl font-bold text-slate-900 mb-3">כיסוי מלא של השטח החיצוני</h3>
+          <p className="text-slate-500 text-sm leading-relaxed mb-5">מצלמות החצר שלנו מגינות על כל שטח הנכס — מהשער הראשי ועד לפינה האחרונה.</p>
+          <div className="grid grid-cols-2 gap-3">{[['15+','שנות ניסיון'],['2,000+','התקנות'],['24/7','תמיכה'],['100%','שביעות רצון']].map(([v,l])=>(<div key={l} className="text-center p-3 bg-white rounded-lg border border-slate-200"><p className="text-xl font-bold text-blue-900">{v}</p><p className="text-xs text-slate-500">{l}</p></div>))}</div>
+        </div>
+      </div></section>
+      <section className="py-16 px-4 bg-blue-900 text-white">
+        <div className="max-w-5xl mx-auto text-center mb-10">
+          <h2 className="text-2xl font-bold mb-2">למה לבחור בקיסר מערכות?</h2>
+          <p className="text-blue-200 text-sm">15 שנות ניסיון, אלפי התקנות, שירות אישי ומקצועי</p>
+        </div>
+        <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
+          {[{icon:Award,t:'מוסמכים',d:'טכנאים מורשים'},{icon:Clock,t:'זמינות 24/7',d:'תמיכה בכל שעה'},{icon:Users,t:'שירות אישי',d:'ליווי מלא'},{icon:MapPin,t:'כיסוי ארצי',d:'בכל מקום בארץ'}].map((item,i)=>(
+            <div key={i} className="text-center">
+              <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center mx-auto mb-3"><item.icon size={18} className="text-blue-200"/></div>
+              <p className="font-semibold text-white text-sm mb-1">{item.t}</p>
+              <p className="text-blue-300 text-xs">{item.d}</p>
             </div>
-            <h1 className="text-6xl md:text-8xl font-[1000] italic leading-none mb-8 tracking-tighter">
-              החצר שלך <br/>
-              <span className="text-transparent" style={{ WebkitTextStroke: '2px #06b6d4' }}>תחת שליטה</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-slate-600 max-w-3xl font-light italic leading-relaxed border-r-4 border-sky-500 pr-6">
-              מצלמות נסתרות וגלויות לחצר הן כבר לא מוצר יוקרה – הן כלי חיוני לשמירה על הרכוש, הביטחון האישי והשקט הנפשי שלכם.
-            </p>
-          </motion.div>
+          ))}
         </div>
       </section>
-
-      {/* Main Content: Why Outdoor? */}
-      <section className="max-w-7xl mx-auto px-6 py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div className="space-y-8">
-            <h2 className="text-4xl font-[1000] italic uppercase border-r-4 border-sky-500 pr-6">היתרון הנסתר בחצר</h2>
-            <p className="text-slate-600 leading-relaxed italic">
-              בניגוד למצלמות גלויות, מצלמה נסתרת לחצר מאפשרת תיעוד שקט מבלי לעורר חשד. היא הפתרון המושלם למניעת גניבות ציוד (אופניים, ריהוט גן), ונדליזם, ומעקב אחר כניסות ויציאות של אנשי מקצוע ודיירים.
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-               {[
-                 { t: "הרתעה אקטיבית", d: "עצם נוכחות המצלמה גורמת לפורצים לוותר על החדירה." },
-                 { t: "סביבה מבוקרת", d: "שמירה על קשישים, ילדים או בעלי חיים בחצר." },
-                 { t: "מיגון אנטי-ונדל", d: "מצלמות עשויות ברזל העמידות בפני ניסיונות חבלה." },
-                 { t: "תיעוד מוסלק", d: "מצלמות מוסתרות בתוך עציצים או גופי תאורה." }
-               ].map((box, i) => (
-                 <div key={i} className="p-5 bg-sky-50 border border-sky-100 rounded-2xl">
-                    <CheckCircle2 className="text-sky-600 mb-2" size={18} />
-                    <div className="font-black italic text-sm mb-1">{box.t}</div>
-                    <div className="text-[11px] text-slate-500 leading-tight italic">{box.d}</div>
-                 </div>
-               ))}
-            </div>
-          </div>
-          <div className="relative">
-            <div className="aspect-square bg-gradient-to-br from-cyan-900/20 to-black rounded-[3rem] border border-sky-200 flex items-center justify-center relative overflow-hidden">
-               <Trees className="text-slate-900/5 absolute -bottom-10 -right-10" size={300} />
-               <Camera size={120} className="text-sky-600 opacity-20 animate-pulse" />
-            </div>
-          </div>
+      <section className="py-12 px-4 bg-amber-600">
+        <div className="max-w-3xl mx-auto text-center text-white">
+          <h2 className="text-2xl font-bold mb-3">דברו איתנו היום</h2>
+          <p className="text-amber-100 mb-6 text-sm">ייעוץ חינם ותאום סקר מקום ללא התחייבות</p>
+          <a href="tel:0525022222" className="inline-flex items-center gap-2 bg-white text-amber-700 px-8 py-3 rounded-lg font-bold hover:bg-amber-50 transition-colors"><Phone size={18}/> 052-502-2222</a>
         </div>
       </section>
-
-      {/* Feature Grid */}
-      <section className="bg-sky-50 py-32">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <h2 className="text-4xl font-[1000] italic mb-16 uppercase">תכונות קריטיות למצלמת חוץ</h2>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {outdoorFeatures.map((f, i) => (
-              <div key={i} className="p-10 bg-white rounded-[2.5rem] border border-sky-100 group hover:border-sky-500/50 transition-all">
-                <div className="text-sky-600 mb-6 group-hover:scale-110 transition-transform">{f.icon}</div>
-                <h4 className="text-xl font-black italic mb-3">{f.title}</h4>
-                <p className="text-slate-500 text-sm italic leading-relaxed">{f.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Decision Matrix & Pricing */}
-      <section className="max-w-7xl mx-auto px-6 py-32">
-        <div className="flex flex-col lg:flex-row gap-16">
-          <div className="lg:w-1/3">
-            <h3 className="text-4xl font-[1000] italic mb-8 italic">איך מקבלים <br/><span className="text-sky-600">החלטה?</span></h3>
-            <p className="text-slate-600 italic mb-8">לפני הרכישה, שאלו את עצמכם:</p>
-            <ul className="space-y-4 text-sm italic text-slate-700">
-              <li className="flex gap-3"><HelpCircle size={18} className="text-sky-600 shrink-0" /> מה המטרה? (ביטחון או פיקוח בסיסי)</li>
-              <li className="flex gap-3"><HelpCircle size={18} className="text-sky-600 shrink-0" /> היכן להתקין? (חצר פתוחה או שטח מקורה)</li>
-              <li className="flex gap-3"><HelpCircle size={18} className="text-sky-600 shrink-0" /> האם המצלמות צריכות להיות גלויות או מוסלקות?</li>
-              <li className="flex gap-3"><HelpCircle size={18} className="text-sky-600 shrink-0" /> האם נדרש תיעוד של כל השטח או רק חלק ממנו?</li>
-            </ul>
-          </div>
-          
-          <div className="lg:w-2/3 bg-white rounded-[3rem] border border-sky-200 overflow-hidden shadow-2xl">
-            <div className="p-8 bg-sky-600 text-white">
-              <h4 className="text-2xl font-[1000] italic uppercase italic">מחירון והערכות תקציב (₪)</h4>
-            </div>
-            <div className="overflow-x-auto">
-              <table className="w-full text-right">
-                <thead>
-                  <tr className="bg-sky-100 text-[10px] font-black uppercase tracking-widest text-slate-500">
-                    <th className="p-6">סוג המוצר / פונקציה</th>
-                    <th className="p-6">מחיר משוער</th>
-                    <th className="p-6">פרטים טכניים</th>
-                  </tr>
-                </thead>
-                <tbody className="text-sm italic">
-                  {priceTable.map((row, i) => (
-                    <tr key={i} className="border-b border-sky-100 hover:bg-sky-50 transition-colors">
-                      <td className="p-6 font-black text-slate-900">{row.item}</td>
-                      <td className="p-6 text-sky-600 font-bold">{row.price}</td>
-                      <td className="p-6 text-slate-600 text-xs">{row.detail}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Keisar Advantage - Brand Section */}
-      <section className="max-w-7xl mx-auto px-6 py-20 bg-sky-50 rounded-[3rem] border border-sky-500/10 mb-32">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
-          <div className="text-center md:text-right px-8">
-            <Home className="text-sky-600 mb-4 mx-auto md:mr-0" size={40} />
-            <h4 className="text-2xl font-[1000] italic mb-2">פתרונות לבתים פרטיים</h4>
-            <p className="text-slate-600 text-sm italic">התאמה אישית לבתים חד-קומתיים עם חצרות וגינות.</p>
-          </div>
-          <div className="text-center md:text-right px-8 border-y md:border-y-0 md:border-x border-sky-200">
-            <Lock className="text-sky-600 mb-4 mx-auto md:mr-0" size={40} />
-            <h4 className="text-2xl font-[1000] italic mb-2">אבטחה מוסלקת</h4>
-            <p className="text-slate-600 text-sm italic">תיעוד אפקטיבי מבלי לפגוע באסתטיקה של הבית.</p>
-          </div>
-          <div className="text-center md:text-right px-8">
-            <Smartphone className="text-sky-600 mb-4 mx-auto md:mr-0" size={40} />
-            <h4 className="text-2xl font-[1000] italic mb-2">שליטה מהנייד</h4>
-            <p className="text-slate-600 text-sm italic">קבלת התראות בזמן אמת וצפייה מכל מקום בעולם.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Final Call to Action */}
-      <section className="py-24 text-center">
-        <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-5xl font-[1000] italic mb-8 uppercase leading-[0.9]">
-            אל תחכו לאירוע חריג <br/>
-            <span className="text-sky-600 underline decoration-2 underline-offset-8">הגנו על הבית עכשיו</span>
-          </h2>
-          <p className="text-xl text-slate-600 italic mb-12">
-            מצלמות נסתרות לחצר מבית קיסר מערכות אבטחה מעניקות לכם ביטחון אמיתי וטכנולוגיה חכמה ששומרת על כל מה שחשוב לכם.
-          </p>
-          <div className="flex flex-col md:flex-row gap-6 justify-center">
-            <button className="bg-transparent border border-sky-300 text-slate-900 px-12 py-5 rounded-2xl font-[1000] text-xl italic hover:bg-sky-50 transition-colors">
-              ייעוץ אישי חינם
-            </button>
-          </div>
-        </div>
-      </section>
-
-      <footer className="py-12 border-t border-sky-100 text-center">
-        <p className="text-[10px] font-black tracking-[0.8em] uppercase italic opacity-30">
-          Keisar SECURITY SYSTEMS // OUTDOOR_STEALTH_UNIT // 2026
-        </p>
-      </footer>
     </div>
   );
 }

@@ -1,190 +1,58 @@
 "use client";
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  Smartphone, Eye, ShieldCheck, Wifi, Battery, 
-  Lock, Users, Baby, Truck, Zap, Cloud, Info
-} from 'lucide-react';
-
-export default function HomeSecurityPage() {
-  const useCases = [
-    { 
-      icon: <Baby size={32} />, 
-      title: "ילדים ללא השגחה", 
-      text: "העין שלכם תמיד פקוחה על השמרטף או הילדים שחזרו מביה\"ס, גם כשאתם בישיבה בעבודה." 
-    },
-    { 
-      icon: <Users size={32} />, 
-      title: "בעלי מקצוע", 
-      text: "פיקוח על שיפוצניקים או מנקים שנמצאים בשטח הפרטי שלכם ללא ליווי צמוד." 
-    },
-    { 
-      icon: <Truck size={32} />, 
-      title: "שליחים ומסירות", 
-      text: "ודאו שהמשלוח הגיע לדלת הנכונה ומנעו גניבות חבילות מפתח הבית בזמן אמת." 
-    }
-  ];
-
-  const faqItems = [
-    { q: "האם אפשר לצפות במצלמה מכל מקום בעולם?", a: "כן. כל עוד יש חיבור אינטרנט פעיל בבית ובמכשיר הנייד, תוכלו לצפות בשידור חי ולגשת להקלטות דרך האפליקציה." },
-    { q: "מה עדיף – סוללה או חיבור קבוע לחשמל?", a: "סוללה מצוינת למיקומים ללא שקע; חיבור חשמל קבוע מבטל את הצורך בטעינה ומומלץ לנקודות קריטיות עם פעילות תדירה." },
-    { q: "מה קורה אם האינטרנט נופל?", a: "לא תוכלו לצפות בשידור חי בזמן הנפילה, אך דגמים רבים ממשיכים להקליט מקומית על כרטיס זיכרון." }
-  ];
-
+import { CheckCircle, Phone, Award, Clock, Users, MapPin, Camera, Smartphone, Shield, Home } from 'lucide-react';
+export default function Page() {
+  const features = [{icon:Camera,t:"HD ברורה",d:"תמונה חדה ביום ובלילה לכיסוי מלא של כל פינה בבית."},{icon:Smartphone,t:"שליטה מהמובייל",d:"צפייה בשידור חי ואחסון הקלטות מכל מקום בעולם."},{icon:Shield,t:"התקנה מהירה",d:"התקנה מסודרת תוך שעות ללא פגיעה במבנה הבית."}];
   return (
-    <div className="min-h-screen bg-sky-50 text-slate-900 font-sans selection:bg-sky-200/30" dir="rtl">
-      
-      {/* Hero Section - Futuristic Focus */}
-      <section className="relative pt-32 pb-24 px-6 overflow-hidden">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-sky-100 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2" />
-        <div className="max-w-7xl mx-auto relative z-10">
-          <motion.div 
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="max-w-3xl"
-          >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-sky-100 border border-sky-500/20 text-sky-600 text-xs font-black uppercase tracking-widest mb-8">
-              <Zap size={14} fill="currentColor" /> Remote_Access_Enabled
-            </div>
-            <h1 className="text-6xl md:text-8xl font-[1000] italic leading-[0.9] tracking-tighter mb-8">
-              הבית שלך <br/>
-              <span className="text-transparent" style={{ WebkitTextStroke: '1.5px #06b6d4' }}>בכף היד.</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-slate-600 font-light leading-relaxed mb-10 border-r-4 border-sky-500 pr-6 italic">
-              מצלמה לבית דרך הטלפון היא כבר מזמן לא מותרות. היא מייצגת שקט נפשי ושליטה מלאה על המתרחש במבצר הפרטי שלכם, מכל מקום בעולם.
-            </p>
-          </motion.div>
+    <div className="bg-slate-50 min-h-screen" dir="rtl">
+      <section className="bg-white border-b border-slate-200 py-16 md:py-24 px-4">
+        <div className="max-w-5xl mx-auto">
+          <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-900 bg-blue-50 border border-blue-200 rounded-full px-3 py-1.5 mb-6"><Home size={12}/> מצלמה לבית</span>
+          <h1 className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight mb-5">מצלמות אבטחה חכמות<br/><span className="text-blue-900">לבית ולמשפחה שלכם</span></h1>
+          <p className="text-lg text-slate-500 max-w-2xl leading-relaxed mb-8">מצלמות HD עם גישה מהמובייל, ראיית לילה ומערכת התראות — שקט נפשי 24/7.</p>
+          <div className="flex flex-wrap gap-3">
+            <a href="tel:0525022222" className="flex items-center gap-2 bg-amber-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-amber-700 transition-colors"><Phone size={16}/> 052-502-2222</a>
+            <a href="/" className="border border-slate-300 text-slate-700 px-6 py-3 rounded-lg font-semibold hover:bg-slate-100 transition-colors">קבל הצעת מחיר</a>
+          </div>
         </div>
       </section>
-
-      {/* Interactive Feature Cards */}
-      <section className="max-w-7xl mx-auto px-6 py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {[
-            { icon: <Smartphone />, title: "שליטה מלאה", desc: "פתיחת האפליקציה וצפייה בשידור חי ב-HD מכל מקום." },
-            { icon: <Eye />, title: "ראיית לילה", desc: "תיעוד חד וברור גם בחשיכה מוחלטת בתוך הבית." },
-            { icon: <ShieldCheck />, title: "הרתעה", desc: "נוכחות המצלמה מונעת פריצות וחדירות לא רצויות." },
-            { icon: <Cloud />, title: "גיבוי ענן", desc: "החומרים שלכם שמורים ומאובטחים גם במקרה של גניבה." },
-          ].map((item, i) => (
-            <motion.div 
-              key={i}
-              whileHover={{ y: -10 }}
-              className="p-8 bg-white border border-sky-100 rounded-[2rem] hover:border-sky-500/30 transition-all group"
-            >
-              <div className="w-14 h-14 bg-sky-50 rounded-2xl flex items-center justify-center text-sky-600 mb-6 group-hover:bg-sky-500 group-hover:text-black transition-all">
-                {item.icon}
-              </div>
-              <h3 className="text-xl font-black italic mb-3">{item.title}</h3>
-              <p className="text-slate-600 text-sm italic leading-relaxed">{item.desc}</p>
-            </motion.div>
+      <section className="py-16 px-4"><div className="max-w-5xl mx-auto">
+        <div className="text-center mb-10"><p className="text-xs font-semibold text-blue-900 uppercase tracking-widest mb-2">יתרונות</p><h2 className="text-2xl font-bold text-slate-900">מה אנחנו מציעים</h2></div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">{features.map((f,i)=>(<motion.div key={i} whileHover={{y:-3}} transition={{duration:0.2}} className="bg-white border border-slate-200 rounded-xl p-6 shadow-sm"><div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center mb-4"><f.icon size={20} className="text-blue-900"/></div><h3 className="font-semibold text-slate-900 mb-2">{f.t}</h3><p className="text-sm text-slate-500 leading-relaxed">{f.d}</p></motion.div>))}</div>
+      </div></section>
+      <section className="py-16 px-4 bg-white border-y border-slate-200"><div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div><p className="text-xs font-semibold text-blue-900 uppercase tracking-widest mb-3">למה לבחור בנו?</p><h2 className="text-2xl font-bold text-slate-900 mb-6">הגנה על הבית שלכם</h2>
+          <ul className="space-y-3"><li key="שידור" className="flex items-start gap-3 text-sm text-slate-600"><CheckCircle size={16} className="text-blue-900 mt-0.5 shrink-0"/>שידור חי 24/7 לסמארטפון</li><li key="ראיית" className="flex items-start gap-3 text-sm text-slate-600"><CheckCircle size={16} className="text-blue-900 mt-0.5 shrink-0"/>ראיית לילה מתקדמת</li><li key="התראו" className="flex items-start gap-3 text-sm text-slate-600"><CheckCircle size={16} className="text-blue-900 mt-0.5 shrink-0"/>התראות בזמן אמת על תנועה</li><li key="שמירת" className="flex items-start gap-3 text-sm text-slate-600"><CheckCircle size={16} className="text-blue-900 mt-0.5 shrink-0"/>שמירת הקלטות עד 30 יום</li><li key="קל לש" className="flex items-start gap-3 text-sm text-slate-600"><CheckCircle size={16} className="text-blue-900 mt-0.5 shrink-0"/>קל לשימוש לכל הגילאים</li><li key="התקנה" className="flex items-start gap-3 text-sm text-slate-600"><CheckCircle size={16} className="text-blue-900 mt-0.5 shrink-0"/>התקנה מקצועית ומסודרת</li></ul>
+        </div>
+        <div className="bg-slate-50 border border-slate-200 rounded-xl p-8"><Shield size={48} className="text-blue-900 mb-5"/>
+          <h3 className="text-xl font-bold text-slate-900 mb-3">שלום נפשי לכל המשפחה</h3>
+          <p className="text-slate-500 text-sm leading-relaxed mb-5">מצלמות הבית שלנו מאפשרות לראות הכל ובכל זמן — גם כשאתם רחוקים מהבית.</p>
+          <div className="grid grid-cols-2 gap-3">{[['15+','שנות ניסיון'],['2,000+','התקנות'],['24/7','תמיכה'],['100%','שביעות רצון']].map(([v,l])=>(<div key={l} className="text-center p-3 bg-white rounded-lg border border-slate-200"><p className="text-xl font-bold text-blue-900">{v}</p><p className="text-xs text-slate-500">{l}</p></div>))}</div>
+        </div>
+      </div></section>
+      <section className="py-16 px-4 bg-blue-900 text-white">
+        <div className="max-w-5xl mx-auto text-center mb-10">
+          <h2 className="text-2xl font-bold mb-2">למה לבחור בקיסר מערכות?</h2>
+          <p className="text-blue-200 text-sm">15 שנות ניסיון, אלפי התקנות, שירות אישי ומקצועי</p>
+        </div>
+        <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
+          {[{icon:Award,t:'מוסמכים',d:'טכנאים מורשים'},{icon:Clock,t:'זמינות 24/7',d:'תמיכה בכל שעה'},{icon:Users,t:'שירות אישי',d:'ליווי מלא'},{icon:MapPin,t:'כיסוי ארצי',d:'בכל מקום בארץ'}].map((item,i)=>(
+            <div key={i} className="text-center">
+              <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center mx-auto mb-3"><item.icon size={18} className="text-blue-200"/></div>
+              <p className="font-semibold text-white text-sm mb-1">{item.t}</p>
+              <p className="text-blue-300 text-xs">{item.d}</p>
+            </div>
           ))}
         </div>
       </section>
-
-      {/* Scenario Section - Who is it for? */}
-      <section className="py-32 bg-sky-50 relative">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-4xl md:text-6xl font-[1000] italic text-center mb-20 uppercase tracking-tighter">
-            למי זה <span className="text-sky-600">רלוונטי?</span>
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            {useCases.map((use, i) => (
-              <div key={i} className="text-center group">
-                <div className="inline-flex p-6 rounded-full bg-black border border-sky-500/20 text-sky-600 mb-6 group-hover:scale-110 transition-transform shadow-[0_0_20px_rgba(2,132,199,0.1)]">
-                  {use.icon}
-                </div>
-                <h4 className="text-2xl font-black italic mb-4">{use.title}</h4>
-                <p className="text-slate-600 italic leading-relaxed">{use.text}</p>
-              </div>
-            ))}
-          </div>
+      <section className="py-12 px-4 bg-amber-600">
+        <div className="max-w-3xl mx-auto text-center text-white">
+          <h2 className="text-2xl font-bold mb-3">דברו איתנו היום</h2>
+          <p className="text-amber-100 mb-6 text-sm">ייעוץ חינם ותאום סקר מקום ללא התחייבות</p>
+          <a href="tel:0525022222" className="inline-flex items-center gap-2 bg-white text-amber-700 px-8 py-3 rounded-lg font-bold hover:bg-amber-50 transition-colors"><Phone size={18}/> 052-502-2222</a>
         </div>
       </section>
-
-      {/* Tech Breakdown - "How it works" */}
-      <section className="max-w-7xl mx-auto px-6 py-32">
-        <div className="flex flex-col lg:flex-row gap-20 items-center">
-          <div className="w-full lg:w-1/2">
-            <h2 className="text-4xl font-[1000] italic mb-8 border-r-4 border-sky-500 pr-6 uppercase">Technology_Core</h2>
-            <p className="text-slate-700 text-lg mb-12 italic leading-relaxed">
-              המצלמות מחוברות למודם האינטרנט הביתי בחיבור Wi-Fi יציב. הנתונים מוצפנים ונשלחים ישירות לענן ולאפליקציה בטלפון שלך.
-            </p>
-            
-            <div className="space-y-8">
-              {[
-                { label: "מיקום אסטרטגי", detail: "כיסוי דלת כניסה, סלון ומסדרונות ללא שטחים מתים." },
-                { label: "איכות צילום", detail: "Full HD ומעלה עם התמקדות אוטומטית בתנועה." },
-                { label: "אבטחת מידע", detail: "הצפנה מקצה לקצה ואימות דו-שלבי לפרטיות מלאה." }
-              ].map((point, i) => (
-                <div key={i} className="flex gap-4">
-                  <div className="mt-1 text-sky-600"><Info size={20} /></div>
-                  <div>
-                    <h5 className="font-black italic text-slate-900">{point.label}</h5>
-                    <p className="text-sm text-slate-600 italic">{point.detail}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-          
-          <div className="w-full lg:w-1/2 relative">
-             <div className="aspect-square bg-gradient-to-tr from-cyan-500/20 to-purple-500/10 rounded-[3rem] border border-sky-200 flex items-center justify-center relative overflow-hidden group">
-                {/* Visual Placeholder for a Phone/App mockup */}
-                <Smartphone size={150} className="text-slate-900/20 group-hover:scale-110 group-hover:text-sky-600 transition-all duration-700" strokeWidth={1} />
-                <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20" />
-                <div className="absolute bottom-10 inset-x-10 p-6 bg-sky-200 backdrop-blur-xl border border-sky-200 rounded-2xl">
-                   <div className="flex items-center gap-3">
-                      <div className="w-3 h-3 rounded-full bg-red-500 animate-pulse" />
-                      <p className="text-xs font-black uppercase tracking-widest">Live_Feed_Active</p>
-                   </div>
-                </div>
-             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ Table Styled */}
-      <section className="max-w-5xl mx-auto px-6 py-20 mb-20">
-        <div className="bg-white rounded-[2.5rem] border border-sky-100 overflow-hidden shadow-2xl">
-          <div className="p-8 border-b border-sky-100 bg-sky-50">
-            <h3 className="text-2xl font-[1000] italic text-center uppercase tracking-widest">Frequently_Asked_Questions</h3>
-          </div>
-          <div className="divide-y divide-white/5">
-            {faqItems.map((faq, i) => (
-              <div key={i} className="p-8 flex flex-col md:flex-row gap-6 hover:bg-sky-50 transition-colors">
-                <div className="md:w-1/3 font-black italic text-sky-600 text-lg">
-                   {faq.q}
-                </div>
-                <div className="md:w-2/3 text-slate-600 italic leading-relaxed">
-                   {faq.a}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Footer */}
-      <section className="py-32 text-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-sky-50 -skew-y-3" />
-        <div className="relative z-10 max-w-4xl mx-auto px-6">
-          <h2 className="text-5xl font-[1000] italic mb-8">אל תתפשרו על <span className="text-sky-600">הביטחון שלכם.</span></h2>
-          <p className="text-xl text-slate-600 italic mb-12">צרו קשר עם מומחי 'קיסר' להתקנה מקצועית ושקט נפשי אמיתי.</p>
-          <motion.button 
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-sky-600 text-white px-12 py-6 rounded-2xl font-[1000] text-2xl italic shadow-[0_10px_40px_rgba(6,182,212,0.4)]"
-          >
-            תיאום ייעוץ מקצועי
-          </motion.button>
-        </div>
-      </section>
-
-      <footer className="py-12 text-center text-slate-600 border-t border-sky-100">
-        <p className="text-[10px] font-black tracking-[0.6em] uppercase italic">
-          Keisar Home Security // Advanced_Monitoring_System // 2026
-        </p>
-      </footer>
     </div>
   );
 }

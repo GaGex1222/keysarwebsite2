@@ -1,16 +1,13 @@
-"use client"; 
+"use client";
 import "./globals.css";
 import React, { useState } from 'react';
 import { Heebo } from "next/font/google";
-import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  Shield, Phone, Mail, ChevronLeft, 
-  ChevronDown, Menu, X, Target, Scan 
-} from 'lucide-react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { Shield, Phone, Mail, ChevronDown, Menu, X, ChevronLeft } from 'lucide-react';
 
-const heebo = Heebo({ 
+const heebo = Heebo({
   subsets: ["hebrew", "latin"],
-  weight: ["300", "400", "500", "700", "800", "900"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
   variable: "--font-heebo",
 });
 
@@ -45,7 +42,7 @@ const menuItems = [
   {
     id: 'intercom',
     label: 'אינטרקום',
-    href: "/interkum-for-apartment",
+    href: "/interkum-dira",
     children: [
       { title: "מערכת אינטרקום לעסק", href: "/interkum-esek" },
       { title: "קודן לבית", href: "/codan-labait" },
@@ -57,7 +54,7 @@ const menuItems = [
   {
     id: 'comm',
     label: 'תקשורת',
-    href: "/comm-technician",
+    href: "/marachot-tikshoret",
     children: [
       { title: "ארון תקשורת לבית", href: "/aron-tikshoret-labait" },
       { title: "טכנאי מערכות תקשורת", href: "/marachot-tikshoret" },
@@ -77,15 +74,9 @@ const menuItems = [
   },
 ];
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  const [activeMenu, setActiveMenu] = useState<string | null>(null); 
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  
-  // State to track which mobile category is currently expanded
   const [openMobileSubmenu, setOpenMobileSubmenu] = useState<string | null>(null);
 
   const toggleMobileSubmenu = (id: string) => {
@@ -94,57 +85,59 @@ export default function RootLayout({
 
   return (
     <html lang="he" dir="rtl">
-      <body className={`${heebo.className} antialiased bg-sky-50 text-slate-900 overflow-x-hidden selection:bg-sky-300 p-0 m-0`}>
-        
-        <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
-          <div className="absolute inset-0 opacity-[0.05] bg-[radial-gradient(#94a3b8_1px,transparent_1px)] [background-size:30px_30px]" />
-          <div className="absolute top-[-10%] right-[-5%] w-[700px] h-[700px] bg-sky-100 blur-[150px] rounded-full" />
-        </div>
+      <body className={`${heebo.className} antialiased bg-slate-50 text-slate-900 overflow-x-hidden`}>
 
-        <nav className="fixed top-0 left-0 w-full z-[100] border-b border-sky-100 bg-white/95 backdrop-blur-xl">
-          <div className="max-w-7xl mx-auto px-4 h-20 flex justify-between items-center">
-            
-            <a href="/" className="flex items-center gap-3 shrink-0">
-              <div className="w-10 h-10 bg-sky-600 rounded-xl flex items-center justify-center text-white shadow-[0_0_15px_rgba(2,132,199,0.3)]">
-                <Shield size={22} fill="currentColor" />
+        {/* Navigation */}
+        <nav className="fixed top-0 left-0 w-full z-[100] bg-white border-b border-slate-200">
+          <div className="max-w-7xl mx-auto px-4 h-16 flex justify-between items-center">
+
+            {/* Logo */}
+            <a href="/" className="flex items-center gap-2.5 shrink-0">
+              <div className="w-9 h-9 bg-blue-900 rounded-lg flex items-center justify-center text-white">
+                <Shield size={18} fill="currentColor" />
               </div>
-              <span className="text-xl md:text-2xl font-[1000] italic uppercase tracking-tighter text-slate-900">קיסר מערכות</span>
+              <span className="text-lg font-bold text-slate-900">קיסר מערכות</span>
             </a>
 
             {/* Desktop Menu */}
-            <div className="hidden lg:flex items-center gap-6 h-full">
+            <div className="hidden lg:flex items-center gap-1 h-full">
               {menuItems.map((item) => (
-                <div 
-                  key={item.id} 
-                  className="relative h-full flex items-center" 
+                <div
+                  key={item.id}
+                  className="relative h-full flex items-center"
                   onMouseEnter={() => (item.children?.length ?? 0) > 0 && setActiveMenu(item.id)}
                   onMouseLeave={() => setActiveMenu(null)}
                 >
-                  <a 
+                  <a
                     href={item.href}
-                    className={`flex items-center gap-1.5 font-bold text-[14px] italic transition-colors hover:text-sky-600 ${activeMenu === item.id ? 'text-sky-600' : 'text-slate-800'}`}
+                    className={`flex items-center gap-1 px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${
+                      activeMenu === item.id
+                        ? 'text-blue-900 bg-blue-50'
+                        : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+                    }`}
                   >
                     {item.label}
                     {(item.children?.length ?? 0) > 0 && (
-                      <ChevronDown size={14} className={activeMenu === item.id ? 'rotate-180 transition-transform' : 'transition-transform'} />
+                      <ChevronDown size={13} className={`transition-transform duration-200 ${activeMenu === item.id ? 'rotate-180' : ''}`} />
                     )}
                   </a>
 
                   <AnimatePresence>
                     {activeMenu === item.id && (item.children?.length ?? 0) > 0 && (
-                      <motion.div 
-                        initial={{ opacity: 0, y: 10 }} 
-                        animate={{ opacity: 1, y: 0 }} 
-                        exit={{ opacity: 0, y: 10 }}
-                        className="absolute top-full right-0 w-[240px] bg-white border border-sky-200 shadow-2xl rounded-b-xl overflow-hidden py-2"
+                      <motion.div
+                        initial={{ opacity: 0, y: 6 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 6 }}
+                        transition={{ duration: 0.15 }}
+                        className="absolute top-full right-0 w-56 bg-white border border-slate-200 shadow-lg rounded-xl overflow-hidden py-1 mt-0.5"
                       >
                         {item.children?.map((child, idx) => (
-                          <a 
-                            key={idx} 
-                            href={child.href} 
-                            className="block px-5 py-2.5 text-[13px] font-bold text-slate-700 hover:text-sky-600 hover:bg-sky-50 transition-all italic flex items-center gap-2"
+                          <a
+                            key={idx}
+                            href={child.href}
+                            className="flex items-center gap-2.5 px-4 py-2.5 text-sm text-slate-600 hover:text-blue-900 hover:bg-blue-50 transition-colors"
                           >
-                            <span className="w-1 h-1 bg-cyan-500 rounded-full opacity-50" />
+                            <span className="w-1 h-1 bg-blue-900 rounded-full shrink-0" />
                             {child.title}
                           </a>
                         ))}
@@ -155,121 +148,186 @@ export default function RootLayout({
               ))}
             </div>
 
-            <div className="flex items-center gap-3">
-              <a href="tel:0525022222" className="hidden sm:flex bg-sky-600 text-white px-4 py-2 rounded-lg font-black text-sm italic hover:bg-sky-700 transition-colors items-center gap-2">
+            {/* Actions */}
+            <div className="flex items-center gap-2">
+              <a
+                href="tel:0525022222"
+                className="hidden sm:flex items-center gap-2 bg-blue-900 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-blue-800 transition-colors"
+              >
                 <Phone size={14} />
                 052-502-2222
               </a>
-              <button 
-                className="lg:hidden p-2 bg-sky-50 rounded-lg border border-sky-200" 
+              <button
+                className="lg:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100 transition-colors"
                 onClick={() => setIsMobileMenuOpen(true)}
               >
-                <Menu size={24} className="text-sky-600" />
+                <Menu size={22} />
               </button>
             </div>
           </div>
         </nav>
 
+        {/* Mobile Menu */}
         <AnimatePresence>
           {isMobileMenuOpen && (
-            <motion.div 
-              initial={{ x: '100%' }} animate={{ x: 0 }} exit={{ x: '100%' }}
-              transition={{ type: 'tween', duration: 0.3 }}
-              className="fixed inset-0 bg-white z-[200] flex flex-col lg:hidden"
-            >
-              <div className="p-6 border-b border-sky-100 flex justify-between items-center h-20 bg-white">
-                <span className="text-sky-600 font-black italic text-xl uppercase">קיסר תפריט</span>
-                <button onClick={() => setIsMobileMenuOpen(false)} className="p-2 bg-sky-50 rounded-full">
-                  <X size={30} />
-                </button>
-              </div>
-              
-              <div className="flex-1 overflow-y-auto p-6 space-y-6 text-right">
-                {menuItems.map((item) => {
-                  const hasChildren = (item.children?.length ?? 0) > 0;
-                  const isExpanded = openMobileSubmenu === item.id;
+            <>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="fixed inset-0 bg-black/40 z-[190] lg:hidden"
+                onClick={() => setIsMobileMenuOpen(false)}
+              />
+              <motion.div
+                initial={{ x: '100%' }}
+                animate={{ x: 0 }}
+                exit={{ x: '100%' }}
+                transition={{ type: 'tween', duration: 0.25 }}
+                className="fixed top-0 right-0 h-full w-80 max-w-full bg-white z-[200] flex flex-col lg:hidden shadow-2xl"
+              >
+                {/* Mobile header */}
+                <div className="flex justify-between items-center px-5 h-16 border-b border-slate-100">
+                  <span className="font-bold text-slate-900">תפריט</span>
+                  <button onClick={() => setIsMobileMenuOpen(false)} className="p-2 rounded-lg hover:bg-slate-100 transition-colors">
+                    <X size={20} className="text-slate-500" />
+                  </button>
+                </div>
 
-                  return (
-                    <div key={item.id} className="border-b border-sky-100 pb-4">
-                      {/* Main Category Row */}
-                      <div className="flex justify-between items-center">
-                        <a 
-                          href={item.href}
-                          onClick={() => !hasChildren && setIsMobileMenuOpen(false)}
-                          className={`text-xl font-black italic text-slate-900 flex-1 ${isExpanded ? 'text-sky-600' : ''}`}
-                        >
-                          {item.label}
-                        </a>
-                        
-                        {hasChildren && (
-                          <button 
-                            onClick={() => toggleMobileSubmenu(item.id)}
-                            className="p-2 bg-sky-50 rounded-lg"
+                {/* Mobile links */}
+                <div className="flex-1 overflow-y-auto py-4">
+                  {menuItems.map((item) => {
+                    const hasChildren = (item.children?.length ?? 0) > 0;
+                    const isExpanded = openMobileSubmenu === item.id;
+                    return (
+                      <div key={item.id}>
+                        <div className="flex items-center justify-between px-5 py-3">
+                          <a
+                            href={item.href}
+                            onClick={() => !hasChildren && setIsMobileMenuOpen(false)}
+                            className="text-slate-800 font-semibold text-sm flex-1"
                           >
-                            <ChevronDown 
-                              size={20} 
-                              className={`text-sky-600 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`} 
-                            />
-                          </button>
-                        )}
-                      </div>
-
-                      {/* Collapsible Children Section */}
-                      <AnimatePresence>
-                        {hasChildren && isExpanded && (
-                          <motion.div 
-                            initial={{ height: 0, opacity: 0 }}
-                            animate={{ height: 'auto', opacity: 1 }}
-                            exit={{ height: 0, opacity: 0 }}
-                            className="overflow-hidden"
-                          >
-                            <div className="mt-4 mr-4 grid grid-cols-1 gap-3">
+                            {item.label}
+                          </a>
+                          {hasChildren && (
+                            <button
+                              onClick={() => toggleMobileSubmenu(item.id)}
+                              className="p-1.5 rounded-md hover:bg-slate-100 transition-colors"
+                            >
+                              <ChevronDown size={16} className={`text-slate-400 transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`} />
+                            </button>
+                          )}
+                        </div>
+                        <AnimatePresence>
+                          {hasChildren && isExpanded && (
+                            <motion.div
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: 'auto', opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              transition={{ duration: 0.2 }}
+                              className="overflow-hidden bg-slate-50"
+                            >
                               {item.children?.map((child, i) => (
-                                <a 
-                                  key={i} 
-                                  href={child.href} 
-                                  onClick={() => setIsMobileMenuOpen(false)} 
-                                  className="flex items-center gap-2 text-slate-600 font-bold hover:text-sky-600 italic py-1"
+                                <a
+                                  key={i}
+                                  href={child.href}
+                                  onClick={() => setIsMobileMenuOpen(false)}
+                                  className="flex items-center gap-3 px-8 py-2.5 text-sm text-slate-600 hover:text-blue-900 transition-colors"
                                 >
-                                  <ChevronLeft size={14} className="text-sky-600" />
+                                  <ChevronLeft size={12} className="text-slate-400" />
                                   {child.title}
                                 </a>
                               ))}
-                            </div>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </div>
-                  );
-                })}
-              </div>
-
-              <div className="p-6 bg-sky-100 backdrop-blur-md border-t border-sky-100 space-y-4">
-                <div className="flex items-center gap-3 text-slate-600 justify-center">
-                  <Mail size={18} />
-                  <span className="text-sm font-bold">office@keisar.co.il</span>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    );
+                  })}
                 </div>
-                <a href="tel:0525022222" className="block w-full bg-sky-600 text-white text-center py-4 rounded-xl font-black italic text-lg shadow-lg shadow-sky-500/20">
-                  התקשר לייעוץ: 052-502-2222
-                </a>
-              </div>
-            </motion.div>
+
+                {/* Mobile footer */}
+                <div className="p-5 border-t border-slate-100 space-y-3">
+                  <div className="flex items-center gap-2 text-sm text-slate-500">
+                    <Mail size={14} />
+                    <span>office@keisar.co.il</span>
+                  </div>
+                  <a
+                    href="tel:0525022222"
+                    className="flex items-center justify-center gap-2 w-full bg-blue-900 text-white py-3 rounded-xl font-semibold text-sm hover:bg-blue-800 transition-colors"
+                  >
+                    <Phone size={15} />
+                    התקשר עכשיו: 052-502-2222
+                  </a>
+                </div>
+              </motion.div>
+            </>
           )}
         </AnimatePresence>
 
-        <div className="relative z-10 pt-20"> 
+        {/* Page content */}
+        <div className="pt-16">
           {children}
         </div>
 
-        <footer className="py-20 text-center border-t border-sky-100 bg-sky-100 mt-20 relative z-10">
-          <div className="flex justify-center gap-6 mb-8 text-slate-500">
-              <Shield size={24} />
-              <Target size={24} />
-              <Scan size={24} />
+        {/* Footer */}
+        <footer className="bg-blue-900 text-white mt-20">
+          <div className="max-w-7xl mx-auto px-4 py-16">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+              <div className="md:col-span-1">
+                <div className="flex items-center gap-2 mb-4">
+                  <div className="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center">
+                    <Shield size={16} fill="white" className="text-white" />
+                  </div>
+                  <span className="font-bold text-white">קיסר מערכות</span>
+                </div>
+                <p className="text-blue-200 text-sm leading-relaxed">
+                  פתרונות אבטחה ותקשורת מקצועיים לבית ולעסק בכל רחבי הארץ.
+                </p>
+              </div>
+              <div>
+                <h4 className="font-semibold text-white mb-4 text-sm">מצלמות אבטחה</h4>
+                <ul className="space-y-2">
+                  {[
+                    { t: 'מצלמות לעסק', h: '/outside-camera' },
+                    { t: 'מצלמה לבית', h: '/home-camera' },
+                    { t: 'מצלמות IP', h: '/ip-cameras' },
+                    { t: 'DVR / הקלטה', h: '/dvr-camera' },
+                  ].map(l => (
+                    <li key={l.h}><a href={l.h} className="text-blue-300 hover:text-white text-sm transition-colors">{l.t}</a></li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <h4 className="font-semibold text-white mb-4 text-sm">שירותים נוספים</h4>
+                <ul className="space-y-2">
+                  {[
+                    { t: 'אזעקות לבית', h: '/home-alarms' },
+                    { t: 'אינטרקום', h: '/interkum-dira' },
+                    { t: 'ארון תקשורת', h: '/aron-tikshoret-labait' },
+                    { t: 'אינטרנט במקלט', h: '/internet-miklat' },
+                  ].map(l => (
+                    <li key={l.h}><a href={l.h} className="text-blue-300 hover:text-white text-sm transition-colors">{l.t}</a></li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <h4 className="font-semibold text-white mb-4 text-sm">צור קשר</h4>
+                <ul className="space-y-3">
+                  <li className="flex items-center gap-2 text-blue-200 text-sm">
+                    <Phone size={14} />
+                    <a href="tel:0525022222" className="hover:text-white transition-colors">052-502-2222</a>
+                  </li>
+                  <li className="flex items-center gap-2 text-blue-200 text-sm">
+                    <Mail size={14} />
+                    <a href="mailto:office@keisar.co.il" className="hover:text-white transition-colors">office@keisar.co.il</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div className="border-t border-white/10 pt-6 text-center text-blue-300 text-xs">
+              © 2026 קיסר מערכות. כל הזכויות שמורות.
+            </div>
           </div>
-          <p className="text-slate-500 text-[11px] font-[1000] tracking-[0.6em] uppercase italic">
-            Keisar Systems Engineering Protocol &copy; 2026 | All Rights Reserved
-          </p>
         </footer>
       </body>
     </html>

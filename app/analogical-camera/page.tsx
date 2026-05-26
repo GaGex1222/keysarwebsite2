@@ -1,256 +1,58 @@
 "use client";
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  Video, Eye, ShieldCheck, Database, Layers, 
-  Network, HardDrive, Cpu, Zap, Info, 
-  ChevronLeft, AlertCircle, Maximize, Share2,
-  Table as TableIcon, Activity
-} from 'lucide-react';
-
-const techComparison = [
-  { tech: "IP", res: "5.0MP - 20MP+", quality: "הטובה ביותר, חדות מקסימלית", distance: "100m (CAT5)", compatibility: "תקן פתוח / ONVIF" },
-  { tech: "HD-CVI", res: "1080p", quality: "נאמנה למציאות, טובה ביום", distance: "487m (RG59)", compatibility: "קניינית (Dahua)" },
-  { tech: "AHD", res: "1080p", quality: "טובה, פחות חדה", distance: "487m (RG59)", compatibility: "תקן פתוח" },
-  { tech: "HD-TVI", res: "1080p", quality: "חדה מאוד, צבעים נאמנים", distance: "487m (RG59)", compatibility: "מעל 100 יצרנים" },
-];
-
-export default function IPCamerasGuidePage() {
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePos({ 
-        x: (e.clientX / window.innerWidth) - 0.5, 
-        y: (e.clientY / window.innerHeight) - 0.5 
-      });
-    };
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
-
-  const fadeIn = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
-  };
-
+import { CheckCircle, Phone, Award, Clock, Users, MapPin, Camera, Shield, DollarSign, Plug } from 'lucide-react';
+export default function Page() {
+  const features = [{icon:Shield,t:"אמינות גבוהה",d:"טכנולוגיה מוכחת עם שנים של פעולה רציפה ללא תקלות."},{icon:DollarSign,t:"חיסכון בעלויות",d:"עלות ציוד נמוכה — פתרון משתלם לכיסוי שטחים גדולים."},{icon:Plug,t:"תאימות לציוד קיים",d:"עובד עם מכשירי DVR קיימים — אין צורך להחליף את כל התשתית."}];
   return (
-    <div className="min-h-screen bg-sky-50 text-slate-900 font-sans overflow-x-hidden selection:bg-blue-500/30" dir="rtl">
-      
-      {/* --- GRID BACKGROUND --- */}
-      <div className="fixed inset-0 z-0 pointer-events-none">
-        <div className="absolute inset-0 opacity-[0.05] bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:40px_40px]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-blue-500/5 via-transparent to-transparent" />
-      </div>
-
-      {/* --- HERO SECTION --- */}
-      <header className="relative pt-48 pb-32 px-6 flex flex-col items-center text-center z-10">
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          className="mb-8 flex items-center gap-3 px-5 py-2 rounded-full border border-blue-500/30 bg-blue-500/5 backdrop-blur-xl"
-        >
-          <Activity size={16} className="text-blue-400 animate-pulse" />
-          <span className="text-[11px] font-black uppercase tracking-[0.3em] text-blue-400">Next_Gen_Surveillance // IP_VS_ANALOG</span>
-        </motion.div>
-
-        <motion.h1 
-          className="text-6xl md:text-[110px] font-[1000] italic leading-[0.85] tracking-tighter uppercase mb-10"
-          style={{ x: mousePos.x * -20, y: mousePos.y * -15 }}
-        >
-          עולם ה-<span className="text-blue-500">IP</span> <br />
-          <span className="text-transparent" style={{ WebkitTextStroke: '1px rgba(255,255,255,0.3)' }}>מול ה-HD.</span>
-        </motion.h1>
-
-        <p className="max-w-3xl text-slate-600 text-xl md:text-2xl italic font-light leading-relaxed border-l-4 border-blue-500/50 pl-8">
-          המדריך המלא לבחירת מערכות צילום: מרזולוציות מגה-פיקסל ועד תשתיות כבילה חכמות. 
-          כל מה שצריך לדעת על המעבר לדיגיטל.
-        </p>
-      </header>
-
-      {/* --- CORE CONTENT --- */}
-      <main className="relative z-10 max-w-7xl mx-auto px-6 space-y-40 pb-60">
-        
-        {/* Section 1: IP Advantages (The High-Tech Choice) */}
-        <motion.section 
-          initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn}
-          className="space-y-16"
-        >
-          <div className="flex items-end gap-6 border-b border-sky-100 pb-10">
-            <div className="bg-blue-500 p-4 rounded-2xl"><Video size={40} className="text-black" /></div>
-            <div>
-              <h2 className="text-5xl font-[1000] italic uppercase">העליונות של IP</h2>
-              <p className="text-blue-400 font-mono text-sm tracking-widest">DIGITAL_REVOLUTION_01</p>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="p-10 rounded-[3rem] bg-white/[0.02] border border-sky-100 hover:border-blue-500/40 transition-all group">
-              <Maximize className="mb-6 text-blue-500 group-hover:scale-110 transition-transform" size={32} />
-              <h3 className="text-2xl font-black italic mb-4">רזולוציה ללא פשרות</h3>
-              <p className="text-slate-600 leading-relaxed font-light italic">
-                יכולת זיהוי פרטים לשימוש משפטי, הגדלה דיגיטלית ללא איבוד צלילות ודיוק רב לניתוח אוטומטי.
-              </p>
-            </div>
-
-            <div className="p-10 rounded-[3rem] bg-white/[0.02] border border-sky-100 hover:border-blue-500/40 transition-all group">
-              <Layers className="mb-6 text-blue-500 group-hover:scale-110 transition-transform" size={32} />
-              <h3 className="text-2xl font-black italic mb-4">PoE - כבל אחד להכל</h3>
-              <p className="text-slate-600 leading-relaxed font-light italic">
-                חשמל, וידאו ונתונים על גבי כבל Ethernet בודד. פשטות התקנה שחוסכת זמן ותשתית כפולה.
-              </p>
-            </div>
-
-            <div className="p-10 rounded-[3rem] bg-white/[0.02] border border-sky-100 hover:border-blue-500/40 transition-all group">
-              <Network className="mb-6 text-blue-500 group-hover:scale-110 transition-transform" size={32} />
-              <h3 className="text-2xl font-black italic mb-4">עצמאות רשתית</h3>
-              <p className="text-slate-600 leading-relaxed font-light italic">
-                כל מצלמה היא שרת וידאו עצמאי עם כתובת IP ייחודית, המאפשרת גישה ישירה מכל מקום בעולם.
-              </p>
-            </div>
-          </div>
-        </motion.section>
-
-        {/* Section 2: Technical Constraints (Dark Glass Style) */}
-        <section className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-          <div className="p-12 rounded-[4rem] bg-gradient-to-br from-red-500/10 to-transparent border border-red-500/20">
-            <div className="flex items-center gap-4 mb-8">
-              <AlertCircle className="text-red-500" size={32} />
-              <h2 className="text-4xl font-[1000] italic uppercase">מגבלות ה-IP</h2>
-            </div>
-            <ul className="space-y-6">
-              {[
-                "דרישה לתשתית רשת מורכבת ויקרה",
-                "מרחק שידור מוגבל (עד 100 מטר ללא הגברה)",
-                "השהיית וידאו (Latency) נפוצה בשידורים חיים",
-                "צריכת רוחב פס משמעותית ברשת הארגונית"
-              ].map((text, i) => (
-                <li key={i} className="flex items-center gap-4 text-lg font-bold italic text-slate-700">
-                  <span className="w-1.5 h-1.5 rounded-full bg-red-500" />
-                  {text}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="space-y-8">
-            <h2 className="text-5xl font-[1000] italic leading-tight">
-              האלטרנטיבה: <br /> <span className="text-blue-500">ANALOG HD</span>
-            </h2>
-            <p className="text-slate-600 text-xl font-light leading-relaxed italic">
-              מערכות אלו מספקות איכות של 1080p על גבי תשתית קואקסיאלית קיימת. זהו הפתרון האידיאלי לשדרוג מבלי להחליף את כל הכבילה בבניין.
-            </p>
-            <div className="flex flex-wrap gap-4">
-               <div className="px-6 py-3 border border-sky-200 rounded-full font-mono text-xs">NO_LICENSE_FEES</div>
-               <div className="px-6 py-3 border border-sky-200 rounded-full font-mono text-xs">ZERO_LATENCY</div>
-               <div className="px-6 py-3 border border-sky-200 rounded-full font-mono text-xs">500M_RANGE</div>
-            </div>
-          </div>
-        </section>
-
-        {/* Section 3: Professional Comparison Table */}
-        <motion.section 
-          initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn}
-          className="space-y-12"
-        >
-          <div className="text-center space-y-4">
-            <TableIcon className="mx-auto text-blue-500" size={40} />
-            <h2 className="text-5xl font-[1000] italic uppercase">השוואת טכנולוגיות</h2>
-          </div>
-
-          <div className="overflow-x-auto rounded-[2rem] border border-sky-200 bg-white/[0.02] backdrop-blur-md">
-            <table className="w-full text-right border-collapse">
-              <thead>
-                <tr className="border-b border-sky-200 bg-sky-50">
-                  <th className="p-6 font-black italic uppercase text-blue-400">טכנולוגיה</th>
-                  <th className="p-6 font-black italic uppercase text-blue-400">רזולוציה מקסימלית</th>
-                  <th className="p-6 font-black italic uppercase text-blue-400">איכות שידור</th>
-                  <th className="p-6 font-black italic uppercase text-blue-400">מרחק (RG59)</th>
-                  <th className="p-6 font-black italic uppercase text-blue-400">תאימות</th>
-                </tr>
-              </thead>
-              <tbody className="font-bold italic">
-                {techComparison.map((row, i) => (
-                  <tr key={i} className="border-b border-sky-100 hover:bg-white/[0.03] transition-colors">
-                    <td className="p-6 text-slate-900 text-xl">{row.tech}</td>
-                    <td className="p-6 text-slate-600">{row.res}</td>
-                    <td className="p-6 text-slate-600">{row.quality}</td>
-                    <td className="p-6 text-slate-600">{row.distance}</td>
-                    <td className="p-6 text-slate-600">{row.compatibility}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </motion.section>
-
-        {/* Section 4: Storage & Bandwidth (Tech UI) */}
-        <section className="relative p-12 md:p-24 rounded-[4rem] border border-blue-500/20 bg-blue-500/[0.02] overflow-hidden">
-          <div className="absolute top-0 right-0 p-12 opacity-10">
-            <Database size={200} className="text-blue-500" />
-          </div>
-          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16">
-            <div className="space-y-6">
-              <h3 className="text-4xl font-[1000] italic">אחסון ורוחב פס</h3>
-              <p className="text-slate-600 text-lg leading-relaxed italic">
-                רזולוציות גבוהות (5MP-20MP) דורשות נפח אחסון אדיר. בחירה נכונה של קצב פריימים (FPS) ושיטת דחיסה היא קריטית לאופטימיזציה של המערכת. בקיסר, אנו מתכננים את השרתים כך שיעמדו בעומס המידע מבלי לקרוס.
-              </p>
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="p-8 rounded-3xl bg-sky-100 border border-sky-100 flex flex-col items-center justify-center text-center">
-                <Cpu className="text-blue-500 mb-4" />
-                <div className="text-2xl font-black">H.265+</div>
-                <div className="text-[10px] text-slate-500 uppercase tracking-tighter">Compression_Standard</div>
-              </div>
-              <div className="p-8 rounded-3xl bg-sky-100 border border-sky-100 flex flex-col items-center justify-center text-center">
-                <HardDrive className="text-blue-500 mb-4" />
-                <div className="text-2xl font-black">20TB+</div>
-                <div className="text-[10px] text-slate-500 uppercase tracking-tighter">Scalable_Storage</div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <motion.section 
-          initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn}
-          className="text-center space-y-12"
-        >
-          <h2 className="text-5xl md:text-8xl font-[1000] italic leading-none">
-            צריכים ייעוץ <br /> <span className="text-blue-500">טכנולוגי מקצועי?</span>
-          </h2>
-          <div className="flex flex-wrap justify-center gap-6">
-            <button className="bg-blue-500 text-black px-16 py-6 rounded-2xl font-[1000] text-2xl italic hover:bg-sky-700 transition-all shadow-2xl shadow-blue-500/20 flex items-center gap-4">
-              <Zap size={24} />
-              תכננו לי מערכת IP
-            </button>
-            <button className="border border-sky-200 text-slate-900 px-16 py-6 rounded-2xl font-[1000] text-2xl italic hover:bg-sky-50 transition-all">
-              דברו עם מומחה
-            </button>
-          </div>
-        </motion.section>
-
-      </main>
-
-      {/* --- FOOTER --- */}
-      <footer className="bg-sky-50 border-t border-sky-100 py-20 px-6">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
-          <div className="flex items-center gap-4 text-right">
-            <div className="w-12 h-12 border border-blue-500/20 rounded-xl flex items-center justify-center text-blue-500">
-              <Eye size={24} />
-            </div>
-            <div className="flex flex-col">
-              <span className="text-xl font-black italic uppercase leading-none">Keisar Systems</span>
-              <span className="text-[8px] text-blue-500 font-bold tracking-[0.4em]">ADVANCED_SECURITY_ARCH</span>
-            </div>
-          </div>
-          <div className="flex gap-10 text-slate-500 text-sm font-bold italic">
-            <span>OFFICE@KEISAR.CO.IL</span>
-            <span className="text-slate-900/20">//</span>
-            <span>2026 TECHNOLOGY REPORT</span>
+    <div className="bg-slate-50 min-h-screen" dir="rtl">
+      <section className="bg-white border-b border-slate-200 py-16 md:py-24 px-4">
+        <div className="max-w-5xl mx-auto">
+          <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-900 bg-blue-50 border border-blue-200 rounded-full px-3 py-1.5 mb-6"><Camera size={12}/> מצלמה אנלוגית</span>
+          <h1 className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight mb-5">מצלמות אנלוגיות HD<br/><span className="text-blue-900">אמינות ועלות-תועלת מוכחת</span></h1>
+          <p className="text-lg text-slate-500 max-w-2xl leading-relaxed mb-8">מצלמות אנלוגיות HD אמינות ומשתלמות — פתרון מצוין לעסקים ובתים עם תשתית קיימת.</p>
+          <div className="flex flex-wrap gap-3">
+            <a href="tel:0525022222" className="flex items-center gap-2 bg-amber-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-amber-700 transition-colors"><Phone size={16}/> 052-502-2222</a>
+            <a href="/" className="border border-slate-300 text-slate-700 px-6 py-3 rounded-lg font-semibold hover:bg-slate-100 transition-colors">קבל הצעת מחיר</a>
           </div>
         </div>
-      </footer>
+      </section>
+      <section className="py-16 px-4"><div className="max-w-5xl mx-auto">
+        <div className="text-center mb-10"><p className="text-xs font-semibold text-blue-900 uppercase tracking-widest mb-2">יתרונות</p><h2 className="text-2xl font-bold text-slate-900">מה אנחנו מציעים</h2></div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">{features.map((f,i)=>(<motion.div key={i} whileHover={{y:-3}} transition={{duration:0.2}} className="bg-white border border-slate-200 rounded-xl p-6 shadow-sm"><div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center mb-4"><f.icon size={20} className="text-blue-900"/></div><h3 className="font-semibold text-slate-900 mb-2">{f.t}</h3><p className="text-sm text-slate-500 leading-relaxed">{f.d}</p></motion.div>))}</div>
+      </div></section>
+      <section className="py-16 px-4 bg-white border-y border-slate-200"><div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div><p className="text-xs font-semibold text-blue-900 uppercase tracking-widest mb-3">למה לבחור בנו?</p><h2 className="text-2xl font-bold text-slate-900 mb-6">ערך מוכח לאורך זמן</h2>
+          <ul className="space-y-3"><li key="עלות " className="flex items-start gap-3 text-sm text-slate-600"><CheckCircle size={16} className="text-blue-900 mt-0.5 shrink-0"/>עלות נמוכה לכיסוי גדול</li><li key="תאימו" className="flex items-start gap-3 text-sm text-slate-600"><CheckCircle size={16} className="text-blue-900 mt-0.5 shrink-0"/>תאימות לציוד קיים</li><li key="אמינו" className="flex items-start gap-3 text-sm text-slate-600"><CheckCircle size={16} className="text-blue-900 mt-0.5 shrink-0"/>אמינות מוכחת לאורך שנים</li><li key="קל לת" className="flex items-start gap-3 text-sm text-slate-600"><CheckCircle size={16} className="text-blue-900 mt-0.5 shrink-0"/>קל לתחזוקה ולתיקון</li><li key="לא תל" className="flex items-start gap-3 text-sm text-slate-600"><CheckCircle size={16} className="text-blue-900 mt-0.5 shrink-0"/>לא תלוי ברשת אינטרנט</li><li key="התקנה" className="flex items-start gap-3 text-sm text-slate-600"><CheckCircle size={16} className="text-blue-900 mt-0.5 shrink-0"/>התקנה מהירה ופשוטה</li></ul>
+        </div>
+        <div className="bg-slate-50 border border-slate-200 rounded-xl p-8"><Camera size={48} className="text-blue-900 mb-5"/>
+          <h3 className="text-xl font-bold text-slate-900 mb-3">בחירה חכמה ומשתלמת</h3>
+          <p className="text-slate-500 text-sm leading-relaxed mb-5">מצלמות אנלוגיות הן הבחירה הנכונה כשצריכים כיסוי רחב במחיר הגיוני ואמינות מוכחת.</p>
+          <div className="grid grid-cols-2 gap-3">{[['15+','שנות ניסיון'],['2,000+','התקנות'],['24/7','תמיכה'],['100%','שביעות רצון']].map(([v,l])=>(<div key={l} className="text-center p-3 bg-white rounded-lg border border-slate-200"><p className="text-xl font-bold text-blue-900">{v}</p><p className="text-xs text-slate-500">{l}</p></div>))}</div>
+        </div>
+      </div></section>
+      <section className="py-16 px-4 bg-blue-900 text-white">
+        <div className="max-w-5xl mx-auto text-center mb-10">
+          <h2 className="text-2xl font-bold mb-2">למה לבחור בקיסר מערכות?</h2>
+          <p className="text-blue-200 text-sm">15 שנות ניסיון, אלפי התקנות, שירות אישי ומקצועי</p>
+        </div>
+        <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
+          {[{icon:Award,t:'מוסמכים',d:'טכנאים מורשים'},{icon:Clock,t:'זמינות 24/7',d:'תמיכה בכל שעה'},{icon:Users,t:'שירות אישי',d:'ליווי מלא'},{icon:MapPin,t:'כיסוי ארצי',d:'בכל מקום בארץ'}].map((item,i)=>(
+            <div key={i} className="text-center">
+              <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center mx-auto mb-3"><item.icon size={18} className="text-blue-200"/></div>
+              <p className="font-semibold text-white text-sm mb-1">{item.t}</p>
+              <p className="text-blue-300 text-xs">{item.d}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+      <section className="py-12 px-4 bg-amber-600">
+        <div className="max-w-3xl mx-auto text-center text-white">
+          <h2 className="text-2xl font-bold mb-3">דברו איתנו היום</h2>
+          <p className="text-amber-100 mb-6 text-sm">ייעוץ חינם ותאום סקר מקום ללא התחייבות</p>
+          <a href="tel:0525022222" className="inline-flex items-center gap-2 bg-white text-amber-700 px-8 py-3 rounded-lg font-bold hover:bg-amber-50 transition-colors"><Phone size={18}/> 052-502-2222</a>
+        </div>
+      </section>
     </div>
   );
 }

@@ -1,214 +1,58 @@
 "use client";
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  Activity, 
-  Zap, 
-  Wind, 
-  Droplets, 
-  BarChart3, 
-  Cpu, 
-  Cable, 
-  Server, 
-  ArrowLeftRight, 
-  ShieldCheck, 
-  ChevronLeft,
-  Settings2,
-  HardDriveDownload
-} from 'lucide-react';
-
-export default function SecurityCablesPage() {
-  const fadeIn = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
-  };
-
+import { CheckCircle, Phone, Award, Clock, Users, MapPin, Cable, Shield, Wrench, Network } from 'lucide-react';
+export default function Page() {
+  const features = [{icon:Cable,t:"CAT7 ו-RG59",d:"כבלים מוגנים לאיכות שידור מרבית ועמידות לאורך שנים."},{icon:Network,t:"הנחה אסתטית",d:"הסתרת כבלים בצנרת, בתעלות או בקיר לתוצאה נקייה ומסודרת."},{icon:Wrench,t:"עבודה מדויקת",d:"חיבורים מקצועיים, מסומנים ומתועדים לתחזוקה עתידית קלה."}];
   return (
-    <div className="min-h-screen bg-sky-50 text-slate-900 font-sans selection:bg-sky-200/30 overflow-hidden" dir="rtl">
-      
-      {/* --- GRID BACKGROUND --- */}
-      <div className="fixed inset-0 z-0 opacity-20 pointer-events-none">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
-      </div>
-
-      {/* --- HERO SECTION --- */}
-      <header className="relative pt-32 pb-20 px-6 z-10 text-center">
-        <motion.div 
-          initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sky-100 border border-sky-500/20 text-sky-600 text-[10px] font-black uppercase tracking-[0.3em] mb-8"
-        >
-          <Activity size={14} className="animate-pulse" />
-          <span>The Backbone of Surveillance</span>
-        </motion.div>
-
-        <motion.h1 
-          className="text-6xl md:text-[120px] font-[1000] italic leading-[0.8] tracking-tighter uppercase mb-8"
-          initial={{ y: 30, opacity: 0 }} animate={{ y: 0, opacity: 1 }}
-        >
-          עמוד השדרה <br />
-          <span className="text-transparent" style={{ WebkitTextStroke: '1px #06b6d4' }}>של האבטחה.</span>
-        </motion.h1>
-
-        <p className="max-w-3xl mx-auto text-slate-600 text-xl md:text-2xl font-light italic leading-relaxed">
-          הכבל הוא קו החיים של המערכת. פתרונות התשתית של קיסר מבטיחים חיבור יציב, מאובטח ונטול הפרעות בין המצלמה למרכז הבקרה.
-        </p>
-      </header>
-
-      <main className="relative z-10 max-w-7xl mx-auto px-6 space-y-40 pb-40">
-        
-        {/* --- SECTION: THE BACKBONE --- */}
-        <section className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-          <div className="space-y-8">
-            <div className="flex items-center gap-3 text-sky-600 font-bold italic uppercase text-sm">
-              <Cable size={20} />
-              <span>עמידות ללא פשרות</span>
-            </div>
-            <h2 className="text-4xl md:text-6xl font-black italic uppercase leading-tight">
-              יציבות <br /><span className="text-sky-600">בתנאי קיצון.</span>
-            </h2>
-            <p className="text-slate-600 text-lg md:text-xl italic leading-relaxed">
-              הכבלים שלנו מתוכננים לשרוד הכל: גשם זלעפות, קרינת UV ישירה ותנודות טמפרטורה קיצוניות. כי במערכת אבטחה, אובדן אות הוא לא אופציה.
-            </p>
-            
-            <div className="flex flex-wrap gap-4">
-              {[
-                { icon: <Droplets size={16} />, t: "חסינות למים" },
-                { icon: <Wind size={16} />, t: "עמידות ברוחות" },
-                { icon: <Zap size={16} />, t: "סינון רעשים" }
-              ].map((badge, idx) => (
-                <div key={idx} className="flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-sky-50 border border-sky-200 text-sm font-bold italic">
-                  {badge.icon} {badge.t}
-                </div>
-              ))}
-            </div>
+    <div className="bg-slate-50 min-h-screen" dir="rtl">
+      <section className="bg-white border-b border-slate-200 py-16 md:py-24 px-4">
+        <div className="max-w-5xl mx-auto">
+          <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-900 bg-blue-50 border border-blue-200 rounded-full px-3 py-1.5 mb-6"><Cable size={12}/> כבלי אבטחה</span>
+          <h1 className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight mb-5">כבלי ותשתיות לאבטחה<br/><span className="text-blue-900">יסוד חזק לכל מערכת</span></h1>
+          <p className="text-lg text-slate-500 max-w-2xl leading-relaxed mb-8">הנחת כבלים מקצועית למצלמות, אזעקות ומערכות אינטרקום — תשתית שתחזיק שנים.</p>
+          <div className="flex flex-wrap gap-3">
+            <a href="tel:0525022222" className="flex items-center gap-2 bg-amber-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-amber-700 transition-colors"><Phone size={16}/> 052-502-2222</a>
+            <a href="/" className="border border-slate-300 text-slate-700 px-6 py-3 rounded-lg font-semibold hover:bg-slate-100 transition-colors">קבל הצעת מחיר</a>
           </div>
-
-          <div className="relative group">
-            <div className="absolute inset-0 bg-sky-100 blur-[120px] rounded-full opacity-20 group-hover:opacity-40 transition-opacity" />
-            <div className="relative border border-sky-200 rounded-[3rem] bg-gradient-to-br from-white/5 to-transparent p-12 overflow-hidden">
-               <motion.div 
-                 animate={{ rotate: 360 }} transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                 className="absolute -top-20 -right-20 opacity-5"
-               >
-                 <Settings2 size={400} />
-               </motion.div>
-               <div className="relative z-10 space-y-6">
-                 <div className="flex gap-4">
-                   <div className="w-12 h-1 bg-cyan-500 rounded-full" />
-                   <div className="w-4 h-1 bg-white/20 rounded-full" />
-                 </div>
-                 <h4 className="text-3xl font-black italic uppercase tracking-tighter">ULTRA_STABLE<br />CONDUCTOR</h4>
-                 <div className="grid grid-cols-2 gap-4 pt-10 font-mono text-[10px] text-sky-600/50 uppercase">
-                    <div>Status: Active</div>
-                    <div>Bandwidth: 10Gbps</div>
-                    <div>Shielding: Dual-Layer</div>
-                    <div>Signal: 100%</div>
-                 </div>
-               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* --- SECTION: THE REVOLUTION (PoE) --- */}
-        <section className="p-12 md:p-24 border border-sky-100 rounded-[4rem] bg-white/[0.01] relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_0%_0%,rgba(6,182,212,0.05),transparent_50%)]" />
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="order-2 lg:order-1">
-              <div className="flex gap-4 items-end h-64">
-                {[40, 70, 45, 90, 60, 80].map((h, i) => (
-                  <motion.div 
-                    key={i} 
-                    initial={{ height: 0 }} whileInView={{ height: `${h}%` }}
-                    className="w-full bg-gradient-to-t from-cyan-500 to-blue-600 rounded-t-xl" 
-                  />
-                ))}
-              </div>
-            </div>
-            <div className="order-1 lg:order-2 space-y-8">
-              <h2 className="text-4xl md:text-6xl font-black italic leading-tight uppercase">הכל על כבל בודד.</h2>
-              <p className="text-slate-600 text-lg italic leading-relaxed">
-                עידן החדשנות מפשט הכל. טכנולוגיית ה-PoE מאפשרת להעביר מתח ונתונים על כבל אחד, מבלי צורך במקורות חשמל נפרדים ליד כל מצלמה. פחות כבלים, פחות עלויות, יותר ביטחון.
-              </p>
-              <div className="flex items-center gap-4 text-sky-600 font-black italic uppercase text-sm">
-                <ShieldCheck /> <span>חיסכון של עד 40% בעלויות התשתית</span>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* --- SECTION: FAQ GRID (Questions & Answers) --- */}
-        <section className="space-y-20">
-          <div className="text-center space-y-4">
-             <h2 className="text-4xl md:text-7xl font-black italic uppercase">מומחיות <span className="text-sky-600">במספרים.</span></h2>
-             <p className="text-slate-500 font-bold italic uppercase tracking-widest">Q&A Technology Overview</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              { 
-                q: "אנלוגי מול IP?", 
-                a: "מצלמות אנלוגיות פועלות על כבל קואקסיאלי פשוט, בעוד מצלמות IP משתמשות ברשת דיגיטלית (Ethernet) לרזולוציות 4K וניהול חכם.",
-                icon: <ArrowLeftRight />
-              },
-              { 
-                q: "איך מרחיבים טווח?", 
-                a: "באמצעות מגברי אותות אקטיביים או מעבר לסיבים אופטיים המאפשרים העברת מידע למרחקים עצומים ללא פגיעה באיכות.",
-                icon: <BarChart3 />
-              },
-              { 
-                q: "מה לבחור?", 
-                a: "הגורמים הקריטיים: סוג המערכת, אורך הכבל הדרוש ועמידות לתנאי סביבה. אנחנו כאן כדי להתאים לכם את התשתית המדויקת.",
-                icon: <Cpu />
-              }
-            ].map((faq, i) => (
-              <div key={i} className="group p-10 border border-sky-100 rounded-[3rem] bg-white/[0.01] hover:bg-white/[0.03] transition-all flex flex-col gap-6">
-                <div className="text-sky-600 group-hover:scale-110 transition-transform">{faq.icon}</div>
-                <h4 className="text-xl font-black italic uppercase text-slate-900">{faq.q}</h4>
-                <p className="text-slate-500 text-sm italic leading-relaxed">{faq.a}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* --- SECTION: CALL TO ACTION --- */}
-        <section className="relative py-20 px-10 border border-sky-100 rounded-[4rem] bg-gradient-to-br from-white/[0.02] to-transparent text-center overflow-hidden">
-          <div className="absolute bottom-0 right-0 p-20 opacity-5 rotate-12">
-            <Server size={300} />
-          </div>
-          <div className="relative z-10 space-y-10">
-            <h2 className="text-5xl md:text-8xl font-[1000] italic leading-tight uppercase">
-              תשתית חזקה. <br /> <span className="text-sky-600 italic">ביטחון שקט.</span>
-            </h2>
-            <div className="flex flex-col md:flex-row items-center justify-center gap-6">
-               <button className="group relative px-12 py-6 bg-white text-black font-[1000] italic text-2xl rounded-2xl transition-all hover:scale-105">
-                  <span className="flex items-center gap-4">
-                    דברו עם מומחה תשתית
-                    <ChevronLeft className="group-hover:-translate-x-2 transition-transform" />
-                  </span>
-               </button>
-               <button className="flex items-center gap-3 px-8 py-4 border border-sky-200 rounded-2xl font-bold italic hover:bg-sky-50 transition-colors">
-                 <HardDriveDownload size={20} className="text-sky-600" />
-                 מפרט טכני לכבלים (PDF)
-               </button>
-            </div>
-          </div>
-        </section>
-
-      </main>
-
-      {/* --- FOOTER --- */}
-      <footer className="py-20 border-t border-sky-100 text-center">
-        <div className="flex flex-col items-center gap-4">
-          <div className="flex items-center gap-4">
-            <Server className="text-sky-600" />
-            <span className="text-2xl font-black italic uppercase tracking-tighter">Keisar INFRASTRUCTURE</span>
-          </div>
-          <p className="text-slate-600 font-bold italic text-[10px] uppercase tracking-widest max-w-xs leading-relaxed">
-            Leading the field of high-end surveillance cabling and digital signal stability.
-          </p>
         </div>
-      </footer>
-
+      </section>
+      <section className="py-16 px-4"><div className="max-w-5xl mx-auto">
+        <div className="text-center mb-10"><p className="text-xs font-semibold text-blue-900 uppercase tracking-widest mb-2">יתרונות</p><h2 className="text-2xl font-bold text-slate-900">מה אנחנו מציעים</h2></div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">{features.map((f,i)=>(<motion.div key={i} whileHover={{y:-3}} transition={{duration:0.2}} className="bg-white border border-slate-200 rounded-xl p-6 shadow-sm"><div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center mb-4"><f.icon size={20} className="text-blue-900"/></div><h3 className="font-semibold text-slate-900 mb-2">{f.t}</h3><p className="text-sm text-slate-500 leading-relaxed">{f.d}</p></motion.div>))}</div>
+      </div></section>
+      <section className="py-16 px-4 bg-white border-y border-slate-200"><div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div><p className="text-xs font-semibold text-blue-900 uppercase tracking-widest mb-3">למה לבחור בנו?</p><h2 className="text-2xl font-bold text-slate-900 mb-6">תשתית נכונה = מערכת טובה</h2>
+          <ul className="space-y-3"><li key="כבלים" className="flex items-start gap-3 text-sm text-slate-600"><CheckCircle size={16} className="text-blue-900 mt-0.5 shrink-0"/>כבלים מוגנים לחוץ ולפנים</li><li key="הנחה " className="flex items-start gap-3 text-sm text-slate-600"><CheckCircle size={16} className="text-blue-900 mt-0.5 shrink-0"/>הנחה אסתטית ומסודרת</li><li key="עמידו" className="flex items-start gap-3 text-sm text-slate-600"><CheckCircle size={16} className="text-blue-900 mt-0.5 shrink-0"/>עמידות לתנאי מזג אוויר</li><li key="תיעוד" className="flex items-start gap-3 text-sm text-slate-600"><CheckCircle size={16} className="text-blue-900 mt-0.5 shrink-0"/>תיעוד מלא של כל הכבלים</li><li key="קל לש" className="flex items-start gap-3 text-sm text-slate-600"><CheckCircle size={16} className="text-blue-900 mt-0.5 shrink-0"/>קל לשדרוג בעתיד</li><li key="חיבור" className="flex items-start gap-3 text-sm text-slate-600"><CheckCircle size={16} className="text-blue-900 mt-0.5 shrink-0"/>חיבורים מקצועיים ומוגנים</li></ul>
+        </div>
+        <div className="bg-slate-50 border border-slate-200 rounded-xl p-8"><Cable size={48} className="text-blue-900 mb-5"/>
+          <h3 className="text-xl font-bold text-slate-900 mb-3">הבסיס לכל מערכת אבטחה</h3>
+          <p className="text-slate-500 text-sm leading-relaxed mb-5">תשתית כבלים נכונה היא ההבדל בין מערכת אבטחה שעובדת שנים לבין כזו שמתקלקלת תוך חודשים.</p>
+          <div className="grid grid-cols-2 gap-3">{[['15+','שנות ניסיון'],['2,000+','התקנות'],['24/7','תמיכה'],['100%','שביעות רצון']].map(([v,l])=>(<div key={l} className="text-center p-3 bg-white rounded-lg border border-slate-200"><p className="text-xl font-bold text-blue-900">{v}</p><p className="text-xs text-slate-500">{l}</p></div>))}</div>
+        </div>
+      </div></section>
+      <section className="py-16 px-4 bg-blue-900 text-white">
+        <div className="max-w-5xl mx-auto text-center mb-10">
+          <h2 className="text-2xl font-bold mb-2">למה לבחור בקיסר מערכות?</h2>
+          <p className="text-blue-200 text-sm">15 שנות ניסיון, אלפי התקנות, שירות אישי ומקצועי</p>
+        </div>
+        <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
+          {[{icon:Award,t:'מוסמכים',d:'טכנאים מורשים'},{icon:Clock,t:'זמינות 24/7',d:'תמיכה בכל שעה'},{icon:Users,t:'שירות אישי',d:'ליווי מלא'},{icon:MapPin,t:'כיסוי ארצי',d:'בכל מקום בארץ'}].map((item,i)=>(
+            <div key={i} className="text-center">
+              <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center mx-auto mb-3"><item.icon size={18} className="text-blue-200"/></div>
+              <p className="font-semibold text-white text-sm mb-1">{item.t}</p>
+              <p className="text-blue-300 text-xs">{item.d}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+      <section className="py-12 px-4 bg-amber-600">
+        <div className="max-w-3xl mx-auto text-center text-white">
+          <h2 className="text-2xl font-bold mb-3">דברו איתנו היום</h2>
+          <p className="text-amber-100 mb-6 text-sm">ייעוץ חינם ותאום סקר מקום ללא התחייבות</p>
+          <a href="tel:0525022222" className="inline-flex items-center gap-2 bg-white text-amber-700 px-8 py-3 rounded-lg font-bold hover:bg-amber-50 transition-colors"><Phone size={18}/> 052-502-2222</a>
+        </div>
+      </section>
     </div>
   );
 }

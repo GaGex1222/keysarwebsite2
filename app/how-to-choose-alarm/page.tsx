@@ -1,219 +1,58 @@
 "use client";
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  BellRing, 
-  ShieldAlert, 
-  Wifi, 
-  Cable, 
-  Zap, 
-  Users, 
-  Dog, 
-  Wind, 
-  Home, 
-  Lock, 
-  CheckCircle2, 
-  ArrowLeftRight,
-  Radio,
-  Microchip,
-  Layers
-} from 'lucide-react';
-
-export default function SecurityAlarmPage() {
-  const systemTypes = [
-    {
-      title: "מערכת קווית",
-      icon: <Cable className="text-blue-500" />,
-      recom: "מומלץ לבתים בבנייה",
-      pros: ["יציבות מקסימלית", "ללא צורך בסוללות", "חסינה להפרעות קליטה"],
-      cons: ["דורשת תשתית חיווט", "התקנה מורכבת בבית קיים"],
-      color: "blue"
-    },
-    {
-      title: "מערכת אלחוטית",
-      icon: <Wifi className="text-sky-600" />,
-      recom: "מומלץ לבתים קיימים",
-      pros: ["התקנה נקייה ומהירה", "גמישות במיקום גלאים", "טכנולוגיה מתקדמת"],
-      cons: ["דורשת החלפת סוללות", "רגישות להפרעות קליטה"],
-      color: "cyan"
-    }
-  ];
-
-  const detectorTypes = [
-    { name: "גלאי נפח", desc: "מזהה תנועה לפי שינויי טמפרטורה. הבחירה הנפוצה ביותר.", icon: <Wind /> },
-    { name: "גלאי וילון", desc: "יוצר 'מסך' הגנה על חלונות. מתריע ברגע ניסיון החדירה.", icon: <Layers /> },
-    { name: "גלאי חיות (Pet)", desc: "מתעלם מבעלי חיים ומונע אזעקות שווא מיותרות.", icon: <Dog /> }
-  ];
-
+import { CheckCircle, Phone, Award, Clock, Users, MapPin, HelpCircle, CheckSquare, Scale, Star } from 'lucide-react';
+export default function Page() {
+  const features = [{icon:Scale,t:"גודל הנכס",d:"בית קטן דורש פחות חיישנים; וילה גדולה דורשת מערכת מקיפה יותר."},{icon:CheckSquare,t:"סוג הגנה",d:"חיישני דלתות ועם חיישני תנועה פנימיים — קבעו מה חשוב לכם."},{icon:Star,t:"מוקד או עצמאי",d:"מוקד שמירה מגיב לפריצה; מערכת עצמאית מתאימה לתקציב מוגבל."}];
   return (
-    <div className="min-h-screen bg-sky-50 text-slate-900 font-sans selection:bg-red-500 overflow-hidden" dir="rtl">
-      
-      {/* Dynamic Security Radar Background */}
-      <div className="fixed inset-0 pointer-events-none opacity-20">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-blue-500/20 rounded-full animate-[ping_10s_linear_infinite]" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-blue-500/10 rounded-full animate-[ping_7s_linear_infinite]" />
-      </div>
-
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-20">
-        
-        {/* Hero Section */}
-        <header className="mb-32">
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="inline-flex items-center gap-2 px-4 py-1 bg-red-500/10 border border-red-500/20 rounded-full text-red-500 text-xs font-black tracking-widest italic mb-8"
-          >
-            <BellRing size={14} className="animate-bounce" /> Keisar_PROTECTION_ARMED
-          </motion.div>
-
-          <h1 className="text-7xl md:text-9xl font-[1000] italic leading-[0.85] uppercase tracking-tighter mb-12">
-            איך לבחור <br/>
-            <span className="text-blue-500">מערכת אזעקה</span>
-          </h1>
-
-          <p className="text-xl text-slate-600 italic max-w-2xl leading-relaxed border-r-4 border-blue-600 pr-6">
-            בישראל, ביטחון הוא לא מותרות – הוא טבע שני. המדריך של קיסר יעזור לכם לבחור את מערכת ההגנה המושלמת לבית שלכם, בלי כאבי ראש מיותרים.
-          </p>
-        </header>
-
-        {/* System Type Comparison */}
-        <section className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-32">
-          {systemTypes.map((type, i) => (
-            <div key={i} className={`p-12 bg-sky-50 border border-sky-200 rounded-[4rem] relative overflow-hidden group hover:border-${type.color}-500/50 transition-all`}>
-              <div className="flex justify-between items-start mb-10">
-                <div className={`p-5 bg-${type.color}-500/10 rounded-3xl text-${type.color}-500`}>
-                  {type.icon}
-                </div>
-                <span className="text-[10px] font-black uppercase tracking-widest text-slate-500 italic">{type.recom}</span>
-              </div>
-              <h3 className="text-4xl font-[1000] italic mb-8 uppercase">{type.title}</h3>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div>
-                  <h4 className="text-xs font-black text-green-500 uppercase mb-4 tracking-widest italic">יתרונות מרכזיים</h4>
-                  <ul className="space-y-3">
-                    {type.pros.map((p, idx) => (
-                      <li key={idx} className="flex items-center gap-2 text-sm italic text-slate-700">
-                        <CheckCircle2 size={14} className="text-green-500" /> {p}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div>
-                  <h4 className="text-xs font-black text-red-500 uppercase mb-4 tracking-widest italic">חסרונות</h4>
-                  <ul className="space-y-3">
-                    {type.cons.map((c, idx) => (
-                      <li key={idx} className="flex items-center gap-2 text-sm italic text-slate-500">
-                        <div className="w-1 h-1 bg-red-500 rounded-full" /> {c}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
+    <div className="bg-slate-50 min-h-screen" dir="rtl">
+      <section className="bg-white border-b border-slate-200 py-16 md:py-24 px-4">
+        <div className="max-w-5xl mx-auto">
+          <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-900 bg-blue-50 border border-blue-200 rounded-full px-3 py-1.5 mb-6"><HelpCircle size={12}/> מדריך מקצועי</span>
+          <h1 className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight mb-5">איך לבחור מערכת אזעקה?<br/><span className="text-blue-900">המדריך המקיף שלנו</span></h1>
+          <p className="text-lg text-slate-500 max-w-2xl leading-relaxed mb-8">לא כל מערכת אזעקה מתאימה לכולם. המדריך הזה יעזור לכם לבחור את הפתרון הנכון לבית שלכם.</p>
+          <div className="flex flex-wrap gap-3">
+            <a href="tel:0525022222" className="flex items-center gap-2 bg-amber-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-amber-700 transition-colors"><Phone size={16}/> 052-502-2222</a>
+            <a href="/" className="border border-slate-300 text-slate-700 px-6 py-3 rounded-lg font-semibold hover:bg-slate-100 transition-colors">קבל הצעת מחיר</a>
+          </div>
+        </div>
+      </section>
+      <section className="py-16 px-4"><div className="max-w-5xl mx-auto">
+        <div className="text-center mb-10"><p className="text-xs font-semibold text-blue-900 uppercase tracking-widest mb-2">יתרונות</p><h2 className="text-2xl font-bold text-slate-900">מה אנחנו מציעים</h2></div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">{features.map((f,i)=>(<motion.div key={i} whileHover={{y:-3}} transition={{duration:0.2}} className="bg-white border border-slate-200 rounded-xl p-6 shadow-sm"><div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center mb-4"><f.icon size={20} className="text-blue-900"/></div><h3 className="font-semibold text-slate-900 mb-2">{f.t}</h3><p className="text-sm text-slate-500 leading-relaxed">{f.d}</p></motion.div>))}</div>
+      </div></section>
+      <section className="py-16 px-4 bg-white border-y border-slate-200"><div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div><p className="text-xs font-semibold text-blue-900 uppercase tracking-widest mb-3">למה לבחור בנו?</p><h2 className="text-2xl font-bold text-slate-900 mb-6">שאלות שכדאי לשאול</h2>
+          <ul className="space-y-3"><li key="כמה ח" className="flex items-start gap-3 text-sm text-slate-600"><CheckCircle size={16} className="text-blue-900 mt-0.5 shrink-0"/>כמה חדרים יש לאבטח?</li><li key="האם י" className="flex items-start gap-3 text-sm text-slate-600"><CheckCircle size={16} className="text-blue-900 mt-0.5 shrink-0"/>האם יש ממ"ד שצריך חיבור נפרד?</li><li key="האם ר" className="flex items-start gap-3 text-sm text-slate-600"><CheckCircle size={16} className="text-blue-900 mt-0.5 shrink-0"/>האם רוצים חיבור למוקד?</li><li key="מה גו" className="flex items-start gap-3 text-sm text-slate-600"><CheckCircle size={16} className="text-blue-900 mt-0.5 shrink-0"/>מה גובה התקציב העומד לרשותכם?</li><li key="האם ד" className="flex items-start gap-3 text-sm text-slate-600"><CheckCircle size={16} className="text-blue-900 mt-0.5 shrink-0"/>האם דרושה גישה מהמובייל?</li><li key="מה הג" className="flex items-start gap-3 text-sm text-slate-600"><CheckCircle size={16} className="text-blue-900 mt-0.5 shrink-0"/>מה הגיל של הדיירים — קל לשימוש?</li></ul>
+        </div>
+        <div className="bg-slate-50 border border-slate-200 rounded-xl p-8"><HelpCircle size={48} className="text-blue-900 mb-5"/>
+          <h3 className="text-xl font-bold text-slate-900 mb-3">ייעוץ חינם ללא התחייבות</h3>
+          <p className="text-slate-500 text-sm leading-relaxed mb-5">לא בטוחים מה מתאים לכם? התקשרו אלינו ומומחה אזעקות יעזור לכם לבחור בחינם ולא בצניחה.</p>
+          <div className="grid grid-cols-2 gap-3">{[['15+','שנות ניסיון'],['2,000+','התקנות'],['24/7','תמיכה'],['100%','שביעות רצון']].map(([v,l])=>(<div key={l} className="text-center p-3 bg-white rounded-lg border border-slate-200"><p className="text-xl font-bold text-blue-900">{v}</p><p className="text-xs text-slate-500">{l}</p></div>))}</div>
+        </div>
+      </div></section>
+      <section className="py-16 px-4 bg-blue-900 text-white">
+        <div className="max-w-5xl mx-auto text-center mb-10">
+          <h2 className="text-2xl font-bold mb-2">למה לבחור בקיסר מערכות?</h2>
+          <p className="text-blue-200 text-sm">15 שנות ניסיון, אלפי התקנות, שירות אישי ומקצועי</p>
+        </div>
+        <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
+          {[{icon:Award,t:'מוסמכים',d:'טכנאים מורשים'},{icon:Clock,t:'זמינות 24/7',d:'תמיכה בכל שעה'},{icon:Users,t:'שירות אישי',d:'ליווי מלא'},{icon:MapPin,t:'כיסוי ארצי',d:'בכל מקום בארץ'}].map((item,i)=>(
+            <div key={i} className="text-center">
+              <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center mx-auto mb-3"><item.icon size={18} className="text-blue-200"/></div>
+              <p className="font-semibold text-white text-sm mb-1">{item.t}</p>
+              <p className="text-blue-300 text-xs">{item.d}</p>
             </div>
           ))}
-        </section>
-
-        {/* Perimeter Protection Visual */}
-        <section className="mb-32 bg-blue-600 rounded-[4rem] p-16 text-black relative overflow-hidden">
-          <div className="absolute top-0 left-0 p-12 opacity-10">
-            <ShieldAlert size={200} />
-          </div>
-          <div className="relative z-10 flex flex-col lg:flex-row items-center gap-16">
-            <div className="lg:w-1/2 space-y-8 text-right">
-              <h2 className="text-5xl font-[1000] italic uppercase leading-none italic">הגנה היקפית:<br/> להקדים תרופה למכה</h2>
-              <p className="text-xl font-bold italic leading-tight">
-                גלאים חיצוניים (חצר, מרפסת) מאפשרים לזהות את הפורץ עוד לפני שהוא נוגע בחלון. זוהי ההרתעה האפקטיבית ביותר שקיימת כיום.
-              </p>
-              <div className="flex gap-4">
-                 <div className="bg-black/10 p-4 rounded-2xl backdrop-blur-sm">
-                    <span className="block font-black text-2xl italic">PRE-CRIME</span>
-                    <span className="text-[10px] uppercase font-bold italic">Detection Level</span>
-                 </div>
-                 <div className="bg-black/10 p-4 rounded-2xl backdrop-blur-sm">
-                    <span className="block font-black text-2xl italic">REPEL</span>
-                    <span className="text-[10px] uppercase font-bold italic">Intruder Status</span>
-                 </div>
-              </div>
-            </div>
-            <div className="lg:w-1/2 relative">
-               <div className="bg-sky-100 p-8 rounded-[3rem] border border-black/10 backdrop-blur-md">
-                 <h4 className="font-black italic mb-6 border-b border-black/10 pb-4 italic">טיפ מקצועי מהמומחים של קיסר:</h4>
-                 <p className="text-sm font-bold italic leading-relaxed">
-                   אל תרכזו את כל הגלאים בפינה אחת. פריסה חכמה על פני כל השטח מקשה על ניטרול המערכת ושומרת על אפקטיביות מקסימלית. גלאי חיצוני הוא יקר, אך הוא משנה את חוקי המשחק.
-                 </p>
-               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Detectors Showcase */}
-        <section className="mb-32">
-          <div className="flex justify-between items-end mb-16">
-            <h2 className="text-5xl font-[1000] italic uppercase italic">סוגי גלאים מומלצים</h2>
-            <Radio className="text-blue-500 animate-pulse" size={40} />
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {detectorTypes.map((det, i) => (
-              <div key={i} className="p-10 bg-sky-50 border border-sky-200 rounded-[3rem] hover:bg-white/[0.08] transition-all group">
-                <div className="mb-8 p-4 bg-blue-500/10 rounded-2xl w-fit text-blue-500 group-hover:scale-110 transition-transform">
-                  {det.icon}
-                </div>
-                <h3 className="text-2xl font-[1000] italic mb-4 uppercase italic">{det.name}</h3>
-                <p className="text-slate-500 text-sm italic leading-relaxed">{det.desc}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Pricing Table */}
-        <section className="mb-32">
-          <div className="bg-sky-50 border border-sky-200 rounded-[4rem] p-12 overflow-hidden relative">
-            <div className="absolute top-0 right-0 p-8 text-blue-500/5">
-              <Microchip size={300} />
-            </div>
-            <h2 className="text-4xl font-[1000] italic uppercase mb-12 text-center italic">כמה זה עולה לכם?</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-               <div className="space-y-6">
-                  <div className="flex justify-between items-end border-b border-sky-200 pb-4">
-                    <span className="text-2xl font-black italic italic">מערכת קווית</span>
-                    <span className="text-3xl font-[1000] text-blue-500 italic">₪1,700 - 3,500</span>
-                  </div>
-                  <p className="text-xs text-slate-500 italic">כולל 2 גלאים, לוח מקשים ושני צופרים. לא כולל תשתית (₪250 לנקודה).</p>
-               </div>
-               <div className="space-y-6">
-                  <div className="flex justify-between items-end border-b border-sky-200 pb-4">
-                    <span className="text-2xl font-black italic italic">מערכת אלחוטית</span>
-                    <span className="text-3xl font-[1000] text-sky-600 italic">עד ₪5,000</span>
-                  </div>
-                  <p className="text-xs text-slate-500 italic">כולל 2 גלאים, לוח מקשים, חייגן ושני צופרים. התקנה מהירה ללא חיווט.</p>
-               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Final CTA */}
-        <section className="text-center bg-gradient-to-b from-transparent to-blue-500/10 rounded-[4rem] p-20 border border-sky-100">
-          <div className="max-w-3xl mx-auto space-y-10">
-            <Users className="mx-auto text-blue-500" size={64} />
-            <h2 className="text-5xl md:text-6xl font-[1000] italic leading-none uppercase italic">אל תתפשרו על <br/>המקום הבטוח שלכם</h2>
-            <p className="text-xl text-slate-600 italic leading-relaxed">
-              השקעה במערכת אזעקה היא השקעה בשקט הנפשי. צוות קיסר זמין עבורכם בכל הארץ לייעוץ מקצועי, התקנה מוסמכת ויחס אישי.
-            </p>
-            <button className="bg-white text-black px-16 py-6 rounded-2xl font-[1000] italic text-2xl uppercase hover:bg-blue-500 transition-all flex items-center gap-4 mx-auto group">
-              <Zap size={24} className="group-hover:animate-pulse" />
-              קבלו ייעוץ מקיסר עכשיו
-            </button>
-          </div>
-        </section>
-
-      </div>
-
-      <footer className="py-12 border-t border-sky-100 text-center">
-        <p className="text-[10px] font-black tracking-[1em] uppercase italic text-slate-700 italic">
-          Keisar_SECURITY // ALARM_SYSTEMS_GUIDE // 2026
-        </p>
-      </footer>
+        </div>
+      </section>
+      <section className="py-12 px-4 bg-amber-600">
+        <div className="max-w-3xl mx-auto text-center text-white">
+          <h2 className="text-2xl font-bold mb-3">דברו איתנו היום</h2>
+          <p className="text-amber-100 mb-6 text-sm">ייעוץ חינם ותאום סקר מקום ללא התחייבות</p>
+          <a href="tel:0525022222" className="inline-flex items-center gap-2 bg-white text-amber-700 px-8 py-3 rounded-lg font-bold hover:bg-amber-50 transition-colors"><Phone size={18}/> 052-502-2222</a>
+        </div>
+      </section>
     </div>
   );
 }

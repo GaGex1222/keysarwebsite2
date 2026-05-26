@@ -1,223 +1,58 @@
 "use client";
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  ShieldCheck, Bell, Settings, BatteryCharging, 
-  HelpCircle, Clock, Award, Headphones, 
-  ChevronLeft, Radio, Zap, Layout, 
-  Crosshair, Cpu, Lock, Activity
-} from 'lucide-react';
-
-export default function AlarmTechnicianPage() {
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePos({ 
-        x: (e.clientX / window.innerWidth) - 0.5, 
-        y: (e.clientY / window.innerHeight) - 0.5 
-      });
-    };
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
-
-  const fadeIn = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
-  };
-
+import { CheckCircle, Phone, Award, Clock, Users, MapPin, Wrench, Shield } from 'lucide-react';
+export default function Page() {
+  const features = [{icon:Wrench,t:"תיקון ותחזוקה",d:"תיקון מהיר של כל תקלה — מגיעים תוך 24 שעות לכל הארץ."},{icon:Award,t:"התקנה מקצועית",d:"התקנת מערכות אזעקה חדשות עם בדיקה מלאה ואחריות."},{icon:Shield,t:"שדרוג מערכת",d:"שדרוג מערכת אזעקה קיימת לטכנולוגיה עדכנית ומתקדמת."}];
   return (
-    <div className="min-h-screen bg-sky-50 text-slate-900 font-sans overflow-x-hidden selection:bg-sky-200/30" dir="rtl">
-      
-      {/* --- CYBERNETIC BACKGROUND --- */}
-      <div className="fixed inset-0 z-0 pointer-events-none">
-        <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#ffffff_1px,transparent_1px)] bg-[size:40px_40px]" />
-        <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/5 via-transparent to-cyan-500/5" />
-        {/* Scanning Line Effect */}
-        <div className="absolute top-0 left-0 w-full h-[2px] bg-sky-100 shadow-[0_0_20px_rgba(2,132,199,0.5)] animate-[scan_6s_linear_infinite]" />
-      </div>
-
-      {/* --- HERO SECTION --- */}
-      <header className="relative pt-48 pb-24 px-6 flex flex-col items-center text-center z-10">
-        <motion.div 
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="mb-8 flex items-center gap-3 px-6 py-2 rounded-full border border-blue-500/30 bg-blue-500/5 backdrop-blur-xl"
-        >
-          <Activity size={14} className="text-blue-400 animate-pulse" />
-          <span className="text-[10px] font-black uppercase tracking-[0.4em] text-blue-300">Security_Node_Active // 24/7_Support</span>
-        </motion.div>
-
-        <motion.h1 
-          className="text-6xl md:text-[120px] font-[1000] italic leading-[0.8] tracking-tighter uppercase mb-12"
-          style={{ x: mousePos.x * -25, y: mousePos.y * -15 }}
-        >
-          טכנאי אזעקות <br />
-          <span className="text-transparent" style={{ WebkitTextStroke: '1px #06b6d4' }}>לבית חכם.</span>
-        </motion.h1>
-
-        <p className="max-w-3xl text-slate-600 text-xl md:text-3xl italic font-light leading-relaxed border-r-4 border-sky-500 pr-8">
-          מחפש ביטחון מקסימלי? קיסר מערכות מציעה את הדור הבא של מערכות המיגון. 
-          טכנולוגיית קצה, התקנה כירורגית ושקט נפשי מוחלט.
-        </p>
-      </header>
-
-      {/* --- MAIN INTERFACE --- */}
-      <main className="relative z-10 max-w-7xl mx-auto px-6 space-y-40 pb-60">
-        
-        {/* Section 1: Why Choose Us (Feature Grid) */}
-        <motion.section 
-          initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
-          <div className="col-span-full mb-8">
-            <h2 className="text-4xl font-[1000] italic uppercase flex items-center gap-4">
-              <ChevronLeft className="text-sky-600" /> למה לבחור בקיסר?
-            </h2>
-          </div>
-
-          {[
-            { title: "מומחיות טכנולוגית", desc: "ניסיון עשיר במערכות קווית, אלחוטיות והיברידיות.", icon: <Cpu /> },
-            { title: "ציוד מתקדם", desc: "שימוש ברכיבים מהשורה הראשונה המותאמים אישית.", icon: <Settings /> },
-            { title: "זמינות 24/7", desc: "מוקד אנושי זמין לכל קריאה או תקלה בזמן אמת.", icon: <Headphones /> },
-            { title: "אחריות מקיפה", desc: "כיסוי מלא על כל המוצרים והתקנת המערכות.", icon: <Award /> },
-            { title: "ייעוץ מבוסס AI", desc: "תכנון אסטרטגי של מיקומי חיישנים לכיסוי מקסימלי.", icon: <Crosshair /> },
-            { title: "אבטחה אישית", desc: "התאמה מדויקת לצרכי המשפחה ואופי המבנה.", icon: <ShieldCheck /> }
-          ].map((item, i) => (
-            <div key={i} className="p-8 rounded-[2.5rem] bg-white/[0.02] border border-sky-100 hover:border-blue-500/30 hover:bg-blue-500/[0.02] transition-all group">
-              <div className="text-sky-600 mb-6 group-hover:scale-110 transition-transform">{item.icon}</div>
-              <h3 className="text-2xl font-black italic mb-3">{item.title}</h3>
-              <p className="text-slate-500 leading-relaxed italic">{item.desc}</p>
-            </div>
-          ))}
-        </motion.section>
-
-        {/* Section 2: Installation Process (Visual Map) */}
-        <section className="relative">
-          <div className="absolute -right-20 top-0 w-64 h-64 bg-sky-100 blur-[120px] rounded-full" />
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-            <div className="space-y-10">
-              <h2 className="text-5xl md:text-7xl font-[1000] italic uppercase leading-none">
-                פרוטוקול <br /> <span className="text-sky-600">התקנה</span>
-              </h2>
-              <div className="space-y-8">
-                {[
-                  { step: "01", title: "אבחון ומיפוי", desc: "הערכת צרכים מקיפה ותכנון אופטימלי של נקודות תורפה." },
-                  { step: "02", title: "התקנה כירורגית", desc: "מיקום חיישנים, סירנות ופאנל ניהול בדיוק מקסימלי." },
-                  { step: "03", title: "אינטגרציה מלאה", desc: "חיבור לאפליקציה, למצלמות הבית ולמוקדי חירום." },
-                  { step: "04", title: "הדרכה והפעלה", desc: "ליווי מלא עד לשליטה מוחלטת בממשק המערכת." }
-                ].map((item, idx) => (
-                  <div key={idx} className="flex gap-6 group">
-                    <span className="text-blue-500 font-mono text-xl font-bold">{item.step}</span>
-                    <div>
-                      <h4 className="text-xl font-black italic group-hover:text-sky-600 transition-colors">{item.title}</h4>
-                      <p className="text-slate-600 font-light italic">{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-            
-            <div className="relative aspect-square bg-white/[0.02] border border-sky-100 rounded-[4rem] flex items-center justify-center overflow-hidden">
-               <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(6,182,212,0.1),transparent_70%)]" />
-               <motion.div 
-                 animate={{ rotate: 360 }} 
-                 transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                 className="w-[80%] h-[80%] border-2 border-dashed border-blue-500/20 rounded-full flex items-center justify-center"
-               >
-                 <Bell size={80} className="text-sky-600 animate-bounce" />
-               </motion.div>
-               <div className="absolute bottom-10 text-center">
-                 <div className="text-[10px] font-mono text-blue-400 tracking-[0.5em] mb-2 uppercase">System_Layout_Scan</div>
-                 <div className="w-32 h-1 bg-sky-100 rounded-full overflow-hidden">
-                    <motion.div animate={{ x: [-100, 100] }} transition={{ duration: 1.5, repeat: Infinity }} className="w-full h-full bg-blue-500" />
-                 </div>
-               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Section 3: Maintenance (The Service Hub) */}
-        <section className="bg-white/[0.02] border border-sky-100 rounded-[4rem] p-12 md:p-24 relative overflow-hidden">
-          <div className="absolute top-0 left-0 p-12 opacity-5 pointer-events-none">
-            <Settings size={300} className="text-blue-500" />
-          </div>
-          <div className="relative z-10 text-center max-w-4xl mx-auto space-y-12">
-            <h2 className="text-5xl font-[1000] italic">תחזוקה מונעת - <span className="text-sky-600">שירות V.I.P</span></h2>
-            <p className="text-slate-600 text-xl font-light italic leading-relaxed">
-              מערכת אזעקה היא מצילת חיים, ולכן היא חייבת להיות בשיא הכושר. השירות שלנו כולל בדיקות תקופתיות, החלפת סוללות יזומה ועדכוני קושחה (Firmware) כדי להקדים כל ניסיון פריצה.
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="p-6 border border-sky-200 rounded-3xl bg-sky-100">
-                <BatteryCharging className="text-sky-600 mx-auto mb-4" />
-                <h5 className="font-bold">ניהול אנרגיה</h5>
-                <p className="text-xs text-slate-500 uppercase mt-2">Power_Grid_Check</p>
-              </div>
-              <div className="p-6 border border-blue-500/30 rounded-3xl bg-blue-500/5 backdrop-blur-sm">
-                <Zap className="text-sky-600 mx-auto mb-4" />
-                <h5 className="font-bold">תיקון תקלות בזק</h5>
-                <p className="text-xs text-slate-500 uppercase mt-2">Rapid_Response</p>
-              </div>
-              <div className="p-6 border border-sky-200 rounded-3xl bg-sky-100">
-                <Lock className="text-sky-600 mx-auto mb-4" />
-                <h5 className="font-bold">עדכוני אבטחה</h5>
-                <p className="text-xs text-slate-500 uppercase mt-2">Firmware_Update</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* CTA: Final Action */}
-        <motion.section 
-          initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn}
-          className="text-center py-20"
-        >
-          <div className="inline-block p-1 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-[3rem] mb-12 shadow-[0_0_60px_rgba(37,99,235,0.1)]">
-            <div className="bg-sky-50 rounded-[2.9rem] px-16 py-20 md:px-32 relative overflow-hidden">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(6,182,212,0.05),transparent_70%)]" />
-              <h2 className="relative z-10 text-4xl md:text-8xl font-[1000] italic leading-tight mb-8">
-                אל תחכה <br /> <span className="text-sky-600">לפריצה הבאה.</span>
-              </h2>
-              <p className="relative z-10 text-slate-600 text-xl mb-12 max-w-xl mx-auto italic">
-                הצטרף למשפחת קיסר ותתחיל לישון בשקט. המקצוענים שלנו מחכים לשיחה שלך.
-              </p>
-              <button className="relative z-10 bg-sky-600 text-white px-16 py-6 rounded-2xl font-[1000] text-2xl italic uppercase hover:bg-sky-700 transition-all shadow-[0_0_20px_rgba(2,132,199,0.3)] hover:shadow-sky-500/50">
-                הזמן טכנאי עכשיו
-              </button>
-            </div>
-          </div>
-        </motion.section>
-
-      </main>
-
-      {/* --- FOOTER --- */}
-      <footer className="bg-sky-100 border-t border-sky-100 py-20 px-6">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
-          <div className="flex items-center gap-4 text-right">
-            <div className="w-12 h-12 border border-sky-500/20 rounded-xl flex items-center justify-center text-sky-600 shadow-[0_0_20px_rgba(2,132,199,0.1)]">
-              <ShieldCheck size={24} />
-            </div>
-            <div className="flex flex-col">
-              <span className="text-xl font-black italic uppercase leading-none tracking-tight">Keisar Security</span>
-              <span className="text-[8px] text-sky-600 font-bold tracking-[0.5em] uppercase">Tactical_Home_Defense</span>
-            </div>
-          </div>
-          <div className="flex gap-10 text-slate-500 text-sm font-bold italic">
-            <a href="#" className="hover:text-sky-600 transition-colors">SECURITY_PLAN_2026</a>
-            <span className="text-slate-900/10">|</span>
-            <span>052-502-2222</span>
+    <div className="bg-slate-50 min-h-screen" dir="rtl">
+      <section className="bg-white border-b border-slate-200 py-16 md:py-24 px-4">
+        <div className="max-w-5xl mx-auto">
+          <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-900 bg-blue-50 border border-blue-200 rounded-full px-3 py-1.5 mb-6"><Wrench size={12}/> טכנאי אזעקות</span>
+          <h1 className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight mb-5">טכנאי אזעקות מקצועי<br/><span className="text-blue-900">לבית ולנכס שלכם</span></h1>
+          <p className="text-lg text-slate-500 max-w-2xl leading-relaxed mb-8">התקנה, תיקון ושדרוג של מערכות אזעקה — טכנאים מוסמכים עם ניסיון של שנים.</p>
+          <div className="flex flex-wrap gap-3">
+            <a href="tel:0525022222" className="flex items-center gap-2 bg-amber-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-amber-700 transition-colors"><Phone size={16}/> 052-502-2222</a>
+            <a href="/" className="border border-slate-300 text-slate-700 px-6 py-3 rounded-lg font-semibold hover:bg-slate-100 transition-colors">קבל הצעת מחיר</a>
           </div>
         </div>
-      </footer>
-
-      <style jsx global>{`
-        @keyframes scan {
-          0% { transform: translateY(-100vh); opacity: 0; }
-          50% { opacity: 1; }
-          100% { transform: translateY(100vh); opacity: 0; }
-        }
-      `}</style>
+      </section>
+      <section className="py-16 px-4"><div className="max-w-5xl mx-auto">
+        <div className="text-center mb-10"><p className="text-xs font-semibold text-blue-900 uppercase tracking-widest mb-2">יתרונות</p><h2 className="text-2xl font-bold text-slate-900">מה אנחנו מציעים</h2></div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">{features.map((f,i)=>(<motion.div key={i} whileHover={{y:-3}} transition={{duration:0.2}} className="bg-white border border-slate-200 rounded-xl p-6 shadow-sm"><div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center mb-4"><f.icon size={20} className="text-blue-900"/></div><h3 className="font-semibold text-slate-900 mb-2">{f.t}</h3><p className="text-sm text-slate-500 leading-relaxed">{f.d}</p></motion.div>))}</div>
+      </div></section>
+      <section className="py-16 px-4 bg-white border-y border-slate-200"><div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div><p className="text-xs font-semibold text-blue-900 uppercase tracking-widest mb-3">למה לבחור בנו?</p><h2 className="text-2xl font-bold text-slate-900 mb-6">שירות טכנאי מקיף</h2>
+          <ul className="space-y-3"><li key="הגעה " className="flex items-start gap-3 text-sm text-slate-600"><CheckCircle size={16} className="text-blue-900 mt-0.5 shrink-0"/>הגעה תוך 24 שעות לכל הארץ</li><li key="טכנאי" className="flex items-start gap-3 text-sm text-slate-600"><CheckCircle size={16} className="text-blue-900 mt-0.5 shrink-0"/>טכנאים מוסמכים ומנוסים</li><li key="בדיקה" className="flex items-start gap-3 text-sm text-slate-600"><CheckCircle size={16} className="text-blue-900 mt-0.5 shrink-0"/>בדיקה מלאה לאחר כל עבודה</li><li key="תיקון" className="flex items-start gap-3 text-sm text-slate-600"><CheckCircle size={16} className="text-blue-900 mt-0.5 shrink-0"/>תיקון כל מותג ודגם</li><li key="אחריו" className="flex items-start gap-3 text-sm text-slate-600"><CheckCircle size={16} className="text-blue-900 mt-0.5 shrink-0"/>אחריות על כל העבודות</li><li key="ייעוץ" className="flex items-start gap-3 text-sm text-slate-600"><CheckCircle size={16} className="text-blue-900 mt-0.5 shrink-0"/>ייעוץ לשדרוג ללא עלות</li></ul>
+        </div>
+        <div className="bg-slate-50 border border-slate-200 rounded-xl p-8"><Wrench size={48} className="text-blue-900 mb-5"/>
+          <h3 className="text-xl font-bold text-slate-900 mb-3">מהירות ומקצועיות</h3>
+          <p className="text-slate-500 text-sm leading-relaxed mb-5">הטכנאים שלנו מגיעים עם כל הציוד הדרוש ומסיימים את העבודה ביעילות ובניקיון מרבי.</p>
+          <div className="grid grid-cols-2 gap-3">{[['15+','שנות ניסיון'],['2,000+','התקנות'],['24/7','תמיכה'],['100%','שביעות רצון']].map(([v,l])=>(<div key={l} className="text-center p-3 bg-white rounded-lg border border-slate-200"><p className="text-xl font-bold text-blue-900">{v}</p><p className="text-xs text-slate-500">{l}</p></div>))}</div>
+        </div>
+      </div></section>
+      <section className="py-16 px-4 bg-blue-900 text-white">
+        <div className="max-w-5xl mx-auto text-center mb-10">
+          <h2 className="text-2xl font-bold mb-2">למה לבחור בקיסר מערכות?</h2>
+          <p className="text-blue-200 text-sm">15 שנות ניסיון, אלפי התקנות, שירות אישי ומקצועי</p>
+        </div>
+        <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
+          {[{icon:Award,t:'מוסמכים',d:'טכנאים מורשים'},{icon:Clock,t:'זמינות 24/7',d:'תמיכה בכל שעה'},{icon:Users,t:'שירות אישי',d:'ליווי מלא'},{icon:MapPin,t:'כיסוי ארצי',d:'בכל מקום בארץ'}].map((item,i)=>(
+            <div key={i} className="text-center">
+              <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center mx-auto mb-3"><item.icon size={18} className="text-blue-200"/></div>
+              <p className="font-semibold text-white text-sm mb-1">{item.t}</p>
+              <p className="text-blue-300 text-xs">{item.d}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+      <section className="py-12 px-4 bg-amber-600">
+        <div className="max-w-3xl mx-auto text-center text-white">
+          <h2 className="text-2xl font-bold mb-3">דברו איתנו היום</h2>
+          <p className="text-amber-100 mb-6 text-sm">ייעוץ חינם ותאום סקר מקום ללא התחייבות</p>
+          <a href="tel:0525022222" className="inline-flex items-center gap-2 bg-white text-amber-700 px-8 py-3 rounded-lg font-bold hover:bg-amber-50 transition-colors"><Phone size={18}/> 052-502-2222</a>
+        </div>
+      </section>
     </div>
   );
 }
