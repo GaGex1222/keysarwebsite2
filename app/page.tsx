@@ -229,7 +229,7 @@ function ServicesSlideshow({ onOpenOffer }: { onOpenOffer: () => void }) {
   const slide = SLIDES[current];
 
   return (
-    <section className="py-16 px-4" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
+    <section id="cameras-offer" className="py-16 px-4" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-8">
           <p className="text-xs font-semibold text-blue-900 uppercase tracking-widest mb-2">השירותים שלנו</p>
@@ -364,7 +364,7 @@ export default function HomePage() {
               </p>
               <div className="flex flex-wrap gap-3">
                 <button
-                  onClick={() => setIsOfferOpen(true)}
+                  onClick={() => document.getElementById('cameras-offer')?.scrollIntoView({ behavior: 'smooth' })}
                   className="bg-amber-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-amber-700 transition-colors"
                 >
                   קבל הצעת מחיר

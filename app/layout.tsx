@@ -3,7 +3,7 @@ import "./globals.css";
 import React, { useState } from 'react';
 import { Heebo } from "next/font/google";
 import { AnimatePresence, motion } from 'framer-motion';
-import { Shield, Phone, Mail, ChevronDown, Menu, X, ChevronLeft } from 'lucide-react';
+import { Phone, Mail, ChevronDown, Menu, X, ChevronLeft } from 'lucide-react';
 
 const heebo = Heebo({
   subsets: ["hebrew", "latin"],
@@ -92,11 +92,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className="max-w-7xl mx-auto px-4 h-16 flex justify-between items-center">
 
             {/* Logo */}
-            <a href="/" className="flex items-center gap-2.5 shrink-0">
-              <div className="w-9 h-9 bg-blue-900 rounded-lg flex items-center justify-center text-white">
-                <Shield size={18} fill="currentColor" />
-              </div>
-              <span className="text-lg font-bold text-slate-900">קיסר מערכות</span>
+            <a href="/" className="flex items-center shrink-0">
+              <img src="/keisar_systems-removebg-preview.png" alt="קיסר מערכות" className="h-12 w-auto" />
             </a>
 
             {/* Desktop Menu */}
@@ -274,11 +271,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className="max-w-7xl mx-auto px-4 py-16">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
               <div className="md:col-span-1">
-                <div className="flex items-center gap-2 mb-4">
-                  <div className="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center">
-                    <Shield size={16} fill="white" className="text-white" />
+                <div className="mb-4">
+                  <div className="bg-white rounded-xl px-3 py-2 inline-block">
+                    <img src="/keisar_systems-removebg-preview.png" alt="קיסר מערכות" className="h-10 w-auto" />
                   </div>
-                  <span className="font-bold text-white">קיסר מערכות</span>
                 </div>
                 <p className="text-blue-200 text-sm leading-relaxed">
                   פתרונות אבטחה ותקשורת מקצועיים לבית ולעסק בכל רחבי הארץ.
