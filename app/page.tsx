@@ -21,28 +21,6 @@ const SLIDES = [
     href: '/outside-camera',
     color: 'blue',
   },
-  {
-    id: 'intercom',
-    badge: 'מערכות אינטרקום',
-    title: 'שליטה מלאה על הכניסה לנכס',
-    desc: 'אינטרקום עם וידאו HD, פתיחת דלת מרחוק וניהול גישה חכם לדירות ועסקים.',
-    Icon: Building2,
-    tags: ['וידאו HD', 'פתיחת דלת', 'בניין משותף', 'עסקי'],
-    cta: { label: 'גלה פתרונות אינטרקום', type: 'link' as const },
-    href: '/interkum-dira',
-    color: 'indigo',
-  },
-  {
-    id: 'network',
-    badge: 'תשתיות תקשורת',
-    title: 'רשת מהירה ויציבה בכל פינה',
-    desc: 'פריסת WiFi 7, רשתות Mesh, ארונות תקשורת — גיגה אמיתי בכל נקודה.',
-    Icon: Network,
-    tags: ['WiFi 7', 'Mesh', 'LAN / CAT7', 'ארון תקשורת'],
-    cta: { label: 'גלה פתרונות תקשורת', type: 'link' as const },
-    href: '/marachot-tikshoret',
-    color: 'blue',
-  },
 ];
 
 const QUESTIONS = [
@@ -298,26 +276,6 @@ function ServicesSlideshow({ onOpenOffer }: { onOpenOffer: () => void }) {
             </AnimatePresence>
           </div>
 
-          {/* Controls */}
-          <div className="flex items-center justify-between px-6 py-3 border-t border-slate-100 bg-slate-50">
-            <div className="flex gap-2">
-              <button onClick={prev} className="w-8 h-8 rounded-lg border border-slate-200 bg-white hover:bg-slate-100 flex items-center justify-center transition-colors">
-                <ChevronRight size={14} className="text-slate-500" />
-              </button>
-              <button onClick={next} className="w-8 h-8 rounded-lg border border-slate-200 bg-white hover:bg-slate-100 flex items-center justify-center transition-colors">
-                <ChevronLeft size={14} className="text-slate-500" />
-              </button>
-            </div>
-            <div className="flex gap-1.5">
-              {SLIDES.map((s, i) => (
-                <button
-                  key={s.id}
-                  onClick={() => setCurrent(i)}
-                  className={`rounded-full transition-all duration-300 ${i === current ? 'w-6 h-2 bg-blue-900' : 'w-2 h-2 bg-slate-300'}`}
-                />
-              ))}
-            </div>
-          </div>
         </div>
       </div>
     </section>
