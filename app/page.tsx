@@ -77,9 +77,7 @@ function PriceDialog({ onClose }: { onClose: () => void }) {
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [price, setPrice] = useState<{ min: number; max: number } | null>(null);
   const [leadName, setLeadName] = useState('');
-  const [leadPhone, setLeadPhone] = useState('');
   const [leadCity, setLeadCity] = useState('');
-  const [photoName, setPhotoName] = useState('');
 
   const chooseCategory = (id: string) => {
     setAnswers({ ...answers, category: id });
@@ -109,19 +107,22 @@ function PriceDialog({ onClose }: { onClose: () => void }) {
   const submitLead = () => {
     const rec = buildRecommendation(answers);
     const lines = [
-      'שלום! קיבלתי הצעת מחיר דרך האתר של קיסר מערכות:',
+      '🔔 ליד חדש מהאתר — קיסר מערכות',
       '',
-      `שם: ${leadName}`,
-      `טלפון: ${leadPhone}`,
-      `עיר: ${leadCity}`,
+      `👤 שם: ${leadName}`,
+      `📍 עיר: ${leadCity}`,
       '',
-      'בחירות:',
-      ...rec.map(r => `• ${r}`),
+      '📋 פרטי השאלון:',
+      `• כמות מצלמות: ${answers.count}`,
+      `• מיקום התקנה: ${answers.location}`,
+      `• מותג: ${answers.brand}`,
+      `• רמת מערכת: ${answers.level}`,
       `• התקנה: ${answers.installation ?? 'לא צוין'}`,
       '',
-      price ? `מחיר משוער: ₪${price.min.toLocaleString('he-IL')} – ₪${price.max.toLocaleString('he-IL')}` : '',
+      '✅ מערכת מומלצת:',
+      ...rec.map(r => `• ${r}`),
       '',
-      'אשמח לתאם פגישה ולקבל הצעה מדויקת',
+      price ? `💰 מחיר משוער: ₪${price.min.toLocaleString('he-IL')} – ₪${price.max.toLocaleString('he-IL')}` : '',
     ];
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines.join('\n'))}`, '_blank');
     setScreen('done');
@@ -129,7 +130,7 @@ function PriceDialog({ onClose }: { onClose: () => void }) {
 
   const reset = () => {
     setScreen('category'); setCamStep(0); setAnswers({}); setPrice(null);
-    setLeadName(''); setLeadPhone(''); setLeadCity(''); setPhotoName('');
+    setLeadName(''); setLeadCity('');
   };
 
   const totalCamSteps = CAMERA_QUESTIONS.length;
@@ -256,9 +257,9 @@ function PriceDialog({ onClose }: { onClose: () => void }) {
             {/* LEAD FORM */}
             {screen === 'lead' && (
               <motion.div key="lead" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.3 }}>
-                <p className="text-base font-bold text-slate-900 mb-1">לאן לשלוח את ההצעה?</p>
+                <p className="text-base font-bold text-slate-900 mb-1">רק שם ועיר — ונשלח לך הצעה בוואטסאפ</p>
                 {price && (
-                  <p className="text-xs text-slate-500 mb-4">מחיר משוער: ₪{price.min.toLocaleString('he-IL')} – ₪{price.max.toLocaleString('he-IL')}</p>
+                  <p className="text-sm font-semibold text-blue-900 mb-4">מחיר משוער: ₪{price.min.toLocaleString('he-IL')} – ₪{price.max.toLocaleString('he-IL')}</p>
                 )}
                 <div className="space-y-3">
                   <div>
@@ -267,29 +268,17 @@ function PriceDialog({ onClose }: { onClose: () => void }) {
                       className="w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-blue-900 transition-colors" placeholder="ישראל ישראלי" />
                   </div>
                   <div>
-                    <label className="block text-xs font-medium text-slate-500 mb-1">טלפון</label>
-                    <input type="tel" value={leadPhone} onChange={e => setLeadPhone(e.target.value)}
-                      className="w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-blue-900 transition-colors" placeholder="05X-XXXXXXX" />
-                  </div>
-                  <div>
                     <label className="block text-xs font-medium text-slate-500 mb-1">עיר</label>
                     <input type="text" value={leadCity} onChange={e => setLeadCity(e.target.value)}
                       className="w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-blue-900 transition-colors" placeholder="תל אביב" />
                   </div>
-                  <div>
-                    <label className="block text-xs font-medium text-slate-500 mb-1">📸 העלה תמונה של המקום לקבלת הצעה מדויקת יותר</label>
-                    <label className="flex items-center gap-2 w-full border border-dashed border-slate-300 rounded-lg px-4 py-3 text-sm text-slate-500 cursor-pointer hover:border-blue-900 hover:text-blue-900 transition-colors">
-                      <input type="file" accept="image/*" className="hidden" onChange={e => setPhotoName(e.target.files?.[0]?.name ?? '')} />
-                      {photoName ? <span className="text-blue-900 font-medium">{photoName}</span> : <span>לחץ להעלאת תמונה (לא חובה)</span>}
-                    </label>
-                  </div>
-                  <button onClick={submitLead} disabled={!leadName || !leadPhone}
-                    className="w-full py-3 rounded-xl bg-[#25D366] text-white font-semibold text-sm hover:brightness-105 transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed">
-                    <MessageCircle size={18} />
-                    שלח הצעה בוואטסאפ
+                  <button onClick={submitLead} disabled={!leadName || !leadCity}
+                    className="w-full py-3.5 rounded-xl bg-[#25D366] text-white font-bold text-base hover:brightness-105 transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed shadow-md">
+                    <MessageCircle size={20} />
+                    שלח לי את ההצעה בוואטסאפ
                   </button>
                   <a href="tel:0525022222" className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl border border-slate-200 text-sm text-slate-600 hover:bg-slate-50 transition-colors">
-                    <Phone size={14} /> 052-502-2222
+                    <Phone size={14} /> מעדיף לדבר? 052-502-2222
                   </a>
                 </div>
               </motion.div>
