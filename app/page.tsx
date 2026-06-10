@@ -9,6 +9,47 @@ import {
 
 const WHATSAPP_NUMBER = '972525022222';
 
+const CATEGORY_OPTIONS = [
+  { id: 'cameras', label: '📹 מצלמות אבטחה' },
+  { id: 'intercom', label: '🚪 אינטרקום / קודן' },
+  { id: 'alarm', label: '🚨 אזעקה' },
+  { id: 'internet', label: '📶 אינטרנט / רשת / ממ״ד' },
+  { id: 'package', label: '🏠 חבילה מלאה לבית חדש' },
+  { id: 'unknown', label: '❓ לא יודע, אשמח לייעוץ' },
+];
+
+const CAMERA_QUESTIONS = [
+  { id: 'count', label: 'כמה מצלמות?', options: ['1', '2', '3', '4', '6', '8', '10', '12+'], grid: true },
+  { id: 'location', label: 'איפה ההתקנה?', options: ['🏠 בית פרטי', '🏢 דירה', '🏪 עסק / חנות', '🏭 מחסן / מפעל', '🏢 בניין משותף'] },
+  { id: 'brand', label: 'איזה מותג?', options: ['לא משנה לי', 'Hikvision', 'Dahua', 'Provision', 'Uniview'] },
+  { id: 'infrastructure', label: 'האם קיימת תשתית?', options: ['כן', 'לא', 'לא יודע'] },
+  { id: 'level', label: 'רמת המערכת', options: ['💰 בסיסית', '⭐ מתקדמת', '🏆 פרימיום', 'לא יודע'] },
+];
+
+const INSTALLATION_OPTIONS = ['ציוד בלבד', 'התקנה מלאה', 'עדיין לא יודע'];
+
+function calcCameraPrice(ans: Record<string, string>) {
+  const countNum = ans.count === '12+' ? 14 : parseInt(ans.count ?? '4') || 4;
+  const brandBase: Record<string, number> = { 'לא משנה לי': 400, 'Hikvision': 450, 'Dahua': 420, 'Provision': 380, 'Uniview': 480 };
+  const levelMult: Record<string, number> = { '💰 בסיסית': 1.0, '⭐ מתקדמת': 1.4, '🏆 פרימיום': 2.0, 'לא יודע': 1.2 };
+  const infraAdd: Record<string, number> = { 'כן': 0, 'לא': 1500, 'לא יודע': 700 };
+  const locAdd: Record<string, number> = { '🏠 בית פרטי': 200, '🏢 דירה': 0, '🏪 עסק / חנות': 400, '🏭 מחסן / מפעל': 600, '🏢 בניין משותף': 800 };
+  const dvr = countNum <= 4 ? 800 : countNum <= 8 ? 1200 : countNum <= 16 ? 1800 : 2500;
+  const installAdd = ans.installation === 'התקנה מלאה' ? 1200 + 150 * countNum : 0;
+  const total = (brandBase[ans.brand] ?? 400) * (levelMult[ans.level] ?? 1.2) * countNum + dvr + (infraAdd[ans.infrastructure] ?? 700) + (locAdd[ans.location] ?? 0) + installAdd + 300;
+  return { min: Math.ceil((total * 0.88) / 100) * 100, max: Math.ceil((total * 1.15) / 100) * 100 };
+}
+
+function buildRecommendation(ans: Record<string, string>) {
+  const countNum = ans.count === '12+' ? 14 : parseInt(ans.count ?? '4') || 4;
+  const brand = ans.brand === 'לא משנה לי' ? 'Hikvision' : (ans.brand ?? 'Hikvision');
+  const level = ans.level ?? '';
+  const mp = level.includes('פרימיום') ? '8MP' : level.includes('מתקדמת') ? '5MP' : '4MP';
+  const channels = countNum <= 4 ? '4' : countNum <= 8 ? '8' : countNum <= 16 ? '16' : '32';
+  const hdd = countNum <= 4 ? '1TB' : countNum <= 8 ? '2TB' : '4TB';
+  return [`${ans.count} מצלמות ${brand} ${mp}`, `מקליט ${channels} ערוצים`, `דיסק קשיח ${hdd}`, 'צפייה מהטלפון'];
+}
+
 const SLIDES = [
   {
     id: 'cameras',
@@ -23,86 +64,89 @@ const SLIDES = [
   },
 ];
 
-const QUESTIONS = [
-  { id: 'count', label: 'כמה מצלמות תרצה/י להתקין?', hint: 'כולל כל הקומות והחדרים', options: ['1-4 מצלמות', '5-8 מצלמות', '9-16 מצלמות', 'מעל 16 מצלמות'] },
-  { id: 'location', label: 'היכן יותקנו המצלמות?', hint: 'מצלמות חוץ דורשות ציוד עמיד מזג אוויר', options: ['בפנים הבית בלבד', 'בחוץ בלבד', 'גם פנים וגם חוץ'] },
-  { id: 'quality', label: 'איזו איכות תמונה?', hint: '4K נותן פרטים חדים גם בהגדלה', options: ['HD – 720p', 'Full HD – 1080p', '4K – Ultra HD'] },
-  { id: 'dvr', label: 'האם נדרש מכשיר הקלטה?', hint: 'DVR/NVR שומר הקלטות למשך שבועות', options: ['כן – אני רוצה DVR/NVR', 'לא – מצלמות בלבד'] },
-  { id: 'cable', label: 'סוג חיבור מועדף?', hint: 'חוטי יציב יותר; אלחוטי גמיש יותר', options: ['קוויות (כבל CAT6/7)', 'אלחוטיות (WiFi)'] },
-  { id: 'installation', label: 'האם לכלול התקנה בהצעה?', hint: 'כולל הנחת כבלים, הגדרת מערכת ובדיקה מלאה', options: ['כן – כולל התקנה מקצועית', 'לא – ציוד בלבד'] },
-];
-
-function calculatePrice(ans: Record<string, string>) {
-  const countMap: Record<string, { avg: number; perCam: number; install: number }> = {
-    '1-4 מצלמות': { avg: 2.5, perCam: 800, install: 600 },
-    '5-8 מצלמות': { avg: 6, perCam: 720, install: 1000 },
-    '9-16 מצלמות': { avg: 12, perCam: 660, install: 1500 },
-    'מעל 16 מצלמות': { avg: 20, perCam: 590, install: 2200 },
-  };
-  const locAdd: Record<string, number> = { 'בפנים הבית בלבד': 0, 'בחוץ בלבד': 160, 'גם פנים וגם חוץ': 90 };
-  const qualAdd: Record<string, number> = { 'HD – 720p': 0, 'Full HD – 1080p': 280, '4K – Ultra HD': 700 };
-  const dvrAdd: Record<string, number> = { 'כן – אני רוצה DVR/NVR': 2200, 'לא – מצלמות בלבד': 0 };
-  const cd = countMap[ans.count] ?? { avg: 3, perCam: 800, install: 600 };
-  const includeInstall = ans.installation !== 'לא – ציוד בלבד';
-  const total = (cd.perCam + (locAdd[ans.location] ?? 0)) * cd.avg + (qualAdd[ans.quality] ?? 0) + (dvrAdd[ans.dvr] ?? 0) + (includeInstall ? cd.install : 0);
-  return { min: Math.ceil((total * 0.88) / 100) * 100, max: Math.ceil((total * 1.15) / 100) * 100 };
-}
-
-function buildWhatsAppMsg(ans: Record<string, string>, price: { min: number; max: number }) {
-  const lines = [
-    'שלום! קיבלתי הצעת מחיר דרך האתר של קיסר מערכות:',
-    '',
-    `• כמות מצלמות: ${ans.count}`,
-    `• מיקום: ${ans.location}`,
-    `• איכות תמונה: ${ans.quality}`,
-    `• מכשיר הקלטה: ${ans.dvr}`,
-    `• סוג חיבור: ${ans.cable}`,
-    `• התקנה: ${ans.installation}`,
-    '',
-    `הצעת מחיר משוערת: ₪${price.min.toLocaleString('he-IL')} – ₪${price.max.toLocaleString('he-IL')}`,
-    '',
-    'אשמח לתאם פגישה ולקבל הצעה מדויקת',
-  ];
-  return encodeURIComponent(lines.join('\n'));
-}
-
 function PriceDialog({ onClose }: { onClose: () => void }) {
-  const [step, setStep] = useState(0);
+  type Screen = 'category' | 'cameras' | 'result' | 'installation' | 'lead' | 'done';
+  const [screen, setScreen] = useState<Screen>('category');
+  const [camStep, setCamStep] = useState(0);
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [price, setPrice] = useState<{ min: number; max: number } | null>(null);
-  const isLast = step === QUESTIONS.length - 1;
+  const [leadName, setLeadName] = useState('');
+  const [leadPhone, setLeadPhone] = useState('');
+  const [leadCity, setLeadCity] = useState('');
+  const [photoName, setPhotoName] = useState('');
 
-  const choose = (option: string) => {
-    const q = QUESTIONS[step];
-    const newAnswers = { ...answers, [q.id]: option };
-    setAnswers(newAnswers);
-    if (isLast) setPrice(calculatePrice(newAnswers));
-    else setStep(step + 1);
+  const chooseCategory = (id: string) => {
+    setAnswers({ ...answers, category: id });
+    if (id === 'cameras') setScreen('cameras');
+    else setScreen('lead');
   };
+
+  const chooseCameraAnswer = (opt: string) => {
+    const q = CAMERA_QUESTIONS[camStep];
+    const newAns = { ...answers, [q.id]: opt };
+    setAnswers(newAns);
+    if (camStep < CAMERA_QUESTIONS.length - 1) {
+      setCamStep(camStep + 1);
+    } else {
+      setPrice(calcCameraPrice(newAns));
+      setScreen('result');
+    }
+  };
+
+  const chooseInstallation = (opt: string) => {
+    const newAns = { ...answers, installation: opt };
+    setAnswers(newAns);
+    setPrice(calcCameraPrice(newAns));
+    setScreen('lead');
+  };
+
+  const submitLead = () => {
+    const rec = buildRecommendation(answers);
+    const lines = [
+      'שלום! קיבלתי הצעת מחיר דרך האתר של קיסר מערכות:',
+      '',
+      `שם: ${leadName}`,
+      `טלפון: ${leadPhone}`,
+      `עיר: ${leadCity}`,
+      '',
+      'בחירות:',
+      ...rec.map(r => `• ${r}`),
+      `• התקנה: ${answers.installation ?? 'לא צוין'}`,
+      '',
+      price ? `מחיר משוער: ₪${price.min.toLocaleString('he-IL')} – ₪${price.max.toLocaleString('he-IL')}` : '',
+      '',
+      'אשמח לתאם פגישה ולקבל הצעה מדויקת',
+    ];
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines.join('\n'))}`, '_blank');
+    setScreen('done');
+  };
+
+  const reset = () => {
+    setScreen('category'); setCamStep(0); setAnswers({}); setPrice(null);
+    setLeadName(''); setLeadPhone(''); setLeadCity(''); setPhotoName('');
+  };
+
+  const totalCamSteps = CAMERA_QUESTIONS.length;
 
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
+      initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
       className="fixed inset-0 z-[300] flex items-center justify-center px-4 bg-black/50"
       onClick={onClose}
     >
       <motion.div
-        initial={{ scale: 0.95, y: 20 }}
-        animate={{ scale: 1, y: 0 }}
-        exit={{ scale: 0.95, y: 20 }}
+        initial={{ scale: 0.95, y: 20 }} animate={{ scale: 1, y: 0 }} exit={{ scale: 0.95, y: 20 }}
         transition={{ type: 'spring', stiffness: 300, damping: 28 }}
-        className="relative w-full max-w-md bg-white rounded-2xl shadow-2xl overflow-hidden"
+        className="relative w-full max-w-md bg-white rounded-2xl shadow-2xl overflow-hidden max-h-[90vh] flex flex-col"
         onClick={e => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="bg-blue-900 px-6 py-4 flex items-center justify-between">
+        <div className="bg-blue-900 px-6 py-4 flex items-center justify-between shrink-0">
           <div className="flex items-center gap-3">
             <Camera size={18} className="text-blue-200" />
             <div>
               <p className="text-white font-semibold text-sm">מחשבון מחירים</p>
-              <p className="text-blue-300 text-xs">הצעת מחיר למצלמות אבטחה</p>
+              <p className="text-blue-300 text-xs">קבל הצעה תוך דקה</p>
             </div>
           </div>
           <button onClick={onClose} className="p-1.5 rounded-lg hover:bg-white/10 transition-colors">
@@ -110,81 +154,155 @@ function PriceDialog({ onClose }: { onClose: () => void }) {
           </button>
         </div>
 
-        <div className="p-6">
+        <div className="p-6 overflow-y-auto">
           <AnimatePresence mode="wait">
-            {!price ? (
-              <motion.div key={`step-${step}`} initial={{ opacity: 0, x: -16 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 16 }} transition={{ duration: 0.2 }}>
-                {/* Progress */}
-                <div className="mb-5">
-                  <div className="flex justify-between text-xs text-slate-500 mb-1.5">
-                    <span>שאלה {step + 1} מתוך {QUESTIONS.length}</span>
-                    <span>{Math.round(((step + 1) / QUESTIONS.length) * 100)}%</span>
-                  </div>
-                  <div className="h-1.5 bg-slate-100 rounded-full overflow-hidden">
-                    <motion.div
-                      className="h-full bg-blue-900 rounded-full"
-                      animate={{ width: `${((step + 1) / QUESTIONS.length) * 100}%` }}
-                      transition={{ duration: 0.3 }}
-                    />
-                  </div>
-                </div>
-                <p className="text-base font-semibold text-slate-900 mb-1">{QUESTIONS[step].label}</p>
-                <p className="text-xs text-slate-500 mb-4">{QUESTIONS[step].hint}</p>
+
+            {/* CATEGORY SCREEN */}
+            {screen === 'category' && (
+              <motion.div key="category" initial={{ opacity: 0, x: -16 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 16 }} transition={{ duration: 0.2 }}>
+                <p className="text-base font-bold text-slate-900 mb-4">מה אתה צריך?</p>
                 <div className="space-y-2">
-                  {QUESTIONS[step].options.map(opt => (
-                    <button
-                      key={opt}
-                      onClick={() => choose(opt)}
-                      className="w-full text-right px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 text-sm font-medium text-slate-700 hover:border-blue-900 hover:bg-blue-50 hover:text-blue-900 transition-all flex items-center justify-between group"
-                    >
+                  {CATEGORY_OPTIONS.map(opt => (
+                    <button key={opt.id} onClick={() => chooseCategory(opt.id)}
+                      className="w-full text-right px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 text-sm font-medium text-slate-700 hover:border-blue-900 hover:bg-blue-50 hover:text-blue-900 transition-all flex items-center justify-between group">
                       <ChevronLeft size={14} className="text-slate-400 group-hover:text-blue-900 transition-colors" />
-                      <span>{opt}</span>
+                      <span>{opt.label}</span>
                     </button>
                   ))}
                 </div>
-                {step > 0 && (
-                  <button onClick={() => setStep(step - 1)} className="mt-4 text-xs text-slate-400 hover:text-slate-600 transition-colors">
+              </motion.div>
+            )}
+
+            {/* CAMERA QUESTIONS */}
+            {screen === 'cameras' && (
+              <motion.div key={`cam-${camStep}`} initial={{ opacity: 0, x: -16 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 16 }} transition={{ duration: 0.2 }}>
+                <div className="mb-5">
+                  <div className="flex justify-between text-xs text-slate-500 mb-1.5">
+                    <span>שאלה {camStep + 1} מתוך {totalCamSteps}</span>
+                    <span>{Math.round(((camStep + 1) / totalCamSteps) * 100)}%</span>
+                  </div>
+                  <div className="h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                    <motion.div className="h-full bg-blue-900 rounded-full"
+                      animate={{ width: `${((camStep + 1) / totalCamSteps) * 100}%` }} transition={{ duration: 0.3 }} />
+                  </div>
+                </div>
+                <p className="text-base font-semibold text-slate-900 mb-4">{CAMERA_QUESTIONS[camStep].label}</p>
+                {CAMERA_QUESTIONS[camStep].grid ? (
+                  <div className="grid grid-cols-4 gap-2">
+                    {CAMERA_QUESTIONS[camStep].options.map(opt => (
+                      <button key={opt} onClick={() => chooseCameraAnswer(opt)}
+                        className="py-3 rounded-xl border border-slate-200 bg-slate-50 text-sm font-semibold text-slate-700 hover:border-blue-900 hover:bg-blue-50 hover:text-blue-900 transition-all text-center">
+                        {opt}
+                      </button>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="space-y-2">
+                    {CAMERA_QUESTIONS[camStep].options.map(opt => (
+                      <button key={opt} onClick={() => chooseCameraAnswer(opt)}
+                        className="w-full text-right px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 text-sm font-medium text-slate-700 hover:border-blue-900 hover:bg-blue-50 hover:text-blue-900 transition-all flex items-center justify-between group">
+                        <ChevronLeft size={14} className="text-slate-400 group-hover:text-blue-900 transition-colors" />
+                        <span>{opt}</span>
+                      </button>
+                    ))}
+                  </div>
+                )}
+                {camStep > 0 && (
+                  <button onClick={() => setCamStep(camStep - 1)} className="mt-4 text-xs text-slate-400 hover:text-slate-600 transition-colors">
                     ← חזור לשאלה הקודמת
                   </button>
                 )}
               </motion.div>
-            ) : (
+            )}
+
+            {/* RESULT SCREEN */}
+            {screen === 'result' && price && (
               <motion.div key="result" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.3 }}>
                 <div className="text-center mb-5">
                   <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-3">
                     <CheckCircle size={24} className="text-blue-900" />
                   </div>
-                  <p className="text-sm text-slate-500 mb-1">הצעת המחיר המשוערת שלך</p>
-                  <p className="text-3xl font-bold text-blue-900">₪{price.min.toLocaleString('he-IL')}</p>
-                  <p className="text-sm text-slate-500">עד ₪{price.max.toLocaleString('he-IL')}</p>
+                  <p className="text-sm font-semibold text-slate-700 mb-1">לפי הבחירות שלך, מערכת מומלצת:</p>
+                  <div className="bg-slate-50 border border-slate-200 rounded-xl p-3 mb-4 space-y-1 text-right">
+                    {buildRecommendation(answers).map((item, i) => (
+                      <p key={i} className="text-sm text-slate-700">• {item}</p>
+                    ))}
+                  </div>
+                  <p className="text-xs text-slate-500 mb-1">מחיר משוער:</p>
+                  <p className="text-3xl font-bold text-blue-900">₪{price.min.toLocaleString('he-IL')} – ₪{price.max.toLocaleString('he-IL')}</p>
                   <p className="text-xs text-slate-400 mt-1">*הערכה בלבד. הצעה מדויקת לאחר סקר מקום</p>
                 </div>
-                <div className="bg-slate-50 rounded-xl border border-slate-200 p-3 mb-4 space-y-1.5">
-                  {QUESTIONS.map(q => answers[q.id] && (
-                    <div key={q.id} className="flex justify-between text-xs">
-                      <span className="text-blue-900 font-medium">{answers[q.id]}</span>
-                      <span className="text-slate-400">{q.label.replace('?', '').trim()}</span>
-                    </div>
-                  ))}
+                <div className="border-t border-slate-100 pt-4">
+                  <p className="text-sm font-semibold text-slate-900 mb-3">שאלה אחרונה לפני ההצעה — האם תרצה התקנה?</p>
+                  <div className="space-y-2">
+                    {INSTALLATION_OPTIONS.map(opt => (
+                      <button key={opt} onClick={() => chooseInstallation(opt)}
+                        className="w-full text-right px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 text-sm font-medium text-slate-700 hover:border-blue-900 hover:bg-blue-50 hover:text-blue-900 transition-all flex items-center justify-between group">
+                        <ChevronLeft size={14} className="text-slate-400 group-hover:text-blue-900 transition-colors" />
+                        <span>{opt}</span>
+                      </button>
+                    ))}
+                  </div>
                 </div>
-                <a
-                  href={`https://wa.me/${WHATSAPP_NUMBER}?text=${buildWhatsAppMsg(answers, price)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-[#25D366] text-white font-semibold text-sm hover:brightness-105 transition-all mb-2"
-                >
-                  <MessageCircle size={18} />
-                  שלח הצעה בוואטסאפ
-                </a>
-                <a href="tel:0525022222" className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl border border-slate-200 text-sm text-slate-600 hover:bg-slate-50 transition-colors">
-                  <Phone size={14} />
-                  052-502-2222
-                </a>
-                <button onClick={() => { setStep(0); setAnswers({}); setPrice(null); }} className="mt-3 w-full text-xs text-slate-400 hover:text-slate-600 transition-colors">
+              </motion.div>
+            )}
+
+            {/* LEAD FORM */}
+            {screen === 'lead' && (
+              <motion.div key="lead" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.3 }}>
+                <p className="text-base font-bold text-slate-900 mb-1">לאן לשלוח את ההצעה?</p>
+                {price && (
+                  <p className="text-xs text-slate-500 mb-4">מחיר משוער: ₪{price.min.toLocaleString('he-IL')} – ₪{price.max.toLocaleString('he-IL')}</p>
+                )}
+                <div className="space-y-3">
+                  <div>
+                    <label className="block text-xs font-medium text-slate-500 mb-1">שם מלא</label>
+                    <input type="text" value={leadName} onChange={e => setLeadName(e.target.value)}
+                      className="w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-blue-900 transition-colors" placeholder="ישראל ישראלי" />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-medium text-slate-500 mb-1">טלפון</label>
+                    <input type="tel" value={leadPhone} onChange={e => setLeadPhone(e.target.value)}
+                      className="w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-blue-900 transition-colors" placeholder="05X-XXXXXXX" />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-medium text-slate-500 mb-1">עיר</label>
+                    <input type="text" value={leadCity} onChange={e => setLeadCity(e.target.value)}
+                      className="w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-blue-900 transition-colors" placeholder="תל אביב" />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-medium text-slate-500 mb-1">📸 העלה תמונה של המקום לקבלת הצעה מדויקת יותר</label>
+                    <label className="flex items-center gap-2 w-full border border-dashed border-slate-300 rounded-lg px-4 py-3 text-sm text-slate-500 cursor-pointer hover:border-blue-900 hover:text-blue-900 transition-colors">
+                      <input type="file" accept="image/*" className="hidden" onChange={e => setPhotoName(e.target.files?.[0]?.name ?? '')} />
+                      {photoName ? <span className="text-blue-900 font-medium">{photoName}</span> : <span>לחץ להעלאת תמונה (לא חובה)</span>}
+                    </label>
+                  </div>
+                  <button onClick={submitLead} disabled={!leadName || !leadPhone}
+                    className="w-full py-3 rounded-xl bg-[#25D366] text-white font-semibold text-sm hover:brightness-105 transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed">
+                    <MessageCircle size={18} />
+                    שלח הצעה בוואטסאפ
+                  </button>
+                  <a href="tel:0525022222" className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl border border-slate-200 text-sm text-slate-600 hover:bg-slate-50 transition-colors">
+                    <Phone size={14} /> 052-502-2222
+                  </a>
+                </div>
+              </motion.div>
+            )}
+
+            {/* DONE */}
+            {screen === 'done' && (
+              <motion.div key="done" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.3 }} className="text-center py-4">
+                <div className="w-14 h-14 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <CheckCircle size={28} className="text-green-600" />
+                </div>
+                <p className="text-lg font-bold text-slate-900 mb-2">נהדר! ההצעה נשלחה</p>
+                <p className="text-sm text-slate-500 mb-6">ניצור איתך קשר בהקדם לתיאום סקר מקום חינם</p>
+                <button onClick={reset} className="text-xs text-slate-400 hover:text-slate-600 transition-colors">
                   חשב מחדש
                 </button>
               </motion.div>
             )}
+
           </AnimatePresence>
         </div>
       </motion.div>
