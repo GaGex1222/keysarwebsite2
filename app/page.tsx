@@ -19,35 +19,41 @@ const CATEGORY_OPTIONS = [
 ];
 
 const CAMERA_QUESTIONS = [
-  { id: 'count', label: 'כמה מצלמות?', options: ['1', '2', '3', '4', '6', '8', '10', '12+'], grid: true },
-  { id: 'location', label: 'איפה ההתקנה?', options: ['🏠 בית פרטי', '🏢 דירה', '🏪 עסק / חנות', '🏭 מחסן / מפעל', '🏢 בניין משותף'] },
-  { id: 'brand', label: 'איזה מותג?', options: ['לא משנה לי', 'Hikvision', 'Dahua', 'Provision', 'Uniview'] },
-  { id: 'infrastructure', label: 'האם קיימת תשתית?', options: ['כן', 'לא', 'לא יודע'] },
-  { id: 'level', label: 'רמת המערכת', options: ['💰 בסיסית', '⭐ מתקדמת', '🏆 פרימיום', 'לא יודע'] },
+  { id: 'count', label: 'כמה מצלמות אתה צריך?', options: ['1', '2', '3', '4', '6', '8', '10', '12+'], grid: true },
+  { id: 'location', label: 'איפה תותקנה המצלמות?', options: ['🏠 בית פרטי / קרקע', '🏢 דירה בבניין', '🏪 עסק / חנות / מפעל'] },
+  { id: 'brand', label: 'איזה מותג מצלמות תרצה?', options: ['לא משנה לי — הכי משתלם', 'Hikvision', 'Dahua', 'Provision', 'Uniview'] },
+  { id: 'level', label: 'איזו רמת מערכת?', options: ['💰 בסיסית — עובדת טוב, מחיר נוח', '⭐ מתקדמת — איכות גבוהה, תמונה חדה', '🏆 פרימיום — הכי טוב שיש', 'לא יודע — תמליצו לי'] },
 ];
 
 const INSTALLATION_OPTIONS = ['ציוד בלבד', 'התקנה מלאה', 'עדיין לא יודע'];
 
 function calcCameraPrice(ans: Record<string, string>) {
   const countNum = ans.count === '12+' ? 14 : parseInt(ans.count ?? '4') || 4;
-  const brandBase: Record<string, number> = { 'לא משנה לי': 400, 'Hikvision': 450, 'Dahua': 420, 'Provision': 380, 'Uniview': 480 };
-  const levelMult: Record<string, number> = { '💰 בסיסית': 1.0, '⭐ מתקדמת': 1.4, '🏆 פרימיום': 2.0, 'לא יודע': 1.2 };
-  const infraAdd: Record<string, number> = { 'כן': 0, 'לא': 1500, 'לא יודע': 700 };
-  const locAdd: Record<string, number> = { '🏠 בית פרטי': 200, '🏢 דירה': 0, '🏪 עסק / חנות': 400, '🏭 מחסן / מפעל': 600, '🏢 בניין משותף': 800 };
+  // "לא משנה לי" is cheaper — no brand premium
+  const brandBase: Record<string, number> = { 'לא משנה לי — הכי משתלם': 480, 'Hikvision': 640, 'Dahua': 620, 'Provision': 600, 'Uniview': 660 };
+  const levelMult: Record<string, number> = { '💰 בסיסית — עובדת טוב, מחיר נוח': 1.0, '⭐ מתקדמת — איכות גבוהה, תמונה חדה': 1.4, '🏆 פרימיום — הכי טוב שיש': 2.0, 'לא יודע — תמליצו לי': 1.2 };
+  const locAdd: Record<string, number> = { '🏠 בית פרטי / קרקע': 400, '🏢 דירה בבניין': 0, '🏪 עסק / חנות / מפעל': 600 };
   const dvr = countNum <= 4 ? 800 : countNum <= 8 ? 1200 : countNum <= 16 ? 1800 : 2500;
   const installAdd = ans.installation === 'התקנה מלאה' ? 1200 + 150 * countNum : 0;
-  const total = (brandBase[ans.brand] ?? 400) * (levelMult[ans.level] ?? 1.2) * countNum + dvr + (infraAdd[ans.infrastructure] ?? 700) + (locAdd[ans.location] ?? 0) + installAdd + 300;
+  const camCost = (brandBase[ans.brand] ?? 600) * (levelMult[ans.level] ?? 1.2) * countNum;
+  const total = camCost + dvr + (locAdd[ans.location] ?? 0) + installAdd + 300;
   return { min: Math.ceil((total * 0.88) / 100) * 100, max: Math.ceil((total * 1.15) / 100) * 100 };
 }
 
 function buildRecommendation(ans: Record<string, string>) {
   const countNum = ans.count === '12+' ? 14 : parseInt(ans.count ?? '4') || 4;
-  const brand = ans.brand === 'לא משנה לי' ? 'Hikvision' : (ans.brand ?? 'Hikvision');
+  const rawBrand = ans.brand ?? '';
+  const brand = rawBrand.includes('לא משנה') ? 'מותג מומלץ' : rawBrand;
   const level = ans.level ?? '';
   const mp = level.includes('פרימיום') ? '8MP' : level.includes('מתקדמת') ? '5MP' : '4MP';
   const channels = countNum <= 4 ? '4' : countNum <= 8 ? '8' : countNum <= 16 ? '16' : '32';
   const hdd = countNum <= 4 ? '1TB' : countNum <= 8 ? '2TB' : '4TB';
-  return [`${ans.count} מצלמות ${brand} ${mp}`, `מקליט ${channels} ערוצים`, `דיסק קשיח ${hdd}`, 'צפייה מהטלפון'];
+  return [
+    `${ans.count} מצלמות ${brand} ברזולוציה ${mp}`,
+    `מקליט ${channels} ערוצים לשמירת הצילומים`,
+    `דיסק קשיח ${hdd} — שמירה של שבועות אחורה`,
+    'אפליקציה לצפייה מהטלפון בכל מקום',
+  ];
 }
 
 const SLIDES = [
@@ -222,15 +228,15 @@ function PriceDialog({ onClose }: { onClose: () => void }) {
                   <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-3">
                     <CheckCircle size={24} className="text-blue-900" />
                   </div>
-                  <p className="text-sm font-semibold text-slate-700 mb-1">לפי הבחירות שלך, מערכת מומלצת:</p>
-                  <div className="bg-slate-50 border border-slate-200 rounded-xl p-3 mb-4 space-y-1 text-right">
+                  <p className="text-base font-bold text-slate-900 mb-3">✅ לפי הבחירות שלך — המערכת המומלצת:</p>
+                  <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-4 space-y-2 text-right">
                     {buildRecommendation(answers).map((item, i) => (
-                      <p key={i} className="text-sm text-slate-700">• {item}</p>
+                      <p key={i} className="text-sm font-medium text-blue-900">• {item}</p>
                     ))}
                   </div>
-                  <p className="text-xs text-slate-500 mb-1">מחיר משוער:</p>
-                  <p className="text-3xl font-bold text-blue-900">₪{price.min.toLocaleString('he-IL')} – ₪{price.max.toLocaleString('he-IL')}</p>
-                  <p className="text-xs text-slate-400 mt-1">*הערכה בלבד. הצעה מדויקת לאחר סקר מקום</p>
+                  <p className="text-sm font-semibold text-slate-600 mb-1">מחיר משוער להתקנה מלאה:</p>
+                  <p className="text-4xl font-bold text-blue-900">₪{price.min.toLocaleString('he-IL')} – ₪{price.max.toLocaleString('he-IL')}</p>
+                  <p className="text-xs text-slate-400 mt-1">הערכה ראשונית בלבד — הצעה מדויקת לאחר סקר מקום חינם</p>
                 </div>
                 <div className="border-t border-slate-100 pt-4">
                   <p className="text-sm font-semibold text-slate-900 mb-3">שאלה אחרונה לפני ההצעה — האם תרצה התקנה?</p>
@@ -431,17 +437,17 @@ export default function HomePage() {
                 <Zap size={12} />
                 מספר 1 בפתרונות אבטחה ותקשורת
               </span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight mb-6">
-                אבטחה חכמה<br />
-                <span className="text-blue-900">לבית ולעסק</span>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight mb-4">
+                קבל הצעת מחיר<br />
+                <span className="text-blue-900">להתקנת מצלמות אבטחה</span>
               </h1>
               <p className="text-lg text-slate-500 leading-relaxed mb-8 max-w-lg">
-                קיסר מערכות מספקת פתרונות אבטחה ותקשורת מקצועיים עם התקנה מהירה, אחריות מלאה ותמיכה 24/7.
+                ענה על 4 שאלות קצרות וקבל הצעת מחיר מיידית — ללא התחייבות.
               </p>
               <div className="flex flex-wrap gap-3">
                 <button
-                  onClick={() => document.getElementById('cameras-offer')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="bg-amber-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-amber-700 transition-colors"
+                  onClick={() => setIsOfferOpen(true)}
+                  className="bg-amber-600 text-white px-8 py-3.5 rounded-lg font-bold text-base hover:bg-amber-700 transition-colors shadow-md"
                 >
                   קבל הצעת מחיר
                 </button>
