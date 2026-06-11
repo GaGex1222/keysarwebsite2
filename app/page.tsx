@@ -438,7 +438,7 @@ export default function HomePage() {
                   onClick={() => setIsOfferOpen(true)}
                   className="bg-amber-600 text-white px-8 py-3.5 rounded-lg font-bold text-base hover:bg-amber-700 transition-colors shadow-md"
                 >
-                  קבל הצעת מחיר להתקנת מצלמות אבטחה
+                  קבל הצעת מחיר
                 </button>
                 <a
                   href="tel:0525022222"
