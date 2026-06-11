@@ -13,7 +13,7 @@ export default function Page() {
           <p className="text-lg text-slate-500 max-w-2xl leading-relaxed mb-8">הנחת כבלים מקצועית למצלמות, אזעקות ומערכות אינטרקום — תשתית שתחזיק שנים.</p>
           <div className="flex flex-wrap gap-3">
             <a href="tel:0525022222" className="flex items-center gap-2 bg-amber-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-amber-700 transition-colors"><Phone size={16}/> 052-502-2222</a>
-            <a href="/" className="border border-slate-300 text-slate-700 px-6 py-3 rounded-lg font-semibold hover:bg-slate-100 transition-colors">קבל הצעת מחיר</a>
+            <a href="/" className="border border-slate-300 text-slate-700 px-6 py-3 rounded-lg font-semibold hover:bg-slate-100 transition-colors">מחשבון תשתית</a>
           </div>
         </div>
       </section>

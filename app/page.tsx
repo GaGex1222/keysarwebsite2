@@ -64,7 +64,7 @@ const SLIDES = [
     desc: 'מצלמות 4K עם זיהוי AI, ניטור 24/7 ושליטה מהסמארטפון — לבית ולעסק.',
     Icon: Camera,
     tags: ['4K Ultra HD', 'זיהוי AI', 'ראיית לילה', 'שליטה מרחוק'],
-    cta: { label: 'קבל הצעת מחיר', type: 'offer' as const },
+    cta: { label: 'מחשבון מצלמות אבטחה', type: 'offer' as const },
     href: '/outside-camera',
     color: 'blue',
   },
@@ -438,7 +438,7 @@ export default function HomePage() {
                   onClick={() => setIsOfferOpen(true)}
                   className="bg-amber-600 text-white px-8 py-3.5 rounded-lg font-bold text-base hover:bg-amber-700 transition-colors shadow-md"
                 >
-                  קבל הצעת מחיר
+                  מחשבון תשתית
                 </button>
                 <a
                   href="tel:0525022222"
