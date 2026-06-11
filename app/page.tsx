@@ -427,7 +427,7 @@ export default function HomePage() {
                 מספר 1 בפתרונות אבטחה ותקשורת
               </span>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight mb-4">
-                קבל הצעת מחיר<br />
+                קבל הצעת מחיר למצלמות אבטחה<br />
                 <span className="text-blue-900">להתקנת מצלמות אבטחה</span>
               </h1>
               <p className="text-lg text-slate-500 leading-relaxed mb-8 max-w-lg">
